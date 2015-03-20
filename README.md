@@ -2,6 +2,9 @@ Juego en Canvas
 ===============
 Es un pequeño juego que estoy desarrollando por aprendizaje
 
+![avatar](http://i.imgur.com/A4GHjSq.jpg)
+![avatar](http://i.imgur.com/6rR7iCL.jpg)
+
 ###Instrucciones
 - Pad num 1 > Mapa 1
 - Pad num 2 > Mapa 2
