@@ -3,51 +3,18 @@
 <head>
 	<title>Juego en Canvas</title>
 	<meta charset="UTF-8"/>
-	<style type="text/css">
-		body{
-			width: 980px;
-			margin: 0 auto;
-			text-align: center;
-			background: url("img/fondo.jpg") repeat;
-			color: #DFE1E4;
-			text-shadow: 2px 2px 2px #888;
-		}
-		#img1{
-		  	position:absolute;
-			margin-top:-110px;
-			margin-left:-40px;
-		}
-		#img2{
-		  	position:absolute;
-			margin-top:-110px;
-			margin-left:735px;
-		}
-		#img3{
-		  	position:absolute;
-			margin-top:302px;
-			margin-left:15px;
-		}
-		#img4{
-		  	position:absolute;
-			margin-top:-80px;
-			margin-left:-300px;
-		}
-	</style>
+	<link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-	<h1>Juego en Canvas de Dryken</h1>
+	<h1>Juego en Canvas</h1>
 	<hr/>
 	<br/>
-	<div id="img1"><img src="img/efectoLuz.png"></div>
-	<div id="img2"><img src="img/efectoLuz.png"></div>
-	<img id="img3" src="img/sombra.png">
-	<img id="img4" src="img/dodoSoftware.png" width="300">
+	<div id="img1"><img src="assets/img/efectoLuz.png"></div>
+	<div id="img2"><img src="assets/img/efectoLuz.png"></div>
+	<img id="img3" src="assets/img/sombra.png">
+	<img id="img4" src="assets/img/dodoSoftware.png">
 
-
-	<canvas id="canvas" width="500" height="300" style="border:2px solid #27292B;">
-	Lo sentimos, tu navegador no es compatible Canvas.
-	</canvas>
-
+	<canvas id="canvas" width="500" height="300">Lo sentimos, tu navegador no es compatible con Canvas</canvas>
     <h3 id="score">Puntuación</h3>
 
 	<script src="gestion.js" type="text/javascript"></script>

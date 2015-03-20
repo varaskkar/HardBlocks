@@ -1,22 +1,11 @@
 // En Desarrollo - Versión 0.1
 // ---------------------------
-// Cuando gire a 1 dir, girar la imagen de la nave y su movimiento							OK
-// Mover las balas a la dirección que haya rotado la nave									OK
-// Poner paredes con agujeros por los que pasar (Tipo pacman)
-// Poner desplazamiento no automático, que se mueva con la presión							OK
-// Rebotar las balas contra la pared														OK - Mejorar en diagonal
-// Cuando chocas conun muro, no atravesarlo													OK
-// No salirme de la Pantalla																OK
 // El jugador tenga 3 vidas y pierda una al darse 3 toques									OK
-// Creado editor de fases(en código)														OK
 // Poner más tipos de bloques																OK - Colocado bloque rojo(quita vida)
 // Poner más tipos de armas -> 1 bomba que explota en 3 segundos
 //							-> 1 arma de 3 balas direcc
 // Poner cohete que me suba de velocidad
 // Colisión de las balas con los bloques
-// Colision de bloques con las 36 rotaciones de la Nave							360/10		OK
-// Mayor presición de rotación en grados, antes 36 combinaciones, ahora 72.		360/5		OK
-// Poder destruir los muros de piedra														OK
 // Cuando una bala da en un muro, este cambia de color										OK - Colocada mejor una imagen (por resolver)
 // Deslizar nave al moverse, tipo Asteroids
 // Al disparar las balas salgan desde el extremo sup. de la nave en todos los ejes
@@ -34,7 +23,6 @@
 // Poner tiempo y mientras destruyas bloques pasas de fase
 
 // En crearMapa() poner else if en vez de if solo
-
 
 window.addEventListener('load',init,false);
 var canvas = null, ctx = null;
@@ -67,14 +55,14 @@ mapa1 = [
 
 mapa2 = [
 		[' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
+		[' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
+		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
 		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ', 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+		[' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' ',' '],
+		[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' '],
 		[' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ', 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+		[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' ',' '],
 		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
 		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
 		[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
@@ -85,11 +73,11 @@ mapa2 = [
 var jugador = new Figura(225,200,15,15,0,0,5);
 var objeto = new Figura(80,80,15,15);
 
-iNave.src     = 'img/nave.png';
-iVida.src     = 'img/vida.png';
-iLadrillo.src = 'img/ladrilloMarron.png';
-iBarrera.src  = 'img/ladrilloBlanco.png';
-iFuego.src    = 'img/fuego2.png';
+iNave.src     = 'assets/img/nave.png';
+iVida.src     = 'assets/img/vida.png';
+iLadrillo.src = 'assets/img/ladrilloMarron.png';
+iBarrera.src  = 'assets/img/ladrilloBlanco.png';
+iFuego.src    = 'assets/img/fuego2.png';
 
 window.requestAnimFrame=(function(){
  return window.requestAnimationFrame ||
@@ -101,7 +89,6 @@ window.requestAnimFrame=(function(){
 function init(){
 	canvas = document.getElementById('canvas');
 	ctx = canvas.getContext('2d');
-	canvas.style.background = '#011224';
 	mostrarFps();
 	efectosPorDefecto();
 	crearMapa(mapa1, 20);
@@ -113,9 +100,9 @@ function crearMapa(mapa, width){
 		for(var j = 0; j < mapa[i].length; j++) {
 			if(mapa[i][j] == 5)
 				muro.push(new Figura(j*width,i*width,width,width,null,null,0));
-			if(mapa[i][j] == 4)
+			else if(mapa[i][j] == 4)
 				enemigo.push(new Figura(j*width,i*width,width,width,null,null,0));
-			if(mapa[i][j] == 3)
+			else if(mapa[i][j] == 3)
 				barrera.push(new Figura(j*width,i*width,width,width,null,null,0));
 		}
 	}
@@ -139,18 +126,18 @@ function efectosPorDefecto(){
 	document.getElementById('score').style.color = '#DFE1E4';
 
 	var mensaje = document.getElementById("img1");
-	mensaje.innerHTML = "<img src='img/efectoLuz.png'>";
+	mensaje.innerHTML = "<img src='assets/img/efectoLuz.png'>";
 
 	var mensaje2 = document.getElementById("img2");
-	mensaje2.innerHTML = "<img src='img/efectoLuz.png'>";
+	mensaje2.innerHTML = "<img src='assets/img/efectoLuz.png'>";
 }
 function efectosEspeciales(){
 	document.getElementById('score').style.color='#94A2B7';
 	var mensaje = document.getElementById("img1");
-	mensaje.innerHTML = "<img src='img/foco.png'>";
+	mensaje.innerHTML = "<img src='assets/img/foco.png'>";
 
 	var mensaje2 = document.getElementById("img2");
-	mensaje2.innerHTML = "<img src='img/foco.png'>";
+	mensaje2.innerHTML = "<img src='assets/img/foco.png'>";
 }
 function run(){
 	//setTimeout(run,50);

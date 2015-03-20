@@ -1,0 +1,44 @@
+body{
+	width: 980px;
+	margin: 0 auto;
+	text-align: center;
+	background: url("assets/img/fondo.jpg") repeat;
+	color: #DFE1E4;
+	text-shadow: 2px 2px 2px #888;
+}
+canvas{
+	border: 2px solid #27292B;
+	background: #011224;
+}
+#img1{
+	position: absolute;
+	margin-top: -115px;
+	margin-left: -40px;
+}
+#img2{
+	position: absolute;
+	margin-top: -115px;
+	margin-left: 735px;
+}
+#img3{
+	position: absolute;
+	margin-top: 302px;
+	margin-left: 15px;
+}
+#img4{
+	position: absolute;
+	margin-top: -80px;
+	margin-left: -300px;
+	width: 300px;
+}
+@font-face {
+    font-family: penstriped;
+    src: url('assets/font/penstriped.ttf');
+}
+@font-face {
+    font-family: divertida;
+    /*src: url('assets/font/segoeprint.ttf');*/
+    src: url('assets/font/playtime.ttf');
+}
+h1{ font-family: penstriped; }
+h3{ font-family: divertida; }
