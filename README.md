@@ -5,15 +5,18 @@ Es un pequeño juego que estoy desarrollando por aprendizaje
 ![avatar](http://i.imgur.com/A4GHjSq.jpg)
 ![avatar](http://i.imgur.com/6rR7iCL.jpg)
 
-###Instrucciones
-- Pad num 1 > Mapa 1
-- Pad num 2 > Mapa 2
-- Pad num 3 > Mapa vacío
-- Pad num 7 > Mostrar/Ocultar información
-- Intro     > Pausa
-- Z         > Disparo principal
-- X         > Disparo secundario
-- M         > Pantalla completa
+###Atajos del teclado
+
+| Tecla | Descripción |
+|------|---------------|
+| <kbd>Pad num 1</kbd> | Cambia al Mapa 1
+| <kbd>Pad num 2</kbd> | Cambia al Mapa 2
+| <kbd>Pad num 3</kbd> | Cambia al Mapa vacío
+| <kbd>Pad num 7</kbd> | Mostrar/Ocultar información
+| <kbd>Intro</kbd> | Pausa
+| <kbd>Z</kbd> | Disparo principal
+| <kbd>X</kbd> | Disparo secundario
+| <kbd>M</kbd> | Pantalla completa
 
 ###TODO
 - 2 jugadores
