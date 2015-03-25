@@ -1,0 +1,44 @@
+
+Juego de Naves:
+
+    ☐ Buscar nombre
+    ☐ Añadir fondo en vez de color plano
+
+versión 0.1:
+
+    ✔ Cuando gire a una dirección, girar la imagen de la nave y su movimiento @done (22-03-15 20:21)
+    ✔ Mover las balas a la dirección que haya rotado la nave @done (22-03-15 20:23)
+    ☐ Tipos de armas
+        ✔ Principal  > 1 bala redonda en 360º @done (22-03-15 20:47)
+        ☐ Secundaria > 2 balas paralelas
+        ☐ Bomba que explota en 3 segundos
+    ☐ Tipos de bloque
+        ✔ Rojo   > Fuego    (quita vida) @done (22-03-15 20:29)
+        ✔ Marrón > Ladrillo (se rompe y rebotan balas) @done (22-03-15 20:30)
+            ✔ Cuando una bala da en el bloque, este cambia de color     @done (22-03-15 20:32)
+        ✔ Blanco > Ladrillo (rebotan balas) @done (22-03-15 20:30)
+            ✔ Rebotar las balas contra la pared @done (22-03-15 20:24)
+    ☐ Colisiones
+        ☐ Nave - bloques > no atravesarlo
+            ✔ La nave rota en 36 posiciones > 360º/10 @done (22-03-15 20:24)
+            ✔ La nave rota en 72 posiciones > 360/5 @done (22-03-15 20:24)
+            ☐ La nave cuando está en rotacion acabada en 5 (25 p.e.) atraviesa siempre los bloques @Problema
+        ☐ Balas - bloques
+            ☐ Cuando una bala da en un muro, este cambia de color ó parpadea
+    ✔ Poner desplazamiento no automático, que se mueva con la presión @done (22-03-15 20:27)
+    ✔ Al disparar las balas salgan desde el extremo sup. de la nave en todos los ejes @done (22-03-15 20:36)
+    ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
+    ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
+    ✔ El jugador tenga 3 vidas y pierda una al darse 3 toques @done (22-03-15 19:59)
+    ☐ Poner cohete que me suba de velocidad mientras se pulse tecla
+    ☐ Deslizar nave al moverse, tipo Asteroids
+
+versión 0.2:
+
+    ☐ 2 jugadores
+    ☐ Mover fondo en vez de nave
+    ☐ Poner tiempo y mientras destruyas bloques pasas de fase
+
+
+--- ✄ -----------------------
+
