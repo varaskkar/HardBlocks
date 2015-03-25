@@ -2,7 +2,8 @@ body{
 	width: 980px;
 	margin: 0 auto;
 	text-align: center;
-	background: url("assets/img/fondo.jpg") repeat;
+	background: url("../assets/img/fondo.jpg") repeat;
+	/*background-color:#3E4F4F;*/
 	color: #DFE1E4;
 	text-shadow: 2px 2px 2px #888;
 }
@@ -33,12 +34,12 @@ canvas{
 }
 @font-face {
     font-family: penstriped;
-    src: url('assets/font/penstriped.ttf');
+    src: url('../assets/font/penstriped.ttf');
 }
 @font-face {
     font-family: divertida;
-    /*src: url('assets/font/segoeprint.ttf');*/
-    src: url('assets/font/playtime.ttf');
+    /*src: url('../assets/font/segoeprint.ttf');*/
+    src: url('../assets/font/playtime.ttf');
 }
 h1{ font-family: penstriped; }
 h3{ font-family: divertida; }
