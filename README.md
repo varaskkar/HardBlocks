@@ -38,4 +38,4 @@ Es un pequeño juego que estoy desarrollando por aprendizaje
 - Poder destruir los muros de piedra
 
 ###Licencia
-Este proyecto está bajo la licencia [GNU v2](https://github.com/felipetiza/juego/blob/master/LICENSE).
+Este proyecto está bajo la licencia [GNU GPL v2](https://github.com/felipetiza/juego/blob/master/LICENSE).
