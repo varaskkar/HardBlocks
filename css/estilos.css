@@ -4,8 +4,7 @@ body{
 	text-align: center;
 	background: url("../assets/img/fondo.jpg") repeat;
 	/*background-color:#3E4F4F;*/
-	color: #DFE1E4;
-	text-shadow: 2px 2px 2px #888;
+	color: #A2B2C8;
 }
 canvas{
 	border: 2px solid #27292B;
@@ -33,13 +32,58 @@ canvas{
 	width: 300px;
 }
 @font-face {
-    font-family: penstriped;
-    src: url('../assets/font/penstriped.ttf');
+	font-family: penstriped;
+	src: url('../assets/font/penstriped.ttf');
 }
 @font-face {
-    font-family: divertida;
-    /*src: url('../assets/font/segoeprint.ttf');*/
-    src: url('../assets/font/playtime.ttf');
+	font-family: divertida;
+	/*src: url('../assets/font/segoeprint.ttf');*/
+	src: url('../assets/font/playtime.ttf');
 }
 h1{ font-family: penstriped; }
 h3{ font-family: divertida; }
+#score{
+	text-shadow: 2px 2px 2px #888;
+}
+table {
+	margin: -350px 0 0 800px;
+	width: 300px;
+	background: rgba(255, 255, 255, 0.15);
+	border-collapse: collapse;
+
+	/*border-radius:15px;*/
+}
+th{
+	background: rgba(3, 33, 73, 0.15);
+	/*color: #D6DFE9;*/
+	padding: 5px 10px;
+	/*border-radius:15px;*/
+	color: #86919E;
+}
+td{
+	padding: 5px;
+	padding-left: 10px;
+	/*color: #CCD6E1;*/
+	/*border-top: 1px solid #2C4969;*/
+	color: #272732;
+}
+td:nth-child(2n),
+td:nth-child(3n){
+	/*border-left: 1px solid #2C4969;*/
+}
+td:nth-child(2n):hover,
+td:nth-child(3n):hover{
+	/*background: rgba(125, 55, 255, 0.55);*/
+	background-size: 26px 26px;
+}
+td:hover{
+	background-size: 26px 26px;
+}
+
+/*        Intento fallido
+        Al tener el borde inferior tabla redondeado, esto hace que en las filas impares
+        muestre las esquinas. Solucionado con JQuery dentro de PHP más abajo.*/
+
+tr:nth-child(2n) {
+   	background: rgba(255, 255, 255, 0.15);
+}
