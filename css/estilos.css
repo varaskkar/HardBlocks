@@ -1,35 +1,84 @@
 body{
-	width: 980px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	background: url("../assets/img/fondo.jpg") repeat;
 	/*background-color:#3E4F4F;*/
-	color: #A2B2C8;
+	overflow-x: hidden;
+}
+header{
+	width: 100%;
+	height: 100px;
+	float: left;
+}
+#light1{
+	margin-top: -115px;
+	margin-left: -750px;
+}
+#light2{
+	margin-top: -130px;
+	margin-left: 735px;
+}
+section{
+	width: 100%;
+	height: 500px;
+	margin: 0 auto;
+	float: left;
+}
+#left{
+	/*background-color: #0f0;*/
+	width: 25%;
+	height: 500px;
+	float: left;
+}
+#center{
+	/*background-color: #f0f;*/
+	width: 50%;
+	height: 500px;
+	float: left;
+}
+#right{
+	/*background-color: #0ff;*/
+	width: 25%;
+	height: 500px;
+	float: left;
 }
 canvas{
 	border: 2px solid #27292B;
 	background: #011224;
 }
-#img1{
-	position: absolute;
-	margin-top: -115px;
-	margin-left: -40px;
-}
-#img2{
-	position: absolute;
-	margin-top: -115px;
-	margin-left: 735px;
-}
-#img3{
-	position: absolute;
-	margin-top: 302px;
+#shadow{
+	margin-top: -8px;
 	margin-left: 15px;
 }
-#img4{
-	position: absolute;
-	margin-top: -80px;
-	margin-left: -300px;
+#logo{
+	margin-top: -70px;
+	margin-left: 100px;
 	width: 300px;
+}
+#score{
+	margin-top: -40px;
+	margin-left: 50px;
+}
+#scoreNum{
+	margin-top: -41px;
+	margin-left: 280px;
+}
+#lives{
+	margin-left: 40px;
+}
+#livesNum{
+	margin-top: -42px;
+	margin-left: 280px;
+}
+h1{
+	font-family: penstriped;
+	color: #A2B2C8;
+}
+.info{
+	text-shadow: 2px 2px 2px #888;
+	font-family: divertida;
+	color: #A4A5A7;
 }
 @font-face {
 	font-family: penstriped;
@@ -37,20 +86,14 @@ canvas{
 }
 @font-face {
 	font-family: divertida;
-	/*src: url('../assets/font/segoeprint.ttf');*/
 	src: url('../assets/font/playtime.ttf');
 }
-h1{ font-family: penstriped; }
-h3{ font-family: divertida; }
-#score{
-	text-shadow: 2px 2px 2px #888;
-}
 table {
-	margin: -350px 0 0 800px;
 	width: 300px;
 	background: rgba(255, 255, 255, 0.15);
 	border-collapse: collapse;
-
+	/*font-family: Helvetica, Arial, sans-serif;*/
+	font-family: divertida;
 	/*border-radius:15px;*/
 }
 th{

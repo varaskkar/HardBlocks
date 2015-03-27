@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Juego en Canvas</title>
+	<title>Game on Canvas</title>
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" href="css/estilos.css">
 	<script src="js/autorAscii.js"></script>
+    <!-- <script src="js/lib/jquery-2.0.3.min.js"></script> -->
+    <script data-main="js/gestion" src="js/lib/require.js"></script>
 </head>
 <body>
-	<h1>Juego en Canvas</h1>
-	<hr/>
-	<br/>
-	<div id="img1"><img src="assets/img/efectoLuz.png"></div>
-	<div id="img2"><img src="assets/img/efectoLuz.png"></div>
-	<img id="img3" src="assets/img/sombra.png">
-	<img id="img4" src="assets/img/dodoSoftware.png">
+    <header>
+    	<h1>Game on Canvas</h1>
+    	<hr/>
+    	<br/>
+    	<div id="light1"><img src="assets/img/efectoLuz.png"></div>
+    	<div id="light2"><img src="assets/img/efectoLuz.png"></div>
+    </header>
+    <section>
+        <div id="left">
+            <img id="logo" src="assets/img/dodoSoftware.png">
+            <h3 class="info" id="score">Points</h3>
+            <h3 class="info" id="scoreNum">000</h3>
+            <h3 class="info" id="lives">Lives</h3>
+            <h3 class="info" id="livesNum">999</h3>
+        </div>
+        <div id="center">
+            <canvas id="canvas" width="500" height="300">Sorry, your browser don't support Canvas</canvas>
+            <img id="shadow" src="assets/img/sombra.png">
+        </div>
+        <div id="right">
+            <table>
+                <thead>
+                    <tr><th>Key</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Pad num 1</td><td>Map 1</td></tr>
+                    <tr><td>Pad num 2</td><td>Map 2</td></tr>
+                    <tr><td>Pad num 3</td><td>Empty map</td></tr>
+                    <tr><td>Pad num 7</td><td>Information</td></tr>
+                    <tr><td>Enter</td><td>Pause</td></tr>
+                    <tr><td>Z</td><td>Weapon 1</td></tr>
+                    <tr><td>X</td><td>Weapon 2</td></tr>
+                    <tr><td>M</td><td>Fullscreen</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-	<canvas id="canvas" width="500" height="300">Lo sentimos, tu navegador no es compatible con Canvas</canvas>
-    <h3 id="score">Puntuación</h3>
-
-    <table>
-    	<thead>
-    		<tr><th>Tecla</th><th>Descripción</th></tr>
-    	</thead>
-    	<tbody>
-    		<tr><td>Pad num 1</td><td>Mapa 1</td></tr>
-    		<tr><td>Pad num 2</td><td>Mapa 2</td></tr>
-    		<tr><td>Pad num 3</td><td>Mapa vacío</td></tr>
-    		<tr><td>Pad num 7</td><td>Información</td></tr>
-    		<tr><td>Intro</td><td>Pausa</td></tr>
-    		<tr><td>Z</td><td>Disparo principal</td></tr>
-    		<tr><td>X</td><td>Disparo secundario</td></tr>
-    		<tr><td>M</td><td>Pantalla completa</td></tr>
-    	</tbody>
-    </table>
-
-	<script src="js/gestion.js" type="text/javascript"></script>
 </body>
 </html>

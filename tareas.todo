@@ -33,6 +33,22 @@ versión 0.1:
     ☐ Poner cohete que me suba de velocidad mientras se pulse tecla
     ☐ Deslizar nave al moverse, tipo Asteroids
 
+        - :ClasesEnJS:
+-
+☐ Sonido
+☐ balas solo reboten en bloques blancos
+- parpadear bloque al ser golpeado
+- poner disparo en otro fichero independiente
+- Usar Jquery
+- Poner vidas al lado de puntuacion
+- for of
+- Problema de tecla presionada
+- solo se suma vida cuando choca con la nave, no cuando se le dispara
+- cuando hay muchos puntos, se desplaza el elemento "score" hacia la izquierda
+- poner un limite de vidas que se puedan conseguir y de puntos
+- pantalla completa ocultar el resto del body
+- mejorada plantilla y optimizado
+
 versión 0.2:
 
     ☐ 2 jugadores

@@ -1,11 +1,15 @@
+// Si me diese error porque llamo a un metodo de un script, y este aun no ha terminado de cargar
+// Utilizar esta función: 	setTimeout(function(){  }, 250);
+requirejs(['recursos']);
+
 window.addEventListener('load',init,false);
+
 var canvas = null, ctx = null;
 var tecla = null;
 var teclaPresionada = [];
 var puntuacion = 0;
 var tiempoInmunidad = 0;
 var verInfo = true, pausa = true, gameOver = false, pantallaCompleta = false;
-var fps = 0, now, lastUpdate = (new Date)*1 - 1, fpsFilter = 50;
 var iNave = new Image(), iVida = new Image(), iLadrillo = new Image(), iBarrera = new Image(), iFuego = new Image();
 var balas = [], balas2 = [], muro = [], enemigo = [], barrera = [], mapa1 = [], mapa2 = [];
 var rotacion = 360;
@@ -54,21 +58,20 @@ iLadrillo.src = 'assets/img/ladrilloMarron.png';
 iBarrera.src  = 'assets/img/ladrilloBlanco.png';
 iFuego.src    = 'assets/img/fuego2.png';
 
-window.requestAnimFrame=(function(){
- return window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  function(callback){window.setTimeout(callback,17);};
-})();
-
 function init(){
 	canvas = document.getElementById('canvas');
 	ctx = canvas.getContext('2d');
-	mostrarFps();
-	efectosPorDefecto();
+
+	setTimeout(function(){ printLightEfectsBefore(); }, 250);
 	crearMapa(mapa1, 20);
-	unsetFullscreen();
-	run();
+	setTimeout(function(){ run(); }, 250);
+}
+function run(){
+	requestAnimFrame(run);
+	juego();
+	pintar();
+	// printPoints(puntuacion);
+	// printLives(jugador.vida);
 }
 function crearMapa(mapa, width){
 	for(var i = 0; i < mapa.length; i++) {			// i = fila   j = columna
@@ -90,37 +93,7 @@ function borrarMapa(){
 		barrera.splice(0,1);
 	}
 }
-function mostrarFps(){
-	setTimeout(mostrarFps,1);
-  	var thisFrameFPS = 1000 / ((now = new Date) - lastUpdate);
-  	fps += (thisFrameFPS - fps) / fpsFilter;
-  	lastUpdate = now*1-1;
-}
-function efectosPorDefecto(){
-	setTimeout(efectosPorDefecto,100);
-	document.getElementById('score').style.color = '#DFE1E4';
 
-	var mensaje = document.getElementById("img1");
-	mensaje.innerHTML = "<img src='assets/img/efectoLuz.png'>";
-
-	var mensaje2 = document.getElementById("img2");
-	mensaje2.innerHTML = "<img src='assets/img/efectoLuz.png'>";
-}
-function efectosEspeciales(){
-	document.getElementById('score').style.color='#94A2B7';
-	var mensaje = document.getElementById("img1");
-	mensaje.innerHTML = "<img src='assets/img/foco.png'>";
-
-	var mensaje2 = document.getElementById("img2");
-	mensaje2.innerHTML = "<img src='assets/img/foco.png'>";
-}
-function run(){
-	//setTimeout(run,50);
-	requestAnimFrame(run);
-	juego();
-	pintar();
-	mostrarPuntos();
-}
 function juego(){
 	if(!pausa){
 		if(gameOver)	reset();
@@ -290,7 +263,7 @@ function juego(){
 		disparoDoble();
 	}
 	if(tecla == 13){
-		pausa =! pausa;
+		pausa = !pausa;
 		tecla = null;
 	}else if(tecla == 97){
 		borrarMapa();
@@ -304,13 +277,10 @@ function juego(){
 		borrarMapa();
 		tecla = null;
 	}else if(tecla == 77){
-		if(!pantallaCompleta){
-			pantallaCompleta = true;
-			setFullscreen();
-		}else{
-			unsetFullscreen();
-			pantallaCompleta = false;
-		}
+		if(!pantallaCompleta)
+			pantallaCompleta = setFullscreen(canvas);
+		else
+			pantallaCompleta = setNotFullscreen(canvas);
 		tecla = null;
 	}else if(tecla == 103){
 		verInfo =! verInfo;
@@ -366,7 +336,7 @@ function pintar() {
 		ctx.fillText('Puntuacion: '+puntuacion,5,30);
 		ctx.fillText('Balas Simple: '+balas.length,5,45);
 		ctx.fillText('Balas Dobles: '+balas2.length,5,60);
-		ctx.fillText('Fps: '+fps.toFixed(1),5,75);
+		ctx.fillText('Fps: '+getFps().toFixed(1),5,75);
 		ctx.fillText('Salud: '+jugador.vida,5,90);
 		ctx.fillText('Inmunidad: '+tiempoInmunidad,5,105);
 		ctx.fillText('Rotación: '+rotacion,5,120);
@@ -696,7 +666,7 @@ function interseccion(){
 				if(muro[j].vida == 3)
 					muro.splice(j,1);
 
-				efectosEspeciales();
+				printLightEfectsAfter();
 			}
 		}
 	}
@@ -707,7 +677,8 @@ function interseccion(){
 			if(balas[i].chocar(enemigo[j])){
 	  			balas[i].velY = -balas[i].velY;		// Rebota
 	  			balas.splice(i,1);
-	  			efectosEspeciales();
+
+	  			printLightEfectsAfter();
  			}
 		}
 	}
@@ -719,7 +690,7 @@ function interseccion(){
 	  			balas[i].velY = -balas[i].velY;		// Rebota
 	  			balas[i].velX = -balas[i].velX;		// Rebota
 
-	  			efectosEspeciales();
+	  			printLightEfectsAfter();
  			}
 		}
 	}
@@ -727,38 +698,13 @@ function interseccion(){
 	// Balas -> objeto
 	for(i in balas){
 		if(balas[i].chocar(objeto)){
-	  		puntuacion++;
+			jugador.vida++;
 	  		objeto.x = random(canvas.width - 10);
 	  		objeto.y = random(canvas.height - 10);
 		}
 	}
 }
-function mostrarPuntos(){
-	var puntos = document.getElementById("score");
-    puntos.innerHTML = "Puntuación: "+puntuacion;
-}
-function setFullscreen(){
-	var w = window.innerWidth/canvas.width;
-	var h = window.innerHeight/canvas.height;
-	var scale = Math.min(h,w);
 
-	canvas.style.width      = (canvas.width*scale)+'px';
-	canvas.style.height     = (canvas.height*scale)+'px';
-	canvas.style.position   = 'fixed';
-	canvas.style.left       = '50%';
-	canvas.style.top        = '50%';
-	canvas.style.marginLeft =- (canvas.width*scale)/2+'px';
-	canvas.style.marginTop  =- (canvas.height*scale)/2+'px';
-}
-function unsetFullscreen(){
-	canvas.style.width      ='';
-	canvas.style.height     ='';
-	canvas.style.position   ='';
-	canvas.style.left       ='';
-	canvas.style.top        ='';
-	canvas.style.marginLeft ='';
-	canvas.style.marginTop  ='';
-}
 function Figura(x,y,ancho,alto,velX,velY,vida){
 	this.x = x;
  	this.y = y;
@@ -853,6 +799,7 @@ function Figura(x,y,ancho,alto,velX,velY,vida){
 	  	}
  	}
 }
+
 function mostrarNaveRotada(){
 	ctx.save();
 	ctx.translate(jugador.x+jugador.width/2,jugador.y+jugador.height/2);
