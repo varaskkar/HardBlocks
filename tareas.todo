@@ -20,8 +20,9 @@ versión 0.1:
             ✔ Rebotar las balas contra la pared @done (22-03-15 20:24)
     ☐ Colisiones
         ☐ Nave - bloques > no atravesarlo
-            ✔ La nave rota en 36 posiciones > 360º/10 @done (22-03-15 20:24)
-            ✔ La nave rota en 72 posiciones > 360/5 @done (22-03-15 20:24)
+            ✔ La nave rota en 36 posiciones  > 360º/10 @done (22-03-15 20:24)
+            ✔ La nave rota en 72 posiciones  > 360/5 @done (22-03-15 20:24)
+            ☐ La nave rota en 120 posiciones > 360/3
             ☐ La nave cuando está en rotacion acabada en 5 (25 p.e.) atraviesa siempre los bloques @Problema
         ☐ Balas - bloques
             ☐ Cuando una bala da en un muro, este cambia de color ó parpadea
@@ -33,21 +34,27 @@ versión 0.1:
     ☐ Poner cohete que me suba de velocidad mientras se pulse tecla
     ☐ Deslizar nave al moverse, tipo Asteroids
 
-        - :ClasesEnJS:
--
+:ClasesEnJS:
+☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
 ☐ Sonido
 ☐ balas solo reboten en bloques blancos
-- parpadear bloque al ser golpeado
-- poner disparo en otro fichero independiente
-- Usar Jquery
-- Poner vidas al lado de puntuacion
-- for of
-- Problema de tecla presionada
-- solo se suma vida cuando choca con la nave, no cuando se le dispara
-- cuando hay muchos puntos, se desplaza el elemento "score" hacia la izquierda
-- poner un limite de vidas que se puedan conseguir y de puntos
-- pantalla completa ocultar el resto del body
-- mejorada plantilla y optimizado
+☐ parpadear bloque al ser golpeado
+☐ poner disparo en otro fichero independiente
+☐ Usar Jquery
+☐ for of
+✔ Poner vidas al lado de puntuacion @done (15-03-27 23:34)
+☐ Problema de tecla presionada
+☐ solo se suma vida cuando choca con la nave, no cuando se le dispara
+✔ cuando hay muchos puntos, se desplaza el elemento "score" hacia la izquierda @done (28-03-15 01:47)
+✔ A la puntuación ponerle un punto por cada mil que tenga @TrabajandoConEste @done (28-03-15 03:37)
+☐ poner un limite de vidas que se puedan conseguir y de puntos
+☐ pantalla completa ocultar el resto del body
+☐ mejorada plantilla y optimizado
+☐ Poner funcion reset al comenzar el juego
+
+
+
+
 
 versión 0.2:
 

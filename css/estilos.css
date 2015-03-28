@@ -50,6 +50,7 @@ canvas{
 #shadow{
 	margin-top: -8px;
 	margin-left: 15px;
+	position: relative;
 }
 #logo{
 	margin-top: -70px;
@@ -78,7 +79,7 @@ h1{
 .info{
 	text-shadow: 2px 2px 2px #888;
 	font-family: divertida;
-	color: #A4A5A7;
+	color: #DFE1E4;
 }
 @font-face {
 	font-family: penstriped;
@@ -101,14 +102,14 @@ th{
 	/*color: #D6DFE9;*/
 	padding: 5px 10px;
 	/*border-radius:15px;*/
-	color: #86919E;
+	color: #9EA8B3;
 }
 td{
 	padding: 5px;
 	padding-left: 10px;
 	/*color: #CCD6E1;*/
 	/*border-top: 1px solid #2C4969;*/
-	color: #272732;
+	color: #1E1E2A;
 }
 td:nth-child(2n),
 td:nth-child(3n){

@@ -1,6 +1,8 @@
 // Si me diese error porque llamo a un metodo de un script, y este aun no ha terminado de cargar
 // Utilizar esta función: 	setTimeout(function(){  }, 250);
+
 requirejs(['recursos']);
+requirejs(['pojoFigura']);
 
 window.addEventListener('load',init,false);
 
@@ -13,65 +15,69 @@ var verInfo = true, pausa = true, gameOver = false, pantallaCompleta = false;
 var iNave = new Image(), iVida = new Image(), iLadrillo = new Image(), iBarrera = new Image(), iFuego = new Image();
 var balas = [], balas2 = [], muro = [], enemigo = [], barrera = [], mapa1 = [], mapa2 = [];
 var rotacion = 360;
-var cadena = "";
+var jugador, objetoVida;
 
 mapa1 = [
-		[' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ',' '],
-		[' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 ,' ', 5 ,' ', 5 ,' ',' ',' ',' '],
-		[' ',' ', 5 , 5 ,' ',' ', 5 , 5 ,' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 ,' ',' ',' '],
-		[' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ',' '],
-		[' ',' ', 5 ,' ',' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ', 5 ,' ',' ',' ', 5 , 5 , 5 ,' ',' '],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ',' ', 4 ,' ',   , 4 , 4 ,   , 4 , 4 ,' ',   , 4 ,   , 4 , 4 , 4 ,   , 4 , 4 ,   ,' ', 4 ,' ',' '],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[ 3 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 3 ],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ]];
+				[' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ',' '],
+				[' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 ,' ', 5 ,' ', 5 ,' ',' ',' ',' '],
+				[' ',' ', 5 , 5 ,' ',' ', 5 , 5 ,' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 ,' ',' ',' '],
+				[' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ',' '],
+				[' ',' ', 5 ,' ',' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ', 5 ,' ',' ',' ', 5 , 5 , 5 ,' ',' '],
+				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ',' ', 4 ,' ',   , 4 , 4 ,   , 4 , 4 ,' ',   , 4 ,   , 4 , 4 , 4 ,   , 4 , 4 ,   ,' ', 4 ,' ',' '],
+				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[ 3 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 3 ],
+				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ]];
 
 mapa2 = [
-		[' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
-		[' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
-		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
-		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' ',' '],
-		[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' '],
-		[' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' ',' '],
-		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 ,' ',' ',' ',' ',' ',' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ', 5 , 5 , 5 , 5 , 5 ,' ',' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-		[' ',' ',' ',' ',' ', 5 ,' ',' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']];
-
-var jugador = new Figura(225,200,15,15,0,0,5);
-var objeto = new Figura(80,80,15,15);
-
-iNave.src     = 'assets/img/nave.png';
-iVida.src     = 'assets/img/vida.png';
-iLadrillo.src = 'assets/img/ladrilloMarron.png';
-iBarrera.src  = 'assets/img/ladrilloBlanco.png';
-iFuego.src    = 'assets/img/fuego2.png';
+				[' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
+				[' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
+				[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' '],
+				[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ', 5 ,' ',' ',' '],
+				[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' '],
+				[' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' ',' '],
+				[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ', 5 ,' ', 5 , 5 , 5 , 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ', 5 ,' ',' ',' ',' ',' ',' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ', 5 , 5 , 5 , 5 , 5 ,' ',' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+				[' ',' ',' ',' ',' ', 5 ,' ',' ', 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']];
 
 function init(){
-	canvas = document.getElementById('canvas');
-	ctx = canvas.getContext('2d');
+	// Esperamos a que le de tiempo a los scripts de la cabecera que carguen por completo
+	setTimeout(function(){
+		jugador = new Figura(225,200,15,15,0,0,3);
+		objetoVida = new Figura(80,80,15,15);
 
-	setTimeout(function(){ printLightEfectsBefore(); }, 250);
-	crearMapa(mapa1, 20);
-	setTimeout(function(){ run(); }, 250);
+		iNave.src     = 'assets/img/nave.png';
+		iVida.src     = 'assets/img/vida.png';
+		iLadrillo.src = 'assets/img/ladrilloMarron.png';
+		iBarrera.src  = 'assets/img/ladrilloBlanco.png';
+		iFuego.src    = 'assets/img/fuego2.png';
+
+		canvas = document.getElementsByTagName('canvas')[0];
+		ctx = canvas.getContext('2d');
+
+		printLightEfectsBefore();
+		crearMapa(mapa1, 20);
+		run();
+	}, 250);
 }
+
 function run(){
 	requestAnimFrame(run);
 	juego();
 	pintar();
-	// printPoints(puntuacion);
-	// printLives(jugador.vida);
+	printPoints(puntuacion);
+	printLives(jugador.vida);
 }
 function crearMapa(mapa, width){
 	for(var i = 0; i < mapa.length; i++) {			// i = fila   j = columna
@@ -299,12 +305,11 @@ function pintar() {
 	if(tiempoInmunidad > 0){
 		if(tiempoInmunidad%2 == 0)
 			mostrarNaveRotada();
-	}else{
+	}else
 		mostrarNaveRotada();
-	}
 
 	ctx.fillStyle = '#0D641A';
-	ctx.drawImage(iVida,objeto.x,objeto.y);
+	ctx.drawImage(iVida,objetoVida.x,objetoVida.y);
 
 	for(i in muro){
 		if(muro[i].vida == 0)		ctx.fillStyle = '#828486';
@@ -355,12 +360,12 @@ function random(max){
 }
 function reset(){
 	puntuacion      = 0;
-	jugador.vida    = 5;
+	jugador.vida    = 3;
 	tiempoInmunidad = 0;
 	jugador.x       = 250;
 	jugador.y       = 250;
-	objeto.x        = random(canvas.width - 10);
-	objeto.y        = random(canvas.height - 10);
+	objetoVida.x    = random(canvas.width - 10);
+	objetoVida.y    = random(canvas.height - 10);
 	gameOver        = false;
 	crearMapa(mapa1, 20);
 }
@@ -630,18 +635,18 @@ function disparoDoble(){
   	}
 }
 function interseccion(){
- 	// Jugador -> objeto
-	if(jugador.chocar(objeto)){
+ 	// Jugador -> objetoVida
+	if(jugador.chocar(objetoVida)){
   		jugador.vida++;
-  		objeto.x = random(canvas.width - 10);
-  		objeto.y = random(canvas.height - 10);
+  		objetoVida.x = random(canvas.width - 10);
+  		objetoVida.y = random(canvas.height - 10);
  	}
 
-	// Objeto -> muro
+	// ObjetoVida -> muro
 	for(i in muro){
-		if(objeto.chocar(muro[i])){
-  			objeto.x = random(canvas.width - 10);
-  			objeto.y = random(canvas.height - 10);
+		if(objetoVida.chocar(muro[i])){
+  			objetoVida.x = random(canvas.width - 10);
+  			objetoVida.y = random(canvas.height - 10);
 		}
 	}
 
@@ -695,109 +700,14 @@ function interseccion(){
 		}
 	}
 
-	// Balas -> objeto
+	// Balas -> objetoVida
 	for(i in balas){
-		if(balas[i].chocar(objeto)){
+		if(balas[i].chocar(objetoVida)){
 			jugador.vida++;
-	  		objeto.x = random(canvas.width - 10);
-	  		objeto.y = random(canvas.height - 10);
+	  		objetoVida.x = random(canvas.width - 10);
+	  		objetoVida.y = random(canvas.height - 10);
 		}
 	}
-}
-
-function Figura(x,y,ancho,alto,velX,velY,vida){
-	this.x = x;
- 	this.y = y;
- 	this.width = ancho;
- 	this.height = alto;
- 	this.velX = velX;
- 	this.velY = velY;
- 	this.vida = vida;
-	// Atributos de las balas
- 	this.mover360 = false;		// Arriba
- 	this.mover180 = false;		// Abajo
- 	this.mover270 = false;		// Izquierda
- 	this.mover90 = false;		// Derecha
-
-	this.mover275 = false;
-	this.mover280 = false;
-	this.mover285 = false;
-	this.mover290 = false;
-	this.mover295 = false;
-	this.mover300 = false;
-	this.mover305 = false;
-	this.mover310 = false;
-	this.mover315 = false;
-	this.mover320 = false;
-	this.mover325 = false;
-	this.mover330 = false;
-	this.mover335 = false;
-	this.mover340 = false;
-	this.mover345 = false;
-	this.mover350 = false;
-	this.mover355 = false;
-
-	this.mover5 = false;
-	this.mover10 = false;
-	this.mover15 = false;
- 	this.mover20 = false;
- 	this.mover25 = false;
- 	this.mover30 = false;
- 	this.mover35 = false;
- 	this.mover40 = false;
- 	this.mover45 = false;
-	this.mover50 = false;
-	this.mover55 = false;
- 	this.mover60 = false;
- 	this.mover65 = false;
- 	this.mover70 = false;
- 	this.mover75 = false;
- 	this.mover80 = false;
- 	this.mover85 = false;
-
- 	this.mover95 = false;
- 	this.mover100 = false;
- 	this.mover105 = false;
- 	this.mover110 = false;
- 	this.mover115 = false;
- 	this.mover120 = false;
- 	this.mover125 = false;
- 	this.mover130 = false;
- 	this.mover135 = false;
- 	this.mover140 = false;
- 	this.mover145 = false;
- 	this.mover150 = false;
- 	this.mover155 = false;
- 	this.mover160 = false;
- 	this.mover165 = false;
- 	this.mover170 = false;
- 	this.mover175 = false;
-
- 	this.mover185 = false;
- 	this.mover190 = false;
- 	this.mover195 = false;
- 	this.mover200 = false;
- 	this.mover205 = false;
- 	this.mover210 = false;
- 	this.mover215 = false;
- 	this.mover220 = false;
- 	this.mover225 = false;
- 	this.mover230 = false;
- 	this.mover235 = false;
- 	this.mover240 = false;
- 	this.mover245 = false;
- 	this.mover250 = false;
- 	this.mover255 = false;
- 	this.mover260 = false;
- 	this.mover265 = false;
-
- 	this.permitir = false;
- 	this.chocar = function(algo){
-	  	if(algo != null){
-	   		return(this.x<algo.x+algo.width && this.x+this.width>algo.x &&
-	   		this.y<algo.y+algo.height && this.y+this.height>algo.y);
-	  	}
- 	}
 }
 
 function mostrarNaveRotada(){

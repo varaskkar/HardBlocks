@@ -10,7 +10,7 @@ var ElementLives  = document.getElementById("livesNum");
 var ElementPoints = document.getElementById("scoreNum");
 var ElementLight1 = document.getElementById("light1");
 var ElementLight2 = document.getElementById("light2");
-var body          = document.getElementsByTagName("body");
+// var body          = document.getElementsByTagName("body");
 
 function getFps(){
 	// setTimeout(mostrarFps,1);
@@ -43,6 +43,7 @@ function setFullscreen(canvas){
 	canvas.style.marginLeft =- (canvas.width*scale)/2+'px';
 	canvas.style.marginTop  =- (canvas.height*scale)/2+'px';
 
+	// body.style.background = "#010F1E";
 	// canvas.css({
 	// 	"width": (canvas.width*scale)+"px",
 	// 	"height": (canvas.height*scale)+"value2",
@@ -52,11 +53,6 @@ function setFullscreen(canvas){
 	// 	"marginLeft": (canvas.width*scale)/2+"px",
 	// 	"marginTop": (canvas.height*scale)/2+"px"
 	// });
-
-
-	// body.style.background = "#f00";
-	// $("body").css('background', '#f00');
-
 
 	return true;
 }
@@ -73,8 +69,8 @@ function setNotFullscreen(canvas){
 	return false;
 }
 
-function printLives(lives){ ElementLives.innerHTML = lives; }
-function printPoints(puntuacion){ ElementPoints.innerHTML = puntuacion; }
+function printLives(lives){ ElementLives.innerHTML = formatNumbers(lives); }
+function printPoints(points){ ElementPoints.innerHTML = formatNumbers(points); }
 
 function printLightEfectsBefore(){
 	setTimeout(printLightEfectsBefore,100);
@@ -89,6 +85,26 @@ function printLightEfectsAfter(){
 	ElementPoints.style.color='#94A2B7';
 	ElementLight1.innerHTML = "<img src='assets/img/foco.png'>";
 	ElementLight2.innerHTML = "<img src='assets/img/foco.png'>";
+}
+
+function formatNumbers(number){
+	var num = new String(number);
+	var result = "";
+	var isNegative = false;
+
+	if(num.indexOf("-") > -1){
+		num = num.substr(1);
+		isNegative = true;
+	}
+	while(num.length > 3){
+		result = '.' + num.substr(num.length - 3) + result;
+		num = num.substring(0, num.length - 3);
+	}
+	result = num + result;
+	if(isNegative)
+		result = "-" + result;
+
+	return result;
 }
 
 // function teclaPulsada(){
