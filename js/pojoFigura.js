@@ -1,11 +1,11 @@
-function Figura(x,y,ancho,alto,velX,velY,vida){
+function Figura(x,y,ancho,alto,velX,velY){
 	this.x = x;
  	this.y = y;
  	this.width = ancho;
  	this.height = alto;
  	this.velX = velX;
  	this.velY = velY;
- 	this.vida = vida;
+ 	this.vida = 0;
 
 	// Atributos de las balas
  	this.mover360 = false;		// Arriba

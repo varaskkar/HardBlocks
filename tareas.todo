@@ -37,22 +37,23 @@ versión 0.1:
 :ClasesEnJS:
 ☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
 ☐ Sonido
-☐ balas solo reboten en bloques blancos
-☐ parpadear bloque al ser golpeado
+✔ balas solo reboten en bloques blancos @done (30-03-15 16:18)
 ☐ poner disparo en otro fichero independiente
 ☐ Usar Jquery
 ☐ for of
 ✔ Poner vidas al lado de puntuacion @done (15-03-27 23:34)
 ☐ Problema de tecla presionada
-☐ solo se suma vida cuando choca con la nave, no cuando se le dispara
+✔ solo se suma vida cuando choca con la nave, no cuando se le dispara @done (30-03-15 15:19)
 ✔ cuando hay muchos puntos, se desplaza el elemento "score" hacia la izquierda @done (28-03-15 01:47)
 ✔ A la puntuación ponerle un punto por cada mil que tenga @TrabajandoConEste @done (28-03-15 03:37)
 ☐ poner un limite de vidas que se puedan conseguir y de puntos
 ☐ pantalla completa ocultar el resto del body
 ☐ mejorada plantilla y optimizado
-☐ Poner funcion reset al comenzar el juego
-
-
+✔ Poner funcion reset al comenzar el juego @done (30-03-15 16:43)
+✔ Bloque marrón ahora no se destruye @Problema @done (30-03-15 17:26)
+☐ Parpadear bloque al ser golpeado
+☐ Poner sonido al bloque
+☐ Crear clase FiguraFija, FiguraDinamica, Bloque, Bala ... eso de tener una sola clase como que no...
 
 
 

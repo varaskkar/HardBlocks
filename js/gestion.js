@@ -6,16 +6,18 @@ requirejs(['pojoFigura']);
 
 window.addEventListener('load',init,false);
 
+// Constantes
+const _LIFES = 3, _POINTS = 0;
+
 var canvas = null, ctx = null;
 var tecla = null;
 var teclaPresionada = [];
-var puntuacion = 0;
-var tiempoInmunidad = 0;
-var verInfo = true, pausa = true, gameOver = false, pantallaCompleta = false;
-var iNave = new Image(), iVida = new Image(), iLadrillo = new Image(), iBarrera = new Image(), iFuego = new Image();
-var balas = [], balas2 = [], muro = [], enemigo = [], barrera = [], mapa1 = [], mapa2 = [];
+var puntuacion, tiempoInmunidad;
 var rotacion = 360;
-var jugador, objetoVida;
+var verInfo = true, pausa = false, gameOver = false, pantallaCompleta = false;
+var jugador, bloqueVida;
+var iNave = new Image(), iBloqueVida = new Image(), iBloqueMarron = new Image(), iBloqueBlanco = new Image(), iBloqueRojo = new Image();
+var balas = [], balas2 = [], bloqueMarron = [], bloqueRojo = [], bloqueBlanco = [], mapa1 = [], mapa2 = [];
 
 mapa1 = [
 				[' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ',' '],
@@ -54,24 +56,34 @@ mapa2 = [
 function init(){
 	// Esperamos a que le de tiempo a los scripts de la cabecera que carguen por completo
 	setTimeout(function(){
-		jugador = new Figura(225,200,15,15,0,0,3);
-		objetoVida = new Figura(80,80,15,15);
+		jugador = new Figura(225,200,15,15,0,0);
+		bloqueVida = new Figura(null,null,15,15);
 
-		iNave.src     = 'assets/img/nave.png';
-		iVida.src     = 'assets/img/vida.png';
-		iLadrillo.src = 'assets/img/ladrilloMarron.png';
-		iBarrera.src  = 'assets/img/ladrilloBlanco.png';
-		iFuego.src    = 'assets/img/fuego2.png';
+		iNave.src     	  = 'assets/img/nave.png';
+		iBloqueVida.src   = 'assets/img/vida.png';
+		iBloqueMarron.src = 'assets/img/ladrilloMarron.png';
+		iBloqueBlanco.src = 'assets/img/ladrilloBlanco.png';
+		iBloqueRojo.src   = 'assets/img/fuego2.png';
 
 		canvas = document.getElementsByTagName('canvas')[0];
 		ctx = canvas.getContext('2d');
 
-		printLightEfectsBefore();
-		crearMapa(mapa1, 20);
+		reset();
 		run();
 	}, 250);
 }
-
+function reset(){
+	puntuacion      = _POINTS;
+	jugador.vida    = _LIFES;
+	tiempoInmunidad = 0;
+	jugador.x       = 250;
+	jugador.y       = 250;
+	bloqueVida.x    = random(canvas.width - 10);
+	bloqueVida.y    = random(canvas.height - 10);
+	gameOver        = false;
+	crearMapa(mapa1, 20);
+	printLightEfectsBefore();
+}
 function run(){
 	requestAnimFrame(run);
 	juego();
@@ -83,20 +95,20 @@ function crearMapa(mapa, width){
 	for(var i = 0; i < mapa.length; i++) {			// i = fila   j = columna
 		for(var j = 0; j < mapa[i].length; j++) {
 			if(mapa[i][j] == 5)
-				muro.push(new Figura(j*width,i*width,width,width,null,null,0));
+				bloqueMarron.push(new Figura(j*width,i*width,width,width,null,null));
 			else if(mapa[i][j] == 4)
-				enemigo.push(new Figura(j*width,i*width,width,width,null,null,0));
+				bloqueRojo.push(new Figura(j*width,i*width,width,width,null,null));
 			else if(mapa[i][j] == 3)
-				barrera.push(new Figura(j*width,i*width,width,width,null,null,0));
+				bloqueBlanco.push(new Figura(j*width,i*width,width,width,null,null));
 		}
 	}
 }
 function borrarMapa(){
-	var nºCosasBorrar = muro.length + enemigo.length;
 	for(var i = 0; i < 999; i++) {
-		muro.splice(0,1);
-		enemigo.splice(0,1);
-		barrera.splice(0,1);
+		bloqueMarron.splice(0,1);
+		bloqueRojo.splice(0,1);
+		bloqueBlanco.splice(0,1);
+		balas.splice(0,1);
 	}
 }
 
@@ -195,8 +207,8 @@ function juego(){
 			else if(rotacion == 260){		jugador.y += 1;		jugador.x -= 4; }
 			else if(rotacion == 265){		jugador.y += 1;		jugador.x -= 4; }
 
-			for(i in muro){
-				if(jugador.chocar(muro[i])){										// Si choca contra el muro, invertimos el desplazamiento (cambio el signo)
+			for(i in bloqueMarron){
+				if(jugador.chocar(bloqueMarron[i])){										// Si choca contra el bloqueMarron, invertimos el desplazamiento (cambio el signo)
 					if(rotacion == 0 || rotacion == 360)	jugador.y += 7;
 					else if(rotacion == 90)		jugador.x -= 7;
 					else if(rotacion == 180)	jugador.y -= 7;
@@ -241,20 +253,20 @@ function juego(){
 			}
 		}
 		if(teclaPresionada[40]){				// Abajo
-			/*for(i in muro){
-				if(jugador.chocar(muro[i]))		jugador.y -= 7;
+			/*for(i in bloqueMarron){
+				if(jugador.chocar(bloqueMarron[i]))		jugador.y -= 7;
 			}*/
 		}
 		if(teclaPresionada[37]){				// Izquierda
 			rotacion -= 5;
-			/*for(i in muro){
-				if(jugador.chocar(muro[i]))		jugador.x += 7;
+			/*for(i in bloqueMarron){
+				if(jugador.chocar(bloqueMarron[i]))		jugador.x += 7;
 			}*/
 		}
 		if(teclaPresionada[39]){				// Derecha
 			rotacion += 5;
-			/*for(i in muro){
-				if(jugador.chocar(muro[i]))		jugador.x -= 7;
+			/*for(i in bloqueMarron){
+				if(jugador.chocar(bloqueMarron[i]))		jugador.x -= 7;
 			}*/
 		}
 
@@ -309,23 +321,23 @@ function pintar() {
 		mostrarNaveRotada();
 
 	ctx.fillStyle = '#0D641A';
-	ctx.drawImage(iVida,objetoVida.x,objetoVida.y);
+	ctx.drawImage(iBloqueVida,bloqueVida.x,bloqueVida.y);
 
-	for(i in muro){
-		if(muro[i].vida == 0)		ctx.fillStyle = '#828486';
-		else if(muro[i].vida == 1)	ctx.fillStyle = '#5D6366';
-		else if(muro[i].vida == 2)	ctx.fillStyle = '#494E51';
-		else if(muro[i].vida == 3)	ctx.fillStyle = '#494E51';
-		ctx.drawImage(iLadrillo,muro[i].x,muro[i].y,muro[i].width,muro[i].height);
+	for(i in bloqueMarron){
+		if(bloqueMarron[i].vida == 0)		ctx.fillStyle = '#828486';
+		else if(bloqueMarron[i].vida == 1)	ctx.fillStyle = '#5D6366';
+		else if(bloqueMarron[i].vida == 2)	ctx.fillStyle = '#494E51';
+		else if(bloqueMarron[i].vida == 3)	ctx.fillStyle = '#494E51';
+		ctx.drawImage(iBloqueMarron,bloqueMarron[i].x,bloqueMarron[i].y,bloqueMarron[i].width,bloqueMarron[i].height);
 	}
 
-	for(i in barrera){
-		ctx.drawImage(iBarrera,barrera[i].x,barrera[i].y,barrera[i].width,barrera[i].height);
+	for(i in bloqueBlanco){
+		ctx.drawImage(iBloqueBlanco,bloqueBlanco[i].x,bloqueBlanco[i].y,bloqueBlanco[i].width,bloqueBlanco[i].height);
 	}
 
 	ctx.fillStyle = '#7F0707';
-	for(i in enemigo)
-		ctx.drawImage(iFuego,enemigo[i].x,enemigo[i].y,enemigo[i].width,enemigo[i].height);
+	for(i in bloqueRojo)
+		ctx.drawImage(iBloqueRojo,bloqueRojo[i].x,bloqueRojo[i].y,bloqueRojo[i].width,bloqueRojo[i].height);
 
 	ctx.fillStyle = '#614E70';
 	for(i in balas)
@@ -357,17 +369,6 @@ function pintar() {
 function random(max){
 	//return Math.floor(Math.random()*max);
 	return ~~(Math.random()*max*1-1);
-}
-function reset(){
-	puntuacion      = 0;
-	jugador.vida    = 3;
-	tiempoInmunidad = 0;
-	jugador.x       = 250;
-	jugador.y       = 250;
-	objetoVida.x    = random(canvas.width - 10);
-	objetoVida.y    = random(canvas.height - 10);
-	gameOver        = false;
-	crearMapa(mapa1, 20);
 }
 function disparoSimple(){
 
@@ -612,7 +613,8 @@ function disparoSimple(){
   		else if(balas[i].mover260){	balas[i].y += balas[i].velY;	balas[i].x -= balas[i].velX; }
   		else if(balas[i].mover265){	balas[i].y += balas[i].velY;	balas[i].x -= balas[i].velX; }
 
-	 	if(balas[i].x < 0 || balas[i].y < 0)								balas.splice(i,1);	// Eliminamos las balas si sobrepasan los límites del mapa
+  		// borrar balas si exceden los límites del mapa
+	 	if(balas[i].x < 0 || balas[i].y < 0)								balas.splice(i,1);
     	else if(balas[i].x > canvas.width || balas[i].y > canvas.height)	balas.splice(i,1);
   	}
 }
@@ -635,52 +637,51 @@ function disparoDoble(){
   	}
 }
 function interseccion(){
- 	// Jugador -> objetoVida
-	if(jugador.chocar(objetoVida)){
+ 	// Jugador -> bloqueVida
+	if(jugador.chocar(bloqueVida)){
   		jugador.vida++;
-  		objetoVida.x = random(canvas.width - 10);
-  		objetoVida.y = random(canvas.height - 10);
+  		bloqueVida.x = random(canvas.width - 10);
+  		bloqueVida.y = random(canvas.height - 10);
  	}
 
-	// ObjetoVida -> muro
-	for(i in muro){
-		if(objetoVida.chocar(muro[i])){
-  			objetoVida.x = random(canvas.width - 10);
-  			objetoVida.y = random(canvas.height - 10);
+	// bloqueVida -> bloqueMarron
+	for(i in bloqueMarron){
+		if(bloqueVida.chocar(bloqueMarron[i])){
+  			bloqueVida.x = random(canvas.width - 10);
+  			bloqueVida.y = random(canvas.height - 10);
 		}
 	}
 
-	// Jugador -> enemigo
-	for(i in enemigo){
-		if(jugador.chocar(enemigo[i]) && tiempoInmunidad < 1){
+	// Jugador -> bloqueRojo
+	for(i in bloqueRojo){
+		if(jugador.chocar(bloqueRojo[i]) && tiempoInmunidad < 1){
 			jugador.vida--;
 			tiempoInmunidad = 125;
 		}
 	}
 
-	// Balas -> muro
+	// Balas -> bloqueMarron
 	for(i in balas){
-		for(j in muro){
-			if(balas[i].chocar(muro[j])){
-	  			puntuacion += 3;
+		for(j in bloqueMarron){
+			if(balas[i].chocar(bloqueMarron[j])){
+	  			puntuacion += 300;
 
-	  			balas[i].velY = -balas[i].velY;		// Rebota
-	  			balas[i].velX = -balas[i].velX;
+				balas.splice(i,1);
 
-				muro[j].vida++;
-				if(muro[j].vida == 3)
-					muro.splice(j,1);
+				if(bloqueMarron[j].vida >= 3)
+					bloqueMarron.splice(j,1);
+				else
+					bloqueMarron[j].vida++;
 
 				printLightEfectsAfter();
 			}
 		}
 	}
 
-	// Balas -> Enemigo
+	// Balas -> bloqueRojo
 	for(i in balas){
-		for(j in enemigo){
-			if(balas[i].chocar(enemigo[j])){
-	  			balas[i].velY = -balas[i].velY;		// Rebota
+		for(j in bloqueRojo){
+			if(balas[i].chocar(bloqueRojo[j])){
 	  			balas.splice(i,1);
 
 	  			printLightEfectsAfter();
@@ -688,10 +689,10 @@ function interseccion(){
 		}
 	}
 
-	// Balas -> Barrera
+	// Balas -> bloqueBlanco
 	for(i in balas){
-		for(j in barrera){
-			if(balas[i].chocar(barrera[j])){
+		for(j in bloqueBlanco){
+			if(balas[i].chocar(bloqueBlanco[j])){
 	  			balas[i].velY = -balas[i].velY;		// Rebota
 	  			balas[i].velX = -balas[i].velX;		// Rebota
 
@@ -700,12 +701,12 @@ function interseccion(){
 		}
 	}
 
-	// Balas -> objetoVida
+	// Balas -> bloqueVida
 	for(i in balas){
-		if(balas[i].chocar(objetoVida)){
+		if(balas[i].chocar(bloqueVida)){
 			jugador.vida++;
-	  		objetoVida.x = random(canvas.width - 10);
-	  		objetoVida.y = random(canvas.height - 10);
+	  		bloqueVida.x = random(canvas.width - 10);
+	  		bloqueVida.y = random(canvas.height - 10);
 		}
 	}
 }
