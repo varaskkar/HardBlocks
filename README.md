@@ -37,5 +37,8 @@ Es un pequeño juego que estoy desarrollando por aprendizaje
 - Mayor presición de rotación en grados, antes 36 combinaciones, ahora 72 >	360/5
 - Poder destruir los muros de piedra
 
+###Demo
+http://felipetiza.github.io/nave/
+
 ###Licencia
 Este proyecto está bajo la licencia [GNU GPL v2](https://github.com/felipetiza/juego/blob/master/LICENSE).
