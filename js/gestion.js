@@ -7,7 +7,7 @@ requirejs(['pojoFigura']);
 window.addEventListener('load',init,false);
 
 // Constantes
-const _LIFES = 3, _POINTS = 0;
+const _Lifes = 3, _Points = 0, _SizeBlock = 20;
 
 var canvas = null, ctx = null;
 var tecla = null;
@@ -20,21 +20,25 @@ var iNave = new Image(), iBloqueVida = new Image(), iBloqueMarron = new Image(),
 var balas = [], balas2 = [], bloqueMarron = [], bloqueRojo = [], bloqueBlanco = [], mapa1 = [], mapa2 = [];
 
 mapa1 = [
-				[' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ',' '],
-				[' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 ,' ', 5 ,' ', 5 ,' ',' ',' ',' '],
-				[' ',' ', 5 , 5 ,' ',' ', 5 , 5 ,' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 ,' ',' ',' '],
-				[' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ',' '],
-				[' ',' ', 5 ,' ',' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ', 5 ,' ',' ',' ', 5 , 5 , 5 ,' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ', 4 ,' ',   , 4 , 4 ,   , 4 , 4 ,' ',   , 4 ,   , 4 , 4 , 4 ,   , 4 , 4 ,   ,' ', 4 ,' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-				[ 3 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 3 ],
-				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-				[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-				[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ]];
+	[' ',' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ',' ',' ',' '],
+	[' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 ,' ', 5 ,' ', 5 ,' ',' ',' ',' ',' ',' '],
+	[' ',' ',' ', 5 , 5 ,' ',' ', 5 , 5 ,' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 , 5 , 5 ,' ', 5 , 5 ,' ',' ',' ',' ',' '],
+	[' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ', 5 ,' ', 5 ,' ',' ',' ', 5 ,' ',' ',' ',' ',' ',' '],
+	[' ',' ',' ', 5 ,' ',' ',' ', 5 , 5 , 5 ,' ', 5 , 5 , 5 ,' ', 5 ,' ', 5 ,' ',' ',' ', 5 , 5 , 5 ,' ',' ',' ',' '],
+	[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+	[' ',' ',' ', 4 ,' ',   , 4 , 4 ,   , 4 , 4 ,' ',   , 4 ,   , 4 , 4 , 4 ,   , 4 , 4 ,   ,' ', 4 ,' ',' ',' ',' '],
+	[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+	[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+	[ 3 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 3 ],
+	[ 3 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 3 ],
+	[ 3 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 3 ],
+	[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+	[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ]
+	];
 
 mapa2 = [
 				[' ', 5 , 5 , 5 ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
@@ -73,15 +77,15 @@ function init(){
 	}, 250);
 }
 function reset(){
-	puntuacion      = _POINTS;
-	jugador.vida    = _LIFES;
+	puntuacion      = _Points;
+	jugador.vida    = _Lifes;
 	tiempoInmunidad = 0;
 	jugador.x       = 250;
 	jugador.y       = 250;
 	bloqueVida.x    = random(canvas.width - 10);
 	bloqueVida.y    = random(canvas.height - 10);
 	gameOver        = false;
-	crearMapa(mapa1, 20);
+	crearMapa(mapa1, _SizeBlock);
 	printLightEfectsBefore();
 }
 function run(){
@@ -91,6 +95,9 @@ function run(){
 	printPoints(puntuacion);
 	printLives(jugador.vida);
 }
+// Canvas 					Width 560		Height	360
+// _SizeBlock = 20			Width 20		Height	20
+// 	Bloques que encajan 	560/20 > 28 	360/20 > 18
 function crearMapa(mapa, width){
 	for(var i = 0; i < mapa.length; i++) {			// i = fila   j = columna
 		for(var j = 0; j < mapa[i].length; j++) {
@@ -104,7 +111,7 @@ function crearMapa(mapa, width){
 	}
 }
 function borrarMapa(){
-	for(var i = 0; i < 999; i++) {
+	for(var i = 0; i < 250; i++) {
 		bloqueMarron.splice(0,1);
 		bloqueRojo.splice(0,1);
 		bloqueBlanco.splice(0,1);
@@ -129,7 +136,7 @@ function juego(){
 			rotacion = 360;
 
 		// Movimiento
-		if(teclaPresionada[38]){				// Arriba
+		if(teclaPresionada[formatKey("UP")]){
 			if(rotacion == 0 || rotacion == 360)	jugador.y -= 4;
 			else if(rotacion == 90)		jugador.x += 4;
 			else if(rotacion == 180)	jugador.y += 4;
@@ -252,18 +259,18 @@ function juego(){
 				}
 			}
 		}
-		if(teclaPresionada[40]){				// Abajo
+		if(teclaPresionada[formatKey("DOWN")]){
 			/*for(i in bloqueMarron){
 				if(jugador.chocar(bloqueMarron[i]))		jugador.y -= 7;
 			}*/
 		}
-		if(teclaPresionada[37]){				// Izquierda
+		if(teclaPresionada[formatKey("LEFT")]){
 			rotacion -= 5;
 			/*for(i in bloqueMarron){
 				if(jugador.chocar(bloqueMarron[i]))		jugador.x += 7;
 			}*/
 		}
-		if(teclaPresionada[39]){				// Derecha
+		if(teclaPresionada[formatKey("RIGHT")]){
 			rotacion += 5;
 			/*for(i in bloqueMarron){
 				if(jugador.chocar(bloqueMarron[i]))		jugador.x -= 7;
@@ -280,34 +287,33 @@ function juego(){
 		disparoSimple();
 		disparoDoble();
 	}
-	if(tecla == 13){
+	if(tecla == formatKey("ENTER1")){
 		pausa = !pausa;
 		tecla = null;
-	}else if(tecla == 97){
+	}else if(tecla == formatKey("PadNum1")){
 		borrarMapa();
-		crearMapa(mapa1, 20);
+		crearMapa(mapa1, _SizeBlock);
 		tecla = null;
-	}else if(tecla == 98){
+	}else if(tecla == formatKey("PadNum2")){
 		borrarMapa();
-		crearMapa(mapa2, 20);
+		crearMapa(mapa2, _SizeBlock);
 		tecla = null;
-	}else if(tecla == 99){
+	}else if(tecla == formatKey("PadNum3")){
 		borrarMapa();
 		tecla = null;
-	}else if(tecla == 77){
+	}else if(tecla == formatKey("PadNum7")){
+		verInfo =! verInfo;
+		tecla = null;
+	}else if(tecla == formatKey("M")){
 		if(!pantallaCompleta)
 			pantallaCompleta = setFullscreen(canvas);
 		else
 			pantallaCompleta = setNotFullscreen(canvas);
 		tecla = null;
-	}else if(tecla == 103){
-		verInfo =! verInfo;
-		tecla = null;
-	}else if(tecla == 81){
-		rotacion -= 10;
-		tecla = null;
-	}else if(tecla == 87){
-		rotacion += 10;
+	}else if(tecla == formatKey("R")){
+		reset();
+		borrarMapa();
+		crearMapa(mapa1, _SizeBlock);
 		tecla = null;
 	}
 }
@@ -373,7 +379,7 @@ function random(max){
 function disparoSimple(){
 
 	// Crear balas
-	if((tecla == 90) && balas.length <= 500){
+	if((tecla == 90) && balas.length < 500){
 		if(rotacion == 0 || rotacion == 360)	balas.push(new Figura(jugador.x+jugador.width/2,jugador.y,3,3,4,4));
 		else if(rotacion == 90)					balas.push(new Figura(jugador.x+jugador.width,jugador.y+jugador.height/2,3,3,4,4));
 		else if(rotacion == 180)				balas.push(new Figura(jugador.x+jugador.width/2,jugador.y+jugador.height,3,3,4,4));
@@ -664,7 +670,7 @@ function interseccion(){
 	for(i in balas){
 		for(j in bloqueMarron){
 			if(balas[i].chocar(bloqueMarron[j])){
-	  			puntuacion += 300;
+	  			puntuacion += 3;
 
 				balas.splice(i,1);
 

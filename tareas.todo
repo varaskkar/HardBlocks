@@ -31,37 +31,39 @@ versión 0.1:
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ✔ El jugador tenga 3 vidas y pierda una al darse 3 toques @done (22-03-15 19:59)
-    ☐ Poner cohete que me suba de velocidad mientras se pulse tecla
-    ☐ Deslizar nave al moverse, tipo Asteroids
 
 :ClasesEnJS:
+☐ Poner torreta fija que te dispara al acercarte y bloque gordo de piedras que destruya ella
 ☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
-☐ Sonido
-✔ balas solo reboten en bloques blancos @done (30-03-15 16:18)
+☐ @Sonido
+☐ Parpadear bloque al ser golpeado
 ☐ poner disparo en otro fichero independiente
-☐ Usar Jquery
-☐ for of
-✔ Poner vidas al lado de puntuacion @done (15-03-27 23:34)
 ☐ Problema de tecla presionada
+☐ for of
+☐ poner un limite de vidas que se puedan conseguir y de puntos
+☐ mejorada plantilla y optimizado
+☐ Poner sonido al bloque
+☐ Crear clase FiguraFija, FiguraDinamica, Bloque, Bala ... eso de tener una sola clase como que no...
+☐ El bloqueVida no aparezca encima del fuego ni de un bloque
+✔ Funcion resetear() @done (30-03-15 23:50)
+✔ balas solo reboten en bloques blancos @done (30-03-15 16:18)
+✔ Poner vidas al lado de puntuacion @done (15-03-27 23:34)
 ✔ solo se suma vida cuando choca con la nave, no cuando se le dispara @done (30-03-15 15:19)
 ✔ cuando hay muchos puntos, se desplaza el elemento "score" hacia la izquierda @done (28-03-15 01:47)
 ✔ A la puntuación ponerle un punto por cada mil que tenga @TrabajandoConEste @done (28-03-15 03:37)
-☐ poner un limite de vidas que se puedan conseguir y de puntos
-☐ pantalla completa ocultar el resto del body
-☐ mejorada plantilla y optimizado
+✔ pantalla completa ocultar el resto del body @done (30-03-15 18:04)
 ✔ Poner funcion reset al comenzar el juego @done (30-03-15 16:43)
 ✔ Bloque marrón ahora no se destruye @Problema @done (30-03-15 17:26)
-☐ Parpadear bloque al ser golpeado
-☐ Poner sonido al bloque
-☐ Crear clase FiguraFija, FiguraDinamica, Bloque, Bala ... eso de tener una sola clase como que no...
-
-
+✔ tecla = null; @done (30-03-15 23:51)
+✔ Formateadas código ASCII de las teclas @done (30-03-15 21:53)
 
 versión 0.2:
 
     ☐ 2 jugadores
     ☐ Mover fondo en vez de nave
     ☐ Poner tiempo y mientras destruyas bloques pasas de fase
+    ☐ Poner cohete que me suba de velocidad mientras se pulse tecla
+    ☐ Deslizar nave al moverse, tipo Asteroids
 
 
 --- ✄ -----------------------

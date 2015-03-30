@@ -10,10 +10,12 @@ var ElementLives  = document.getElementById("livesNum");
 var ElementPoints = document.getElementById("scoreNum");
 var ElementLight1 = document.getElementById("light1");
 var ElementLight2 = document.getElementById("light2");
-// var body          = document.getElementsByTagName("body");
+var ElementTable = document.getElementsByTagName("table")[0];
+var ElementShadow = document.getElementById("shadow");
+var ElementLine = document.getElementsByTagName("hr")[0];
+var ElementBody = document.getElementsByTagName("body")[0];
 
 function getFps(){
-	// setTimeout(mostrarFps,1);
   	var thisFrameFPS = 1000 / ((now = new Date) - lastUpdate);
   	fps += (thisFrameFPS - fps) / fpsFilter;
   	lastUpdate = now*1-1;
@@ -42,17 +44,12 @@ function setFullscreen(canvas){
 	canvas.style.top        = '50%';
 	canvas.style.marginLeft =- (canvas.width*scale)/2+'px';
 	canvas.style.marginTop  =- (canvas.height*scale)/2+'px';
+	// canvas.style.transition = "all 2s";
 
-	// body.style.background = "#010F1E";
-	// canvas.css({
-	// 	"width": (canvas.width*scale)+"px",
-	// 	"height": (canvas.height*scale)+"value2",
-	// 	"position": "fixed",
-	// 	"left": "50%",
-	// 	"top": "50%",
-	// 	"marginLeft": (canvas.width*scale)/2+"px",
-	// 	"marginTop": (canvas.height*scale)/2+"px"
-	// });
+	ElementTable.style.visibility = "hidden";
+	ElementShadow.style.visibility = "hidden";
+	ElementLine.style.visibility = "hidden";
+	ElementBody.style.background = "#010B15";
 
 	return true;
 }
@@ -66,6 +63,11 @@ function setNotFullscreen(canvas){
 	canvas.style.marginLeft = '';
 	canvas.style.marginTop  = '';
 
+	ElementTable.style.visibility = "";
+	ElementShadow.style.visibility = "";
+	ElementLine.style.visibility = "";
+	ElementBody.style.background = "";
+
 	return false;
 }
 
@@ -74,17 +76,17 @@ function printPoints(points){ ElementPoints.innerHTML = formatNumbers(points); }
 
 function printLightEfectsBefore(){
 	setTimeout(printLightEfectsBefore,100);
-	ElementLives.style.color = '#DFE1E4';
+	ElementLives.style.color  = '#DFE1E4';
 	ElementPoints.style.color = '#DFE1E4';
-	ElementLight1.innerHTML = "<img src='assets/img/efectoLuz.png'>";
-	ElementLight2.innerHTML = "<img src='assets/img/efectoLuz.png'>";
+	ElementLight1.innerHTML   = "<img src='assets/img/efectoLuz.png'>";
+	ElementLight2.innerHTML   = "<img src='assets/img/efectoLuz.png'>";
 }
 
 function printLightEfectsAfter(){
-	ElementLives.style.color = '#94A2B7';
-	ElementPoints.style.color='#94A2B7';
-	ElementLight1.innerHTML = "<img src='assets/img/foco.png'>";
-	ElementLight2.innerHTML = "<img src='assets/img/foco.png'>";
+	ElementLives.style.color  = '#94A2B7';
+	ElementPoints.style.color ='#94A2B7';
+	ElementLight1.innerHTML   = "<img src='assets/img/foco.png'>";
+	ElementLight2.innerHTML   = "<img src='assets/img/foco.png'>";
 }
 
 function formatNumbers(number){
@@ -119,3 +121,70 @@ function formatNumbers(number){
 // 	},false);
 // }
 
+function formatKey(key){
+	var codeAscii = 0;
+
+	if(key == "RETURN")				codeAscii = 8;
+	else if(key == "ENTER")			codeAscii = 13;
+	else if(key == "SHIFT")			codeAscii = 16;
+	else if(key == "CTRL")			codeAscii = 17;
+	else if(key == "ALT")			codeAscii = 18;
+	else if(key == "ESC")			codeAscii = 27;
+	else if(key == "SPACE")			codeAscii = 32;
+	else if(key == "LEFT")			codeAscii = 37;
+	else if(key == "UP")			codeAscii = 38;
+	else if(key == "RIGHT")			codeAscii = 39;
+	else if(key == "DOWN")			codeAscii = 40;
+	else if(key == "0" ) 			codeAscii = 48;
+	else if(key == "1" ) 			codeAscii = 49;
+	else if(key == "2" ) 			codeAscii = 50;
+	else if(key == "3" ) 			codeAscii = 51;
+	else if(key == "4" ) 			codeAscii = 52;
+	else if(key == "5" ) 			codeAscii = 53;
+	else if(key == "6" ) 			codeAscii = 54;
+	else if(key == "7" ) 			codeAscii = 55;
+	else if(key == "8" ) 			codeAscii = 56;
+	else if(key == "9" ) 			codeAscii = 57;
+	else if(key == "PadNum1" ) 		codeAscii = 97;
+	else if(key == "PadNum2" ) 		codeAscii = 98;
+	else if(key == "PadNum3" ) 		codeAscii = 99;
+	else if(key == "PadNum4" ) 		codeAscii = 100;
+	else if(key == "PadNum5" ) 		codeAscii = 101;
+	else if(key == "PadNum6" ) 		codeAscii = 102;
+	else if(key == "PadNum7" ) 		codeAscii = 103;
+	else if(key == "PadNum8" ) 		codeAscii = 104;
+	else if(key == "PadNum9" ) 		codeAscii = 105;
+	else if(key == "A" ) 			codeAscii = 65;
+	else if(key == "B" ) 			codeAscii = 66;
+	else if(key == "C" ) 			codeAscii = 67;
+	else if(key == "D" ) 			codeAscii = 68;
+	else if(key == "E" ) 			codeAscii = 69;
+	else if(key == "F" ) 			codeAscii = 70;
+	else if(key == "G" ) 			codeAscii = 71;
+	else if(key == "H" ) 			codeAscii = 72;
+	else if(key == "I" ) 			codeAscii = 73;
+	else if(key == "J" ) 			codeAscii = 74;
+	else if(key == "K" ) 			codeAscii = 75;
+	else if(key == "L" ) 			codeAscii = 76;
+	else if(key == "M" ) 			codeAscii = 77;
+	else if(key == "N" ) 			codeAscii = 78;
+	else if(key == "Ñ" ) 			codeAscii = 192;
+	else if(key == "O" ) 			codeAscii = 79;
+	else if(key == "P" ) 			codeAscii = 80;
+	else if(key == "Q" ) 			codeAscii = 81;
+	else if(key == "R" ) 			codeAscii = 82;
+	else if(key == "S" ) 			codeAscii = 83;
+	else if(key == "T" ) 			codeAscii = 84;
+	else if(key == "U" ) 			codeAscii = 85;
+	else if(key == "V" ) 			codeAscii = 86;
+	else if(key == "W" ) 			codeAscii = 87;
+	else if(key == "X" ) 			codeAscii = 88;
+	else if(key == "Y" ) 			codeAscii = 89;
+	else if(key == "Z" ) 			codeAscii = 90;
+
+	// var res = String.fromCharCode(97);
+	// codeAscii = nameKey.charCodeAt(0);
+	// alert(res.toString());
+
+	return codeAscii;
+}
