@@ -88,8 +88,37 @@ function Figura(x,y,ancho,alto,velX,velY){
  	this.permitir = false;
  	this.chocar = function(algo){
 	  	if(algo != null){
-	   		return(this.x<algo.x+algo.width && this.x+this.width>algo.x &&
-	   		this.y<algo.y+algo.height && this.y+this.height>algo.y);
+	   		// return this.x < algo.x+algo.width &&
+	   		//        this.x+this.width > algo.x &&
+	   		// 	   this.y < algo.y+algo.height &&
+	   		// 	   this.y+this.height>algo.y;
+
+	   		return this.x < algo.x+algo.width + 2 &&
+	   		       this.x+this.width + 2 > algo.x &&
+	   			   this.y < algo.y+algo.height + 2 &&
+	   			   this.y+this.height + 2>algo.y;
 	  	}
  	}
+ 	this.choqueVertical = function(objeto){
+	  	if(objeto != null){
+	   		// return(this.y<objeto.y+objeto.height && this.y+this.height>objeto.y);
+	   		return(this.y<objeto.y+objeto.height && this.y+this.height>objeto.y);
+	  	}
+ 	}
+ 	this.choqueHorizontal = function(objeto){
+	  	if(objeto != null){
+	   		return(this.x<objeto.x+objeto.width && this.x+this.width>objeto.x);
+	  	}
+ 	}
+
+// // Eje X
+// if ( (rectangulo.getCoordenadaFinal().getX() < this.getCoordenadaInicial().getX())
+// || (rectangulo.getCoordenadaInicial().getX() > this.getCoordenadaFinal().getX()) )
+//     return false;
+
+// // Eje Y
+// rectangulo.getY() < this.getCoordenadaInicial().getY() || (rectangulo.getCoordenadaInicial().getY() > this.getCoordenadaFinal().getY())
+// this.y < objeto.y || this.y > objeto.y + objeto.height;
+
+
 }

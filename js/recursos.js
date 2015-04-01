@@ -1,11 +1,5 @@
 var fps = 0, now, lastUpdate = (new Date)*1 - 1, fpsFilter = 50;
 
-// var ElementLives  = $("#livesNum");
-// var ElementPoints = $("#scoreNum");
-// var ElementLight1 = $("#light1");
-// var ElementLight2 = $("#light2");
-// var body          = $("body");
-
 var ElementLives  = document.getElementById("livesNum");
 var ElementPoints = document.getElementById("scoreNum");
 var ElementLight1 = document.getElementById("light1");
@@ -49,6 +43,8 @@ function setFullscreen(canvas){
 	ElementTable.style.visibility = "hidden";
 	ElementShadow.style.visibility = "hidden";
 	ElementLine.style.visibility = "hidden";
+	ElementLight1.style.visibility = "hidden";
+	ElementLight2.style.visibility = "hidden";
 	ElementBody.style.background = "#010B15";
 
 	return true;
@@ -66,6 +62,8 @@ function setNotFullscreen(canvas){
 	ElementTable.style.visibility = "";
 	ElementShadow.style.visibility = "";
 	ElementLine.style.visibility = "";
+	ElementLight1.style.visibility = "";
+	ElementLight2.style.visibility = "";
 	ElementBody.style.background = "";
 
 	return false;
@@ -78,15 +76,15 @@ function printLightEfectsBefore(){
 	setTimeout(printLightEfectsBefore,100);
 	ElementLives.style.color  = '#DFE1E4';
 	ElementPoints.style.color = '#DFE1E4';
-	ElementLight1.innerHTML   = "<img src='assets/img/efectoLuz.png'>";
-	ElementLight2.innerHTML   = "<img src='assets/img/efectoLuz.png'>";
+	ElementLight1.innerHTML   = "<img src='assets/img/efectoLuz1.png'>";
+	ElementLight2.innerHTML   = "<img src='assets/img/efectoLuz1.png'>";
 }
 
 function printLightEfectsAfter(){
 	ElementLives.style.color  = '#94A2B7';
 	ElementPoints.style.color ='#94A2B7';
-	ElementLight1.innerHTML   = "<img src='assets/img/foco.png'>";
-	ElementLight2.innerHTML   = "<img src='assets/img/foco.png'>";
+	ElementLight1.innerHTML   = "<img src='assets/img/efectoLuz2.png'>";
+	ElementLight2.innerHTML   = "<img src='assets/img/efectoLuz2.png'>";
 }
 
 function formatNumbers(number){
@@ -108,18 +106,6 @@ function formatNumbers(number){
 
 	return result;
 }
-
-// function teclaPulsada(){
-// 	var teclaPresionada = [];
-
-// 	document.addEventListener('keydown',function(evt){
-// 		// tecla = evt.keyCode;
-// 		teclaPresionada[evt.keyCode] = true;
-// 	},false);
-// 	document.addEventListener('keyup',function(evt){
-// 		teclaPresionada[evt.keyCode] = false;
-// 	},false);
-// }
 
 function formatKey(key){
 	var codeAscii = 0;
@@ -188,3 +174,34 @@ function formatKey(key){
 
 	return codeAscii;
 }
+
+function random(max){
+	//return Math.floor(Math.random()*max);
+	return ~~(Math.random()*max*1-1);
+}
+
+function pressKey(){
+	document.addEventListener('keydown',function(evt){
+		tecla = evt.keyCode;
+		teclaPresionada[evt.keyCode] = true;
+	},false);
+	document.addEventListener('keyup',function(evt){
+		teclaPresionada[evt.keyCode] = false;
+	},false);
+}
+
+// function getCollision(r1, r2) {
+//     return r1.getMax().x < r2.getMax().x &&
+//            r1.getMin().x > r2.getMin().x &&
+//            r1.getMax().y < r2.getMax().y &&
+//            r1.getMin().y > r2.getMin().y;
+// }
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 
 Juego de Naves:
 
-    ☐ Buscar nombre
+    ☐ Buscar nombre    Rebo Blocks, Invert Block, Destroy Blocks, Shoot Blocks
     ☐ Añadir fondo en vez de color plano
 
 versión 0.1:
@@ -14,10 +14,12 @@ versión 0.1:
         ☐ Bomba que explota en 3 segundos
     ☐ Tipos de bloque
         ✔ Rojo   > Fuego    (quita vida) @done (22-03-15 20:29)
-        ✔ Marrón > Ladrillo (se rompe y rebotan balas) @done (22-03-15 20:30)
+        ✔ Marrón > Ladrillo (se rompe) @done (22-03-15 20:30)
             ✔ Cuando una bala da en el bloque, este cambia de color     @done (22-03-15 20:32)
         ✔ Blanco > Ladrillo (rebotan balas) @done (22-03-15 20:30)
             ✔ Rebotar las balas contra la pared @done (22-03-15 20:24)
+        ☐ Amarillo > Ladrillo (da puntos)
+        ☐ Verde    > Ladrillo (da objetos)
     ☐ Colisiones
         ☐ Nave - bloques > no atravesarlo
             ✔ La nave rota en 36 posiciones  > 360º/10 @done (22-03-15 20:24)
@@ -25,7 +27,7 @@ versión 0.1:
             ☐ La nave rota en 120 posiciones > 360/3
             ☐ La nave cuando está en rotacion acabada en 5 (25 p.e.) atraviesa siempre los bloques @Problema
         ☐ Balas - bloques
-            ☐ Cuando una bala da en un muro, este cambia de color ó parpadea
+            ✔ Cuando una bala da en un muro, este cambia de color ó parpadea @done (31-03-15 23:46)
     ✔ Poner desplazamiento no automático, que se mueva con la presión @done (22-03-15 20:27)
     ✔ Al disparar las balas salgan desde el extremo sup. de la nave en todos los ejes @done (22-03-15 20:36)
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
@@ -33,18 +35,23 @@ versión 0.1:
     ✔ El jugador tenga 3 vidas y pierda una al darse 3 toques @done (22-03-15 19:59)
 
 :ClasesEnJS:
-☐ Poner torreta fija que te dispara al acercarte y bloque gordo de piedras que destruya ella
-☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
-☐ @Sonido
-☐ Parpadear bloque al ser golpeado
+
+☐ EL PROBLEMA DE LA COLISION NAVE-BLOQUE ES PORQUE ...
+    ✘ LA NAVE TIENE TAMAÑO 1 Y EL BLOQUE 20 @cancelled (01-04-15 02:45)
+    ☐ @Rotacion La nave rota y como la nave es cuadrada al rotar en 5 un pico de ese cuadrado choca
+☐ Sonido
 ☐ poner disparo en otro fichero independiente
+☐ Poner la velocidad como constante @Problema @MientrasHayaRotacionHabraDiferentesVelocidadesParaCadaEje
+☐ Crear una entrada y una salida para que de sensacion de que el mapa 1 y 2 estan unidos
+☐ Las balas reboten correctamente y la nave choque bien contra el bloque, ¿problema algoritmo interseccion?
+☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
 ☐ Problema de tecla presionada
 ☐ for of
 ☐ poner un limite de vidas que se puedan conseguir y de puntos
 ☐ mejorada plantilla y optimizado
-☐ Poner sonido al bloque
 ☐ Crear clase FiguraFija, FiguraDinamica, Bloque, Bala ... eso de tener una sola clase como que no...
-☐ El bloqueVida no aparezca encima del fuego ni de un bloque
+✔ Disminuido espacio separacion entre bloques @done (01-04-15 00:49)
+✔ El bloqueVida no aparezca encima del fuego ni de un bloque @done (31-03-15 02:12)
 ✔ Funcion resetear() @done (30-03-15 23:50)
 ✔ balas solo reboten en bloques blancos @done (30-03-15 16:18)
 ✔ Poner vidas al lado de puntuacion @done (15-03-27 23:34)
@@ -64,6 +71,7 @@ versión 0.2:
     ☐ Poner tiempo y mientras destruyas bloques pasas de fase
     ☐ Poner cohete que me suba de velocidad mientras se pulse tecla
     ☐ Deslizar nave al moverse, tipo Asteroids
+    ☐ Poner torreta fija que te dispara al acercarte y bloque gordo de piedras que destruya ella
 
 
 --- ✄ -----------------------
