@@ -6,7 +6,7 @@ Es un pequeño juego que estoy desarrollando por aprendizaje
 ![avatar](http://i.imgur.com/6rR7iCL.jpg)
 
 ###Sistema de rebote
-![avatar](https://i.imgur.com/puHdWuQ.gif)
+![avatar](http://i.imgur.com/N3nArah.gif)
 
 ###Atajos del teclado
 
