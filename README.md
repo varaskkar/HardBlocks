@@ -1,30 +1,27 @@
-Juego en Canvas
+Game on Canvas
 ===============
-Es un pequeño juego que estoy desarrollando por aprendizaje
 
 ![avatar](http://i.imgur.com/A4GHjSq.jpg)
 ![avatar](http://i.imgur.com/6rR7iCL.jpg)
 
-###Funcionalidades
+###Features
 ![avatar](http://i.imgur.com/N3nArah.gif)
 ![avatar](http://i.imgur.com/NvmMQFP.gif)
 
+###keyboard shortcuts
 
-
-###Atajos del teclado
-
-| Tecla | Descripción |
+| Key | Function |
 |------|---------------|
-| <kbd>Pad num 1</kbd> | Cambia al Mapa 1
-| <kbd>Pad num 2</kbd> | Cambia al Mapa 2
-| <kbd>Pad num 3</kbd> | Cambia al Mapa vacío
-| <kbd>Pad num 7</kbd> | Mostrar/Ocultar información
-| <kbd>Intro</kbd> | Pausa
-| <kbd>Z</kbd> | Disparo principal
-| <kbd>X</kbd> | Disparo secundario
-| <kbd>M</kbd> | Pantalla completa
+| <kbd>Pad num 1</kbd> | Mapa 1
+| <kbd>Pad num 2</kbd> | Mapa 2
+| <kbd>Pad num 3</kbd> | Empty Map
+| <kbd>Pad num 7</kbd> | information
+| <kbd>Enter</kbd> | Pause
+| <kbd>Z</kbd> | Weapon 1
+| <kbd>X</kbd> | Weapon 2
+| <kbd>M</kbd> | Fullscreen
 
-###Actualizaciones
+###Updates
 #####v01
 - Cuando gire a una dirección, girar la imagen de la nave y su movimiento
 - Mover las balas a la dirección que haya rotado la nave
@@ -38,4 +35,4 @@ Es un pequeño juego que estoy desarrollando por aprendizaje
 - Poder destruir los muros de piedra
 
 ###Licencia
-Este proyecto está bajo la licencia [GNU GPL v2](https://github.com/felipetiza/juego/blob/master/LICENSE).
+Este proyecto está bajo la licencia [GNU GPL v2](https://github.com/felipetiza/nave/blob/master/LICENSE).
