@@ -21,18 +21,5 @@ Game on Canvas
 | <kbd>X</kbd> | Weapon 2
 | <kbd>M</kbd> | Fullscreen
 
-###Updates
-#####v01
-- Cuando gire a una dirección, girar la imagen de la nave y su movimiento
-- Mover las balas a la dirección que haya rotado la nave
-- Cuando chocas con un muro, no atravesarlo
-- Poner desplazamiento no automático, que se mueva con la presión
-- Rebotar las balas contra la pared
-- No salirme del marco la Pantalla
-- Creado editor de fases (en código)
-- Colision de bloques con las 36 rotaciones de la Nave > 360º/10
-- Mayor presición de rotación en grados, antes 36 combinaciones, ahora 72 >	360/5
-- Poder destruir los muros de piedra
-
-###Licencia
-Este proyecto está bajo la licencia [GNU GPL v2](https://github.com/felipetiza/nave/blob/master/LICENSE).
+###License
+This proyect is under the license [GNU GPL v2](https://github.com/felipetiza/nave/blob/master/LICENSE).
