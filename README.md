@@ -9,6 +9,10 @@ Es un pequeño juego que estoy desarrollando por aprendizaje
 ![avatar](http://i.imgur.com/N3nArah.gif)
 ![avatar](http://i.imgur.com/VLd0ZDM.gif)
 
+![avatar](http://i.imgur.com/pOg1T8q.gif)
+![avatar](http://i.imgur.com/pOg1T8q.gif)
+
+
 ###Atajos del teclado
 
 | Tecla | Descripción |
