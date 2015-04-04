@@ -190,15 +190,6 @@ function pressKey(){
 	},false);
 }
 
-// function getCollision(r1, r2) {
-//     return r1.getMax().x < r2.getMax().x &&
-//            r1.getMin().x > r2.getMin().x &&
-//            r1.getMax().y < r2.getMax().y &&
-//            r1.getMin().y > r2.getMin().y;
-// }
-
-
-
 
 
 

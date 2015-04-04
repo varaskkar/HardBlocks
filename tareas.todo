@@ -36,6 +36,13 @@ versión 0.1:
 
 :ClasesEnJS:
 
+ ☐ Invertir rebote de las balas en vez de ponerlos negativo
+
+ ☐ Si desactivando el rebote de los bloques blancos se soluciona el tema de los bloques imaginarios
+     y qe las balas de en el bloqueMarron correcto
+
+☐ Constante de max num de veces que puede rebotar una bala antes de destruirse
+☐ Las balas pueden chocar entre si y destruirse
 ☐ EL PROBLEMA DE LA COLISION NAVE-BLOQUE ES PORQUE ...
     ✘ LA NAVE TIENE TAMAÑO 1 Y EL BLOQUE 20 @cancelled (01-04-15 02:45)
     ☐ @Rotacion La nave rota y como la nave es cuadrada al rotar en 5 un pico de ese cuadrado choca
