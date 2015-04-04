@@ -5,6 +5,9 @@ Es un pequeño juego que estoy desarrollando por aprendizaje
 ![avatar](http://i.imgur.com/A4GHjSq.jpg)
 ![avatar](http://i.imgur.com/6rR7iCL.jpg)
 
+###Sistema de rebote
+![avatar](https://i.imgur.com/puHdWuQ.gif)
+
 ###Atajos del teclado
 
 | Tecla | Descripción |
@@ -17,12 +20,6 @@ Es un pequeño juego que estoy desarrollando por aprendizaje
 | <kbd>Z</kbd> | Disparo principal
 | <kbd>X</kbd> | Disparo secundario
 | <kbd>M</kbd> | Pantalla completa
-
-###TODO
-- 2 jugadores
-- Mover fondo en vez de nave
-- Poner tiempo y mientras destruyas bloques pasas de fase
-- Poner paredes con agujeros por los que pasar
 
 ###Actualizaciones
 #####v01
