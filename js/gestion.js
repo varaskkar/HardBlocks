@@ -7,7 +7,7 @@ window.addEventListener('load',init,false);
 
 const _LifesPlayer = 1, _LifesBlock = 3,
 	  _PointsStart = 0, _PointsBlock = 3,
-	  _DamageWeapon1 = 1,
+	  _DamageWeapon1 = 1, _MaxRebounds = 100,
 	  _SizeBlock = 20, _TimeProtected = 125;
 
 var canvas = null, ctx = null;
@@ -400,7 +400,11 @@ function colision(){
 			for(j in bloqueBlancoVert){
 		  		if(balas[i].chocar(bloqueBlancoVert[j]))
 		  			// balas[i].velY = -balas[i].velY;
-		  			balas[i].velY *= -1;
+		  			if(balas[i].maxRebounds < _MaxRebounds){
+		  				balas[i].velY *= -1;
+		  				balas[i].maxRebounds++;
+		  			}else
+						balas.splice(i,1);
 			}
 		}
 
@@ -408,7 +412,11 @@ function colision(){
 			for(j in bloqueBlancoHor){
 		  		if(balas[i].chocar(bloqueBlancoHor[j]))
 		  			// balas[i].velX = -balas[i].velX;
-		  			balas[i].velX *= -1;
+		  			if(balas[i].maxRebounds < _MaxRebounds){
+		  				balas[i].velX *= -1;
+		  				balas[i].maxRebounds++;
+					}else
+						balas.splice(i,1);
 			}
 		}
 	}
@@ -423,23 +431,11 @@ function colision(){
 	}
 }
 
-// function mostrarNaveRotada(){
-// 	ctx.save();
-// 	ctx.translate(jugador.x+jugador.width/2,jugador.y+jugador.height/2);
-// 	ctx.rotate(rotacion*Math.PI/180);
-// 	ctx.drawImage(iNave,-jugador.width/2,-jugador.height/2);
-// 	ctx.restore();
-// }
-
 function mostrarNaveRotada(){
 	ctx.save();
 	ctx.translate(jugador.x+jugador.width/2,jugador.y+jugador.height/2);
 	ctx.rotate(rotacion*Math.PI/180);
 	ctx.drawImage(iNave,-jugador.width/2,-jugador.height/2, jugador.width, jugador.height);
-
-	// ctx.fillStyle = '#0D641A';
-	// ctx.fillRect(0,0,15,15);
-
 	ctx.restore();
 }
 
@@ -468,7 +464,6 @@ function keyboard(){
 		tecla = null;
 	}else if(tecla == formatKey("PadNum5")){
 		borrarMapa();
-		crearMapa(mapa5, _SizeBlock);
 		tecla = null;
 	}else if(tecla == formatKey("PadNum6")){
 		borrarMapa();

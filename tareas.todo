@@ -32,16 +32,11 @@ versión 0.1:
     ✔ Al disparar las balas salgan desde el extremo sup. de la nave en todos los ejes @done (22-03-15 20:36)
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
-    ✔ El jugador tenga 3 vidas y pierda una al darse 3 toques @done (22-03-15 19:59)
+    ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
 :ClasesEnJS:
 
- ☐ Invertir rebote de las balas en vez de ponerlos negativo
-
- ☐ Si desactivando el rebote de los bloques blancos se soluciona el tema de los bloques imaginarios
-     y qe las balas de en el bloqueMarron correcto
-
-☐ Constante de max num de veces que puede rebotar una bala antes de destruirse
+✔ Constante de max num de veces que puede rebotar una bala antes de destruirse @done (04-04-15 20:46)
 ☐ Las balas pueden chocar entre si y destruirse
 ☐ EL PROBLEMA DE LA COLISION NAVE-BLOQUE ES PORQUE ...
     ✘ LA NAVE TIENE TAMAÑO 1 Y EL BLOQUE 20 @cancelled (01-04-15 02:45)
@@ -57,6 +52,7 @@ versión 0.1:
 ☐ poner un limite de vidas que se puedan conseguir y de puntos
 ☐ mejorada plantilla y optimizado
 ☐ Crear clase FiguraFija, FiguraDinamica, Bloque, Bala ... eso de tener una sola clase como que no...
+✔ Invertir rebote de las balas en vez de ponerlos negativo @done (04-04-15 20:25)
 ✔ Disminuido espacio separacion entre bloques @done (01-04-15 00:49)
 ✔ El bloqueVida no aparezca encima del fuego ni de un bloque @done (31-03-15 02:12)
 ✔ Funcion resetear() @done (30-03-15 23:50)

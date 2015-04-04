@@ -6,6 +6,7 @@ function Figura(x,y,ancho,alto,velX,velY){
  	this.velX = velX;
  	this.velY = velY;
  	this.vida = 0;
+ 	this.maxRebounds = 0;
 
 	// Atributos de las balas
  	this.mover360 = false;		// Arriba
