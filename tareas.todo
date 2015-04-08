@@ -36,22 +36,56 @@ versión 0.1:
 
 :ClasesEnJS:
 
-✔ Constante de max num de veces que puede rebotar una bala antes de destruirse @done (04-04-15 20:46)
-☐ Las balas pueden chocar entre si y destruirse
-☐ EL PROBLEMA DE LA COLISION NAVE-BLOQUE ES PORQUE ...
-    ✘ LA NAVE TIENE TAMAÑO 1 Y EL BLOQUE 20 @cancelled (01-04-15 02:45)
-    ☐ @Rotacion La nave rota y como la nave es cuadrada al rotar en 5 un pico de ese cuadrado choca
-☐ Sonido
-☐ poner disparo en otro fichero independiente
-☐ Poner la velocidad como constante @Problema @MientrasHayaRotacionHabraDiferentesVelocidadesParaCadaEje
+ ☐ Portales
+     ✔ Internos > Dentro del mismo mapa @done (09-04-15 01:26)
+     ☐ Externos > De Mapa a Mapa:         2 portales dentro del mismo mapa para acceder a zonas impenetrables
+     ☐ Una vez que se ha transportado, no poder transportarse al anterior hasta que no se deje de hacer contacto y recontactar
+     ☐ Que las balas desaparezcan dentro del portal / aparezca circulo de fuego y explosión
+
+ ☐ Poner el canvas y el contexto en una sola línea
+ ☐ Buscar sonido para los mapas
+ ☐ Que mis balas sean largas en vertical, no cuadradas (al menos intentar que sean redondas)
+ ☐ Fase: hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
+     pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
+     por rebote
+☐ Crear una base
+    ☐ Siempre que se vuelva a ella se reestablezca la vida y la munición
+    ☐ Al morir reaparecer en la base y poner el sonido de recargar "recharge.wav"
+    ☐ La base este solo en el mapa1 y haya que regresar a el para recargar y recuperar salud
 ☐ Crear una entrada y una salida para que de sensacion de que el mapa 1 y 2 estan unidos
-☐ Las balas reboten correctamente y la nave choque bien contra el bloque, ¿problema algoritmo interseccion?
-☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
-☐ Problema de tecla presionada
-☐ for of
+☐ Hacer 2ª arma
+    ☐ El jugador pueda quedarse sin balas
+✘ Las balas pueden chocar entre si y destruirse @cancelled (05-04-15 12:01)
+☐ Crear Splash Screen
+☐ Crear sistema de puntuacion en php. A la gente les engancha el que sean los mejores / tengan mas puntos. Mostrar los nombres en la plantilla
 ☐ poner un limite de vidas que se puedan conseguir y de puntos
-☐ mejorada plantilla y optimizado
-☐ Crear clase FiguraFija, FiguraDinamica, Bloque, Bala ... eso de tener una sola clase como que no...
+☐ Mejorar colisión nave-bloque
+☐ Poner la velocidad como constante @Problema @MientrasHayaRotacionHabraDiferentesVelocidadesParaCadaEje
+☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
+☐ for of
+✔ poner x,y y rotacion como parametros al crearMapa(): @done (09-04-15 01:26)
+✔ Que la puerta que cambia de fase tenga los bordes redondeados @done (08-04-15 15:54)
+☐ Sonido
+    ✔ Icono toggle @done (05-04-15 15:39)
+    ✔ sonido para cuando me quemo con el Fuego @done (06-04-15 13:26)
+    ✔ Al cambiar de fase, ocultar el sonido de la fase anterior @done (07-04-15 16:57)
+    ✔ variable para saber el sonido del mapa actual para cuando pause (Tecla S) y vuelva a reaundar @done (07-04-15 16:57)
+    ✔ Cambiar de fase, poner el que tengo asignado a getLife, pega mejor @done (07-04-15 16:58)
+    ✔ Poder activar/desactivar el sonido haciendo clic en la img de la plantilla @done (07-04-15 17:52)
+✔ Al metodo createMap() pasarle el color de fondo del mapa como parámetro @done (07-04-15 18:17)
+✔ Al metodo createMap() pasarle como parametro el sonido de cada fase @done (07-04-15 01:13)
+✔ Poner la puerta en el metodo createMap(). Poner numero asignado a puerta y que automat. aparezca en el mapa @done (06-04-15 23:51)
+✔ Traducido al inglés @done (06-04-15 16:51)
+✔ mejorada plantilla y optimizado @done (06-04-15 00:13)
+✔ Crear clase FiguraFija, FiguraDinamica, Bloque, Bala ... eso de tener una sola clase como que no... @done (06-04-15 00:13)
+✔ Solucionar pausa y game over @done (06-04-15 00:12)
+✔ Al pulsar Enter despues de morir, reinicie partida (tenga 2 funciones) @done (06-04-15 00:13)
+✔ Cuando se pause que se pause el sonido tambien @done (05-04-15 17:56)
+✔ Hacer un gif animado para github sobre el sistema de rebote de las balas @done (05-04-15 02:45)
+✔ Pasar a ingles el repositorio de la nave @done (05-04-15 02:44)
+✔ No atravesar los bloques blancos @done (04-04-15 22:28)
+✔ poner disparo en otro fichero independiente @done (04-04-15 21:46)
+✔ Constante de max num de veces que puede rebotar una bala antes de destruirse @done (04-04-15 20:46)
 ✔ Invertir rebote de las balas en vez de ponerlos negativo @done (04-04-15 20:25)
 ✔ Disminuido espacio separacion entre bloques @done (01-04-15 00:49)
 ✔ El bloqueVida no aparezca encima del fuego ni de un bloque @done (31-03-15 02:12)

@@ -2,7 +2,7 @@ body{
 	width: 100%;
 	margin: 0 auto;
 	text-align: center;
-	background: url("../assets/img/fondo.jpg") repeat;
+	background: url("../assets/img/background.jpg") repeat;
 	/*background-color:#3E4F4F;*/
 	overflow-x: hidden;
 }
@@ -13,11 +13,13 @@ header{
 }
 #light1{
 	margin-top: -115px;
-	margin-left: -750px;
+	margin-left: -550px;
+	position: absolute;
 }
 #light2{
-	margin-top: -130px;
-	margin-left: 735px;
+	margin-top: -115px;
+	margin-left: 225px;
+	position: absolute;
 }
 section{
 	width: 100%;
@@ -56,6 +58,11 @@ canvas{
 	margin-top: -70px;
 	margin-left: 100px;
 	width: 300px;
+	-webkit-filter: grayscale(0.3);
+	-moz-filter: grayscale(0.3);
+	-o-filter: grayscale(0.3);
+	-ms-filter: grayscale(0.3);
+	filter: grayscale(0.3);
 }
 #score{
 	margin-top: -40px;
@@ -80,6 +87,16 @@ h1{
 	text-shadow: 2px 2px 2px #888;
 	font-family: divertida;
 	color: #DFE1E4;
+}
+#sound{
+	width: 32px;
+	margin-left: 75px;
+	margin: 20px auto;
+	-webkit-filter: grayscale(0.8);
+	-moz-filter: grayscale(0.8);
+	-o-filter: grayscale(0.8);
+	-ms-filter: grayscale(0.8);
+	filter: grayscale(0.8);
 }
 @font-face {
 	font-family: penstriped;

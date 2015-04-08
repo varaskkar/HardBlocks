@@ -4,10 +4,13 @@ var ElementLives  = document.getElementById("livesNum");
 var ElementPoints = document.getElementById("scoreNum");
 var ElementLight1 = document.getElementById("light1");
 var ElementLight2 = document.getElementById("light2");
-var ElementTable = document.getElementsByTagName("table")[0];
+var ElementTable  = document.getElementsByTagName("table")[0];
 var ElementShadow = document.getElementById("shadow");
-var ElementLine = document.getElementsByTagName("hr")[0];
-var ElementBody = document.getElementsByTagName("body")[0];
+var ElementSound  = document.getElementById("sound");
+var ElementLogo   = document.getElementById("logo");
+var ElementLine   = document.getElementsByTagName("hr")[0];
+var ElementBody   = document.getElementsByTagName("body")[0];
+var ElementCanvas = document.getElementsByTagName("canvas")[0];
 
 function getFps(){
   	var thisFrameFPS = 1000 / ((now = new Date) - lastUpdate);
@@ -26,65 +29,76 @@ window.requestAnimFrame=(function(){
   	};
 })();
 
-function setFullscreen(canvas){
-	var w = window.innerWidth/canvas.width;
-	var h = window.innerHeight/canvas.height;
-	var scale = Math.min(h,w);
-
-	canvas.style.width      = (canvas.width*scale)+'px';
-	canvas.style.height     = (canvas.height*scale)+'px';
-	canvas.style.position   = 'fixed';
-	canvas.style.left       = '50%';
-	canvas.style.top        = '50%';
-	canvas.style.marginLeft =- (canvas.width*scale)/2+'px';
-	canvas.style.marginTop  =- (canvas.height*scale)/2+'px';
-	// canvas.style.transition = "all 2s";
-
-	ElementTable.style.visibility = "hidden";
-	ElementShadow.style.visibility = "hidden";
-	ElementLine.style.visibility = "hidden";
-	ElementLight1.style.visibility = "hidden";
-	ElementLight2.style.visibility = "hidden";
-	ElementBody.style.background = "#010B15";
-
-	return true;
+function templateSetBackgroundColor(color){
+	ElementCanvas.style.background = color;
 }
 
-function setNotFullscreen(canvas){
-	canvas.style.width      = '';
-	canvas.style.height     = '';
-	canvas.style.position   = '';
-	canvas.style.left       = '';
-	canvas.style.top        = '';
-	canvas.style.marginLeft = '';
-	canvas.style.marginTop  = '';
+function templateSetFullscreen(canvas){
+	if(fullScreen){
+		var w = window.innerWidth/canvas.width;
+		var h = window.innerHeight/canvas.height;
+		var scale = Math.min(h,w);
 
-	ElementTable.style.visibility = "";
-	ElementShadow.style.visibility = "";
-	ElementLine.style.visibility = "";
-	ElementLight1.style.visibility = "";
-	ElementLight2.style.visibility = "";
-	ElementBody.style.background = "";
+		canvas.style.width      = (canvas.width*scale)+'px';
+		canvas.style.height     = (canvas.height*scale)+'px';
+		canvas.style.position   = 'fixed';
+		canvas.style.left       = '50%';
+		canvas.style.top        = '50%';
+		canvas.style.marginLeft =- (canvas.width*scale)/2+'px';
+		canvas.style.marginTop  =- (canvas.height*scale)/2+'px';
+		// canvas.style.transition = "all 2s";
 
-	return false;
+		ElementTable.style.visibility = "hidden";
+		ElementShadow.style.visibility = "hidden";
+		ElementLine.style.visibility = "hidden";
+		ElementLight1.style.visibility = "hidden";
+		ElementLight2.style.visibility = "hidden";
+		ElementSound.style.visibility = "hidden";
+		ElementLogo.style.visibility = "hidden";
+		ElementBody.style.background = "#010B15";
+	}else{
+		canvas.style.width      = '';
+		canvas.style.height     = '';
+		canvas.style.position   = '';
+		canvas.style.left       = '';
+		canvas.style.top        = '';
+		canvas.style.marginLeft = '';
+		canvas.style.marginTop  = '';
+
+		ElementTable.style.visibility = "";
+		ElementShadow.style.visibility = "";
+		ElementLine.style.visibility = "";
+		ElementLight1.style.visibility = "";
+		ElementLight2.style.visibility = "";
+		ElementSound.style.visibility = "";
+		ElementLogo.style.visibility = "";
+		ElementBody.style.background = "";
+	}
 }
 
-function printLives(lives){ ElementLives.innerHTML = formatNumbers(lives); }
-function printPoints(points){ ElementPoints.innerHTML = formatNumbers(points); }
+function templateSetLives(lives){ ElementLives.innerHTML = formatNumbers(lives); }
+function templateSetPoints(points){ ElementPoints.innerHTML = formatNumbers(points); }
 
-function printLightEfectsBefore(){
-	setTimeout(printLightEfectsBefore,100);
-	ElementLives.style.color  = '#DFE1E4';
-	ElementPoints.style.color = '#DFE1E4';
-	ElementLight1.innerHTML   = "<img src='assets/img/efectoLuz1.png'>";
-	ElementLight2.innerHTML   = "<img src='assets/img/efectoLuz1.png'>";
+function templateSetLightEfects(enable){
+	if(!enable){
+		setTimeout(templateSetLightEfects,100);
+		ElementLives.style.color  = '#DFE1E4';
+		ElementPoints.style.color = '#DFE1E4';
+		ElementLight1.src         = "assets/img/lighEffect1.png";
+		ElementLight2.src         = "assets/img/lighEffect1.png";
+	}else{
+		ElementLives.style.color  = '#94A2B7';
+		ElementPoints.style.color = '#94A2B7';
+		ElementLight1.src         = "assets/img/lighEffect2.png";
+		ElementLight2.src         = "assets/img/lighEffect2.png";
+	}
 }
 
-function printLightEfectsAfter(){
-	ElementLives.style.color  = '#94A2B7';
-	ElementPoints.style.color ='#94A2B7';
-	ElementLight1.innerHTML   = "<img src='assets/img/efectoLuz2.png'>";
-	ElementLight2.innerHTML   = "<img src='assets/img/efectoLuz2.png'>";
+function templateSetSound(){
+	if(sound)
+		ElementSound.src = "assets/img/soundFull.png";
+	else
+		ElementSound.src = "assets/img/soundNotFull.png";
 }
 
 function formatNumbers(number){
@@ -182,15 +196,37 @@ function random(max){
 
 function pressKey(){
 	document.addEventListener('keydown',function(evt){
-		tecla = evt.keyCode;
-		teclaPresionada[evt.keyCode] = true;
+		key = evt.keyCode;
+		keyPressed[evt.keyCode] = true;
 	},false);
 	document.addEventListener('keyup',function(evt){
-		teclaPresionada[evt.keyCode] = false;
+		keyPressed[evt.keyCode] = false;
 	},false);
 }
 
+function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+	if (typeof fill == "undefined")
+		fill = true;
+	if (typeof radius === "undefined")
+		radius = 5;
 
+	ctx.beginPath();
+	ctx.moveTo(x + radius, y);
+	ctx.lineTo(x + width - radius, y);
+	ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+	ctx.lineTo(x + width, y + height - radius);
+	ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+	ctx.lineTo(x + radius, y + height);
+	ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+	ctx.lineTo(x, y + radius);
+	ctx.quadraticCurveTo(x, y, x + radius, y);
+	ctx.closePath();
+
+	if(fill)
+		ctx.fill();
+	if(stroke)
+		ctx.stroke();
+}
 
 
 

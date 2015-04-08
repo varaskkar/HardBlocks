@@ -4,30 +4,28 @@
 	<title>Game on Canvas</title>
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" href="css/estilos.css">
-	<script src="js/autorAscii.js"></script>
-    <!-- <script src="js/lib/jquery-2.0.3.min.js"></script> -->
-    <script data-main="js/gestion" src="js/lib/require.js"></script>
+	<script src="js/author's signature.js"></script>
+    <script data-main="js/manage" src="js/lib/require.js"></script>
 </head>
 <body>
     <header>
     	<h1>Game on Canvas</h1>
     	<hr/>
     	<br/>
-    	<div id="light1"><img src="assets/img/efectoLuz1.png"></div>
-    	<div id="light2"><img src="assets/img/efectoLuz1.png"></div>
+    	<img id="light1" src="assets/img/lighEffect1.png">
+    	<img id="light2" src="assets/img/lighEffect1.png">
     </header>
     <section>
         <div id="left">
             <img id="logo" src="assets/img/dodoSoftware.png">
-            <h3 class="info" id="score">Points</h3>
+            <h3 class="info" id="score">Score</h3>
             <h3 class="info" id="scoreNum">000</h3>
             <h3 class="info" id="lives">Lives</h3>
             <h3 class="info" id="livesNum">999</h3>
         </div>
         <div id="center">
-            <!-- <canvas width="500" height="300">Sorry, your browser don't support Canvas</canvas> -->
             <canvas width="560" height="360">Sorry, your browser don't support Canvas</canvas>
-            <img id="shadow" src="assets/img/sombra.png">
+            <img id="shadow" src="assets/img/shadowCanvas.png">
         </div>
         <div id="right">
             <table>
@@ -35,16 +33,18 @@
                     <tr><th>Key</th><th>Description</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Pad num 1</td><td>Map 1</td></tr>
-                    <tr><td>Pad num 2</td><td>Map 2</td></tr>
-                    <tr><td>Pad num 3</td><td>Empty map</td></tr>
-                    <tr><td>Pad num 7</td><td>Information</td></tr>
-                    <tr><td>Enter</td><td>Pause</td></tr>
+                    <tr><td>1</td><td>Map 1</td></tr>
+                    <tr><td>2</td><td>Map 2</td></tr>
+                    <tr><td>3</td><td>Empty map</td></tr>
+                    <tr><td>7</td><td>Information</td></tr>
+                    <tr><td>Enter</td><td>Pause & Start</td></tr>
                     <tr><td>Z</td><td>Weapon 1</td></tr>
                     <tr><td>X</td><td>Weapon 2</td></tr>
                     <tr><td>M</td><td>Fullscreen</td></tr>
+                    <tr><td>S</td><td>Sound</td></tr>
                 </tbody>
             </table>
+            <img id="sound" src="assets/img/soundFull.png" onclick="toggleSound()">
         </div>
     </section>
 

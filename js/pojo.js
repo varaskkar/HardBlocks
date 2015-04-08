@@ -1,11 +1,48 @@
-function Figura(x,y,ancho,alto,velX,velY){
+function Element(x,y,ancho,alto){
+	this.x = x;
+ 	this.y = y;
+ 	this.width = ancho;
+ 	this.height = alto;
+ 	this.life = 0;
+
+ 	this.collide = function(algo){
+	  	if(algo != null){
+	   		return this.x < algo.x+algo.width &&
+	   		       this.x+this.width > algo.x &&
+	   			   this.y < algo.y+algo.height &&
+	   			   this.y+this.height>algo.y;
+	  	}
+ 	}
+}
+
+function Player(x,y,ancho,alto){
+	this.x = x;
+ 	this.y = y;
+ 	this.width = ancho;
+ 	this.height = alto;
+ 	this.life = 0;
+ 	this.rotation = 0;
+ 	this.score = 0;
+ 	this.timeProtected = 0;
+ 	this.timeChangeLevel = 0;
+
+ 	this.collide = function(algo){
+	  	if(algo != null){
+	   		return this.x < algo.x+algo.width &&
+	   		       this.x+this.width > algo.x &&
+	   			   this.y < algo.y+algo.height &&
+	   			   this.y+this.height>algo.y;
+	  	}
+ 	}
+}
+
+function Bullet(x,y,ancho,alto,velX,velY){
 	this.x = x;
  	this.y = y;
  	this.width = ancho;
  	this.height = alto;
  	this.velX = velX;
  	this.velY = velY;
- 	this.vida = 0;
  	this.maxRebounds = 0;
 
 	// Atributos de las balas
@@ -87,7 +124,7 @@ function Figura(x,y,ancho,alto,velX,velY){
  	this.mover265 = false;
 
  	this.permitir = false;
- 	this.chocar = function(algo){
+ 	this.collide = function(algo){
 	  	if(algo != null){
 	   		return this.x < algo.x+algo.width &&
 	   		       this.x+this.width > algo.x &&
@@ -95,15 +132,5 @@ function Figura(x,y,ancho,alto,velX,velY){
 	   			   this.y+this.height>algo.y;
 	  	}
  	}
-
-
-// void move_ball() {
-//     ball.x += ball.dx;
-//     ball.y += ball.dy;
-//     if (ball.y <= ball.radius || ball.y >= SCREEN_H - ball.radius)
-//         ball.dy *= -1;
-//     if (ball.x <= ball.radius || ball.y >= SCREEN_W - ball.radius)
-//         ball.dx *= -1;
-// }
 
 }
