@@ -37,13 +37,13 @@ versión 0.1:
 :ClasesEnJS:
 
  ☐ Portales
-     ✔ Internos > Dentro del mismo mapa @done (09-04-15 01:26)
-     ☐ Externos > De Mapa a Mapa:         2 portales dentro del mismo mapa para acceder a zonas impenetrables
-     ☐ Una vez que se ha transportado, no poder transportarse al anterior hasta que no se deje de hacer contacto y recontactar
+     ☐ Internos > Dentro del mismo mapa: 2 portales dentro del mismo mapa para acceder a zonas impenetrables
+     ✔ Externos > De Mapa a Mapa        @done (09-04-15 14:39)
+     ✔ Una vez que se ha transportado, no poder transportarse al anterior hasta que no se deje de hacer contacto y recontactar @done (09-04-15 03:16)
      ✔ Que las balas desaparezcan dentro del portal @done (09-04-15 01:42)
      ☐ aparezca circulo de fuego y explosión
      ☐ Activar el portal cuando mate a todos los enemigos
-
+     ☐ Al cambiar de mapas entre portales, que se guarde el mapa como estaba (mantener los bloques destruidos)
  ☐ Poner el canvas y el contexto en una sola línea
  ☐ Buscar sonido para los mapas
  ☐ Que mis balas sean largas en vertical, no cuadradas (al menos intentar que sean redondas)

@@ -5,12 +5,12 @@ function Element(x,y,ancho,alto){
  	this.height = alto;
  	this.life = 0;
 
- 	this.collide = function(algo){
-	  	if(algo != null){
-	   		return this.x < algo.x+algo.width &&
-	   		       this.x+this.width > algo.x &&
-	   			   this.y < algo.y+algo.height &&
-	   			   this.y+this.height>algo.y;
+ 	this.collide = function(thing){
+	  	if(typeof thing != "undefined"){
+	   		return this.x < thing.x+thing.width &&
+	   		       this.x+this.width > thing.x &&
+	   			   this.y < thing.y+thing.height &&
+	   			   this.y+this.height>thing.y;
 	  	}
  	}
 }
@@ -26,12 +26,12 @@ function Player(x,y,ancho,alto){
  	this.timeProtected = 0;
  	this.timeChangeLevel = 0;
 
- 	this.collide = function(algo){
-	  	if(algo != null){
-	   		return this.x < algo.x+algo.width &&
-	   		       this.x+this.width > algo.x &&
-	   			   this.y < algo.y+algo.height &&
-	   			   this.y+this.height>algo.y;
+ 	this.collide = function(thing){
+	  	if(typeof thing != "undefined"){
+	   		return this.x < thing.x+thing.width &&
+	   		       this.x+this.width > thing.x &&
+	   			   this.y < thing.y+thing.height &&
+	   			   this.y+this.height>thing.y;
 	  	}
  	}
 }
@@ -124,12 +124,12 @@ function Bullet(x,y,ancho,alto,velX,velY){
  	this.mover265 = false;
 
  	this.permitir = false;
- 	this.collide = function(algo){
-	  	if(algo != null){
-	   		return this.x < algo.x+algo.width &&
-	   		       this.x+this.width > algo.x &&
-	   			   this.y < algo.y+algo.height &&
-	   			   this.y+this.height>algo.y;
+ 	this.collide = function(thing){
+	  	if(typeof thing != "undefined"){
+	   		return this.x < thing.x+thing.width &&
+	   		       this.x+this.width > thing.x &&
+	   			   this.y < thing.y+thing.height &&
+	   			   this.y+this.height>thing.y;
 	  	}
  	}
 

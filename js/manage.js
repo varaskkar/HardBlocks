@@ -15,13 +15,13 @@ var canvas = null, ctx = null;
 var player, blockLife;
 var key = null;
 var keyPressed = [];
-var bullets1 = [], bullets2 = [], blockBrown = [], blockRed = [], blockWhiteVert = [], blockWhiteHor = [];
+var bullets1 = [], bullets2 = [];
 
 var info       = true,
 	pause      = false,
 	gameOver   = false,
 	fullScreen = false,
-	sound      = true;
+	sound      = false;
 
 var iPlayer      = new Image(),
  	iBlockLife   = new Image(),
@@ -87,20 +87,20 @@ function loadAssets(){
 	sMap4.src              = 'assets/audio/FondoDeUnaCueva.wav';
 	sMap5.src              = 'assets/audio/FondoDeUnaCueva.wav';
 	sMap6.src              = 'assets/audio/FondoDeUnaCueva.wav';
+
+	templateSetSound();
+	templateSetLightEfects(false);
 }
 function reset(){
+	setPositionPlayer(270, 330, 0);
 	player.score         = _PointsStart;
 	player.life          = _LifesPlayer;
 	player.timeProtected = 0;
-	player.x             = 270;
-	player.y             = 330;
-	player.rotation      = 0;
 	blockLife.x          = random(canvas.width - 10);
 	blockLife.y          = random(canvas.height - 10);
 	gameOver             = false;
 	clearMap();
 	createMap(map1, _SizeBlock, sMap1, "map1", "#011224");
-	templateSetLightEfects(false);
 }
 function run(){
 	requestAnimFrame(run);
@@ -135,6 +135,19 @@ function draw() {
 
 		ctx.strokeStyle = "#8A0A0A";
 		roundRect(ctx, portal1[i].x, portal1[i].y, portal1[i].width, portal1[i].height, 25, true, true);
+	}
+
+	for(i in portal2){
+		if(player.timeChangeLevel > 0){
+			if(player.timeChangeLevel%3 == 0)
+				ctx.fillStyle = '#011224';
+			else
+				ctx.fillStyle = '#07213C';
+		}else
+			ctx.fillStyle = '#07213C';
+
+		ctx.strokeStyle = "#8A0A0A";
+		roundRect(ctx, portal2[i].x, portal2[i].y, portal2[i].width, portal2[i].height, 25, true, true);
 	}
 
 	if(player.timeProtected > 0){
@@ -258,7 +271,7 @@ function collision(){
 		}
 	}
 
-	// player -> portal
+	// player -> portal1
 	for(i in portal1){
 		if(player.collide(portal1[i]) && !portalCrossed){
 	 		if(player.timeChangeLevel == 0){
@@ -271,12 +284,19 @@ function collision(){
 				}else if(currentMap == "map2"){
 					clearMap();
 					createMap(map1, _SizeBlock, sMap1, "map1", "#011224", 532, 62, 180);
+				}else if(currentMap == "map3"){
+
+						// clearMap();
+						// createMap(map3, _SizeBlock, sMap1, "map3", "#010B16", 512, 32, 270);
+						setPositionPlayer(512, 32, 270);
+					// setTimeout(function(){
+					// 	setPositionPlayer(512, 32, 270);
+					// }, 1);
 				}
 				portalCrossed = true;
 				loadSound(sChangeLevelAfter);
 			}
-		}
-		else{
+		}else{
 			// BUG: antes carga el portal que la nave (tiempo espera en metodo crearPapa)
 			// por eso cuando carga el portal la nave ya esta a la derecha y dice ¡SI!
 
@@ -293,9 +313,32 @@ function collision(){
 		}
 	}
 
+	// player -> portal2
+	for(i in portal2){
+		if(player.collide(portal2[i]) && !portalCrossed2){
+	 		if(player.timeChangeLevel == 0){
+				player.timeChangeLevel = _TimeDoor;
+				loadSound(sChangeLevelBefore);
+			}else if(player.timeChangeLevel == 1){
+				if(currentMap == "map3"){
+					setPositionPlayer(32, 272, 90);
+				}
+				portalCrossed2 = true;
+				loadSound(sChangeLevelAfter);
+			}
+		}else{
+			setTimeout(function(){
+				if(portal2[0].x + 50 < player.x || portal2[0].x - 50 > player.x || portal2[0].y + 50 < player.y || portal2[0].y - 50 > player.y){
+					portalCrossed2 = false;
+				}
+			}, 250);
+		}
+	}
+
 	// bullets1 -> blockBrown
 	for(i in bullets1){
 		for(j in blockBrown){
+			// console.log(bullets1[i].collide(blockBrown[j]));
 			if(bullets1[i].collide(blockBrown[j])){
 	  			player.score += _PointsBlock;
 

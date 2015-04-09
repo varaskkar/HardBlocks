@@ -8,8 +8,8 @@
 
 var currentMap = "";
 var map1 = [], map2 = [], map3 = [], map4 = [], map5 = [], map6 = [], map7 = [];
-var portal1 = [], portal2 = [];
-var portalCrossed = false;
+var portal1 = [], portal2 = [], blockBrown = [], blockRed = [], blockWhiteVert = [], blockWhiteHor = [];
+var portalCrossed = false, portalCrossed2 = false;
 
 function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rotation){
 	for(var i = 0; i < map.length; i++) {			// i = fila   j = columna
@@ -37,8 +37,7 @@ function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rota
 	if(typeof rotation != "undefined")	player.rotation = rotation;
 }
 function clearMap(){
-	var cantBloquesCabenPantalla = canvas.width/_SizeBlock * canvas.height/_SizeBlock;
-
+	// var cantBloquesCabenPantalla = canvas.width/_SizeBlock * canvas.height/_SizeBlock;
 	for(var i = 0; i < 999; i++) {
 		blockBrown.splice(0,1);
 		blockRed.splice(0,1);
@@ -49,6 +48,11 @@ function clearMap(){
 		portal2.splice(0,1);
 	}
 	stopSounds();
+}
+function setPositionPlayer(posX, posY, rotation){
+	player.x        = posX;
+	player.y        = posY;
+	player.rotation = rotation;
 }
 
 map1 = [
@@ -95,8 +99,8 @@ map2 = [
 
 map3 = [
 	[ 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 ],
-	[ 2 ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[ 2 ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[ 2 ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,'P2','P2', 2 ],
+	[ 2 ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,'P2','P2', 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 , 3 ,   ,   , 3 , 3 , 3 , 3 , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   , 3 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
@@ -107,8 +111,8 @@ map3 = [
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 3 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 3 , 2 , 3 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 , 2 , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[ 2 ,'P1','P1',   ,   ,   ,   ,   ,   ,   ,   , 3 , 2 , 3 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[ 2 ,'P1','P1',   ,   ,   ,   ,   ,   ,   ,   , 2 , 2 , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 , 2 , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 , 2 , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 ]
