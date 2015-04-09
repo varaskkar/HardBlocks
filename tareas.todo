@@ -1,7 +1,7 @@
 
 Juego de Naves:
 
-    ☐ Buscar nombre    Rebo Blocks, Invert Block, Destroy Blocks, Shoot Blocks
+    ☐ Buscar nombre    Rebo Blocks, Invert Block, Destroy Blocks, Shoot Blocks, Pedel
     ☐ Añadir fondo en vez de color plano
 
 versión 0.1:
@@ -40,7 +40,9 @@ versión 0.1:
      ✔ Internos > Dentro del mismo mapa @done (09-04-15 01:26)
      ☐ Externos > De Mapa a Mapa:         2 portales dentro del mismo mapa para acceder a zonas impenetrables
      ☐ Una vez que se ha transportado, no poder transportarse al anterior hasta que no se deje de hacer contacto y recontactar
-     ☐ Que las balas desaparezcan dentro del portal / aparezca circulo de fuego y explosión
+     ✔ Que las balas desaparezcan dentro del portal @done (09-04-15 01:42)
+     ☐ aparezca circulo de fuego y explosión
+     ☐ Activar el portal cuando mate a todos los enemigos
 
  ☐ Poner el canvas y el contexto en una sola línea
  ☐ Buscar sonido para los mapas

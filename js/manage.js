@@ -260,7 +260,7 @@ function collision(){
 
 	// player -> portal
 	for(i in portal1){
-		if(player.collide(portal1[i])){
+		if(player.collide(portal1[i]) && !portalCrossed){
 	 		if(player.timeChangeLevel == 0){
 				player.timeChangeLevel = _TimeDoor;
 				loadSound(sChangeLevelBefore);
@@ -268,23 +268,28 @@ function collision(){
 				if(currentMap == "map1"){
 					clearMap();
 					createMap(map2, _SizeBlock, sMap2, "map2", "#010F1D", 32, 212, 90);
-					// createMap(map2, _SizeBlock, sMap2, "map2", "#010F1D");
-					// setTimeout(function(){
-					// 	player.x        = 32;
-					// 	player.y        = 212;
-					// 	player.rotation = 90;
-					// }, 250);
 				}else if(currentMap == "map2"){
 					clearMap();
-					createMap(map1, _SizeBlock, sMap1, "map1", "#011224");
-					setTimeout(function(){
-						player.x        = 532;
-						player.y        = 62;
-						player.rotation = 180;
-					}, 250);
+					createMap(map1, _SizeBlock, sMap1, "map1", "#011224", 532, 62, 180);
 				}
+				portalCrossed = true;
 				loadSound(sChangeLevelAfter);
 			}
+		}
+		else{
+			// BUG: antes carga el portal que la nave (tiempo espera en metodo crearPapa)
+			// por eso cuando carga el portal la nave ya esta a la derecha y dice ¡SI!
+
+			// When you've croosed the portal, avoid return to portal before
+			// There is move player in 4 directions outside the portal
+			setTimeout(function(){
+				if(portal1[0].x + 50 < player.x || portal1[0].x - 50 > player.x || portal1[0].y + 50 < player.y || portal1[0].y - 50 > player.y){
+					portalCrossed = false;
+					// console.log("Si");
+				}
+				// else
+				// 	console.log("No");
+			}, 250);
 		}
 	}
 
