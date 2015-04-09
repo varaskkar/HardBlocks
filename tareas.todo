@@ -36,14 +36,7 @@ versión 0.1:
 
 :ClasesEnJS:
 
- ☐ Portales
-     ☐ Internos > Dentro del mismo mapa: 2 portales dentro del mismo mapa para acceder a zonas impenetrables
-     ✔ Externos > De Mapa a Mapa        @done (09-04-15 14:39)
-     ✔ Una vez que se ha transportado, no poder transportarse al anterior hasta que no se deje de hacer contacto y recontactar @done (09-04-15 03:16)
-     ✔ Que las balas desaparezcan dentro del portal @done (09-04-15 01:42)
-     ☐ aparezca circulo de fuego y explosión
-     ☐ Activar el portal cuando mate a todos los enemigos
-     ☐ Al cambiar de mapas entre portales, que se guarde el mapa como estaba (mantener los bloques destruidos)
+ ☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
  ☐ Poner el canvas y el contexto en una sola línea
  ☐ Buscar sonido para los mapas
  ☐ Que mis balas sean largas en vertical, no cuadradas (al menos intentar que sean redondas)
@@ -65,6 +58,14 @@ versión 0.1:
 ☐ Poner la velocidad como constante @Problema @MientrasHayaRotacionHabraDiferentesVelocidadesParaCadaEje
 ☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
 ☐ for of
+☐ Portales
+     ☐ Internos > Dentro del mismo mapa: 2 portales dentro del mismo mapa para acceder a zonas impenetrables
+     ✔ Externos > De Mapa a Mapa        @done (09-04-15 14:39)
+     ✔ Una vez que se ha transportado, no poder transportarse al anterior hasta que no se deje de hacer contacto y recontactar @done (09-04-15 03:16)
+     ✔ Que las balas desaparezcan dentro del portal @done (09-04-15 01:42)
+     ☐ aparezca circulo de fuego y explosión
+     ☐ Activar el portal cuando mate a todos los enemigos
+     ✔ Al cambiar de mapas, que se guarde el mapa como estaba (mantener los bloques destruidos) @done (10-04-15 00:49)
 ✔ poner x,y y rotacion como parametros al crearMapa(): @done (09-04-15 01:26)
 ✔ Que la puerta que cambia de fase tenga los bordes redondeados @done (08-04-15 15:54)
 ☐ Sonido

@@ -77,7 +77,7 @@ function loadAssets(){
 	sGetLife.src           = 'assets/audio/blip.wav';
 	sLoseLife.src          = 'assets/audio/Error.wav';
 	sRebounds.src          = 'assets/audio/rebounds.wav';
-	sContinue.src         = 'assets/audio/recharge.wav';
+	sContinue.src          = 'assets/audio/recharge.wav';
 	sChangeLevelBefore.src = 'assets/audio/process4.wav';
 	sChangeLevelAfter.src  = 'assets/audio/life.wav';
 	sGameOver.src          = 'assets/audio/gameOver2.wav';
@@ -194,7 +194,7 @@ function draw() {
 		ctx.fillText('Score: '+player.score,5,30);
 		ctx.fillText('Bullets 1: '+bullets1.length,5,45);
 		ctx.fillText('Bullets 2: '+bullets2.length,5,60);
-		ctx.fillText('Fps: '+getFps().toFixed(1),5,75);
+		ctx.fillText('Fps: '+ getFps().toFixed(1),5,75);
 		ctx.fillText('Lifes: '+player.life,5,90);
 		ctx.fillText('Rotation: '+player.rotation,5,105);
 		ctx.fillText('Time Protection: '+player.timeProtected,5,120);
@@ -262,10 +262,9 @@ function collision(){
 	// player -> blockRed
 	for(i in blockRed){
 		if(player.collide(blockRed[i]) && player.timeProtected < 1){
-			// En la última vida no se oiga el sonido de perderla, que se oiga el sonido de GameOver
-			if(player.life != 1){
+			// In the last life, not hear the sound of lose it, otherwise the sound of GameOver
+			if(player.life != 1)
 				loadSound(sLoseLife);
-			}
 			player.timeProtected = _TimeProtected;
 			player.life--;
 		}
@@ -279,11 +278,15 @@ function collision(){
 				loadSound(sChangeLevelBefore);
 			}else if(player.timeChangeLevel == 1){
 				if(currentMap == "map1"){
+					makeBackupMap("map1");
 					clearMap();
 					createMap(map2, _SizeBlock, sMap2, "map2", "#010F1D", 32, 212, 90);
+					loadBackupMap("map2");
 				}else if(currentMap == "map2"){
+					makeBackupMap("map2");
 					clearMap();
 					createMap(map1, _SizeBlock, sMap1, "map1", "#011224", 532, 62, 180);
+					loadBackupMap("map1");
 				}else if(currentMap == "map3"){
 
 						// clearMap();

@@ -10,9 +10,10 @@ var currentMap = "";
 var map1 = [], map2 = [], map3 = [], map4 = [], map5 = [], map6 = [], map7 = [];
 var portal1 = [], portal2 = [], blockBrown = [], blockRed = [], blockWhiteVert = [], blockWhiteHor = [];
 var portalCrossed = false, portalCrossed2 = false;
+var blockBrownCopyMap1 = [], blockBrownCopyMap2 = [];
 
 function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rotation){
-	for(var i = 0; i < map.length; i++) {			// i = fila   j = columna
+	for(var i = 0; i < map.length; i++) {			// i = row   j = column
 		for(var j = 0; j < map[i].length; j++) {
 			if(map[i][j] == 5)
 				blockBrown.push(new Element(j*width,i*width,width,width));
@@ -37,17 +38,42 @@ function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rota
 	if(typeof rotation != "undefined")	player.rotation = rotation;
 }
 function clearMap(){
-	// var cantBloquesCabenPantalla = canvas.width/_SizeBlock * canvas.height/_SizeBlock;
-	for(var i = 0; i < 999; i++) {
-		blockBrown.splice(0,1);
-		blockRed.splice(0,1);
-		blockWhiteVert.splice(0,1);
-		blockWhiteHor.splice(0,1);
-		bullets1.splice(0,1);
-		portal1.splice(0,1);
-		portal2.splice(0,1);
-	}
+	blockBrown.splice(0, blockBrown.length);
+	blockRed.splice(0, blockRed.length);
+	blockWhiteVert.splice(0, blockWhiteVert.length);
+	blockWhiteHor.splice(0, blockWhiteHor.length);
+	bullets1.splice(0, bullets1.length);
+	portal1.splice(0, portal1.length);
+	portal2.splice(0, portal2.length);
 	stopSounds();
+}
+function makeBackupMap(nameMap){
+	if(nameMap == "map1"){
+		blockBrownCopyMap1.splice(0, blockBrownCopyMap1.length);
+		for(i in blockBrown)
+			blockBrownCopyMap1[i] = blockBrown[i];
+	}else if(nameMap == "map2"){
+		blockBrownCopyMap2.splice(0, blockBrownCopyMap2.length);
+		for(i in blockBrown)
+			blockBrownCopyMap2[i] = blockBrown[i];
+	}
+}
+function loadBackupMap(nameMap){
+	if(nameMap == "map1"){
+		if(blockBrownCopyMap1.length != 0){
+			// delete the current blocks
+			blockBrown.splice(0, blockBrown.length);
+			// Put the previous blocks on the current blocks
+			for(i in blockBrownCopyMap1)
+				blockBrown[i] = blockBrownCopyMap1[i];
+		}
+	}else if(nameMap == "map2"){
+		if(blockBrownCopyMap2.length != 0){
+			blockBrown.splice(0, blockBrown.length);
+			for(i in blockBrownCopyMap2)
+				blockBrown[i] = blockBrownCopyMap2[i];
+		}
+	}
 }
 function setPositionPlayer(posX, posY, rotation){
 	player.x        = posX;

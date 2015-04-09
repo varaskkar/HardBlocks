@@ -13,11 +13,12 @@ var ElementBody   = document.getElementsByTagName("body")[0];
 var ElementCanvas = document.getElementsByTagName("canvas")[0];
 
 function getFps(){
-  	var thisFrameFPS = 1000 / ((now = new Date) - lastUpdate);
-  	fps += (thisFrameFPS - fps) / fpsFilter;
-  	lastUpdate = now*1-1;
-
-  	return fps;
+	if(!pause){
+	  	var thisFrameFPS = 1000 / ((now = new Date) - lastUpdate);
+	  	fps += (thisFrameFPS - fps) / fpsFilter;
+	  	lastUpdate = now*1-1;
+	}
+	return fps;
 }
 
 window.requestAnimFrame=(function(){
