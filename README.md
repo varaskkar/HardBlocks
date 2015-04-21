@@ -7,6 +7,7 @@ Game on Canvas
 ###Features
 ![avatar](http://i.imgur.com/N3nArah.gif)
 ![avatar](http://i.imgur.com/NvmMQFP.gif)
+![avatar](http://i.imgur.com/8n81hzd.gif)
 
 ###keyboard shortcuts
 
