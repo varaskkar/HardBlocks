@@ -15,12 +15,12 @@ var canvas = null, ctx = null;
 var player, blockLife;
 var key = null;
 var keyPressed = [];
-var bullets1 = [], bullets2 = [];
+var bullets1 = [], bullets2 = [], bullets3 = [];
 
 var info       = true,
 	pause      = false,
 	gameOver   = false,
-	fullScreen = false,
+	fullScreen = true,
 	sound      = false;
 
 var iPlayer      = new Image(),
@@ -88,7 +88,8 @@ function loadAssets(){
 	sMap5.src              = 'assets/audio/FondoDeUnaCueva.wav';
 	sMap6.src              = 'assets/audio/FondoDeUnaCueva.wav';
 
-	templateSetSound();
+	templateSetSound(sound);
+	templateSetFullscreen(fullScreen);
 	templateSetLightEfects(false);
 }
 function reset(){
@@ -115,6 +116,7 @@ function game(){
 	    movement(player);
 		weapon1(player, bullets1);
 		weapon2(player, bullets2);
+		weapon3(player, bullets3);
 		lifePlayer();
 		collision();
 	}
@@ -187,6 +189,10 @@ function draw() {
 	for(i in bullets2)
   		ctx.fillRect(bullets2[i].x,bullets2[i].y,bullets2[i].width,bullets2[i].height);
 
+  	ctx.fillStyle = '#4A6192';
+	for(i in bullets3)
+  		ctx.fillRect(bullets3[i].x,bullets3[i].y,bullets3[i].width,bullets3[i].height);
+
 	ctx.font = "10px Verdana";
 	ctx.fillStyle = '#fff';
 	if(info){
@@ -194,12 +200,13 @@ function draw() {
 		ctx.fillText('Score: '+player.score,5,30);
 		ctx.fillText('Bullets 1: '+bullets1.length,5,45);
 		ctx.fillText('Bullets 2: '+bullets2.length,5,60);
-		ctx.fillText('Fps: '+ getFps().toFixed(1),5,75);
-		ctx.fillText('Lifes: '+player.life,5,90);
-		ctx.fillText('Rotation: '+player.rotation,5,105);
-		ctx.fillText('Time Protection: '+player.timeProtected,5,120);
-		ctx.fillText('Time Level: '+player.timeChangeLevel,5,135);
-		ctx.fillText('Map: '+currentMap,5,150);
+		ctx.fillText('Bullets 3: '+bullets3.length,5,75);
+		ctx.fillText('Fps: '+ getFps().toFixed(1),5,90);
+		ctx.fillText('Lifes: '+player.life,5,105);
+		ctx.fillText('Rotation: '+player.rotation,5,120);
+		ctx.fillText('Time Protection: '+player.timeProtected,5,135);
+		ctx.fillText('Time Level: '+player.timeChangeLevel,5,150);
+		ctx.fillText('Map: '+currentMap,5,165);
 	}
 
 	ctx.font = "18px Verdana";
@@ -445,7 +452,7 @@ function keyboard(){
 		key = null;
 	}else if(key == formatKey("M")){
 		fullScreen = !fullScreen;
-		templateSetFullscreen(canvas);
+		templateSetFullscreen(fullScreen);
 		key = null;
 	}else if(key == formatKey("S")){
 		toggleSound();

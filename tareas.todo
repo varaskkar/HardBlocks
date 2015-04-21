@@ -36,23 +36,36 @@ versión 0.1:
 
 :ClasesEnJS:
 
- ☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
- ☐ Poner el canvas y el contexto en una sola línea
- ☐ Buscar sonido para los mapas
- ☐ Que mis balas sean largas en vertical, no cuadradas (al menos intentar que sean redondas)
- ☐ Fase: hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
+1. Balas
+2. Enemigo en el 2º mapa
+
+☐ Efecto de chispa y sonido de cuando las balas impacten
+☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
+☐ Que la nave saque un ESCUDO cuando pulse una tecla para que las balas reboten contra ella y poder dirigirlas
+☐ Que la bala no sea cuadrada si no redonda
+☐ Solucionar dejar pulsado al disparar...que la bala se aleje X pixeles de la nave
+☐ Al conseguir un objeto, tener disponible el arma triple, ¿recargar o tiempo limitado?¿antes del jefe final?
+☐ Poner un bloque marron un poco diferente que al romperse haga un ruido de "tin" y me de mas puntos que el resto o algo parecido
+☐ sumar el numero de rebotes de las balas a los puntos que te dan al destruir un bloque
+☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
+☐ Poner el canvas y el contexto en una sola línea
+☐ Buscar sonido para los mapas
+☐ Que mis balas sean largas en vertical, no cuadradas (al menos intentar que sean redondas)
+☐ Fase: hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
      por rebote
 ☐ Crear una base
     ☐ Siempre que se vuelva a ella se reestablezca la vida y la munición
     ☐ Al morir reaparecer en la base y poner el sonido de recargar "recharge.wav"
     ☐ La base este solo en el mapa1 y haya que regresar a el para recargar y recuperar salud
-☐ Crear una entrada y una salida para que de sensacion de que el mapa 1 y 2 estan unidos
 ☐ Hacer 2ª arma
     ☐ El jugador pueda quedarse sin balas
+☐ Hacerlo compatible con GamePad
+✘ Crear sistema de puntuacion en php. A la gente les engancha el que sean los mejores / tengan mas puntos. Mostrar los nombres en la plantilla. Subir fichero "index.php" y ver si puede crear en github un txt con la max puntuacion del jugador @cancelled (17-04-15 17:02)
+    ✔ Github sólo permite "index.html" @done (17-04-15 16:23)
+    ✔ Aunque use "index.html" y llame a funcion PHP desde JS ... tampoco deja Github @done (17-04-15 16:55)
 ✘ Las balas pueden chocar entre si y destruirse @cancelled (05-04-15 12:01)
 ☐ Crear Splash Screen
-☐ Crear sistema de puntuacion en php. A la gente les engancha el que sean los mejores / tengan mas puntos. Mostrar los nombres en la plantilla
 ☐ poner un limite de vidas que se puedan conseguir y de puntos
 ☐ Mejorar colisión nave-bloque
 ☐ Poner la velocidad como constante @Problema @MientrasHayaRotacionHabraDiferentesVelocidadesParaCadaEje
@@ -63,9 +76,10 @@ versión 0.1:
      ✔ Externos > De Mapa a Mapa        @done (09-04-15 14:39)
      ✔ Una vez que se ha transportado, no poder transportarse al anterior hasta que no se deje de hacer contacto y recontactar @done (09-04-15 03:16)
      ✔ Que las balas desaparezcan dentro del portal @done (09-04-15 01:42)
-     ☐ aparezca circulo de fuego y explosión
+     ☐ aparezca circulo de fuego y explosión | Hecho lo de detener las balas al colisionar con el portal1
      ☐ Activar el portal cuando mate a todos los enemigos
      ✔ Al cambiar de mapas, que se guarde el mapa como estaba (mantener los bloques destruidos) @done (10-04-15 00:49)
+    ☐ No poder usar el portal si estas en un nivel con monstruo final. No dejar huir
 ✔ poner x,y y rotacion como parametros al crearMapa(): @done (09-04-15 01:26)
 ✔ Que la puerta que cambia de fase tenga los bordes redondeados @done (08-04-15 15:54)
 ☐ Sonido

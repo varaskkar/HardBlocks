@@ -34,8 +34,8 @@ function templateSetBackgroundColor(color){
 	ElementCanvas.style.background = color;
 }
 
-function templateSetFullscreen(canvas){
-	if(fullScreen){
+function templateSetFullscreen(enable){
+	if(enable){
 		var w = window.innerWidth/canvas.width;
 		var h = window.innerHeight/canvas.height;
 		var scale = Math.min(h,w);
@@ -95,8 +95,8 @@ function templateSetLightEfects(enable){
 	}
 }
 
-function templateSetSound(){
-	if(sound)
+function templateSetSound(enable){
+	if(enable)
 		ElementSound.src = "assets/img/soundFull.png";
 	else
 		ElementSound.src = "assets/img/soundNotFull.png";
