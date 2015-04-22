@@ -1,4 +1,4 @@
-Game on Canvas
+Hard Blocks
 ===============
 
 ![avatar](http://i.imgur.com/A4GHjSq.jpg)
