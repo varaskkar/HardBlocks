@@ -40,13 +40,8 @@ versión 0.1:
 
 :ClasesEnJS:
 
-limit bullets on weapon2 and recharge it at the home
-Problema pantalla completa
-cambiar nombre "_TimeDoor"
-
-1. Balas
 2. Enemigo en el 2º mapa
-☐ @Error ahora no pone fullscreen al pulsar "M"
+✘ Fullscreen no funciona en Firefox @cancelled (22-04-15 17:42)
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
 ☐ Que la nave saque un ESCUDO cuando pulse una tecla para que las balas reboten contra ella y poder dirigirlas

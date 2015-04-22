@@ -2,82 +2,82 @@ function weapon1(player, bullets){
 
 	// Make bullets
 	if((key == formatKey("Z") || key == formatKey("SPACE")) && bullets.length < 500){
-		if(player.rotation == 0 || player.rotation == 360)	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon1,_SizeWeapon1,4,4));
-		else if(player.rotation == 90)				bullets.push(new Bullet(player.x+player.width,player.y+player.height/2,_SizeWeapon1,_SizeWeapon1,4,4));
-		else if(player.rotation == 180)				bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,4,4));
-		else if(player.rotation == 270)				bullets.push(new Bullet(player.x,player.y+player.height/2,_SizeWeapon1,_SizeWeapon1,4,4));
+		if(player.rotation == 0 || player.rotation == 360)	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,4,4));
+		else if(player.rotation == 90)				bullets.push(new Bullet(player.x+player.width,player.y+player.height/2,_SizeWeapon,_SizeWeapon,4,4));
+		else if(player.rotation == 180)				bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,4,4));
+		else if(player.rotation == 270)				bullets.push(new Bullet(player.x,player.y+player.height/2,_SizeWeapon,_SizeWeapon,4,4));
 
-		else if(player.rotation == 275){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 4,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 280){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 4,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 285){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 290){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 295){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 2,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 300){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 2,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 305){ 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y,_SizeWeapon1,_SizeWeapon1,4,3));  }
-		else if(player.rotation == 310){ 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y,_SizeWeapon1,_SizeWeapon1,4,3));  }
-		else if(player.rotation == 315){ 	bullets.push(new Bullet(player.x+player.width/2 - 4.5,player.y,_SizeWeapon1,_SizeWeapon1,3,3));  }
-		else if(player.rotation == 320){ 	bullets.push(new Bullet(player.x+player.width/2 - 4.5,player.y,_SizeWeapon1,_SizeWeapon1,3,4));  }
-		else if(player.rotation == 325){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y,_SizeWeapon1,_SizeWeapon1,3,4));  }
-		else if(player.rotation == 330){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 335){ 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 340){ 	bullets.push(new Bullet(player.x+player.width/2 - 0.75,player.y,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 345){ 	bullets.push(new Bullet(player.x+player.width/2 - 0.75,player.y,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 350){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 355){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon1,_SizeWeapon1,1,4));  }
+		else if(player.rotation == 275){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 280){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 285){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 3,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 290){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 3,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 295){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 300){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 305){ 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y,_SizeWeapon,_SizeWeapon,4,3));  }
+		else if(player.rotation == 310){ 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y,_SizeWeapon,_SizeWeapon,4,3));  }
+		else if(player.rotation == 315){ 	bullets.push(new Bullet(player.x+player.width/2 - 4.5,player.y,_SizeWeapon,_SizeWeapon,3,3));  }
+		else if(player.rotation == 320){ 	bullets.push(new Bullet(player.x+player.width/2 - 4.5,player.y,_SizeWeapon,_SizeWeapon,3,4));  }
+		else if(player.rotation == 325){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y,_SizeWeapon,_SizeWeapon,3,4));  }
+		else if(player.rotation == 330){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 335){ 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 340){ 	bullets.push(new Bullet(player.x+player.width/2 - 0.75,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 345){ 	bullets.push(new Bullet(player.x+player.width/2 - 0.75,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 350){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 355){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
 
-		else if(player.rotation == 5){ 		bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 10){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 15){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 20){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 25){ 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 30){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 35){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y,_SizeWeapon1,_SizeWeapon1,3,4));  }
-		else if(player.rotation == 40){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y,_SizeWeapon1,_SizeWeapon1,3,4));  }
-		else if(player.rotation == 45){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y,_SizeWeapon1,_SizeWeapon1,3,3));  }
-		else if(player.rotation == 50){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y,_SizeWeapon1,_SizeWeapon1,4,3));  }
-		else if(player.rotation == 55){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y,_SizeWeapon1,_SizeWeapon1,4,3));  }
-		else if(player.rotation == 60){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y + 2,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 65){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y + 2,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 70){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 75){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 80){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y + 4,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 85){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y + 4,_SizeWeapon1,_SizeWeapon1,4,1));  }
+		else if(player.rotation == 5){ 		bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 10){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 15){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 20){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 25){ 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 30){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 35){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y,_SizeWeapon,_SizeWeapon,3,4));  }
+		else if(player.rotation == 40){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y,_SizeWeapon,_SizeWeapon,3,4));  }
+		else if(player.rotation == 45){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y,_SizeWeapon,_SizeWeapon,3,3));  }
+		else if(player.rotation == 50){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y,_SizeWeapon,_SizeWeapon,4,3));  }
+		else if(player.rotation == 55){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y,_SizeWeapon,_SizeWeapon,4,3));  }
+		else if(player.rotation == 60){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 65){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 70){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 3,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 75){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 3,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 80){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 85){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));  }
 
-		else if(player.rotation == 95){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y+player.height - 4,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 100){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y+player.height - 4,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 105){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y+player.height - 3,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 110){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y+player.height - 3,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 115){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y+player.height - 2,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 120){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y+player.height - 2,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 125){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y+player.height,_SizeWeapon1,_SizeWeapon1,4,3));  }
-		else if(player.rotation == 130){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y+player.height,_SizeWeapon1,_SizeWeapon1,4,3));  }
-		else if(player.rotation == 135){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y+player.height,_SizeWeapon1,_SizeWeapon1,3,3));  }
-		else if(player.rotation == 140){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y+player.height,_SizeWeapon1,_SizeWeapon1,3,4));  }
-		else if(player.rotation == 145){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y+player.height,_SizeWeapon1,_SizeWeapon1,3,4));  }
-		else if(player.rotation == 150){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y+player.height,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 155){ 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 160){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y+player.height,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 165){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y+player.height,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 170){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 175){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,1,4));  }
+		else if(player.rotation == 95){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y+player.height - 4,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 100){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y+player.height - 4,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 105){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y+player.height - 3,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 110){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y+player.height - 3,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 115){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y+player.height - 2,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 120){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y+player.height - 2,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 125){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y+player.height,_SizeWeapon,_SizeWeapon,4,3));  }
+		else if(player.rotation == 130){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y+player.height,_SizeWeapon,_SizeWeapon,4,3));  }
+		else if(player.rotation == 135){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y+player.height,_SizeWeapon,_SizeWeapon,3,3));  }
+		else if(player.rotation == 140){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y+player.height,_SizeWeapon,_SizeWeapon,3,4));  }
+		else if(player.rotation == 145){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y+player.height,_SizeWeapon,_SizeWeapon,3,4));  }
+		else if(player.rotation == 150){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 155){ 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 160){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 165){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 170){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 175){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
 
-		else if(player.rotation == 185){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 190){ 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 195){ 	bullets.push(new Bullet(player.x+player.width/2 - 2.5,player.y+player.height,_SizeWeapon1,_SizeWeapon1,1,4));  }
-		else if(player.rotation == 200){ 	bullets.push(new Bullet(player.x+player.width/2 - 2.5,player.y+player.height,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 205){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y+player.height,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 210){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y+player.height,_SizeWeapon1,_SizeWeapon1,2,4));  }
-		else if(player.rotation == 215){ 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y+player.height,_SizeWeapon1,_SizeWeapon1,3,4));  }
-		else if(player.rotation == 220){ 	bullets.push(new Bullet(player.x+player.width/2 - 5.5,player.y+player.height,_SizeWeapon1,_SizeWeapon1,3,4));  }
-		else if(player.rotation == 225){ 	bullets.push(new Bullet(player.x+player.width/2 - 6.5,player.y+player.height,_SizeWeapon1,_SizeWeapon1,3,3));  }
-		else if(player.rotation == 230){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height,_SizeWeapon1,_SizeWeapon1,4,3));  }
-		else if(player.rotation == 235){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height,_SizeWeapon1,_SizeWeapon1,4,3));  }
-		else if(player.rotation == 240){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y+player.height - 3,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 245){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y+player.height - 3,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 250){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y+player.height - 4,_SizeWeapon1,_SizeWeapon1,4,2));  }
-		else if(player.rotation == 255){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y+player.height - 4,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 260){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 5,_SizeWeapon1,_SizeWeapon1,4,1));  }
-		else if(player.rotation == 265){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 6,_SizeWeapon1,_SizeWeapon1,4,1));  }
+		else if(player.rotation == 185){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 190){ 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 195){ 	bullets.push(new Bullet(player.x+player.width/2 - 2.5,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 200){ 	bullets.push(new Bullet(player.x+player.width/2 - 2.5,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 205){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 210){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
+		else if(player.rotation == 215){ 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y+player.height,_SizeWeapon,_SizeWeapon,3,4));  }
+		else if(player.rotation == 220){ 	bullets.push(new Bullet(player.x+player.width/2 - 5.5,player.y+player.height,_SizeWeapon,_SizeWeapon,3,4));  }
+		else if(player.rotation == 225){ 	bullets.push(new Bullet(player.x+player.width/2 - 6.5,player.y+player.height,_SizeWeapon,_SizeWeapon,3,3));  }
+		else if(player.rotation == 230){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height,_SizeWeapon,_SizeWeapon,4,3));  }
+		else if(player.rotation == 235){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height,_SizeWeapon,_SizeWeapon,4,3));  }
+		else if(player.rotation == 240){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y+player.height - 3,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 245){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y+player.height - 3,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 250){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y+player.height - 4,_SizeWeapon,_SizeWeapon,4,2));  }
+		else if(player.rotation == 255){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y+player.height - 4,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 260){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 5,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 265){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 6,_SizeWeapon,_SizeWeapon,4,1));  }
 
 		loadSound(sWeapon1);
 
@@ -255,301 +255,301 @@ function weapon2(player, bullets){
 	// Make bullets
 	if((key == formatKey("X") || key == formatKey("CTRL")) && player.munitionWeapon2 > 0){
 		if(player.rotation == 0 || player.rotation == 360){
-			bullets.push(new Bullet(player.x-2,player.y - 3,_SizeWeapon1,_SizeWeapon1,4,4));
-			bullets.push(new Bullet(player.x+player.width/2-2,player.y - 3,_SizeWeapon1,_SizeWeapon1,4,4));
-			bullets.push(new Bullet(player.x+player.width-2,player.y - 3,_SizeWeapon1,_SizeWeapon1,4,4));
+			bullets.push(new Bullet(player.x-2,player.y - 3,_SizeWeapon,_SizeWeapon,4,4));
+			bullets.push(new Bullet(player.x+player.width/2-2,player.y - 3,_SizeWeapon,_SizeWeapon,4,4));
+			bullets.push(new Bullet(player.x+player.width-2,player.y - 3,_SizeWeapon,_SizeWeapon,4,4));
 		}else if(player.rotation == 90){
-			bullets.push(new Bullet(player.x+player.width,player.y-2,_SizeWeapon1,_SizeWeapon1,4,4));
-			bullets.push(new Bullet(player.x+player.width,player.y+player.height/2-2,_SizeWeapon1,_SizeWeapon1,4,4));
-			bullets.push(new Bullet(player.x+player.width,player.y+player.height-2,_SizeWeapon1,_SizeWeapon1,4,4));
+			bullets.push(new Bullet(player.x+player.width,player.y-2,_SizeWeapon,_SizeWeapon,4,4));
+			bullets.push(new Bullet(player.x+player.width,player.y+player.height/2-2,_SizeWeapon,_SizeWeapon,4,4));
+			bullets.push(new Bullet(player.x+player.width,player.y+player.height-2,_SizeWeapon,_SizeWeapon,4,4));
 		}else if(player.rotation == 180){
-			bullets.push(new Bullet(player.x-2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,4,4));
-			bullets.push(new Bullet(player.x+player.width/2-2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,4,4));
-			bullets.push(new Bullet(player.x+player.width-2,player.y+player.height,_SizeWeapon1,_SizeWeapon1,4,4));
+			bullets.push(new Bullet(player.x-2,player.y+player.height,_SizeWeapon,_SizeWeapon,4,4));
+			bullets.push(new Bullet(player.x+player.width/2-2,player.y+player.height,_SizeWeapon,_SizeWeapon,4,4));
+			bullets.push(new Bullet(player.x+player.width-2,player.y+player.height,_SizeWeapon,_SizeWeapon,4,4));
 		}else if(player.rotation == 270){
-			bullets.push(new Bullet(player.x-2,player.y-2,_SizeWeapon1,_SizeWeapon1,4,4));
-			bullets.push(new Bullet(player.x-2,player.y+player.height/2-2,_SizeWeapon1,_SizeWeapon1,4,4));
-			bullets.push(new Bullet(player.x-2,player.y+player.height-2,_SizeWeapon1,_SizeWeapon1,4,4));
+			bullets.push(new Bullet(player.x-2,player.y-2,_SizeWeapon,_SizeWeapon,4,4));
+			bullets.push(new Bullet(player.x-2,player.y+player.height/2-2,_SizeWeapon,_SizeWeapon,4,4));
+			bullets.push(new Bullet(player.x-2,player.y+player.height-2,_SizeWeapon,_SizeWeapon,4,4));
 		}
 
 		else if(player.rotation == 275){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 0,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 5,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 10,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 0,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 5,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 10,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 280){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 0,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 5,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 10,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 0,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 5,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 10,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 285){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 2,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 8,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 2,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 3,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 8,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 290){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 2,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 8,_SizeWeapon1,_SizeWeapon1,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 2,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 3,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 8,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 295){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 2,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 8,_SizeWeapon1,_SizeWeapon1,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 2,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 3,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 8,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 300){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 4,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 1,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 6,_SizeWeapon1,_SizeWeapon1,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 4,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 1,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 6,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 305){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 6,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y - 1,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 4,_SizeWeapon1,_SizeWeapon1,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 6,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y - 1,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 4,_SizeWeapon,_SizeWeapon,4,3));
 		}else if(player.rotation == 310){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 8,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y - 3,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 2,_SizeWeapon1,_SizeWeapon1,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 8,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y - 3,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 2,_SizeWeapon,_SizeWeapon,4,3));
 		}else if(player.rotation == 315){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 9,_SizeWeapon1,_SizeWeapon1,3,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y - 4,_SizeWeapon1,_SizeWeapon1,3,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 1,_SizeWeapon1,_SizeWeapon1,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 9,_SizeWeapon,_SizeWeapon,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y - 4,_SizeWeapon,_SizeWeapon,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 22,player.y + 1,_SizeWeapon,_SizeWeapon,3,3));
 		}else if(player.rotation == 320){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y - 10,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 13,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 20,player.y + 0,_SizeWeapon1,_SizeWeapon1,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y - 10,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 13,player.y - 5,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 20,player.y + 0,_SizeWeapon,_SizeWeapon,3,4));
 		}else if(player.rotation == 325){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y - 12,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 13,player.y - 7,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 20,player.y - 2,_SizeWeapon1,_SizeWeapon1,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y - 12,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 13,player.y - 7,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 20,player.y - 2,_SizeWeapon,_SizeWeapon,3,4));
 		}else if(player.rotation == 330){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y - 12,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 9,player.y - 7,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 16,player.y - 2,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y - 12,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 9,player.y - 7,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 16,player.y - 2,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 335){
-		 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y - 12,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 7,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 14,player.y - 2,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y - 12,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 7,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 14,player.y - 2,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 340){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 0,player.y - 12,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y - 7,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 14,player.y - 2,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 0,player.y - 12,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y - 7,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 14,player.y - 2,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 345){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 1,player.y - 12,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y - 7,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 13,player.y - 2,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 1,player.y - 12,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y - 7,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 13,player.y - 2,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 350){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y - 13,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y - 8,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 12,player.y - 3,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y - 13,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y - 8,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 12,player.y - 3,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 355){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y - 15,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y - 10,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 11,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y - 15,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y - 10,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 11,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
 		}
 
 		else if(player.rotation == 5){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 1,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 1,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 10){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 0,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 0,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 15){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 9,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y - 5,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 9,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y - 5,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 20){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 10,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 10,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 25){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 11,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 4,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 11,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 4,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 30){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 12,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y - 5,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 12,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y - 5,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 35){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 13,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 1,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 13,player.y - 5,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y - 5,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 1,player.y - 5,_SizeWeapon,_SizeWeapon,3,4));
 		}else if(player.rotation == 40){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 14,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 0,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 14,player.y - 5,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y - 5,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 0,player.y - 5,_SizeWeapon,_SizeWeapon,3,4));
 		}else if(player.rotation == 45){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 16,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 9,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y - 5,_SizeWeapon1,_SizeWeapon1,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 16,player.y - 5,_SizeWeapon,_SizeWeapon,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 9,player.y - 5,_SizeWeapon,_SizeWeapon,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y - 5,_SizeWeapon,_SizeWeapon,3,3));
 		}else if(player.rotation == 50){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 18,player.y - 5,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 11,player.y - 5,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 4,player.y - 5,_SizeWeapon1,_SizeWeapon1,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 18,player.y - 5,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 11,player.y - 5,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 4,player.y - 5,_SizeWeapon,_SizeWeapon,4,3));
 		}else if(player.rotation == 55){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 8,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y - 3,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 2,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 8,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y - 3,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 2,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 60){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 6,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y - 1,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 4,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 6,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y - 1,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 65){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 5,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 0,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 5,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 5,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 0,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 5,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 70){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 4,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 1,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 6,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 4,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 1,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 6,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 75){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 3,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 2,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 7,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 3,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 2,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 7,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 80){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 2,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 8,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 2,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 3,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 8,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 85){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 1,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 4,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 9,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y - 1,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 15,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 22,player.y + 9,_SizeWeapon,_SizeWeapon,4,1));
 		}
 
 		else if(player.rotation == 95){
-			bullets.push(new Bullet(player.x+player.width,player.y-3,_SizeWeapon1,_SizeWeapon1,4,1));
-			bullets.push(new Bullet(player.x+player.width,player.y+player.height/2-3,_SizeWeapon1,_SizeWeapon1,4,1));
-			bullets.push(new Bullet(player.x+player.width,player.y+player.height-3,_SizeWeapon1,_SizeWeapon1,4,1));
+			bullets.push(new Bullet(player.x+player.width,player.y-3,_SizeWeapon,_SizeWeapon,4,1));
+			bullets.push(new Bullet(player.x+player.width,player.y+player.height/2-3,_SizeWeapon,_SizeWeapon,4,1));
+			bullets.push(new Bullet(player.x+player.width,player.y+player.height-3,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 100){
-		 	bullets.push(new Bullet(player.x+player.width,player.y - 1,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 - 1,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height - 1,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width,player.y - 1,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 - 1,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height - 1,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 105){
-		 	bullets.push(new Bullet(player.x+player.width,player.y + 0,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 0,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 0,_SizeWeapon1,_SizeWeapon1,4,1));
+		 	bullets.push(new Bullet(player.x+player.width,player.y + 0,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 0,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 0,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 110){
-			bullets.push(new Bullet(player.x+player.width,player.y + 0,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 0,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 0,_SizeWeapon1,_SizeWeapon1,4,2));
+			bullets.push(new Bullet(player.x+player.width,player.y + 0,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 0,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 0,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 115){
-		 	bullets.push(new Bullet(player.x+player.width,player.y + 1,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 1,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 1,_SizeWeapon1,_SizeWeapon1,4,2));
+		 	bullets.push(new Bullet(player.x+player.width,player.y + 1,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 1,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 1,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 120){
-			bullets.push(new Bullet(player.x+player.width,player.y + 2,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 2,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 2,_SizeWeapon1,_SizeWeapon1,4,2));
+			bullets.push(new Bullet(player.x+player.width,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 2,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 2,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 125){
-			bullets.push(new Bullet(player.x+player.width,player.y + 3,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 3,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 3,_SizeWeapon1,_SizeWeapon1,4,3));
+			bullets.push(new Bullet(player.x+player.width,player.y + 3,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 3,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 3,_SizeWeapon,_SizeWeapon,4,3));
 		}else if(player.rotation == 130){
-			bullets.push(new Bullet(player.x+player.width,player.y + 4,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 4,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 4,_SizeWeapon1,_SizeWeapon1,4,3));
+			bullets.push(new Bullet(player.x+player.width,player.y + 4,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 4,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 4,_SizeWeapon,_SizeWeapon,4,3));
 		}else if(player.rotation == 135){
-			bullets.push(new Bullet(player.x+player.width,player.y + 3,_SizeWeapon1,_SizeWeapon1,3,3));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 5,_SizeWeapon1,_SizeWeapon1,3,3));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 7,_SizeWeapon1,_SizeWeapon1,3,3));
+			bullets.push(new Bullet(player.x+player.width,player.y + 3,_SizeWeapon,_SizeWeapon,3,3));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 5,_SizeWeapon,_SizeWeapon,3,3));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 7,_SizeWeapon,_SizeWeapon,3,3));
 		}else if(player.rotation == 140){
-			bullets.push(new Bullet(player.x+player.width,player.y + 3,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 6,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 9,_SizeWeapon1,_SizeWeapon1,3,4));
+			bullets.push(new Bullet(player.x+player.width,player.y + 3,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height/2 + 6,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width,player.y+player.height + 9,_SizeWeapon,_SizeWeapon,3,4));
 		}else if(player.rotation == 145){
-			bullets.push(new Bullet(player.x+player.width - 1,player.y + 5,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height/2 + 9,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height + 13,_SizeWeapon1,_SizeWeapon1,3,4));
+			bullets.push(new Bullet(player.x+player.width - 1,player.y + 5,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height/2 + 9,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height + 13,_SizeWeapon,_SizeWeapon,3,4));
 		}else if(player.rotation == 150){
-			bullets.push(new Bullet(player.x+player.width - 1,player.y + 2,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height/2 + 10,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height + 18,_SizeWeapon1,_SizeWeapon1,2,4));
+			bullets.push(new Bullet(player.x+player.width - 1,player.y + 2,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height/2 + 10,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height + 18,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 155){
-			bullets.push(new Bullet(player.x+player.width - 1,player.y + 4,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height/2 + 12,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height + 20,_SizeWeapon1,_SizeWeapon1,2,4));
+			bullets.push(new Bullet(player.x+player.width - 1,player.y + 4,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height/2 + 12,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height + 20,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 160){
-			bullets.push(new Bullet(player.x+player.width - 1,player.y + 6,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height/2 + 14,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height + 22,_SizeWeapon1,_SizeWeapon1,2,4));
+			bullets.push(new Bullet(player.x+player.width - 1,player.y + 6,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height/2 + 14,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width - 1,player.y+player.height + 22,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 165){
-			bullets.push(new Bullet(player.x+player.width + 2,player.y + 12,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width - 3,player.y+player.height/2 + 16,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width - 8,player.y+player.height + 20,_SizeWeapon1,_SizeWeapon1,1,4));
+			bullets.push(new Bullet(player.x+player.width + 2,player.y + 12,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width - 3,player.y+player.height/2 + 16,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width - 8,player.y+player.height + 20,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 170){
-			bullets.push(new Bullet(player.x+player.width + 0,player.y + 12,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width - 5,player.y+player.height/2 + 16,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width - 10,player.y+player.height + 20,_SizeWeapon1,_SizeWeapon1,1,4));
+			bullets.push(new Bullet(player.x+player.width + 0,player.y + 12,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width - 5,player.y+player.height/2 + 16,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width - 10,player.y+player.height + 20,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 175){
-			bullets.push(new Bullet(player.x+player.width - 2,player.y + 12,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width - 7,player.y+player.height/2 + 16,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width - 12,player.y+player.height + 20,_SizeWeapon1,_SizeWeapon1,1,4));
+			bullets.push(new Bullet(player.x+player.width - 2,player.y + 12,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width - 7,player.y+player.height/2 + 16,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width - 12,player.y+player.height + 20,_SizeWeapon,_SizeWeapon,1,4));
 		}
 
 		else if(player.rotation == 185){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 1,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 9,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 1,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 9,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 190){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 11,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 11,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 195){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 4,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 12,player.y + 15,_SizeWeapon1,_SizeWeapon1,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 4,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 12,player.y + 15,_SizeWeapon,_SizeWeapon,1,4));
 		}else if(player.rotation == 200){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 4,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 12,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 4,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 12,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 205){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 13,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 13,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 210){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 15,_SizeWeapon1,_SizeWeapon1,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 15,player.y + 15,_SizeWeapon,_SizeWeapon,2,4));
 		}else if(player.rotation == 215){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 17,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y + 15,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 15,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 17,player.y + 15,_SizeWeapon,_SizeWeapon,3,4));
 		}else if(player.rotation == 220){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 1,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 9,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,4));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 1,player.y + 15,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 9,player.y + 15,_SizeWeapon,_SizeWeapon,3,4));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 15,_SizeWeapon,_SizeWeapon,3,4));
 		}else if(player.rotation == 225){
-		 	bullets.push(new Bullet(player.x+player.width/2 + 1,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 10,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 21,player.y + 15,_SizeWeapon1,_SizeWeapon1,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 + 1,player.y + 15,_SizeWeapon,_SizeWeapon,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 10,player.y + 15,_SizeWeapon,_SizeWeapon,3,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 21,player.y + 15,_SizeWeapon,_SizeWeapon,3,3));
 		}else if(player.rotation == 230){
-			bullets.push(new Bullet(player.x+player.width/2 + 1,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 12,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 25,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,3));
+			bullets.push(new Bullet(player.x+player.width/2 + 1,player.y + 15,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 12,player.y + 15,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 25,player.y + 15,_SizeWeapon,_SizeWeapon,4,3));
 		}else if(player.rotation == 235){
-			bullets.push(new Bullet(player.x+player.width/2 - 1,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 14,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,3));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 27,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,3));
+			bullets.push(new Bullet(player.x+player.width/2 - 1,player.y + 15,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 14,player.y + 15,_SizeWeapon,_SizeWeapon,4,3));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 27,player.y + 15,_SizeWeapon,_SizeWeapon,4,3));
 		}else if(player.rotation == 240){
-			bullets.push(new Bullet(player.x+player.width/2 - 5,player.y + 17,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 18,player.y + 16,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 31,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,2));
+			bullets.push(new Bullet(player.x+player.width/2 - 5,player.y + 17,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 18,player.y + 16,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 31,player.y + 15,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 245){
-			bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 13,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 32,player.y + 11,_SizeWeapon1,_SizeWeapon1,4,2));
+			bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 15,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 13,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 32,player.y + 11,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 250){
-			bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 14,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 12,_SizeWeapon1,_SizeWeapon1,4,2));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 32,player.y + 10,_SizeWeapon1,_SizeWeapon1,4,2));
+			bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 14,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 12,_SizeWeapon,_SizeWeapon,4,2));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 32,player.y + 10,_SizeWeapon,_SizeWeapon,4,2));
 		}else if(player.rotation == 255){
-			bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 15,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 11,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 32,player.y + 7,_SizeWeapon1,_SizeWeapon1,4,1));
+			bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 15,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 11,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 32,player.y + 7,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 260){
-			bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 14,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 10,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 32,player.y + 6,_SizeWeapon1,_SizeWeapon1,4,1));
+			bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 14,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 10,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 32,player.y + 6,_SizeWeapon,_SizeWeapon,4,1));
 		}else if(player.rotation == 265){
-			bullets.push(new Bullet(player.x+player.width/2 - 17,player.y + 16,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 8,_SizeWeapon1,_SizeWeapon1,4,1));
-		 	bullets.push(new Bullet(player.x+player.width/2 - 21,player.y + 0,_SizeWeapon1,_SizeWeapon1,4,1));
+			bullets.push(new Bullet(player.x+player.width/2 - 17,player.y + 16,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 19,player.y + 8,_SizeWeapon,_SizeWeapon,4,1));
+		 	bullets.push(new Bullet(player.x+player.width/2 - 21,player.y + 0,_SizeWeapon,_SizeWeapon,4,1));
 		}
 
 		player.munitionWeapon2 = player.munitionWeapon2 - 3;

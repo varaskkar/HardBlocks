@@ -6,10 +6,9 @@ requirejs(['movement']);
 
 window.addEventListener('load',init,false);
 
-const _LifesPlayer   = 1,  _LifesBlock    = 3,
-	  _PointsStart   = 0,  _PointsBlock   = 3,
-	  _DamageWeapon1 = 1,  _SizeWeapon1   = 4, _MaxRebounds = 100, _MunitionWeapon2 = 50,
-	  _SizeBlock     = 20, _TimeProtected = 125, _TimeDoor = 150, _TimeRechargeHome = 100;
+const _LifesPlayer   = 1, _LifesBlock = 3, _PointsBlock = 3, _SizeBlock = 20,
+	  _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _MunitionWeapon2 = 300,
+	  _TimeProtected = 125, _TimeChangeLevel = 150, _TimeRechargeHome = 100;
 
 var canvas = null, ctx = null;
 var player, blockLife;
@@ -20,7 +19,7 @@ var bullets1 = [], bulletsTest = [], bullets2 = [];
 var info       = true,
 	pause      = false,
 	gameOver   = false,
-	fullScreen = false,
+	fullScreen = true,
 	sound      = false;
 
 var iPlayer      = new Image(),
@@ -97,7 +96,6 @@ function loadAssets(){
 function reset(){
 	// setPositionPlayer(270, 330, 0);
 	setPositionPlayer(270, 260, 180);
-	player.score           = _PointsStart;
 	player.life            = _LifesPlayer;
 	player.munitionWeapon2 = _MunitionWeapon2;
 	player.timeProtected   = 0;
@@ -129,6 +127,7 @@ function game(){
 
 function draw() {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
+
 	for(i in home){
 		if(player.timeRechargeHome > 0){
 			if(player.timeRechargeHome%3 == 0)
@@ -140,7 +139,7 @@ function draw() {
 		roundRect(ctx, home[i].x, home[i].y, home[i].width, home[i].height, 30, false, true);
 	}
 
-	for(i in portal1){
+	for(i in portalInput){
 		if(player.timeChangeLevel > 0){
 			if(player.timeChangeLevel%3 == 0)
 				ctx.fillStyle = '#011224';
@@ -150,10 +149,10 @@ function draw() {
 			ctx.fillStyle = '#07213C';
 
 		ctx.strokeStyle = "#8A0A0A";
-		roundRect(ctx, portal1[i].x, portal1[i].y, portal1[i].width, portal1[i].height, 25, true, true);
+		roundRect(ctx, portalInput[i].x, portalInput[i].y, portalInput[i].width, portalInput[i].height, 25, true, true);
 	}
 
-	for(i in portal2){
+	for(i in portalOutput){
 		if(player.timeChangeLevel > 0){
 			if(player.timeChangeLevel%3 == 0)
 				ctx.fillStyle = '#011224';
@@ -163,7 +162,7 @@ function draw() {
 			ctx.fillStyle = '#07213C';
 
 		ctx.strokeStyle = "#8A0A0A";
-		roundRect(ctx, portal2[i].x, portal2[i].y, portal2[i].width, portal2[i].height, 25, true, true);
+		roundRect(ctx, portalOutput[i].x, portalOutput[i].y, portalOutput[i].width, portalOutput[i].height, 25, true, true);
 	}
 
 	if(player.timeProtected > 0){
@@ -267,7 +266,7 @@ function collision(){
 
 	// blockLife -> blockBrown
 	for(i in blockBrown){
-		if(blockLife.collide(portal1[i])){
+		if(blockLife.collide(portalInput[i])){
   			blockLife.x = random(canvas.width - 10);
   			blockLife.y = random(canvas.height - 10);
 		}
@@ -292,11 +291,11 @@ function collision(){
 		}
 	}
 
-	// player -> portal1
-	for(i in portal1){
-		if(player.collide(portal1[i]) && !portalCrossed){
+	// player -> portalInput
+	for(i in portalInput){
+		if(player.collide(portalInput[i]) && !portalCrossed){
 	 		if(player.timeChangeLevel == 0){
-				player.timeChangeLevel = _TimeDoor;
+				player.timeChangeLevel = _TimeChangeLevel;
 				loadSound(sChangeLevelBefore);
 			}else if(player.timeChangeLevel == 1){
 				if(currentMap == "map1"){
@@ -327,7 +326,7 @@ function collision(){
 			// When you've croosed the portal, avoid return automaticaly to portal before
 			// There is move player in 4 directions outside the portal
 			setTimeout(function(){
-				if(portal1[0].x + 50 < player.x || portal1[0].x - 50 > player.x || portal1[0].y + 50 < player.y || portal1[0].y - 50 > player.y){
+				if(portalInput[0].x + 50 < player.x || portalInput[0].x - 50 > player.x || portalInput[0].y + 50 < player.y || portalInput[0].y - 50 > player.y){
 					portalCrossed = false;
 					// console.log("Si");
 				}
@@ -337,11 +336,11 @@ function collision(){
 		}
 	}
 
-	// player -> portal2
-	for(i in portal2){
-		if(player.collide(portal2[i]) && !portalCrossed2){
+	// player -> portalOutput
+	for(i in portalOutput){
+		if(player.collide(portalOutput[i]) && !portalCrossed2){
 	 		if(player.timeChangeLevel == 0){
-				player.timeChangeLevel = _TimeDoor;
+				player.timeChangeLevel = _TimeChangeLevel;
 				loadSound(sChangeLevelBefore);
 			}else if(player.timeChangeLevel == 1){
 				if(currentMap == "map3"){
@@ -352,7 +351,7 @@ function collision(){
 			}
 		}else{
 			setTimeout(function(){
-				if(portal2[0].x + 50 < player.x || portal2[0].x - 50 > player.x || portal2[0].y + 50 < player.y || portal2[0].y - 50 > player.y){
+				if(portalOutput[0].x + 50 < player.x || portalOutput[0].x - 50 > player.x || portalOutput[0].y + 50 < player.y || portalOutput[0].y - 50 > player.y){
 					portalCrossed2 = false;
 				}
 			}, 250);
@@ -384,7 +383,7 @@ function collision(){
 				if(blockBrown[j].life >= _LifesBlock)
 					blockBrown.splice(j,1);
 				else
-					blockBrown[j].life += _DamageWeapon1;
+					blockBrown[j].life += _DamageWeapon;
 
 				templateSetLightEfects(true);
 			}
@@ -441,8 +440,8 @@ function collision(){
 
 	// bullets1 -> portal
 	for(i in bullets1){
-		for(j in portal1){
-			if(bullets1[i].collide(portal1[j])){
+		for(j in portalInput){
+			if(bullets1[i].collide(portalInput[j])){
 		  		bullets1.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
@@ -460,7 +459,7 @@ function collision(){
 				if(blockBrown[j].life >= _LifesBlock)
 					blockBrown.splice(j,1);
 				else
-					blockBrown[j].life += _DamageWeapon1;
+					blockBrown[j].life += _DamageWeapon;
 
 				templateSetLightEfects(true);
 			}
@@ -505,8 +504,8 @@ function collision(){
 
 	// bullets2 -> portal
 	for(i in bullets2){
-		for(j in portal1){
-			if(bullets2[i].collide(portal1[j])){
+		for(j in portalInput){
+			if(bullets2[i].collide(portalInput[j])){
 		  		bullets2.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
