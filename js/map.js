@@ -8,7 +8,7 @@
 
 var currentMap = "";
 var map1 = [], map2 = [], map3 = [], map4 = [], map5 = [], map6 = [], map7 = [];
-var portal1 = [], portal2 = [], blockBrown = [], blockRed = [], blockWhiteVert = [], blockWhiteHor = [];
+var home = [], portal1 = [], portal2 = [], blockBrown = [], blockRed = [], blockWhiteVert = [], blockWhiteHor = [];
 var portalCrossed = false, portalCrossed2 = false;
 var blockBrownCopyMap1 = [], blockBrownCopyMap2 = [];
 
@@ -27,6 +27,8 @@ function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rota
 				portal1.push(new Element(j*width,i*width,width,width));
 			else if(map[i][j] == 'P2')
 				portal2.push(new Element(j*width,i*width,width,width));
+			else if(map[i][j] == 'H')
+				home.push(new Element(j*width,i*width,width,width));
 		}
 	}
 	templateSetBackgroundColor(backgroundColor);
@@ -43,8 +45,11 @@ function clearMap(){
 	blockWhiteVert.splice(0, blockWhiteVert.length);
 	blockWhiteHor.splice(0, blockWhiteHor.length);
 	bullets1.splice(0, bullets1.length);
+	bullets2.splice(0, bullets2.length);
+	bulletsTest.splice(0, bulletsTest.length);
 	portal1.splice(0, portal1.length);
 	portal2.splice(0, portal2.length);
+	home.splice(0, home.length);
 	stopSounds();
 }
 function makeBackupMap(nameMap){
@@ -96,10 +101,10 @@ map1 = [
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 3 , 3 , 3 , 3 , 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 , 3 , 3 , 3 , 3 ],
-	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
-	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
-	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
-	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ]
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,'H','H','H','H',   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,'H','H','H','H',   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ]
 	];
 
 map2 = [
@@ -210,11 +215,11 @@ map7 = [
 map6 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],

@@ -8,19 +8,19 @@ window.addEventListener('load',init,false);
 
 const _LifesPlayer   = 1,  _LifesBlock    = 3,
 	  _PointsStart   = 0,  _PointsBlock   = 3,
-	  _DamageWeapon1 = 1,  _SizeWeapon1   = 4, _MaxRebounds = 100,
-	  _SizeBlock     = 20, _TimeProtected = 125, _TimeDoor = 150;
+	  _DamageWeapon1 = 1,  _SizeWeapon1   = 4, _MaxRebounds = 100, _MunitionWeapon2 = 50,
+	  _SizeBlock     = 20, _TimeProtected = 125, _TimeDoor = 150, _TimeRechargeHome = 100;
 
 var canvas = null, ctx = null;
 var player, blockLife;
 var key = null;
 var keyPressed = [];
-var bullets1 = [], bullets2 = [], bullets3 = [];
+var bullets1 = [], bulletsTest = [], bullets2 = [];
 
 var info       = true,
 	pause      = false,
 	gameOver   = false,
-	fullScreen = true,
+	fullScreen = false,
 	sound      = false;
 
 var iPlayer      = new Image(),
@@ -38,6 +38,7 @@ var sWeapon1           = new Audio(),
 	sLoseLife          = new Audio(),
 	sRebounds          = new Audio(),
 	sContinue          = new Audio(),
+	sNoMunition        = new Audio(),
 	sChangeLevelBefore = new Audio(),
 	sChangeLevelAfter  = new Audio(),
 	sGameOver          = new Audio(),
@@ -78,6 +79,7 @@ function loadAssets(){
 	sLoseLife.src          = 'assets/audio/Error.wav';
 	sRebounds.src          = 'assets/audio/rebounds.wav';
 	sContinue.src          = 'assets/audio/recharge.wav';
+	sNoMunition.src        = 'assets/audio/noMunition.wav';
 	sChangeLevelBefore.src = 'assets/audio/process4.wav';
 	sChangeLevelAfter.src  = 'assets/audio/life.wav';
 	sGameOver.src          = 'assets/audio/gameOver2.wav';
@@ -93,13 +95,15 @@ function loadAssets(){
 	templateSetLightEfects(false);
 }
 function reset(){
-	setPositionPlayer(270, 330, 0);
-	player.score         = _PointsStart;
-	player.life          = _LifesPlayer;
-	player.timeProtected = 0;
-	blockLife.x          = random(canvas.width - 10);
-	blockLife.y          = random(canvas.height - 10);
-	gameOver             = false;
+	// setPositionPlayer(270, 330, 0);
+	setPositionPlayer(270, 260, 180);
+	player.score           = _PointsStart;
+	player.life            = _LifesPlayer;
+	player.munitionWeapon2 = _MunitionWeapon2;
+	player.timeProtected   = 0;
+	blockLife.x            = random(canvas.width - 10);
+	blockLife.y            = random(canvas.height - 10);
+	gameOver               = false;
 	clearMap();
 	createMap(map1, _SizeBlock, sMap1, "map1", "#011224");
 }
@@ -116,7 +120,7 @@ function game(){
 	    movement(player);
 		weapon1(player, bullets1);
 		weapon2(player, bullets2);
-		weapon3(player, bullets3);
+		// weaponTest(player, bulletsTest);
 		lifePlayer();
 		collision();
 	}
@@ -125,6 +129,16 @@ function game(){
 
 function draw() {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
+	for(i in home){
+		if(player.timeRechargeHome > 0){
+			if(player.timeRechargeHome%3 == 0)
+  				ctx.strokeStyle = "#022939";
+			else
+  				ctx.strokeStyle = "#03404A";
+		}else
+  			ctx.strokeStyle = "#03404A";
+		roundRect(ctx, home[i].x, home[i].y, home[i].width, home[i].height, 30, false, true);
+	}
 
 	for(i in portal1){
 		if(player.timeChangeLevel > 0){
@@ -181,17 +195,16 @@ function draw() {
 		ctx.drawImage(iBlockRed,blockRed[i].x,blockRed[i].y,blockRed[i].width,blockRed[i].height);
 
 	ctx.fillStyle = '#614E70';
-	for(i in bullets1){
+	for(i in bullets1)
   		ctx.fillRect(bullets1[i].x,bullets1[i].y,bullets1[i].width,bullets1[i].height);
-	}
+
+  	ctx.fillStyle = '#4A6192';
+	for(i in bulletsTest)
+  		ctx.fillRect(bulletsTest[i].x,bulletsTest[i].y,bulletsTest[i].width,bulletsTest[i].height);
 
   	ctx.fillStyle = '#4A6192';
 	for(i in bullets2)
   		ctx.fillRect(bullets2[i].x,bullets2[i].y,bullets2[i].width,bullets2[i].height);
-
-  	ctx.fillStyle = '#4A6192';
-	for(i in bullets3)
-  		ctx.fillRect(bullets3[i].x,bullets3[i].y,bullets3[i].width,bullets3[i].height);
 
 	ctx.font = "10px Verdana";
 	ctx.fillStyle = '#fff';
@@ -200,13 +213,15 @@ function draw() {
 		ctx.fillText('Score: '+player.score,5,30);
 		ctx.fillText('Bullets 1: '+bullets1.length,5,45);
 		ctx.fillText('Bullets 2: '+bullets2.length,5,60);
-		ctx.fillText('Bullets 3: '+bullets3.length,5,75);
-		ctx.fillText('Fps: '+ getFps().toFixed(1),5,90);
-		ctx.fillText('Lifes: '+player.life,5,105);
-		ctx.fillText('Rotation: '+player.rotation,5,120);
-		ctx.fillText('Time Protection: '+player.timeProtected,5,135);
-		ctx.fillText('Time Level: '+player.timeChangeLevel,5,150);
-		ctx.fillText('Map: '+currentMap,5,165);
+		ctx.fillText('Bullets Test: '+bulletsTest.length,5,75);
+		ctx.fillText('Weapon2: '+player.munitionWeapon2,5,90);
+		ctx.fillText('Fps: '+ getFps().toFixed(1),5,105);
+		ctx.fillText('Lifes: '+player.life,5,120);
+		ctx.fillText('Rotation: '+player.rotation,5,135);
+		ctx.fillText('Time Protection: '+player.timeProtected,5,150);
+		ctx.fillText('Time Level: '+player.timeChangeLevel,5,165);
+		ctx.fillText('Time Home: '+player.timeRechargeHome,5,180);
+		ctx.fillText('Map: '+currentMap,5,195);
 	}
 
 	ctx.font = "18px Verdana";
@@ -250,7 +265,7 @@ function collision(){
 		}
 	}
 
-	// blockLife -> portal
+	// blockLife -> blockBrown
 	for(i in blockBrown){
 		if(blockLife.collide(portal1[i])){
   			blockLife.x = random(canvas.width - 10);
@@ -295,10 +310,9 @@ function collision(){
 					createMap(map1, _SizeBlock, sMap1, "map1", "#011224", 532, 62, 180);
 					loadBackupMap("map1");
 				}else if(currentMap == "map3"){
-
-						// clearMap();
-						// createMap(map3, _SizeBlock, sMap1, "map3", "#010B16", 512, 32, 270);
-						setPositionPlayer(512, 32, 270);
+					// clearMap();
+					// createMap(map3, _SizeBlock, sMap1, "map3", "#010B16", 512, 32, 270);
+					setPositionPlayer(512, 32, 270);
 					// setTimeout(function(){
 					// 	setPositionPlayer(512, 32, 270);
 					// }, 1);
@@ -310,7 +324,7 @@ function collision(){
 			// BUG: antes carga el portal que la nave (tiempo espera en metodo crearPapa)
 			// por eso cuando carga el portal la nave ya esta a la derecha y dice ¡SI!
 
-			// When you've croosed the portal, avoid return to portal before
+			// When you've croosed the portal, avoid return automaticaly to portal before
 			// There is move player in 4 directions outside the portal
 			setTimeout(function(){
 				if(portal1[0].x + 50 < player.x || portal1[0].x - 50 > player.x || portal1[0].y + 50 < player.y || portal1[0].y - 50 > player.y){
@@ -342,6 +356,19 @@ function collision(){
 					portalCrossed2 = false;
 				}
 			}, 250);
+		}
+	}
+
+	// player -> home
+	for(i in home){
+		if(player.collide(home[i])){
+			// Recover life and munition
+			if(player.munitionWeapon2 <= 0 && player.timeRechargeHome == 0){
+				player.timeRechargeHome = _TimeRechargeHome;
+
+				player.munitionWeapon2 = _MunitionWeapon2;
+				loadSound(sChangeLevelAfter);
+			}
 		}
 	}
 
@@ -378,8 +405,8 @@ function collision(){
 	for(i in bullets1){
 		for(j in blockWhiteVert){
 	  		if(bullets1[i].collide(blockWhiteVert[j])){
-	  			// bullets1[i].velY = -bullets1[i].velY;
 	  			if(bullets1[i].maxRebounds < _MaxRebounds){
+	  				// bullets1[i].velY = -bullets1[i].velY;
 	  				bullets1[i].velY *= -1;
 	  				bullets1[i].maxRebounds++;
 	  				loadSound(sRebounds);
@@ -391,8 +418,8 @@ function collision(){
 	for(i in bullets1){
 		for(j in blockWhiteHor){
 	  		if(bullets1[i].collide(blockWhiteHor[j])){
-	  			// bullets1[i].velX = -bullets1[i].velX;
 	  			if(bullets1[i].maxRebounds < _MaxRebounds){
+	  				// bullets1[i].velX = -bullets1[i].velX;
 	  				bullets1[i].velX *= -1;
 	  				bullets1[i].maxRebounds++;
 	  				loadSound(sRebounds);
@@ -401,14 +428,6 @@ function collision(){
 			}
 		}
 	}
-
-	// bullets1 -> bullets1
-	// for(i in bullets1){
-	// 	for(j in bullets1){
-	//   		if(bullets1[i].collide(bullets1[j]))
-	// 			bullets1.splice(i,1);
-	// 	}
-	// }
 
 	// bullets1 -> blockLife
 	for(i in bullets1){
@@ -425,6 +444,70 @@ function collision(){
 		for(j in portal1){
 			if(bullets1[i].collide(portal1[j])){
 		  		bullets1.splice(i,1);
+		  		templateSetLightEfects(true);
+			}
+		}
+	}
+
+	// bullets2 -> blockBrown
+	for(i in bullets2){
+		for(j in blockBrown){
+			if(bullets2[i].collide(blockBrown[j])){
+	  			player.score += _PointsBlock;
+
+				bullets2.splice(i,1);
+
+				if(blockBrown[j].life >= _LifesBlock)
+					blockBrown.splice(j,1);
+				else
+					blockBrown[j].life += _DamageWeapon1;
+
+				templateSetLightEfects(true);
+			}
+		}
+	}
+
+	// bullets2 -> blockWhite
+	for(i in bullets2){
+		for(j in blockWhiteVert){
+	  		if(bullets2[i].collide(blockWhiteVert[j])){
+	  			if(bullets2[i].maxRebounds < _MaxRebounds){
+	  				bullets2[i].velY *= -1;
+	  				bullets2[i].maxRebounds++;
+	  				loadSound(sRebounds);
+	  			}else
+					bullets2.splice(i,1);
+			}
+		}
+	}
+	for(i in bullets2){
+		for(j in blockWhiteHor){
+	  		if(bullets2[i].collide(blockWhiteHor[j])){
+	  			if(bullets2[i].maxRebounds < _MaxRebounds){
+	  				bullets2[i].velX *= -1;
+	  				bullets2[i].maxRebounds++;
+	  				loadSound(sRebounds);
+				}else
+					bullets2.splice(i,1);
+			}
+		}
+	}
+
+	// bullets2 -> blockLife
+	for(i in bullets2){
+		if(bullets2[i].collide(blockLife)){
+			player.life++;
+			loadSound(sGetLife);
+	  		blockLife.x = random(canvas.width - 10);
+	  		blockLife.y = random(canvas.height - 10);
+		}
+	}
+
+	// bullets2 -> portal
+	for(i in bullets2){
+		for(j in portal1){
+			if(bullets2[i].collide(portal1[j])){
+		  		bullets2.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
@@ -479,7 +562,7 @@ function keyboard(){
 		key = null;
 	}else if(key == formatKey("PadNum6") || key == formatKey("6")){
 		clearMap();
-		createMap(map6, _SizeBlock, sMap1, "map6", "#1A3E5C");
+		createMap(map6, _SizeBlock, sMap1, "map6", "#011224");
 		key = null;
 	}else if(key == formatKey("PadNum7") || key == formatKey("7")){
 		info = !info;
@@ -506,12 +589,14 @@ function lifePlayer(){
 	        player.timeProtected--;
 		if(player.timeChangeLevel > 0)
 			player.timeChangeLevel--;
+		if(player.timeRechargeHome > 0)
+			player.timeRechargeHome--;
 	}
 }
 
 function toggleSound(){
 	sound = !sound;
-	templateSetSound();
+	templateSetSound(sound);
 
 	if(sound)
 		playMapSound();
@@ -526,10 +611,8 @@ function loadSound(nameVarSound, repeat){
 	if(sound){
 		nameVarSound.play();
 		nameVarSound.loop = repeat;
-	}else{
+	}else
 		nameVarSound.pause();
-		nameVarSound.currentTime = 0;
-	}
 }
 
 function playMapSound(){
@@ -537,17 +620,17 @@ function playMapSound(){
 	// Before: map1		After: sMap1
 	var soundCurrentMap = "s" + currentMap.charAt(0).toUpperCase() + currentMap.substr(1, currentMap.length);
 	if(soundCurrentMap == "sMap1")
-		sMap1.play();
+		loadSound(sMap1, true);
 	else if(soundCurrentMap == "sMap2")
-		sMap2.play();
+		loadSound(sMap2, true);
 	else if(soundCurrentMap == "sMap3")
-		sMap3.play();
+		loadSound(sMap3, true);
 	else if(soundCurrentMap == "sMap4")
-		sMap4.play();
+		loadSound(sMap4, true);
 	else if(soundCurrentMap == "sMap5")
-		sMap5.play();
+		loadSound(sMap5, true);
 	else if(soundCurrentMap == "sMap6")
-		sMap6.play();
+		loadSound(sMap6, true);
 }
 
 function stopSounds(){
@@ -557,6 +640,7 @@ function stopSounds(){
 	sLoseLife.pause();
 	sRebounds.pause();
 	sContinue.pause();
+	sNoMunition.pause();
 	sChangeLevelBefore.pause();
 	sChangeLevelAfter.pause();
 	sGameOver.pause();

@@ -25,6 +25,8 @@ function Player(x,y,ancho,alto){
  	this.score = 0;
  	this.timeProtected = 0;
  	this.timeChangeLevel = 0;
+ 	this.timeRechargeHome = 0;
+ 	this.munitionWeapon2 = 0;
 
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){

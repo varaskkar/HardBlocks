@@ -1,7 +1,8 @@
 
 Juego de Naves:
 
-    ☐ Buscar nombre    Rebo Blocks, Invert Block, Destroy Blocks, Shoot Blocks, Pedel
+    ☐ Buscar nombre    Rebo Blocks, Invert Block, Destroy Blocks, Shoot Blocks, Pedel, Connector Gun, Half Block
+                        Hard Blocks, Hell Blocks, hem block, hide blocks, Hund blocks
     ☐ Añadir fondo en vez de color plano
 
 versión 0.1:
@@ -10,7 +11,9 @@ versión 0.1:
     ✔ Mover las balas a la dirección que haya rotado la nave @done (22-03-15 20:23)
     ☐ Tipos de armas
         ✔ Principal  > 1 bala redonda en 360º @done (22-03-15 20:47)
-        ☐ Secundaria > 2 balas paralelas
+        ✔ Secundaria > 3 balas paralelas @done (21-04-15 14:08)
+            ☐ Necesita ser recargada
+            ☐ Al conseguir un objeto, tener este arma, ¿recargar o tiempo limitado?¿antes del jefe final?
         ☐ Bomba que explota en 3 segundos
     ☐ Tipos de bloque
         ✔ Rojo   > Fuego    (quita vida) @done (22-03-15 20:29)
@@ -25,7 +28,8 @@ versión 0.1:
             ✔ La nave rota en 36 posiciones  > 360º/10 @done (22-03-15 20:24)
             ✔ La nave rota en 72 posiciones  > 360/5 @done (22-03-15 20:24)
             ☐ La nave rota en 120 posiciones > 360/3
-            ☐ La nave cuando está en rotacion acabada en 5 (25 p.e.) atraviesa siempre los bloques @Problema
+            ✔ La nave cuando está en rotacion acabada en 5 (25 p.e.) atraviesa siempre los bloques @Problema @done (22-04-15 12:27)
+            ☐ Mejorar más el tema de colisiones
         ☐ Balas - bloques
             ✔ Cuando una bala da en un muro, este cambia de color ó parpadea @done (31-03-15 23:46)
     ✔ Poner desplazamiento no automático, que se mueva con la presión @done (22-03-15 20:27)
@@ -36,15 +40,18 @@ versión 0.1:
 
 :ClasesEnJS:
 
+limit bullets on weapon2 and recharge it at the home
+Problema pantalla completa
+cambiar nombre "_TimeDoor"
+
 1. Balas
 2. Enemigo en el 2º mapa
-
+☐ @Error ahora no pone fullscreen al pulsar "M"
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
 ☐ Que la nave saque un ESCUDO cuando pulse una tecla para que las balas reboten contra ella y poder dirigirlas
 ☐ Que la bala no sea cuadrada si no redonda
 ☐ Solucionar dejar pulsado al disparar...que la bala se aleje X pixeles de la nave
-☐ Al conseguir un objeto, tener disponible el arma triple, ¿recargar o tiempo limitado?¿antes del jefe final?
 ☐ Poner un bloque marron un poco diferente que al romperse haga un ruido de "tin" y me de mas puntos que el resto o algo parecido
 ☐ sumar el numero de rebotes de las balas a los puntos que te dan al destruir un bloque
 ☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
@@ -54,12 +61,10 @@ versión 0.1:
 ☐ Fase: hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
      por rebote
-☐ Crear una base
+☐ Crear una base @Siguiente
     ☐ Siempre que se vuelva a ella se reestablezca la vida y la munición
     ☐ Al morir reaparecer en la base y poner el sonido de recargar "recharge.wav"
     ☐ La base este solo en el mapa1 y haya que regresar a el para recargar y recuperar salud
-☐ Hacer 2ª arma
-    ☐ El jugador pueda quedarse sin balas
 ☐ Hacerlo compatible con GamePad
 ✘ Crear sistema de puntuacion en php. A la gente les engancha el que sean los mejores / tengan mas puntos. Mostrar los nombres en la plantilla. Subir fichero "index.php" y ver si puede crear en github un txt con la max puntuacion del jugador @cancelled (17-04-15 17:02)
     ✔ Github sólo permite "index.html" @done (17-04-15 16:23)

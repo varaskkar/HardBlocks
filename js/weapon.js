@@ -112,25 +112,25 @@ function weapon1(player, bullets){
 		else if(player.rotation == 350 && !bullets[i].permitir){  			bullets[i].mover350 = true; 	bullets[i].permitir = true; 	}
 		else if(player.rotation == 355 && !bullets[i].permitir){  			bullets[i].mover355 = true; 	bullets[i].permitir = true; 	}
 
-		else if(player.rotation == 5 && !bullets[i].permitir){  				bullets[i].mover5 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 10 && !bullets[i].permitir){  				bullets[i].mover10 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 15 && !bullets[i].permitir){  				bullets[i].mover15 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 20 && !bullets[i].permitir){  				bullets[i].mover20 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 25 && !bullets[i].permitir){  				bullets[i].mover25 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 30 && !bullets[i].permitir){  				bullets[i].mover30 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 35 && !bullets[i].permitir){  				bullets[i].mover35 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 40 && !bullets[i].permitir){  				bullets[i].mover40 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 45 && !bullets[i].permitir){  				bullets[i].mover45 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 50 && !bullets[i].permitir){  				bullets[i].mover50 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 55 && !bullets[i].permitir){  				bullets[i].mover55 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 60 && !bullets[i].permitir){  				bullets[i].mover60 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 65 && !bullets[i].permitir){  				bullets[i].mover65 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 70 && !bullets[i].permitir){  				bullets[i].mover70 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 75 && !bullets[i].permitir){  				bullets[i].mover75 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 80 && !bullets[i].permitir){  				bullets[i].mover80 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 85 && !bullets[i].permitir){  				bullets[i].mover85 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 5 && !bullets[i].permitir){  			bullets[i].mover5 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 10 && !bullets[i].permitir){  			bullets[i].mover10 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 15 && !bullets[i].permitir){  			bullets[i].mover15 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 20 && !bullets[i].permitir){  			bullets[i].mover20 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 25 && !bullets[i].permitir){  			bullets[i].mover25 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 30 && !bullets[i].permitir){  			bullets[i].mover30 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 35 && !bullets[i].permitir){  			bullets[i].mover35 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 40 && !bullets[i].permitir){  			bullets[i].mover40 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 45 && !bullets[i].permitir){  			bullets[i].mover45 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 50 && !bullets[i].permitir){  			bullets[i].mover50 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 55 && !bullets[i].permitir){  			bullets[i].mover55 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 60 && !bullets[i].permitir){  			bullets[i].mover60 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 65 && !bullets[i].permitir){  			bullets[i].mover65 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 70 && !bullets[i].permitir){  			bullets[i].mover70 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 75 && !bullets[i].permitir){  			bullets[i].mover75 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 80 && !bullets[i].permitir){  			bullets[i].mover80 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 85 && !bullets[i].permitir){  			bullets[i].mover85 = true; 		bullets[i].permitir = true; 	}
 
-		else if(player.rotation == 95 && !bullets[i].permitir){  				bullets[i].mover95 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 95 && !bullets[i].permitir){  			bullets[i].mover95 = true; 		bullets[i].permitir = true; 	}
 		else if(player.rotation == 100 && !bullets[i].permitir){  			bullets[i].mover100 = true; 	bullets[i].permitir = true; 	}
 		else if(player.rotation == 105 && !bullets[i].permitir){  			bullets[i].mover105 = true; 	bullets[i].permitir = true; 	}
 		else if(player.rotation == 110 && !bullets[i].permitir){  			bullets[i].mover110 = true; 	bullets[i].permitir = true; 	}
@@ -167,10 +167,10 @@ function weapon1(player, bullets){
 		else if(player.rotation == 265 && !bullets[i].permitir){  			bullets[i].mover265 = true; 	bullets[i].permitir = true; 	}
 
 		// Move bullets
-  		if(bullets[i].mover360)			bullets[i].y -= bullets[i].velY;
+  		if(bullets[i].mover360)				bullets[i].y -= bullets[i].velY;
   		else if(bullets[i].mover180)		bullets[i].y += bullets[i].velY;
   		else if(bullets[i].mover270)		bullets[i].x -= bullets[i].velX;
-  		else if(bullets[i].mover90)		bullets[i].x += bullets[i].velX;
+  		else if(bullets[i].mover90)			bullets[i].x += bullets[i].velX;
 
   		else if(bullets[i].mover275){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 		else if(bullets[i].mover280){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
@@ -190,7 +190,7 @@ function weapon1(player, bullets){
   		else if(bullets[i].mover350){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
   		else if(bullets[i].mover355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
-		else if(bullets[i].mover5){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].mover5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 		else if(bullets[i].mover10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 		else if(bullets[i].mover15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
   		else if(bullets[i].mover20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
@@ -251,29 +251,9 @@ function weapon1(player, bullets){
 }
 
 function weapon2(player, bullets){
-	// Make bullets
-	if((key == formatKey("X")) && bullets.length <= 30){
-		bullets.push(new Bullet(player.x+5,player.y,2,10,1,5));
-		bullets.push(new Bullet(player.x+9,player.y,2,10,1,5));
-		loadSound(sWeapon2);
-		key = null;
-	}
-
-	// Move bullets
-	for(i in bullets){
-		bullets[i].y -= bullets[i].velY;
-		//bullets[i].x -= bullets[i].velX;
-	 	if(bullets[i].y < player.y-100)
-    		bullets.splice(i,1);
-    	/*else if(bullets[i].x > canvas.width || bullets[i].y > canvas.height)
-    		bullets.splice(i,1);*/
-  	}
-}
-
-function weapon3(player, bullets){
 
 	// Make bullets
-	if((key == formatKey("C") || key == formatKey("SPACE")) && bullets.length < 500){
+	if((key == formatKey("X") || key == formatKey("CTRL")) && player.munitionWeapon2 > 0){
 		if(player.rotation == 0 || player.rotation == 360){
 			bullets.push(new Bullet(player.x-2,player.y - 3,_SizeWeapon1,_SizeWeapon1,4,4));
 			bullets.push(new Bullet(player.x+player.width/2-2,player.y - 3,_SizeWeapon1,_SizeWeapon1,4,4));
@@ -572,8 +552,12 @@ function weapon3(player, bullets){
 		 	bullets.push(new Bullet(player.x+player.width/2 - 21,player.y + 0,_SizeWeapon1,_SizeWeapon1,4,1));
 		}
 
+		player.munitionWeapon2 = player.munitionWeapon2 - 3;
 		loadSound(sWeapon1);
 
+		key = null;
+	}else if((key == formatKey("X") || key == formatKey("CTRL")) && player.munitionWeapon2 <= 0){
+		loadSound(sNoMunition);
 		key = null;
 	}
 
@@ -605,25 +589,25 @@ function weapon3(player, bullets){
 		else if(player.rotation == 350 && !bullets[i].permitir){  			bullets[i].mover350 = true; 	bullets[i].permitir = true; 	}
 		else if(player.rotation == 355 && !bullets[i].permitir){  			bullets[i].mover355 = true; 	bullets[i].permitir = true; 	}
 
-		else if(player.rotation == 5 && !bullets[i].permitir){  				bullets[i].mover5 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 10 && !bullets[i].permitir){  				bullets[i].mover10 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 15 && !bullets[i].permitir){  				bullets[i].mover15 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 20 && !bullets[i].permitir){  				bullets[i].mover20 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 25 && !bullets[i].permitir){  				bullets[i].mover25 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 30 && !bullets[i].permitir){  				bullets[i].mover30 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 35 && !bullets[i].permitir){  				bullets[i].mover35 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 40 && !bullets[i].permitir){  				bullets[i].mover40 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 45 && !bullets[i].permitir){  				bullets[i].mover45 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 50 && !bullets[i].permitir){  				bullets[i].mover50 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 55 && !bullets[i].permitir){  				bullets[i].mover55 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 60 && !bullets[i].permitir){  				bullets[i].mover60 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 65 && !bullets[i].permitir){  				bullets[i].mover65 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 70 && !bullets[i].permitir){  				bullets[i].mover70 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 75 && !bullets[i].permitir){  				bullets[i].mover75 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 80 && !bullets[i].permitir){  				bullets[i].mover80 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 85 && !bullets[i].permitir){  				bullets[i].mover85 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 5 && !bullets[i].permitir){  			bullets[i].mover5 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 10 && !bullets[i].permitir){  			bullets[i].mover10 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 15 && !bullets[i].permitir){  			bullets[i].mover15 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 20 && !bullets[i].permitir){  			bullets[i].mover20 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 25 && !bullets[i].permitir){  			bullets[i].mover25 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 30 && !bullets[i].permitir){  			bullets[i].mover30 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 35 && !bullets[i].permitir){  			bullets[i].mover35 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 40 && !bullets[i].permitir){  			bullets[i].mover40 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 45 && !bullets[i].permitir){  			bullets[i].mover45 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 50 && !bullets[i].permitir){  			bullets[i].mover50 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 55 && !bullets[i].permitir){  			bullets[i].mover55 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 60 && !bullets[i].permitir){  			bullets[i].mover60 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 65 && !bullets[i].permitir){  			bullets[i].mover65 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 70 && !bullets[i].permitir){  			bullets[i].mover70 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 75 && !bullets[i].permitir){  			bullets[i].mover75 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 80 && !bullets[i].permitir){  			bullets[i].mover80 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 85 && !bullets[i].permitir){  			bullets[i].mover85 = true; 		bullets[i].permitir = true; 	}
 
-		else if(player.rotation == 95 && !bullets[i].permitir){  				bullets[i].mover95 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 95 && !bullets[i].permitir){  			bullets[i].mover95 = true; 		bullets[i].permitir = true; 	}
 		else if(player.rotation == 100 && !bullets[i].permitir){  			bullets[i].mover100 = true; 	bullets[i].permitir = true; 	}
 		else if(player.rotation == 105 && !bullets[i].permitir){  			bullets[i].mover105 = true; 	bullets[i].permitir = true; 	}
 		else if(player.rotation == 110 && !bullets[i].permitir){  			bullets[i].mover110 = true; 	bullets[i].permitir = true; 	}
@@ -683,7 +667,7 @@ function weapon3(player, bullets){
   		else if(bullets[i].mover350){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
   		else if(bullets[i].mover355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
-		else if(bullets[i].mover5){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].mover5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 		else if(bullets[i].mover10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 		else if(bullets[i].mover15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
   		else if(bullets[i].mover20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
@@ -738,13 +722,33 @@ function weapon3(player, bullets){
   		else if(bullets[i].mover265){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
   		// Remove bullets if exceed the map limits
-	 	// if(bullets[i].x < 0 || bullets[i].y < 0)								bullets.splice(i,1);
-   //  	else if(bullets[i].x > canvas.width || bullets[i].y > canvas.height)	bullets.splice(i,1);
+	 	if(bullets[i].x < 0 || bullets[i].y < 0)								bullets.splice(i,1);
+    	else if(bullets[i].x > canvas.width || bullets[i].y > canvas.height)	bullets.splice(i,1);
 
 		// Remove bullets if they're 100px farther from the player
-	 	if(bullets[i].y < player.y-100 || bullets[i].y > player.y+100)
-	 		bullets.splice(i,1);
-	 	if(bullets[i].x < player.x-100 || bullets[i].x > player.x+100)
-	 		bullets.splice(i,1);
+	 	// if(bullets[i].y < player.y-100 || bullets[i].y > player.y+100)
+	 	// 	bullets.splice(i,1);
+	 	// if(bullets[i].x < player.x-100 || bullets[i].x > player.x+100)
+	 	// 	bullets.splice(i,1);
+  	}
+}
+
+function weaponTest(player, bullets){
+	// Make bullets
+	if((key == formatKey("C")) && bullets.length <= 30){
+		bullets.push(new Bullet(player.x+5,player.y,2,10,1,5));
+		bullets.push(new Bullet(player.x+9,player.y,2,10,1,5));
+		loadSound(sWeapon2);
+		key = null;
+	}
+
+	// Move bullets
+	for(i in bullets){
+		bullets[i].y -= bullets[i].velY;
+		//bullets[i].x -= bullets[i].velX;
+	 	if(bullets[i].y < player.y-100)
+    		bullets.splice(i,1);
+    	/*else if(bullets[i].x > canvas.width || bullets[i].y > canvas.height)
+    		bullets.splice(i,1);*/
   	}
 }
