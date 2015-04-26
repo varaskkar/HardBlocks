@@ -40,8 +40,12 @@ versión 0.1:
 
 :ClasesEnJS:
 
-2. Enemigo en el 2º mapa
-✘ Fullscreen no funciona en Firefox @cancelled (22-04-15 17:42)
+☐ Cambiar el tema de la vida del bloqueMarron
+
+☐ Al chocar las balas con algo (portales p.e.) aparecer circulo como de una explosión @Siguiente
+☐ Enemigo en el 2º mapa
+
+☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
 ☐ Que la nave saque un ESCUDO cuando pulse una tecla para que las balas reboten contra ella y poder dirigirlas
@@ -56,20 +60,16 @@ versión 0.1:
 ☐ Fase: hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
      por rebote
-☐ Crear una base @Siguiente
-    ☐ Siempre que se vuelva a ella se reestablezca la vida y la munición
-    ☐ Al morir reaparecer en la base y poner el sonido de recargar "recharge.wav"
-    ☐ La base este solo en el mapa1 y haya que regresar a el para recargar y recuperar salud
+☐ Base de salida
+    ☐ Siempre que se vuelva a ella se reestablezcan los valores
+        ☐ Vida
+        ✔ Munición @done (22-04-15 18:26)
+            ☐ ¿recagar cuando balas = 0 ó balas < _MaxBalas?
+    ✔ Al morir reaparecer en la base y poner el sonido de recargar "recharge.wav" @done (22-04-15 18:25)
+    ✔ La base este solo en el mapa1 y haya que regresar a ella para restablecer valores @done (22-04-15 18:26)
 ☐ Hacerlo compatible con GamePad
-✘ Crear sistema de puntuacion en php. A la gente les engancha el que sean los mejores / tengan mas puntos. Mostrar los nombres en la plantilla. Subir fichero "index.php" y ver si puede crear en github un txt con la max puntuacion del jugador @cancelled (17-04-15 17:02)
-    ✔ Github sólo permite "index.html" @done (17-04-15 16:23)
-    ✔ Aunque use "index.html" y llame a funcion PHP desde JS ... tampoco deja Github @done (17-04-15 16:55)
-✘ Las balas pueden chocar entre si y destruirse @cancelled (05-04-15 12:01)
 ☐ Crear Splash Screen
 ☐ poner un limite de vidas que se puedan conseguir y de puntos
-☐ Mejorar colisión nave-bloque
-☐ Poner la velocidad como constante @Problema @MientrasHayaRotacionHabraDiferentesVelocidadesParaCadaEje
-☐ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador
 ☐ for of
 ☐ Portales
      ☐ Internos > Dentro del mismo mapa: 2 portales dentro del mismo mapa para acceder a zonas impenetrables
@@ -117,6 +117,13 @@ versión 0.1:
 ✔ Bloque marrón ahora no se destruye @Problema @done (30-03-15 17:26)
 ✔ tecla = null; @done (30-03-15 23:51)
 ✔ Formateadas código ASCII de las teclas @done (30-03-15 21:53)
+✘ Fullscreen no funciona en Firefox @cancelled (22-04-15 17:42)
+✘ Crear sistema de puntuacion en php. A la gente les engancha el que sean los mejores / tengan mas puntos. Mostrar los nombres en la plantilla. Subir fichero "index.php" y ver si puede crear en github un txt con la max puntuacion del jugador @cancelled (17-04-15 17:02)
+    ✔ Github sólo permite "index.html" @done (17-04-15 16:23)
+    ✔ Aunque use "index.html" y llame a funcion PHP desde JS ... tampoco deja Github @done (17-04-15 16:55)
+✘ Las balas pueden chocar entre si y destruirse @cancelled (05-04-15 12:01)
+✘ Poner la velocidad como constante MientrasHayaRotacionHabraDiferentesVelocidadesParaCadaEje @cancelled (22-04-15 18:24)
+✘ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador @cancelled (22-04-15 18:24)
 
 versión 0.2:
 

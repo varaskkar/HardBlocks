@@ -1,9 +1,12 @@
-function Element(x,y,ancho,alto){
+function Element(x,y,width,height,life){
 	this.x = x;
  	this.y = y;
- 	this.width = ancho;
- 	this.height = alto;
+ 	this.width = width;
+ 	this.height = height;
  	this.life = 0;
+
+ 	if(typeof life != "undefined")
+ 		this.life = life;
 
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){
@@ -15,18 +18,22 @@ function Element(x,y,ancho,alto){
  	}
 }
 
-function Player(x,y,ancho,alto){
+function Player(x,y,width,height){
 	this.x = x;
  	this.y = y;
- 	this.width = ancho;
- 	this.height = alto;
+ 	this.width = width;
+ 	this.height = height;
  	this.life = 0;
  	this.rotation = 0;
  	this.score = 0;
  	this.timeProtected = 0;
  	this.timeChangeLevel = 0;
  	this.timeRechargeHome = 0;
+ 	this.munitionWeapon1 = 0;
  	this.munitionWeapon2 = 0;
+
+ 	if(this.munitionWeapon1 >= 999)
+ 		this.munitionWeapon1 = 99999999999;
 
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){
@@ -38,20 +45,20 @@ function Player(x,y,ancho,alto){
  	}
 }
 
-function Bullet(x,y,ancho,alto,velX,velY){
+function Bullet(x,y,width,height,velX,velY){
 	this.x = x;
  	this.y = y;
- 	this.width = ancho;
- 	this.height = alto;
+ 	this.width = width;
+ 	this.height = height;
  	this.velX = velX;
  	this.velY = velY;
  	this.maxRebounds = 0;
 
-	// Atributos de las balas
- 	this.mover360 = false;		// Arriba
- 	this.mover180 = false;		// Abajo
- 	this.mover270 = false;		// Izquierda
- 	this.mover90 = false;		// Derecha
+	// Atributes of the bullets
+ 	this.mover360 = false;		// Up
+ 	this.mover180 = false;		// Down
+ 	this.mover270 = false;		// Left
+ 	this.mover90 = false;		// Right
 
 	this.mover275 = false;
 	this.mover280 = false;

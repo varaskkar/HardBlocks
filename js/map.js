@@ -9,14 +9,16 @@
 var currentMap = "";
 var map1 = [], map2 = [], map3 = [], map4 = [], map5 = [], map6 = [], map7 = [];
 var home = [], portalInput = [], portalOutput = [], blockBrown = [], blockRed = [], blockWhiteVert = [], blockWhiteHor = [];
-var portalCrossed = false, portalCrossed2 = false;
+var enemy = [];
+var portalInputCrossed = false, portalOutputCrossed = false;
+// Backup for when return to previous map
 var blockBrownCopyMap1 = [], blockBrownCopyMap2 = [];
 
 function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rotation){
 	for(var i = 0; i < map.length; i++) {			// i = row   j = column
 		for(var j = 0; j < map[i].length; j++) {
 			if(map[i][j] == 5)
-				blockBrown.push(new Element(j*width,i*width,width,width));
+				blockBrown.push(new Element(j*width,i*width,width,width, _LifeBlock));
 			else if(map[i][j] == 4)
 				blockRed.push(new Element(j*width,i*width,width,width));
 			else if(map[i][j] == 3)
@@ -29,6 +31,8 @@ function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rota
 				portalOutput.push(new Element(j*width,i*width,width,width));
 			else if(map[i][j] == 'H')
 				home.push(new Element(j*width,i*width,width,width));
+			else if(map[i][j] == 'E')
+				enemy.push(new Element(j*width,i*width,width,width, _LifeEnemy));
 		}
 	}
 	templateSetBackgroundColor(backgroundColor);
@@ -50,6 +54,7 @@ function clearMap(){
 	portalInput.splice(0, portalInput.length);
 	portalOutput.splice(0, portalOutput.length);
 	home.splice(0, home.length);
+	enemy.splice(0, enemy.length);
 	stopSounds();
 }
 function makeBackupMap(nameMap){
@@ -97,7 +102,7 @@ map1 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[ 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 3 , 3 , 3 , 3 , 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 , 3 , 3 , 3 , 3 ],
@@ -231,6 +236,27 @@ map6 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ]
+	];
+
+map7 = [
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
+	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H']
 	];
 
 

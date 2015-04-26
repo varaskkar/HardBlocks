@@ -206,10 +206,10 @@ function pressKey(){
 }
 
 function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-	if (typeof fill == "undefined")
-		fill = true;
-	if (typeof radius === "undefined")
-		radius = 5;
+	if (typeof radius == "undefined")	radius = 5;
+	if (typeof fill == "undefined")		fill   = true;
+	if (typeof stroke == "undefined")	stroke = false;
+
 	ctx.beginPath();
 	ctx.moveTo(x + radius, y);
 	ctx.lineTo(x + width - radius, y);
@@ -228,7 +228,26 @@ function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
 		ctx.stroke();
 }
 
+function circle(ctx, x, y, radius, fill, stroke, fillStyle, strokeStyle, lineWidth){
+	if (typeof radius == "undefined")		radius      = 20;
+	if (typeof fill == "undefined")			fill        = true;
+	if (typeof stroke == "undefined")		stroke      = false;
+	if (typeof fillStyle == "undefined")	fillStyle   = 'green';
+	if (typeof strokeStyle == "undefined")	strokeStyle = '#003300';
+	if (typeof lineWidth == "undefined")	lineWidth   = 5;
 
+	ctx.beginPath();
+	ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+	ctx.lineWidth = lineWidth;
+
+	ctx.fillStyle = fillStyle;
+	ctx.strokeStyle = strokeStyle;
+	if(fill)
+		ctx.fill();
+	if(stroke)
+		ctx.stroke();
+	ctx.lineWidth = 1;
+}
 
 
 
