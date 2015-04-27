@@ -4,6 +4,9 @@ function Element(x,y,width,height,life){
  	this.width = width;
  	this.height = height;
  	this.life = 0;
+ 	this.timeShowExplosion = 0;
+ 	this.onlyOneTime = true;
+ 	this.setTimeOnlyOnce = true;
 
  	if(typeof life != "undefined")
  		this.life = life;

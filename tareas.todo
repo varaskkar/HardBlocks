@@ -14,7 +14,9 @@ versión 0.1:
         ✔ Secundaria > 3 balas paralelas @done (21-04-15 14:08)
             ☐ Necesita ser recargada
             ☐ Al conseguir un objeto, tener este arma, ¿recargar o tiempo limitado?¿antes del jefe final?
-        ☐ Bomba que explota en 3 segundos
+        ☐ Bomba que explota en 3 segundos en el sitio colocado
+        ☐ Misil que al chocar en cualquier sitio explote y provoque explosion redonda
+            ☐ Mientras el misil este vivo no dejar lanzar más hasta que éste explote
     ☐ Tipos de bloque
         ✔ Rojo   > Fuego    (quita vida) @done (22-03-15 20:29)
         ✔ Marrón > Ladrillo (se rompe) @done (22-03-15 20:30)
@@ -40,11 +42,19 @@ versión 0.1:
 
 :ClasesEnJS:
 
-☐ Cambiar el tema de la vida del bloqueMarron
+☐ Hacer gift de portales y disparando y que se vea en el suelo donde va la bala
+✔ Cambiar el tema de la vida del bloqueMarron @done (26-04-15 13:35)
 
-☐ Al chocar las balas con algo (portales p.e.) aparecer circulo como de una explosión @Siguiente
-☐ Enemigo en el 2º mapa
-
+☐ Enemigo
+    ✔ Básico: quitarle vida y matarlo @done (26-04-15 13:36)
+    ✔ Me de puntos @done (26-04-15 13:36)
+    ☐ Sonido de muerte (algo como explosión)
+    ☐ Explosión
+        sExplosion
+        ✔ Mostrarla @done (27-04-15 14:39)
+        ☐ La onda expansiva de la explosión me quite vidas si me da  @Prioridad
+    ☐ Al morir que deje objetos o algo
+    ☐ IA: Ponerle movimiento o algoritmo del movimiento angular para que me siga @Prioridad
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color

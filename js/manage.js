@@ -6,9 +6,10 @@ requirejs(['movement']);
 
 window.addEventListener('load',init,false);
 
-const _LifePlayer = 1, _TimeProtected = 125,    _PointsBlock = 3, _MunitionWeapon1 = 9999,
-	  _LifeBlock = 3,  _TimeChangeLevel = 150,  _PointsEnemy = 5, _MunitionWeapon2 = 300,
-	  _LifeEnemy = 25, _TimeRechargeHome = 100,
+const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,      _MunitionWeapon1 = 9999,
+	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 5,      _MunitionWeapon2 = 300,
+	  _LifeEnemy = 5,  _TimeRechargeHome = 75,       _PointsTouchEnemy = 3,
+	  				   _TimeShowExplosionEnemy = 30,
 
 	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100;
 
@@ -34,25 +35,27 @@ var iPlayer      = new Image(),
  	iBlockBrown2 = new Image(),
  	iBlockBrown3 = new Image();
 
-var sWeapon1           = new Audio(),
-	sWeapon2           = new Audio(),
-	sGetLife           = new Audio(),
-	sLoseLife          = new Audio(),
-	sRebounds          = new Audio(),
-	sContinue          = new Audio(),
-	sNoMunition        = new Audio(),
-	sChangeLevelBefore = new Audio(),
-	sChangeLevelAfter  = new Audio(),
-	sGameOver          = new Audio(),
-	sMap1              = new Audio(),
-	sMap2              = new Audio(),
-	sMap3              = new Audio(),
-	sMap4              = new Audio(),
-	sMap5              = new Audio(),
-	sMap6              = new Audio();
+var sWeapon1      = new Audio(),
+	sWeapon2      = new Audio(),
+	sGetLife      = new Audio(),
+	sLoseLife     = new Audio(),
+	sRebounds     = new Audio(),
+	sContinue     = new Audio(),
+	sNoMunition   = new Audio(),
+	sPortalInput  = new Audio(),
+	sPortalOutput = new Audio(),
+	sGameOver     = new Audio(),
+	sExplosion    = new Audio(),
+	sHome         = new Audio(),
+	sMap1         = new Audio(),
+	sMap2         = new Audio(),
+	sMap3         = new Audio(),
+	sMap4         = new Audio(),
+	sMap5         = new Audio(),
+	sMap6         = new Audio();
 
 function init(){
-	// Esperamos a que le de tiempo a los scripts de la cabecera que carguen por completo
+	// Wait to load completely scripts of the header
 	setTimeout(function(){
 		canvas = document.getElementsByTagName('canvas')[0];
 		ctx = canvas.getContext('2d');
@@ -67,7 +70,7 @@ function init(){
 }
 function loadAssets(){
 	iPlayer.src      = 'assets/img/player1.png';
-	iEnemy.src      = 'assets/img/boat.png';
+	iEnemy.src       = 'assets/img/boat.png';
 	iBlockLife.src   = 'assets/img/life1.png';
 	iBlockRed.src    = 'assets/img/fire2.png';
 	iBlockWhite.src  = 'assets/img/blockWhite.png';
@@ -76,22 +79,24 @@ function loadAssets(){
 	iBlockBrown2.src = 'assets/img/blockBrown2.png';
 	iBlockBrown3.src = 'assets/img/blockBrown3.png';
 
-	sWeapon1.src           = 'assets/audio/weapon1.wav';
-	sWeapon2.src           = 'assets/audio/weapon2.wav';
-	sGetLife.src           = 'assets/audio/blip.wav';
-	sLoseLife.src          = 'assets/audio/Error.wav';
-	sRebounds.src          = 'assets/audio/rebounds.wav';
-	sContinue.src          = 'assets/audio/recharge.wav';
-	sNoMunition.src        = 'assets/audio/noMunition.wav';
-	sChangeLevelBefore.src = 'assets/audio/process4.wav';
-	sChangeLevelAfter.src  = 'assets/audio/life.wav';
-	sGameOver.src          = 'assets/audio/gameOver2.wav';
-	sMap1.src              = 'assets/audio/MenuOpciones.wav';
-	sMap2.src              = 'assets/audio/FondoDeUnaCueva.wav';
-	sMap3.src              = 'assets/audio/FondoDeUnaCueva.wav';
-	sMap4.src              = 'assets/audio/FondoDeUnaCueva.wav';
-	sMap5.src              = 'assets/audio/FondoDeUnaCueva.wav';
-	sMap6.src              = 'assets/audio/FondoDeUnaCueva.wav';
+	sWeapon1.src      = 'assets/audio/weapon1.wav';
+	sWeapon2.src      = 'assets/audio/weapon2.wav';
+	sGetLife.src      = 'assets/audio/blip.wav';
+	sLoseLife.src     = 'assets/audio/error.wav';
+	sRebounds.src     = 'assets/audio/rebounds.wav';
+	sContinue.src     = 'assets/audio/recharge.wav';
+	sNoMunition.src   = 'assets/audio/noMunition.wav';
+	sPortalInput.src  = 'assets/audio/process4.wav';
+	sPortalOutput.src = 'assets/audio/life.wav';
+	sGameOver.src     = 'assets/audio/gameOver.wav';
+	sExplosion.src    = 'assets/audio/explosion.wav';
+	sHome.src         = 'assets/audio/magic.wav';
+	sMap1.src         = 'assets/audio/map1.wav';
+	sMap2.src         = 'assets/audio/map2.wav';
+	sMap3.src         = 'assets/audio/map2.wav';
+	sMap4.src         = 'assets/audio/map2.wav';
+	sMap5.src         = 'assets/audio/map2.wav';
+	sMap6.src         = 'assets/audio/map2.wav';
 
 	templateSetSound(sound);
 	templateSetFullscreen(fullScreen);
@@ -124,8 +129,8 @@ function game(){
 		weapon1(player, bullets1);
 		weapon2(player, bullets2);
 		// weaponTest(player, bulletsTest);
-		lifePlayer();
 		collision();
+		lifePlayer();
 	}
 	keyboard();
 }
@@ -154,8 +159,6 @@ function draw() {
 			}
 		}
 	}
-
-	// circle(ctx, 270, 180, 30, true, true);
 
 	// bullets2 -> home
 	ctx.fillStyle = '#690303';
@@ -215,6 +218,18 @@ function draw() {
 	for(i in enemy){
 		if(enemy[i].life > 0)
 			ctx.drawImage(iEnemy,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+		else{
+	  		if(enemy[i].setTimeOnlyOnce){
+	  			enemy[i].timeShowExplosion = _TimeShowExplosionEnemy;
+	  			enemy[i].setTimeOnlyOnce = false;
+	  		}
+			if(enemy[i].timeShowExplosion > 0){
+				var centerX = enemy[i].x+enemy[i].width/2;
+				var centerY = enemy[i].y+enemy[i].height/2;
+				circle(ctx, centerX, centerY, enemy[i].width + 20, true, true, "#6B0801", "#6B1601");
+			}else
+				enemy.splice(i,1);
+		}
 	}
 
 	for(i in blockWhiteVert)
@@ -254,7 +269,9 @@ function draw() {
 		ctx.fillText('Time Protection: '+player.timeProtected,5,150);
 		ctx.fillText('Time Level: '+player.timeChangeLevel,5,165);
 		ctx.fillText('Time Home: '+player.timeRechargeHome,5,180);
-		ctx.fillText('Map: '+currentMap,5,195);
+		ctx.fillText('Time Explosion Enemy: '+enemy[0].timeShowExplosion,5,195);
+		ctx.fillText('Map: '+currentMap,5,210);
+		ctx.fillText('Enemy: '+enemy.length,5,225);
 	}
 
 	ctx.font = "18px Verdana";
@@ -330,7 +347,7 @@ function collision(){
 		if(player.collide(portalInput[i]) && !portalInputCrossed){
 	 		if(player.timeChangeLevel == 0){
 				player.timeChangeLevel = _TimeChangeLevel;
-				loadSound(sChangeLevelBefore);
+				loadSound(sPortalInput);
 			}else if(player.timeChangeLevel == 1){
 				if(currentMap == "map1"){
 					makeBackupMap("map1");
@@ -351,7 +368,7 @@ function collision(){
 					// }, 1);
 				}
 				portalInputCrossed = true;
-				loadSound(sChangeLevelAfter);
+				loadSound(sPortalOutput);
 			}
 		}else{
 			// BUG: antes carga el portal que la nave (tiempo espera en metodo crearPapa)
@@ -375,13 +392,13 @@ function collision(){
 		if(player.collide(portalOutput[i]) && !portalOutputCrossed){
 	 		if(player.timeChangeLevel == 0){
 				player.timeChangeLevel = _TimeChangeLevel;
-				loadSound(sChangeLevelBefore);
+				loadSound(sPortalInput);
 			}else if(player.timeChangeLevel == 1){
 				if(currentMap == "map3"){
 					setPositionPlayer(32, 272, 90);
 				}
 				portalOutputCrossed = true;
-				loadSound(sChangeLevelAfter);
+				loadSound(sPortalOutput);
 			}
 		}else{
 			setTimeout(function(){
@@ -400,7 +417,7 @@ function collision(){
 				player.timeRechargeHome = _TimeRechargeHome;
 
 				player.munitionWeapon2 = _MunitionWeapon2;
-				loadSound(sChangeLevelAfter);
+				loadSound(sHome);
 			}
 		}
 	}
@@ -504,13 +521,15 @@ function collision(){
 	for(i in bullets1){
 		for(j in enemy){
 			if(bullets1[i].collide(enemy[j])){
-				player.score += _PointsEnemy;
+				player.score += _PointsTouchEnemy;
 	  			bullets1.splice(i,1);
 
-				if(enemy[j].life <= 0)
-					enemy.splice(j,1);
-				else
-					enemy[j].life -= _DamageWeapon;
+				enemy[j].life -= _DamageWeapon;
+
+				if(enemy[j].life <= 0){
+					loadSound(sExplosion);
+					player.score += _PointsEnemy;
+				}
 
 	  			templateSetLightEfects(true);
  			}
@@ -602,13 +621,15 @@ function collision(){
 	for(i in bullets2){
 		for(j in enemy){
 			if(bullets2[i].collide(enemy[j])){
-				player.score += _PointsEnemy;
+				player.score += _PointsTouchEnemy;
 	  			bullets2.splice(i,1);
 
-				if(enemy[j].life <= 0)
-					enemy.splice(j,1);
-				else
-					enemy[j].life -= _DamageWeapon;
+				enemy[j].life -= _DamageWeapon;
+
+				if(enemy[j].life <= 0){
+					loadSound(sExplosion);
+					player.score += _PointsEnemy;
+				}
 
 	  			templateSetLightEfects(true);
  			}
@@ -634,6 +655,7 @@ function keyboard(){
 			loadSound(sContinue);
 		}
 		pause = !pause;
+		toggleSound();
 		key = null;
 	}else if(key == formatKey("M")){
 		fullScreen = !fullScreen;
@@ -693,6 +715,10 @@ function lifePlayer(){
 			player.timeChangeLevel--;
 		if(player.timeRechargeHome > 0)
 			player.timeRechargeHome--;
+		for(i in enemy){
+			if(enemy[i].timeShowExplosion > 0)
+				enemy[i].timeShowExplosion--;
+		}
 	}
 }
 
@@ -743,9 +769,11 @@ function stopSounds(){
 	sRebounds.pause();
 	sContinue.pause();
 	sNoMunition.pause();
-	sChangeLevelBefore.pause();
-	sChangeLevelAfter.pause();
+	sPortalInput.pause();
+	sPortalOutput.pause();
 	sGameOver.pause();
+	sExplosion.pause();
+	sHome.pause();
 	sMap1.pause();
 	sMap2.pause();
 	sMap3.pause();
@@ -753,8 +781,3 @@ function stopSounds(){
 	sMap5.pause();
 	sMap6.pause();
 }
-
-
-
-
-
