@@ -47,12 +47,14 @@ versión 0.1:
 ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
 ☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
 ☐ A medida que vaya faltando menos para transportarse por el portal, que vaay oscureciendose el fondo del mapa
+☐ Al cambiar de mapa con los portales, guardar la posicion de los enemigos @También
 
 ☐ Enemigo
     ✔ Básico: quitarle vida y matarlo @done (26-04-15 13:36)
     ✔ Puntos @done (26-04-15 13:36)
         ✔ Me de puntos @done (28-04-15 02:01)
-        ☐ A mas grande sea el enemigo (+vida tenga) mas puntos me dé
+        ☐ A mas grande sea el enemigo (+vida tenga) mas puntos me dé @EstoyConEsto
+            ☐ Problema porque para pasar a INT es necesario que sea Float si no da error
     ☐ Explosión
         ✔ Mostrarla @done (27-04-15 14:39)
         ✔ Sonido @done (27-04-15 17:02)

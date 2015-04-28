@@ -8,12 +8,12 @@ requirejs(['sound']);
 
 window.addEventListener('load',init,false);
 
-const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,      _MunitionWeapon1 = 9999,
-	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 5,      _MunitionWeapon2 = 300,
-	  _LifeEnemy = 12,  _TimeRechargeHome = 75,       _PointsTouchEnemy = 3,
+const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,                           _MunitionWeapon1 = 9999,
+	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = parseInt(_LifeEnemy/2),      _MunitionWeapon2 = 300,
+	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = parseInt(_LifeEnemy/4),
 	  				   _TimeShowExplosionEnemy = 30,
 
-	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 1;
+	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 5;
 
 var canvas = null, ctx = null;
 var player, blockLife;
@@ -107,14 +107,14 @@ function loadAssets(){
 function reset(){
 	setPositionPlayer(270, 330, 0);
 	// setPositionPlayer(270, 280, 180);
+	player.score           = 0;
 	player.life            = _LifePlayer;
 	player.munitionWeapon1 = _MunitionWeapon1;
 	player.munitionWeapon2 = _MunitionWeapon2;
 	player.timeProtected   = 0;
 	blockLife.x            = random(canvas.width - 10);
 	blockLife.y            = random(canvas.height - 10);
-	gameOver               = false;
-	clearMap();
+	gameOver               = false
 	createMap(map1, _SizeBlock, sMap1, "map1", "#011224");
 }
 function run(){
@@ -142,12 +142,9 @@ function draw() {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 
 	for(i in home){
-		if(player.timeRechargeHome > 0){
-			if(player.timeRechargeHome%3 == 0)
-  				ctx.strokeStyle = "#022939";
-			else
-  				ctx.strokeStyle = "#03404A";
-		}else
+		if(player.timeRechargeHome > 0)
+  			ctx.strokeStyle = (player.timeRechargeHome%3 == 0) ? "#022939" : "#03404A";
+		else
   			ctx.strokeStyle = "#03404A";
 		roundRect(ctx, home[i].x, home[i].y, home[i].width, home[i].height, 30, false, true);
 	}
@@ -157,9 +154,8 @@ function draw() {
 	ctx.strokeStyle = "#692A03";
 	for(i in bullets1){
 		for(j in home){
-			if(bullets1[i].collide(home[j])){
+			if(bullets1[i].collide(home[j]))
 				roundRect(ctx, home[j].x, home[j].y, home[j].width, home[j].height, 20, false, true);
-			}
 		}
 	}
 
@@ -174,12 +170,9 @@ function draw() {
 	}
 
 	for(i in portalInput){
-		if(player.timeChangeLevel > 0){
-			if(player.timeChangeLevel%3 == 0)
-				ctx.fillStyle = '#011224';
-			else
-				ctx.fillStyle = '#07213C';
-		}else
+		if(player.timeChangeLevel > 0)
+			ctx.fillStyle = (player.timeChangeLevel%3 == 0) ? '#011224' : '#07213C';
+		else
 			ctx.fillStyle = '#07213C';
 
 		ctx.strokeStyle = "#8A0A0A";
@@ -187,12 +180,9 @@ function draw() {
 	}
 
 	for(i in portalOutput){
-		if(player.timeChangeLevel > 0){
-			if(player.timeChangeLevel%3 == 0)
-				ctx.fillStyle = '#011224';
-			else
-				ctx.fillStyle = '#07213C';
-		}else
+		if(player.timeChangeLevel > 0)
+			ctx.fillStyle = (player.timeChangeLevel%3 == 0) ? '#011224' : '#07213C';
+		else
 			ctx.fillStyle = '#07213C';
 
 		ctx.strokeStyle = "#8A0A0A";
@@ -291,6 +281,7 @@ function collision(){
 	collisionPlayer();
 	collisionBullets1();
 	collisionBullets2();
+	collisionEnemy();
 }
 
 function lifePlayer(){
@@ -356,38 +347,30 @@ function keyboard(){
 		toggleSound();
 		key = null;
 	}else if(key == formatKey("PadNum1") || key == formatKey("1")){
-		clearMap();
 		createMap(map1, _SizeBlock, sMap1, "map1", "#011224");
 		key = null;
 	}else if(key == formatKey("PadNum2") || key == formatKey("2")){
-		clearMap();
 		createMap(map2, _SizeBlock, sMap2, "map2", "#010F1D");
 		key = null;
 	}else if(key == formatKey("PadNum3") || key == formatKey("3")){
-		clearMap();
 		createMap(map3, _SizeBlock, sMap1, "map3", "#010B16");
 		key = null;
 	}else if(key == formatKey("PadNum4") || key == formatKey("4")){
-		clearMap();
 		createMap(map4, _SizeBlock, sMap1, "map4", "#08212F");
 		key = null;
 	}else if(key == formatKey("PadNum5") || key == formatKey("5")){
-		clearMap();
 		createMap(map5, _SizeBlock, sMap1, "map5", "#0F2F40");
 		key = null;
 	}else if(key == formatKey("PadNum6") || key == formatKey("6")){
-		clearMap();
 		createMap(map6, _SizeBlock, sMap1, "map6", "#011224");
 		key = null;
 	}else if(key == formatKey("PadNum7") || key == formatKey("7")){
 		info = !info;
 		key = null;
 	}else if(key == formatKey("PadNum8") || key == formatKey("8")){
-		clearMap();
 		key = null;
 	}else if(key == formatKey("R")){
 		reset();
-		clearMap();
 		createMap(map1, _SizeBlock, sMap1, "map1");
 		key = null;
 	}

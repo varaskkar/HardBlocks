@@ -249,5 +249,6 @@ function circle(ctx, x, y, radius, fill, stroke, fillStyle, strokeStyle, lineWid
 	ctx.lineWidth = 1;
 }
 
-
-
+function isInt(n){
+	return Number(n)===n && n%1===0;
+}

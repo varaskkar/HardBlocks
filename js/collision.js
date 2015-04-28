@@ -89,16 +89,13 @@ function collisionPlayer(){
 			}else if(player.timeChangeLevel == 1){
 				if(currentMap == "map1"){
 					makeBackupMap("map1");
-					clearMap();
 					createMap(map2, _SizeBlock, sMap2, "map2", "#010F1D", 32, 212, 90);
 					loadBackupMap("map2");
 				}else if(currentMap == "map2"){
 					makeBackupMap("map2");
-					clearMap();
 					createMap(map1, _SizeBlock, sMap1, "map1", "#011224", 532, 62, 180);
 					loadBackupMap("map1");
 				}else if(currentMap == "map3"){
-					// clearMap();
 					// createMap(map3, _SizeBlock, sMap1, "map3", "#010B16", 512, 32, 270);
 					setPositionPlayer(512, 32, 270);
 					// setTimeout(function(){
@@ -378,3 +375,69 @@ function collisionBullets2(){
 		}
 	}
 }
+
+function collisionEnemy(){
+	// Enemy -> BlockBrown
+	for(i in enemy){
+		for(j in blockBrown){
+			if(enemy[i].collide(blockBrown[j]))
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		}
+	}
+
+	// Enemy -> blockWhite
+	for(i in enemy){
+		for(j in blockWhiteVert){
+			if(enemy[i].collide(blockWhiteVert[j]))
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		}
+	}
+	for(i in enemy){
+		for(j in blockWhiteHor){
+			if(enemy[i].collide(blockWhiteHor[j]))
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		}
+	}
+
+	// Enemy -> BlockRed
+	for(i in enemy){
+		for(j in blockRed){
+			if(enemy[i].collide(blockRed[j]))
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		}
+	}
+
+	// // Enemy -> Enemy
+	// for(i in enemy){
+	// 	for(j in enemy){
+	// 		if(enemy[i].collide(enemy[j]))
+	// 			enemy[i].toggleDirection = !enemy[i].toggleDirection;
+	// 	}
+	// }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

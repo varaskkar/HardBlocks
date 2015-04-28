@@ -15,6 +15,7 @@ var portalInputCrossed = false, portalOutputCrossed = false;
 var blockBrownCopyMap1 = [], blockBrownCopyMap2 = [];
 
 function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rotation){
+	clearMap();
 	for(var i = 0; i < map.length; i++) {			// i = row   j = column
 		for(var j = 0; j < map[i].length; j++) {
 			if(map[i][j] == 5)
@@ -101,8 +102,8 @@ map1 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[ 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 ],
-	[   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[ 2 ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 3 , 3 , 3 , 3 , 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 , 3 , 3 , 3 , 3 ],
