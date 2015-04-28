@@ -4,9 +4,10 @@ function Element(x,y,width,height,life){
  	this.width = width;
  	this.height = height;
  	this.life = 0;
+ 	// Enemy's atributes
  	this.timeShowExplosion = 0;
- 	this.onlyOneTime = true;
  	this.setTimeOnlyOnce = true;
+ 	this.toggleDirection = true;
 
  	if(typeof life != "undefined")
  		this.life = life;
@@ -57,7 +58,7 @@ function Bullet(x,y,width,height,velX,velY){
  	this.velY = velY;
  	this.maxRebounds = 0;
 
-	// Atributes of the bullets
+	// Bullets's Atributes
  	this.mover360 = false;		// Up
  	this.mover180 = false;		// Down
  	this.mover270 = false;		// Left
@@ -144,5 +145,4 @@ function Bullet(x,y,width,height,velX,velY){
 	   			   this.y+this.height>thing.y;
 	  	}
  	}
-
 }

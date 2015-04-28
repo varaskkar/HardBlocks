@@ -44,17 +44,26 @@ versión 0.1:
 
 ☐ Hacer gift de portales y disparando y que se vea en el suelo donde va la bala
 ✔ Cambiar el tema de la vida del bloqueMarron @done (26-04-15 13:35)
+☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
+☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
+☐ A medida que vaya faltando menos para transportarse por el portal, que vaay oscureciendose el fondo del mapa
 
 ☐ Enemigo
     ✔ Básico: quitarle vida y matarlo @done (26-04-15 13:36)
-    ✔ Me de puntos @done (26-04-15 13:36)
-    ☐ Sonido de muerte (algo como explosión)
+    ✔ Puntos @done (26-04-15 13:36)
+        ✔ Me de puntos @done (28-04-15 02:01)
+        ☐ A mas grande sea el enemigo (+vida tenga) mas puntos me dé
     ☐ Explosión
-        sExplosion
         ✔ Mostrarla @done (27-04-15 14:39)
-        ☐ La onda expansiva de la explosión me quite vidas si me da  @Prioridad
+        ✔ Sonido @done (27-04-15 17:02)
+        ☐ La onda expansiva de la explosión me quite vidas si me da > Colisión Rectángulo - Círculo
     ☐ Al morir que deje objetos o algo
-    ☐ IA: Ponerle movimiento o algoritmo del movimiento angular para que me siga @Prioridad
+    ☐ Ponerle movimiento
+        ✔ Horizontal @done (28-04-15 01:59)
+            ☐ Si choca con algun elemento que no sea el lienzo, cambie de posición @Prioridad
+        ☐ Algoritmo del movimiento angular para que me siga
+    ☐ IA > Me dispare cuando me acerque a él
+    ☐ Que
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color

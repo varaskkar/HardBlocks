@@ -108,7 +108,7 @@ function movement(player){
 	}
 
 	// No salirse de la Pantalla
-	if(player.x > canvas.width - player.width)	player.x = canvas.width - player.width;
+	if(player.x > canvas.width - player.width)		player.x = canvas.width - player.width;
 	if(player.y > canvas.height - player.height)	player.y = canvas.height - player.height;
 	if(player.x <= 0)								player.x = 0;
 	if(player.y <= 0)								player.y = 0;
