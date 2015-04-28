@@ -1,11 +1,11 @@
 
-Juego de Naves:
+ Juego de Naves:
 
     ☐ Buscar nombre    Rebo Blocks, Invert Block, Destroy Blocks, Shoot Blocks, Pedel, Connector Gun, Half Block
                         Hard Blocks, Hell Blocks, hem block, hide blocks, Hund blocks
     ☐ Añadir fondo en vez de color plano
 
-versión 0.1:
+ Versión 0.1:
 
     ✔ Cuando gire a una dirección, girar la imagen de la nave y su movimiento @done (22-03-15 20:21)
     ✔ Mover las balas a la dirección que haya rotado la nave @done (22-03-15 20:23)
@@ -40,10 +40,7 @@ versión 0.1:
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
-:ClasesEnJS:
-
 ☐ Hacer gift de portales y disparando y que se vea en el suelo donde va la bala
-✔ Cambiar el tema de la vida del bloqueMarron @done (26-04-15 13:35)
 ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
 ☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
 ☐ A medida que vaya faltando menos para transportarse por el portal, que vaay oscureciendose el fondo del mapa
@@ -54,7 +51,6 @@ versión 0.1:
     ✔ Puntos @done (26-04-15 13:36)
         ✔ Me de puntos @done (28-04-15 02:01)
         ☐ A mas grande sea el enemigo (+vida tenga) mas puntos me dé @EstoyConEsto
-            ☐ Problema porque para pasar a INT es necesario que sea Float si no da error
     ☐ Explosión
         ✔ Mostrarla @done (27-04-15 14:39)
         ✔ Sonido @done (27-04-15 17:02)
@@ -62,17 +58,18 @@ versión 0.1:
     ☐ Al morir que deje objetos o algo
     ☐ Ponerle movimiento
         ✔ Horizontal @done (28-04-15 01:59)
-            ☐ Si choca con algun elemento que no sea el lienzo, cambie de posición @Prioridad
+        ✔ Vertical @done (28-04-15 13:34)
+        ☐ Azar: Al chocar saque num al azar que decida cual de las 3 direcciones elegir y seguir en ella hasta chocar
         ☐ Algoritmo del movimiento angular para que me siga
+    ✔ Si choca con algun elemento que no sea el lienzo, cambie de posición @done (28-04-15 13:18)
     ☐ IA > Me dispare cuando me acerque a él
-    ☐ Que
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
 ☐ Que la nave saque un ESCUDO cuando pulse una tecla para que las balas reboten contra ella y poder dirigirlas
 ☐ Que la bala no sea cuadrada si no redonda
 ☐ Solucionar dejar pulsado al disparar...que la bala se aleje X pixeles de la nave
-☐ Poner un bloque marron un poco diferente que al romperse haga un ruido de "tin" y me de mas puntos que el resto o algo parecido
+☐ Poner un bloqueMarron algo distinto que al romperse suene un "tin" y me de mas puntos que el resto o algo parecido
 ☐ sumar el numero de rebotes de las balas a los puntos que te dan al destruir un bloque
 ☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
 ☐ Poner el canvas y el contexto en una sola línea
@@ -110,6 +107,8 @@ versión 0.1:
     ✔ variable para saber el sonido del mapa actual para cuando pause (Tecla S) y vuelva a reaundar @done (07-04-15 16:57)
     ✔ Cambiar de fase, poner el que tengo asignado a getLife, pega mejor @done (07-04-15 16:58)
     ✔ Poder activar/desactivar el sonido haciendo clic en la img de la plantilla @done (07-04-15 17:52)
+✔ Cambiar el tema de la vida del bloqueMarron @done (26-04-15 13:35)
+✔ Problema sonido: Si le doy a pausa y el sonido esta inactivo....no activarlo si no dejarlo inactivo @done (28-04-15 16:56)
 ✔ Al metodo createMap() pasarle el color de fondo del mapa como parámetro @done (07-04-15 18:17)
 ✔ Al metodo createMap() pasarle como parametro el sonido de cada fase @done (07-04-15 01:13)
 ✔ Poner la puerta en el metodo createMap(). Poner numero asignado a puerta y que automat. aparezca en el mapa @done (06-04-15 23:51)
@@ -146,7 +145,7 @@ versión 0.1:
 ✘ Poner la velocidad como constante MientrasHayaRotacionHabraDiferentesVelocidadesParaCadaEje @cancelled (22-04-15 18:24)
 ✘ Error cada vez que la bala choca contra el fuego, me sale en el log del navegador @cancelled (22-04-15 18:24)
 
-versión 0.2:
+ Versión 0.2:
 
     ☐ 2 jugadores
     ☐ Mover fondo en vez de nave

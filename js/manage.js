@@ -8,9 +8,9 @@ requirejs(['sound']);
 
 window.addEventListener('load',init,false);
 
-const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,                           _MunitionWeapon1 = 9999,
-	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = parseInt(_LifeEnemy/2),      _MunitionWeapon2 = 300,
-	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = parseInt(_LifeEnemy/4),
+const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,       _MunitionWeapon1 = 9999,
+	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 300,
+	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = 4,
 	  				   _TimeShowExplosionEnemy = 30,
 
 	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 5;
@@ -21,11 +21,12 @@ var key = null;
 var keyPressed = [];
 var bullets1 = [], bulletsTest = [], bullets2 = [];
 
-var info       = true,
-	pause      = false,
-	gameOver   = false,
-	fullScreen = true,
-	sound      = false;
+var info             = true,
+	pause            = false,
+	gameOver         = false,
+	fullScreen       = true,
+	sound            = false,
+	movementEnemyHor = true;
 
 var iPlayer      = new Image(),
 	iEnemy       = new Image(),
@@ -132,7 +133,7 @@ function game(){
 		weapon2(player, bullets2);
 		// weaponTest(player, bulletsTest);
 		collision();
-		movementEnemy();
+		movementEnemy(movementEnemyHor);
 		lifePlayer();
 	}
 	keyboard();
@@ -304,17 +305,28 @@ function lifePlayer(){
 	}
 }
 
-function movementEnemy(){
+function movementEnemy(horizontal){
 	for(i in enemy){
 		if(enemy[i].life > 0){
-			if(enemy[i].x >= canvas.width - enemy[i].width){
-				enemy[i].x = canvas.width - enemy[i].width - _SpeedEnemy;
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-			}else if(enemy[i].x <= 0){
-				enemy[i].x = _SpeedEnemy;
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-			}else
-				enemy[i].x += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
+			if(horizontal){
+				if(enemy[i].x >= canvas.width - enemy[i].width){
+					enemy[i].x = canvas.width - enemy[i].width - _SpeedEnemy;
+					enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				}else if(enemy[i].x <= 0){
+					enemy[i].x = _SpeedEnemy;
+					enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				}else
+					enemy[i].x += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
+			}else{
+				if(enemy[i].y >= canvas.height - enemy[i].height){
+					enemy[i].y = canvas.height - enemy[i].height - _SpeedEnemy;
+					enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				}else if(enemy[i].y <= 0){
+					enemy[i].y = _SpeedEnemy;
+					enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				}else
+					enemy[i].y += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
+			}
 		}
 	}
 }
@@ -337,14 +349,19 @@ function keyboard(){
 			loadSound(sContinue);
 		}
 		pause = !pause;
-		toggleSound();
+		if(pause)
+			stopSounds();
+		else
+			playMapSound();
+
 		key = null;
 	}else if(key == formatKey("M")){
 		fullScreen = !fullScreen;
 		templateSetFullscreen(fullScreen);
 		key = null;
 	}else if(key == formatKey("S")){
-		toggleSound();
+		if(!pause)
+			toggleSound();
 		key = null;
 	}else if(key == formatKey("PadNum1") || key == formatKey("1")){
 		createMap(map1, _SizeBlock, sMap1, "map1", "#011224");

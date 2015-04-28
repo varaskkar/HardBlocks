@@ -407,6 +407,28 @@ function collisionEnemy(){
 		}
 	}
 
+	// Enemy -> Portal
+	for(i in enemy){
+		for(j in portalInput){
+			if(enemy[i].collide(portalInput[j]))
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		}
+	}
+	for(i in enemy){
+		for(j in portalOutput){
+			if(enemy[i].collide(portalOutput[j]))
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		}
+	}
+
+	// Enemy -> Home
+	for(i in enemy){
+		for(j in home){
+			if(enemy[i].collide(home[j]))
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		}
+	}
+
 	// // Enemy -> Enemy
 	// for(i in enemy){
 	// 	for(j in enemy){
