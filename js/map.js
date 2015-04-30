@@ -33,7 +33,7 @@ function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rota
 			else if(map[i][j] == 'H')
 				home.push(new Element(j*width,i*width,width,width));
 			else if(map[i][j] == 'E')
-				enemy.push(new Element(j*width,i*width,width,width, _LifeEnemy));
+				enemy.push(new Enemy(j*width,i*width,width,width, _LifeEnemy));
 		}
 	}
 	templateSetBackgroundColor(backgroundColor);
@@ -102,7 +102,7 @@ map1 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[ 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 ],
-	[ 2 ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],

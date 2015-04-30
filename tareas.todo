@@ -40,6 +40,14 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
+☐ No salirse de la pantalla
+☐ Funcion de colision con los bordes del canvas (lienzo)
+
+☐ Funcion Random cambiada. Mejor para movEnemy pero peor para blockLife que se pone debajo de bloqueMarron y blanco
+
+☐ El tema de movEnemy solo funciona con 1 enemy, no con mas de 1
+
+
 ☐ Hacer gift de portales y disparando y que se vea en el suelo donde va la bala
 ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
 ☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
@@ -56,10 +64,11 @@
         ✔ Sonido @done (27-04-15 17:02)
         ☐ La onda expansiva de la explosión me quite vidas si me da > Colisión Rectángulo - Círculo
     ☐ Al morir que deje objetos o algo
+    ✔ Cuando choque el enemigo con algo, retroceder posición @done (30-04-15 15:57)
     ☐ Ponerle movimiento
         ✔ Horizontal @done (28-04-15 01:59)
         ✔ Vertical @done (28-04-15 13:34)
-        ☐ Azar: Al chocar saque num al azar que decida cual de las 3 direcciones elegir y seguir en ella hasta chocar
+        ✔ Azar: Al chocar un núm al azar decida que direccion elegir y seguir en ella hasta chocar @done (30-04-15 15:57)
         ☐ Algoritmo del movimiento angular para que me siga
     ✔ Si choca con algun elemento que no sea el lienzo, cambie de posición @done (28-04-15 13:18)
     ☐ IA > Me dispare cuando me acerque a él

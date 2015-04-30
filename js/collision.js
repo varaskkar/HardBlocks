@@ -1,66 +1,27 @@
-function collisionBlockLife(){
-	// BlockLife -> BlockRed
-	for(i in blockRed){
-		if(blockLife.collide(blockRed[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
+function collisionPlayer(){
+
+	// Player -> CanvasEdge
+	if(player.x > canvas.width - player.width)			player.x = canvas.width - player.width;
+	else if(player.y > canvas.height - player.height)	player.y = canvas.height - player.height;
+	else if(player.x <= 0)								player.x = 0;
+	else if(player.y <= 0)								player.y = 0;
+
+	// Player -> BlockBrown
+	for(i in blockBrown){
+		if(player.collide(blockBrown[i]))
+			movementBackPlayer();
 	}
 
-	// BlockLife -> BloqueBlanco
+	// Player -> BlockWhite
 	for(i in blockWhiteVert){
-		if(blockLife.collide(blockWhiteVert[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
+		if(player.collide(blockWhiteVert[i]))
+			movementBackPlayer();
 	}
 	for(i in blockWhiteHor){
-		if(blockLife.collide(blockWhiteHor[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
+		if(player.collide(blockWhiteHor[i]))
+			movementBackPlayer();
 	}
 
-	// BlockLife -> BlockBrown
-	for(i in blockBrown){
-		if(blockLife.collide(blockBrown[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
-	}
-
-	// BlockLife -> Portal
-	for(i in portalInput){
-		if(blockLife.collide(portalInput[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
-	}
-	for(i in portalOutput){
-		if(blockLife.collide(portalOutput[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
-	}
-
-	// BlockLife -> Enemy
-	for(i in enemy){
-		if(blockLife.collide(enemy[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
-	}
-
-	// BlockLife -> Home
-	for(i in home){
-		if(blockLife.collide(home[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
-	}
-}
-
-function collisionPlayer(){
 	// Player -> BlockLife
 	if(player.collide(blockLife)){
   		player.life++;
@@ -165,6 +126,175 @@ function collisionPlayer(){
 				loadSound(sLoseLife);
 			player.timeProtected = _TimeProtected;
 			player.life--;
+		}
+	}
+}
+
+function collisionEnemy(){
+
+	// Enemy -> CanvasEdge
+	for(i in enemy){
+		if(enemy[i].x >= canvas.width - enemy[i].width){
+			enemy[i].x = canvas.width - enemy[i].width - _SpeedEnemy;
+			enemy[i].toggleDirection = !enemy[i].toggleDirection;
+			enemy[i].direction = random(4);
+		}else if(enemy[i].x <= 0){
+			enemy[i].x = _SpeedEnemy;
+			enemy[i].toggleDirection = !enemy[i].toggleDirection;
+			enemy[i].direction = random(4);
+		}if(enemy[i].y >= canvas.height - enemy[i].height){
+			enemy[i].y = canvas.height - enemy[i].height - _SpeedEnemy;
+			enemy[i].toggleDirection = !enemy[i].toggleDirection;
+			enemy[i].direction = random(4);
+		}else if(enemy[i].y <= 0){
+			enemy[i].y = _SpeedEnemy;
+			enemy[i].toggleDirection = !enemy[i].toggleDirection;
+			enemy[i].direction = random(4);
+		}
+	}
+
+	// Enemy -> BlockBrown
+	for(i in enemy){
+		for(j in blockBrown){
+			if(enemy[i].collide(blockBrown[j])){
+				movementBackEnemy();
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				enemy[i].direction = random(4);
+			}
+		}
+	}
+
+	// Enemy -> blockWhite
+	for(i in enemy){
+		for(j in blockWhiteVert){
+			if(enemy[i].collide(blockWhiteVert[j])){
+				movementBackEnemy();
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				enemy[i].direction = random(4);
+				// enemy[i].direction = 0;
+			}
+		}
+	}
+	for(i in enemy){
+		for(j in blockWhiteHor){
+			if(enemy[i].collide(blockWhiteHor[j])){
+				movementBackEnemy();
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				enemy[i].direction = random(4);
+				// enemy[i].direction = 1;
+			}
+		}
+	}
+
+	// Enemy -> BlockRed
+	for(i in enemy){
+		for(j in blockRed){
+			if(enemy[i].collide(blockRed[j])){
+				movementBackEnemy();
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				enemy[i].direction = random(4);
+			}
+		}
+	}
+
+	// Enemy -> Portal
+	for(i in enemy){
+		for(j in portalInput){
+			if(enemy[i].collide(portalInput[j])){
+				movementBackEnemy();
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				enemy[i].direction = random(4);
+			}
+		}
+	}
+	for(i in enemy){
+		for(j in portalOutput){
+			if(enemy[i].collide(portalOutput[j])){
+				movementBackEnemy();
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				enemy[i].direction = random(4);
+			}
+		}
+	}
+
+	// Enemy -> Home
+	for(i in enemy){
+		for(j in home){
+			if(enemy[i].collide(home[j])){
+				movementBackEnemy();
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+				enemy[i].direction = random(4);
+			}
+		}
+	}
+
+	// // Enemy -> Enemy
+	// for(i in enemy){
+	// 	for(j in enemy){
+	// 		if(enemy[i].collide(enemy[j]))
+	// 			enemy[i].toggleDirection = !enemy[i].toggleDirection;
+	// 	}
+	// }
+}
+
+function collisionBlockLife(){
+	// BlockLife -> BlockRed
+	for(i in blockRed){
+		if(blockLife.collide(blockRed[i])){
+  			blockLife.x = random(canvas.width - 10);
+  			blockLife.y = random(canvas.height - 10);
+		}
+	}
+
+	// BlockLife -> BloqueBlanco
+	for(i in blockWhiteVert){
+		if(blockLife.collide(blockWhiteVert[i])){
+  			blockLife.x = random(canvas.width - 10);
+  			blockLife.y = random(canvas.height - 10);
+		}
+	}
+	for(i in blockWhiteHor){
+		if(blockLife.collide(blockWhiteHor[i])){
+  			blockLife.x = random(canvas.width - 10);
+  			blockLife.y = random(canvas.height - 10);
+		}
+	}
+
+	// BlockLife -> BlockBrown
+	for(i in blockBrown){
+		if(blockLife.collide(blockBrown[i])){
+  			blockLife.x = random(canvas.width - 10);
+  			blockLife.y = random(canvas.height - 10);
+		}
+	}
+
+	// BlockLife -> Portal
+	for(i in portalInput){
+		if(blockLife.collide(portalInput[i])){
+  			blockLife.x = random(canvas.width - 10);
+  			blockLife.y = random(canvas.height - 10);
+		}
+	}
+	for(i in portalOutput){
+		if(blockLife.collide(portalOutput[i])){
+  			blockLife.x = random(canvas.width - 10);
+  			blockLife.y = random(canvas.height - 10);
+		}
+	}
+
+	// BlockLife -> Enemy
+	for(i in enemy){
+		if(blockLife.collide(enemy[i])){
+  			blockLife.x = random(canvas.width - 10);
+  			blockLife.y = random(canvas.height - 10);
+		}
+	}
+
+	// BlockLife -> Home
+	for(i in home){
+		if(blockLife.collide(home[i])){
+  			blockLife.x = random(canvas.width - 10);
+  			blockLife.y = random(canvas.height - 10);
 		}
 	}
 }
@@ -374,68 +504,6 @@ function collisionBullets2(){
  			}
 		}
 	}
-}
-
-function collisionEnemy(){
-	// Enemy -> BlockBrown
-	for(i in enemy){
-		for(j in blockBrown){
-			if(enemy[i].collide(blockBrown[j]))
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		}
-	}
-
-	// Enemy -> blockWhite
-	for(i in enemy){
-		for(j in blockWhiteVert){
-			if(enemy[i].collide(blockWhiteVert[j]))
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		}
-	}
-	for(i in enemy){
-		for(j in blockWhiteHor){
-			if(enemy[i].collide(blockWhiteHor[j]))
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		}
-	}
-
-	// Enemy -> BlockRed
-	for(i in enemy){
-		for(j in blockRed){
-			if(enemy[i].collide(blockRed[j]))
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		}
-	}
-
-	// Enemy -> Portal
-	for(i in enemy){
-		for(j in portalInput){
-			if(enemy[i].collide(portalInput[j]))
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		}
-	}
-	for(i in enemy){
-		for(j in portalOutput){
-			if(enemy[i].collide(portalOutput[j]))
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		}
-	}
-
-	// Enemy -> Home
-	for(i in enemy){
-		for(j in home){
-			if(enemy[i].collide(home[j]))
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		}
-	}
-
-	// // Enemy -> Enemy
-	// for(i in enemy){
-	// 	for(j in enemy){
-	// 		if(enemy[i].collide(enemy[j]))
-	// 			enemy[i].toggleDirection = !enemy[i].toggleDirection;
-	// 	}
-	// }
 }
 
 

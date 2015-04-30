@@ -191,8 +191,8 @@ function formatKey(key){
 }
 
 function random(max){
-	//return Math.floor(Math.random()*max);
-	return ~~(Math.random()*max*1-1);
+	return Math.floor(Math.random()*max);
+	// return ~~(Math.random()*max*1-1);
 }
 
 function pressKey(){

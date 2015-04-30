@@ -4,10 +4,38 @@ function Element(x,y,width,height,life){
  	this.width = width;
  	this.height = height;
  	this.life = 0;
- 	// Enemy's atributes
+
+ 	if(typeof life != "undefined")
+ 		this.life = life;
+
+ 	this.collide = function(thing){
+	  	if(typeof thing != "undefined"){
+	   		return this.x < thing.x+thing.width &&
+	   		       this.x+this.width > thing.x &&
+	   			   this.y < thing.y+thing.height &&
+	   			   this.y+this.height>thing.y;
+	  	}
+ 	}
+}
+
+function Enemy(x,y,width,height,life){
+	this.x = x;
+ 	this.y = y;
+ 	this.width = width;
+ 	this.height = height;
+ 	this.life = 0;
+
+ 	// Explosion
  	this.timeShowExplosion = 0;
  	this.setTimeOnlyOnce = true;
+
+ 	// Movement
  	this.toggleDirection = true;
+ 	this.direction = 0;
+
+ 	// this.toggleDirectionHor = true;
+ 	// this.toggleDirectionVert = true;
+ 	// this.collision = false;
 
  	if(typeof life != "undefined")
  		this.life = life;

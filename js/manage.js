@@ -25,8 +25,9 @@ var info             = true,
 	pause            = false,
 	gameOver         = false,
 	fullScreen       = true,
-	sound            = false,
-	movementEnemyHor = true;
+	sound            = false;
+
+var	kindMovementEnemy = "random"; 	// horizontal, vertical, random
 
 var iPlayer      = new Image(),
 	iEnemy       = new Image(),
@@ -106,15 +107,16 @@ function loadAssets(){
 	templateSetLightEfects(false);
 }
 function reset(){
-	setPositionPlayer(270, 330, 0);
+	// setPositionPlayer(270, 330, 0);
+	setPositionPlayer(270, 280, 0);
 	// setPositionPlayer(270, 280, 180);
 	player.score           = 0;
 	player.life            = _LifePlayer;
 	player.munitionWeapon1 = _MunitionWeapon1;
 	player.munitionWeapon2 = _MunitionWeapon2;
 	player.timeProtected   = 0;
-	blockLife.x            = random(canvas.width - 10);
-	blockLife.y            = random(canvas.height - 10);
+	blockLife.x            = random(canvas.width - blockLife.width);
+	blockLife.y            = random(canvas.height - blockLife.height);
 	gameOver               = false
 	createMap(map1, _SizeBlock, sMap1, "map1", "#011224");
 }
@@ -128,13 +130,13 @@ function run(){
 
 function game(){
     if(!pause){
-	    movement(player);
+	    movementPlayer();
+		movementEnemy(kindMovementEnemy);
 		weapon1(player, bullets1);
 		weapon2(player, bullets2);
 		// weaponTest(player, bulletsTest);
 		collision();
-		movementEnemy(movementEnemyHor);
-		lifePlayer();
+		basicConditions();
 	}
 	keyboard();
 }
@@ -192,9 +194,9 @@ function draw() {
 
 	if(player.timeProtected > 0){
 		if(player.timeProtected%2 == 0)
-			mostrarNaveRotada();
+			showRotatedPlayer();
 	}else
-		mostrarNaveRotada();
+		showRotatedPlayer();
 
 	ctx.drawImage(iBlockLife,blockLife.x,blockLife.y, blockLife.width, blockLife.height);
 
@@ -265,6 +267,7 @@ function draw() {
 		// ctx.fillText('Time Home: '+player.timeRechargeHome,5,195);
 		// ctx.fillText('Enemy: '+enemy.length,5,210);
 		// ctx.fillText('Direction Enemy: '+toggleDirection,5,210);
+		// ctx.fillText('Direction Enemy: '+enemy[0].direction,5,210);
 	}
 
 	ctx.font = "18px Verdana";
@@ -278,18 +281,23 @@ function draw() {
 }
 
 function collision(){
-	collisionBlockLife();
 	collisionPlayer();
+	collisionEnemy();
+	collisionBlockLife();
 	collisionBullets1();
 	collisionBullets2();
-	collisionEnemy();
 }
 
-function lifePlayer(){
+function basicConditions(){
 	if(gameOver){
 		pause = true;
 		loadSound(sGameOver);
 	}else{
+		if(player.rotation > 360)
+			player.rotation = 0;
+   	 	else if(player.rotation < 0)
+			player.rotation = 360;
+
 		if(player.life < 1)
 			gameOver = true;
 		if(player.timeProtected > 0)
@@ -305,33 +313,7 @@ function lifePlayer(){
 	}
 }
 
-function movementEnemy(horizontal){
-	for(i in enemy){
-		if(enemy[i].life > 0){
-			if(horizontal){
-				if(enemy[i].x >= canvas.width - enemy[i].width){
-					enemy[i].x = canvas.width - enemy[i].width - _SpeedEnemy;
-					enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				}else if(enemy[i].x <= 0){
-					enemy[i].x = _SpeedEnemy;
-					enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				}else
-					enemy[i].x += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
-			}else{
-				if(enemy[i].y >= canvas.height - enemy[i].height){
-					enemy[i].y = canvas.height - enemy[i].height - _SpeedEnemy;
-					enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				}else if(enemy[i].y <= 0){
-					enemy[i].y = _SpeedEnemy;
-					enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				}else
-					enemy[i].y += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
-			}
-		}
-	}
-}
-
-function mostrarNaveRotada(){
+function showRotatedPlayer(){
 	ctx.save();
 	ctx.translate(player.x+player.width/2,player.y+player.height/2);
 	ctx.rotate(player.rotation*Math.PI/180);

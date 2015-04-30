@@ -1,10 +1,4 @@
-function movement(player){
-    if(player.rotation > 360)
-		player.rotation = 0;
-    else if(player.rotation < 0)
-		player.rotation = 360;
-
-	// Movimiento
+function movementPlayer(){
 	if(keyPressed[formatKey("UP")]){
 		if(player.rotation == 0 || player.rotation == 360)	player.y -= 4;
 		else if(player.rotation == 90)			player.x += 4;
@@ -82,23 +76,9 @@ function movement(player){
 		else if(player.rotation == 255){		player.y += 1;		player.x -= 4; }
 		else if(player.rotation == 260){		player.y += 1;		player.x -= 4; }
 		else if(player.rotation == 265){		player.y += 1;		player.x -= 4; }
-
-		// Si choca, invertimos el desplazamiento (cambio el signo)
-		for(i in blockBrown){
-			if(player.collide(blockBrown[i]))
-				retroceder();
-		}
-		for(i in blockWhiteVert){
-			if(player.collide(blockWhiteVert[i]))
-				retroceder();
-		}
-		for(i in blockWhiteHor){
-			if(player.collide(blockWhiteHor[i]))
-				retroceder();
-		}
 	}
 	if(keyPressed[formatKey("DOWN")]){
-		// Poner TURBO
+		// Put player's acceleration -> Give more speed
 	}
 	if(keyPressed[formatKey("LEFT")]){
 		player.rotation -= 5;
@@ -106,15 +86,10 @@ function movement(player){
 	if(keyPressed[formatKey("RIGHT")]){
 		player.rotation += 5;
 	}
-
-	// No salirse de la Pantalla
-	if(player.x > canvas.width - player.width)		player.x = canvas.width - player.width;
-	if(player.y > canvas.height - player.height)	player.y = canvas.height - player.height;
-	if(player.x <= 0)								player.x = 0;
-	if(player.y <= 0)								player.y = 0;
 }
 
-function retroceder(){
+function movementBackPlayer(){
+	// If collides, we invert the movement (change of sign)
 	if(player.rotation == 0 || player.rotation == 360)	player.y += 4;
 	else if(player.rotation == 90)		player.x -= 4;
 	else if(player.rotation == 180)	player.y -= 4;
@@ -191,4 +166,50 @@ function retroceder(){
 	else if(player.rotation == 255){		player.y -= 4;		player.x += 1; }
 	else if(player.rotation == 260){		player.y -= 4;		player.x += 1; }
 	else if(player.rotation == 265){		player.y -= 4;		player.x += 1; }
+}
+
+function movementEnemy(kindMovement){
+	for(i in enemy){
+		if(enemy[i].life > 0){
+			if(kindMovement == "horizontal")
+				enemy[i].x += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
+			else if(kindMovement == "vertical")
+				enemy[i].y += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
+			else if(kindMovement == "random"){
+				switch(enemy[i].direction){
+				    case 0:
+				        enemy[i].y -= _SpeedEnemy;
+				        break;
+				    case 1:
+				        enemy[i].y += _SpeedEnemy;
+				        break;
+				    case 2:
+				        enemy[i].x -= _SpeedEnemy;
+				        break;
+				    case 3:
+				        enemy[i].x += _SpeedEnemy;
+				        break;
+				}
+			}
+		}
+	}
+}
+
+function movementBackEnemy(){
+	for(i in enemy){
+		switch(enemy[i].direction) {
+		    case 0:
+		        enemy[i].y += _SpeedEnemy;
+		        break;
+		    case 1:
+		        enemy[i].y -= _SpeedEnemy;
+		        break;
+		    case 2:
+		        enemy[i].x += _SpeedEnemy;
+		        break;
+		    case 3:
+		        enemy[i].x -= _SpeedEnemy;
+		        break;
+		}
+	}
 }
