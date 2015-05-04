@@ -12,6 +12,7 @@ const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,       _Mu
 	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 300,
 	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = 4,
 	  				   _TimeShowExplosionEnemy = 30,
+	  				   _TimeShowDamagedEnemy = 10,
 
 	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 5;
 
@@ -27,7 +28,11 @@ var info             = true,
 	fullScreen       = true,
 	sound            = false;
 
-var	kindMovementEnemy = "random"; 	// horizontal, vertical, random
+// horizontal, vertical, random
+// var	kindMovementEnemy = "horizontal";
+// var	kindMovementEnemy = "vertical";
+var	kindMovementEnemy = "random";
+// var	kindMovementEnemy = "";
 
 var iPlayer      = new Image(),
 	iEnemy       = new Image(),
@@ -107,8 +112,7 @@ function loadAssets(){
 	templateSetLightEfects(false);
 }
 function reset(){
-	// setPositionPlayer(270, 330, 0);
-	setPositionPlayer(270, 280, 0);
+	setPositionPlayer(270, 330, 0);
 	// setPositionPlayer(270, 280, 180);
 	player.score           = 0;
 	player.life            = _LifePlayer;
@@ -212,9 +216,13 @@ function draw() {
 	}
 
 	for(i in enemy){
-		if(enemy[i].life > 0)
-			ctx.drawImage(iEnemy,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
-		else{
+		if(enemy[i].life > 0){
+			if(enemy[i].timeShowDamage > 0){
+				if(enemy[i].timeShowDamage%2 == 0)
+					ctx.drawImage(iEnemy,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+			}else
+				ctx.drawImage(iEnemy,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+		}else{
 	  		if(enemy[i].setTimeOnlyOnce){
 	  			enemy[i].timeShowExplosion = _TimeShowExplosionEnemy;
 	  			enemy[i].setTimeOnlyOnce = false;
@@ -266,8 +274,10 @@ function draw() {
 		// ctx.fillText('Time Level: '+player.timeChangeLevel,5,180);
 		// ctx.fillText('Time Home: '+player.timeRechargeHome,5,195);
 		// ctx.fillText('Enemy: '+enemy.length,5,210);
-		// ctx.fillText('Direction Enemy: '+toggleDirection,5,210);
-		// ctx.fillText('Direction Enemy: '+enemy[0].direction,5,210);
+		// ctx.fillText('Direction Enemy1: '+toggleDirection,5,210);
+		// ctx.fillText('Distance Enemy 1: '+enemy[0].distanceTraveled,5,225);
+		// ctx.fillText('Direction Enemy 1: '+enemy[0].direction,5,210);
+		// ctx.fillText('Direction Enemy 2: '+enemy[1].direction,5,225);
 	}
 
 	ctx.font = "18px Verdana";
@@ -309,6 +319,8 @@ function basicConditions(){
 		for(i in enemy){
 			if(enemy[i].timeShowExplosion > 0)
 				enemy[i].timeShowExplosion--;
+			if(enemy[i].timeShowDamage > 0)
+				enemy[i].timeShowDamage--;
 		}
 	}
 }

@@ -25,17 +25,18 @@ function Enemy(x,y,width,height,life){
  	this.height = height;
  	this.life = 0;
 
+	// Damage
+ 	this.timeShowDamage = 0;
+
  	// Explosion
  	this.timeShowExplosion = 0;
  	this.setTimeOnlyOnce = true;
 
  	// Movement
- 	this.toggleDirection = true;
- 	this.direction = 0;
+ 	this.toggleDirection = false;
+ 	this.direction = "left";
 
- 	// this.toggleDirectionHor = true;
- 	// this.toggleDirectionVert = true;
- 	// this.collision = false;
+ 	this.distanceTraveled = 0;
 
  	if(typeof life != "undefined")
  		this.life = life;

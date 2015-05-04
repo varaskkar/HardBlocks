@@ -1,9 +1,9 @@
 function movementPlayer(){
 	if(keyPressed[formatKey("UP")]){
 		if(player.rotation == 0 || player.rotation == 360)	player.y -= 4;
-		else if(player.rotation == 90)			player.x += 4;
-		else if(player.rotation == 180)			player.y += 4;
-		else if(player.rotation == 270)			player.x -= 4;
+		else if(player.rotation == 90)						player.x += 4;
+		else if(player.rotation == 180)						player.y += 4;
+		else if(player.rotation == 270)						player.x -= 4;
 
 		else if(player.rotation == 275){		player.y -= 1;		player.x -= 4; }
 		else if(player.rotation == 280){		player.y -= 1;		player.x -= 4; }
@@ -88,12 +88,12 @@ function movementPlayer(){
 	}
 }
 
+// If player collides, we invert the movement (change of sign)
 function movementBackPlayer(){
-	// If collides, we invert the movement (change of sign)
 	if(player.rotation == 0 || player.rotation == 360)	player.y += 4;
-	else if(player.rotation == 90)		player.x -= 4;
-	else if(player.rotation == 180)	player.y -= 4;
-	else if(player.rotation == 270)	player.x += 4;
+	else if(player.rotation == 90)						player.x -= 4;
+	else if(player.rotation == 180)						player.y -= 4;
+	else if(player.rotation == 270)						player.x += 4;
 
 	else if(player.rotation == 275){		player.y += 4;		player.x += 1; }
 	else if(player.rotation == 280){		player.y += 4;		player.x += 1; }
@@ -177,18 +177,26 @@ function movementEnemy(kindMovement){
 				enemy[i].y += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
 			else if(kindMovement == "random"){
 				switch(enemy[i].direction){
-				    case 0:
+				    case "up":
 				        enemy[i].y -= _SpeedEnemy;
 				        break;
-				    case 1:
+				    case "down":
 				        enemy[i].y += _SpeedEnemy;
 				        break;
-				    case 2:
+				    case "left":
 				        enemy[i].x -= _SpeedEnemy;
 				        break;
-				    case 3:
+				    case "right":
 				        enemy[i].x += _SpeedEnemy;
 				        break;
+				}
+
+				// If enemy have traveled the map's middle, change his direction
+				enemy[i].distanceTraveled += _SpeedEnemy;
+
+				if(enemy[i].distanceTraveled >= canvas.width/2){
+					enemy[i].direction = parseDirectionEnemy();
+					enemy[i].distanceTraveled = 0;
 				}
 			}
 		}
@@ -197,19 +205,63 @@ function movementEnemy(kindMovement){
 
 function movementBackEnemy(){
 	for(i in enemy){
-		switch(enemy[i].direction) {
-		    case 0:
-		        enemy[i].y += _SpeedEnemy;
-		        break;
-		    case 1:
-		        enemy[i].y -= _SpeedEnemy;
-		        break;
-		    case 2:
-		        enemy[i].x += _SpeedEnemy;
-		        break;
-		    case 3:
-		        enemy[i].x -= _SpeedEnemy;
-		        break;
+		if(kindMovementEnemy == "horizontal")
+			enemy[i].x += (enemy[i].toggleDirection == true) ? -15 : +15;
+		else if(kindMovementEnemy == "vertical")
+			enemy[i].y += (enemy[i].toggleDirection == true) ? -15 : +15;
+		else if(kindMovementEnemy == "random"){
+			switch(enemy[i].direction) {
+			    case "up":
+			        enemy[i].y += 15;
+			        break;
+			    case "down":
+			        enemy[i].y -= 15;
+			        break;
+			    case "left":
+			        enemy[i].x += 15;
+			        break;
+			    case "right":
+			        enemy[i].x -= 15;
+			        break;
+			}
 		}
 	}
 }
+
+// When the enemy collides with a block, he change of direction depending on the previous direction
+function parseDirectionEnemy(){
+	var newDirection = "right";
+	if(kindMovementEnemy == "horizontal" || kindMovementEnemy == "vertical"){
+		for(i in enemy)
+			enemy[i].toggleDirection = !enemy[i].toggleDirection;
+	}else if(kindMovementEnemy == "random"){
+		var previousDirection = enemy[i].direction;
+		if(previousDirection != newDirection){
+			var rn = random(4);
+			if(rn == 0)			newDirection = "up";
+			else if(rn == 1)	newDirection = "down";
+			else if(rn == 2)	newDirection = "left";
+			else if(rn == 3)	newDirection = "right";
+		}else{
+			while(previousDirection == newDirection){
+				var rn = random(4);
+				if(rn == 0)			newDirection = "up";
+				else if(rn == 1)	newDirection = "down";
+				else if(rn == 2)	newDirection = "left";
+				else if(rn == 3)	newDirection = "right";
+			}
+		}
+	}
+	return newDirection;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -40,38 +40,40 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
-☐ No salirse de la pantalla
-☐ Funcion de colision con los bordes del canvas (lienzo)
 
-☐ Funcion Random cambiada. Mejor para movEnemy pero peor para blockLife que se pone debajo de bloqueMarron y blanco
-
+✔ Funcion de colision con los bordes del canvas (lienzo) @done (30-04-15 17:24)
 ☐ El tema de movEnemy solo funciona con 1 enemy, no con mas de 1
-
 
 ☐ Hacer gift de portales y disparando y que se vea en el suelo donde va la bala
 ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
 ☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
-☐ A medida que vaya faltando menos para transportarse por el portal, que vaay oscureciendose el fondo del mapa
-☐ Al cambiar de mapa con los portales, guardar la posicion de los enemigos @También
+☐ A medida que vaya faltando menos para transportarse por el portal, que vaya oscureciendose el fondo del mapa
+
+☐ Que las balas se hayan alejado un min de la nave...al igual que hice con el algoritmo del portal
 
 ☐ Enemigo
     ✔ Básico: quitarle vida y matarlo @done (26-04-15 13:36)
     ✔ Puntos @done (26-04-15 13:36)
         ✔ Me de puntos @done (28-04-15 02:01)
-        ☐ A mas grande sea el enemigo (+vida tenga) mas puntos me dé @EstoyConEsto
+        ☐ A mas grande sea el enemigo (+vida tenga) mas puntos me dé @ProblemaMatemático
     ☐ Explosión
         ✔ Mostrarla @done (27-04-15 14:39)
         ✔ Sonido @done (27-04-15 17:02)
         ☐ La onda expansiva de la explosión me quite vidas si me da > Colisión Rectángulo - Círculo
-    ☐ Al morir que deje objetos o algo
-    ✔ Cuando choque el enemigo con algo, retroceder posición @done (30-04-15 15:57)
+        ☐ Al morir que deje objetos o algo
+    ✔ Colisión @done (04-05-15 18:10)
+        ✔ Cuando choque con algo, retroceder posición @done (30-04-15 15:57)
+        ✔ Si una bala choca contra un enemigo, que éste parpadee @done (04-05-15 18:10)
     ☐ Ponerle movimiento
         ✔ Horizontal @done (28-04-15 01:59)
         ✔ Vertical @done (28-04-15 13:34)
         ✔ Azar: Al chocar un núm al azar decida que direccion elegir y seguir en ella hasta chocar @done (30-04-15 15:57)
+            ✔ Si se ha desplazado la mitad del mapa, que ya cambie de direccion @done (04-05-15 19:23)
+            ✔ Cuando choque que se desplace en una direccion diferente de la que tenia anteriormente @done (04-05-15 18:30)
         ☐ Algoritmo del movimiento angular para que me siga
     ✔ Si choca con algun elemento que no sea el lienzo, cambie de posición @done (28-04-15 13:18)
     ☐ IA > Me dispare cuando me acerque a él
+    ☐ Concurrencia @VerPorQuéPasa
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
@@ -107,6 +109,7 @@
      ☐ Activar el portal cuando mate a todos los enemigos
      ✔ Al cambiar de mapas, que se guarde el mapa como estaba (mantener los bloques destruidos) @done (10-04-15 00:49)
     ☐ No poder usar el portal si estas en un nivel con monstruo final. No dejar huir
+    ☐ Al cambiar de mapa con los portales, guardar la posicion de los enemigos @También
 ✔ poner x,y y rotacion como parametros al crearMapa(): @done (09-04-15 01:26)
 ✔ Que la puerta que cambia de fase tenga los bordes redondeados @done (08-04-15 15:54)
 ☐ Sonido
@@ -146,6 +149,7 @@
 ✔ Bloque marrón ahora no se destruye @Problema @done (30-03-15 17:26)
 ✔ tecla = null; @done (30-03-15 23:51)
 ✔ Formateadas código ASCII de las teclas @done (30-03-15 21:53)
+✘ Unificar variables del POJO de horizontal/vertical y azar en 1 sola @cancelled (04-05-15 17:49)
 ✘ Fullscreen no funciona en Firefox @cancelled (22-04-15 17:42)
 ✘ Crear sistema de puntuacion en php. A la gente les engancha el que sean los mejores / tengan mas puntos. Mostrar los nombres en la plantilla. Subir fichero "index.php" y ver si puede crear en github un txt con la max puntuacion del jugador @cancelled (17-04-15 17:02)
     ✔ Github sólo permite "index.html" @done (17-04-15 16:23)

@@ -1,10 +1,14 @@
 function collisionPlayer(){
 
 	// Player -> CanvasEdge
-	if(player.x > canvas.width - player.width)			player.x = canvas.width - player.width;
-	else if(player.y > canvas.height - player.height)	player.y = canvas.height - player.height;
-	else if(player.x <= 0)								player.x = 0;
-	else if(player.y <= 0)								player.y = 0;
+	if(player.x > canvas.width - player.width)				player.x = canvas.width - player.width;
+	else if(player.y > canvas.height - player.height)		player.y = canvas.height - player.height;
+	else if(player.x <= 0)									player.x = 0;
+	else if(player.y <= 0)									player.y = 0;
+	// if(player.x > canvas.width - player.width)			movementBackPlayer();
+	// else if(player.y > canvas.height - player.height)	movementBackPlayer();
+	// else if(player.x <= 0)								movementBackPlayer();
+	// else if(player.y <= 0)								movementBackPlayer();
 
 	// Player -> BlockBrown
 	for(i in blockBrown){
@@ -135,21 +139,17 @@ function collisionEnemy(){
 	// Enemy -> CanvasEdge
 	for(i in enemy){
 		if(enemy[i].x >= canvas.width - enemy[i].width){
-			enemy[i].x = canvas.width - enemy[i].width - _SpeedEnemy;
-			enemy[i].toggleDirection = !enemy[i].toggleDirection;
-			enemy[i].direction = random(4);
+			movementBackEnemy();
+			enemy[i].direction = parseDirectionEnemy();
 		}else if(enemy[i].x <= 0){
-			enemy[i].x = _SpeedEnemy;
-			enemy[i].toggleDirection = !enemy[i].toggleDirection;
-			enemy[i].direction = random(4);
+			movementBackEnemy();
+			enemy[i].direction = parseDirectionEnemy();
 		}if(enemy[i].y >= canvas.height - enemy[i].height){
-			enemy[i].y = canvas.height - enemy[i].height - _SpeedEnemy;
-			enemy[i].toggleDirection = !enemy[i].toggleDirection;
-			enemy[i].direction = random(4);
+			movementBackEnemy();
+			enemy[i].direction = parseDirectionEnemy();
 		}else if(enemy[i].y <= 0){
-			enemy[i].y = _SpeedEnemy;
-			enemy[i].toggleDirection = !enemy[i].toggleDirection;
-			enemy[i].direction = random(4);
+			movementBackEnemy();
+			enemy[i].direction = parseDirectionEnemy();
 		}
 	}
 
@@ -158,8 +158,7 @@ function collisionEnemy(){
 		for(j in blockBrown){
 			if(enemy[i].collide(blockBrown[j])){
 				movementBackEnemy();
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				enemy[i].direction = random(4);
+				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
 	}
@@ -169,9 +168,7 @@ function collisionEnemy(){
 		for(j in blockWhiteVert){
 			if(enemy[i].collide(blockWhiteVert[j])){
 				movementBackEnemy();
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				enemy[i].direction = random(4);
-				// enemy[i].direction = 0;
+				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
 	}
@@ -179,9 +176,7 @@ function collisionEnemy(){
 		for(j in blockWhiteHor){
 			if(enemy[i].collide(blockWhiteHor[j])){
 				movementBackEnemy();
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				enemy[i].direction = random(4);
-				// enemy[i].direction = 1;
+				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
 	}
@@ -191,8 +186,7 @@ function collisionEnemy(){
 		for(j in blockRed){
 			if(enemy[i].collide(blockRed[j])){
 				movementBackEnemy();
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				enemy[i].direction = random(4);
+				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
 	}
@@ -202,8 +196,7 @@ function collisionEnemy(){
 		for(j in portalInput){
 			if(enemy[i].collide(portalInput[j])){
 				movementBackEnemy();
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				enemy[i].direction = random(4);
+				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
 	}
@@ -211,8 +204,7 @@ function collisionEnemy(){
 		for(j in portalOutput){
 			if(enemy[i].collide(portalOutput[j])){
 				movementBackEnemy();
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				enemy[i].direction = random(4);
+				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
 	}
@@ -222,8 +214,7 @@ function collisionEnemy(){
 		for(j in home){
 			if(enemy[i].collide(home[j])){
 				movementBackEnemy();
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-				enemy[i].direction = random(4);
+				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
 	}
@@ -397,6 +388,7 @@ function collisionBullets1(){
 					loadSound(sExplosion);
 					player.score += _PointsEnemy;
 				}
+				enemy[i].timeShowDamage = _TimeShowDamagedEnemy;
 
 	  			templateSetLightEfects(true);
  			}
@@ -499,28 +491,13 @@ function collisionBullets2(){
 					loadSound(sExplosion);
 					player.score += _PointsEnemy;
 				}
+				enemy[i].timeShowDamage = _TimeShowDamagedEnemy;
 
 	  			templateSetLightEfects(true);
  			}
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
