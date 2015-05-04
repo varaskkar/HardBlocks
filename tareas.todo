@@ -12,7 +12,7 @@
     ☐ Tipos de armas
         ✔ Principal  > 1 bala redonda en 360º @done (22-03-15 20:47)
         ✔ Secundaria > 3 balas paralelas @done (21-04-15 14:08)
-            ☐ Necesita ser recargada
+            ✔ Necesita ser recargada @done (04-05-15 19:35)
             ☐ Al conseguir un objeto, tener este arma, ¿recargar o tiempo limitado?¿antes del jefe final?
         ☐ Bomba que explota en 3 segundos en el sitio colocado
         ☐ Misil que al chocar en cualquier sitio explote y provoque explosion redonda
@@ -42,7 +42,6 @@
 
 
 ✔ Funcion de colision con los bordes del canvas (lienzo) @done (30-04-15 17:24)
-☐ El tema de movEnemy solo funciona con 1 enemy, no con mas de 1
 
 ☐ Hacer gift de portales y disparando y que se vea en el suelo donde va la bala
 ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
@@ -62,6 +61,7 @@
         ☐ La onda expansiva de la explosión me quite vidas si me da > Colisión Rectángulo - Círculo
         ☐ Al morir que deje objetos o algo
     ✔ Colisión @done (04-05-15 18:10)
+        ✔ Cambiar posición @done (28-04-15 13:18)
         ✔ Cuando choque con algo, retroceder posición @done (30-04-15 15:57)
         ✔ Si una bala choca contra un enemigo, que éste parpadee @done (04-05-15 18:10)
     ☐ Ponerle movimiento
@@ -71,9 +71,8 @@
             ✔ Si se ha desplazado la mitad del mapa, que ya cambie de direccion @done (04-05-15 19:23)
             ✔ Cuando choque que se desplace en una direccion diferente de la que tenia anteriormente @done (04-05-15 18:30)
         ☐ Algoritmo del movimiento angular para que me siga
-    ✔ Si choca con algun elemento que no sea el lienzo, cambie de posición @done (28-04-15 13:18)
-    ☐ IA > Me dispare cuando me acerque a él
     ☐ Concurrencia @VerPorQuéPasa
+    ☐ IA > Me dispare cuando me acerque a él
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
@@ -123,7 +122,7 @@
 ✔ Problema sonido: Si le doy a pausa y el sonido esta inactivo....no activarlo si no dejarlo inactivo @done (28-04-15 16:56)
 ✔ Al metodo createMap() pasarle el color de fondo del mapa como parámetro @done (07-04-15 18:17)
 ✔ Al metodo createMap() pasarle como parametro el sonido de cada fase @done (07-04-15 01:13)
-✔ Poner la puerta en el metodo createMap(). Poner numero asignado a puerta y que automat. aparezca en el mapa @done (06-04-15 23:51)
+✔ Poner la puerta en createMap(). Poner núm asignado a puerta y que automat. aparezca en el mapa @done (06-04-15 23:51)
 ✔ Traducido al inglés @done (06-04-15 16:51)
 ✔ mejorada plantilla y optimizado @done (06-04-15 00:13)
 ✔ Crear clase FiguraFija, FiguraDinamica, Bloque, Bala ... eso de tener una sola clase como que no... @done (06-04-15 00:13)
@@ -151,7 +150,7 @@
 ✔ Formateadas código ASCII de las teclas @done (30-03-15 21:53)
 ✘ Unificar variables del POJO de horizontal/vertical y azar en 1 sola @cancelled (04-05-15 17:49)
 ✘ Fullscreen no funciona en Firefox @cancelled (22-04-15 17:42)
-✘ Crear sistema de puntuacion en php. A la gente les engancha el que sean los mejores / tengan mas puntos. Mostrar los nombres en la plantilla. Subir fichero "index.php" y ver si puede crear en github un txt con la max puntuacion del jugador @cancelled (17-04-15 17:02)
+✘ Crear sistema de puntuacion en php. Mostrar los nombres en la plantilla.
     ✔ Github sólo permite "index.html" @done (17-04-15 16:23)
     ✔ Aunque use "index.html" y llame a funcion PHP desde JS ... tampoco deja Github @done (17-04-15 16:55)
 ✘ Las balas pueden chocar entre si y destruirse @cancelled (05-04-15 12:01)

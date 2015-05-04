@@ -71,15 +71,12 @@ function collisionPlayer(){
 				loadSound(sPortalOutput);
 			}
 		}else{
-			// BUG: antes carga el portal que la nave (tiempo espera en metodo crearPapa)
-			// por eso cuando carga el portal la nave ya esta a la derecha y dice ¡SI!
-
 			// When you've croosed the portal, avoid return automaticaly to portal before
 			// There is move player in 4 directions outside the portal
 			setTimeout(function(){
 				if(portalInput[0].x + 50 < player.x || portalInput[0].x - 50 > player.x || portalInput[0].y + 50 < player.y || portalInput[0].y - 50 > player.y){
 					portalInputCrossed = false;
-					// console.log("Si");
+					// console.log("Yes");
 				}
 				// else
 				// 	console.log("No");
@@ -136,8 +133,9 @@ function collisionPlayer(){
 
 function collisionEnemy(){
 
-	// Enemy -> CanvasEdge
 	for(i in enemy){
+
+		// Enemy -> CanvasEdge
 		if(enemy[i].x >= canvas.width - enemy[i].width){
 			movementBackEnemy();
 			enemy[i].direction = parseDirectionEnemy();
@@ -151,81 +149,65 @@ function collisionEnemy(){
 			movementBackEnemy();
 			enemy[i].direction = parseDirectionEnemy();
 		}
-	}
 
-	// Enemy -> BlockBrown
-	for(i in enemy){
+		// Enemy -> BlockBrown
 		for(j in blockBrown){
 			if(enemy[i].collide(blockBrown[j])){
 				movementBackEnemy();
 				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
-	}
 
-	// Enemy -> blockWhite
-	for(i in enemy){
+		// Enemy -> blockWhite
 		for(j in blockWhiteVert){
 			if(enemy[i].collide(blockWhiteVert[j])){
 				movementBackEnemy();
 				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
-	}
-	for(i in enemy){
 		for(j in blockWhiteHor){
 			if(enemy[i].collide(blockWhiteHor[j])){
 				movementBackEnemy();
 				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
-	}
 
-	// Enemy -> BlockRed
-	for(i in enemy){
+		// Enemy -> BlockRed
 		for(j in blockRed){
 			if(enemy[i].collide(blockRed[j])){
 				movementBackEnemy();
 				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
-	}
 
-	// Enemy -> Portal
-	for(i in enemy){
+		// Enemy -> Portal
 		for(j in portalInput){
 			if(enemy[i].collide(portalInput[j])){
 				movementBackEnemy();
 				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
-	}
-	for(i in enemy){
 		for(j in portalOutput){
 			if(enemy[i].collide(portalOutput[j])){
 				movementBackEnemy();
 				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
-	}
 
-	// Enemy -> Home
-	for(i in enemy){
+		// Enemy -> Home
 		for(j in home){
 			if(enemy[i].collide(home[j])){
 				movementBackEnemy();
 				enemy[i].direction = parseDirectionEnemy();
 			}
 		}
-	}
 
-	// // Enemy -> Enemy
-	// for(i in enemy){
-	// 	for(j in enemy){
-	// 		if(enemy[i].collide(enemy[j]))
-	// 			enemy[i].toggleDirection = !enemy[i].toggleDirection;
-	// 	}
-	// }
+		// Enemy -> Enemy
+		for(j in enemy){
+			if(enemy[i].collide(enemy[j]))
+				enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		}
+	}
 }
 
 function collisionBlockLife(){
@@ -291,8 +273,9 @@ function collisionBlockLife(){
 }
 
 function collisionBullets1(){
-	// Bullets1 -> BlockBrown
 	for(i in bullets1){
+
+		// Bullets1 -> BlockBrown
 		for(j in blockBrown){
 			// console.log(bullets1[i].collide(blockBrown[j]));
 			if(bullets1[i].collide(blockBrown[j])){
@@ -307,20 +290,16 @@ function collisionBullets1(){
 				templateSetLightEfects(true);
 			}
 		}
-	}
 
-	// Bullets1 -> BlockRed
-	for(i in bullets1){
+		// Bullets1 -> BlockRed
 		for(j in blockRed){
 			if(bullets1[i].collide(blockRed[j])){
 	  			bullets1.splice(i,1);
 	  			templateSetLightEfects(true);
  			}
 		}
-	}
 
-	// Bullets1 -> BlockWhite
-	for(i in bullets1){
+		// Bullets1 -> BlockWhite
 		for(j in blockWhiteVert){
 	  		if(bullets1[i].collide(blockWhiteVert[j])){
 	  			if(bullets1[i].maxRebounds < _MaxRebounds){
@@ -332,8 +311,6 @@ function collisionBullets1(){
 					bullets1.splice(i,1);
 			}
 		}
-	}
-	for(i in bullets1){
 		for(j in blockWhiteHor){
 	  		if(bullets1[i].collide(blockWhiteHor[j])){
 	  			if(bullets1[i].maxRebounds < _MaxRebounds){
@@ -345,38 +322,30 @@ function collisionBullets1(){
 					bullets1.splice(i,1);
 			}
 		}
-	}
 
-	// Bullets1 -> BlockLife
-	for(i in bullets1){
+		// Bullets1 -> BlockLife
 		if(bullets1[i].collide(blockLife)){
 			player.life++;
 			loadSound(sGetLife);
 	  		blockLife.x = random(canvas.width - 10);
 	  		blockLife.y = random(canvas.height - 10);
 		}
-	}
 
-	// Bullets1 -> Portal
-	for(i in bullets1){
+		// Bullets1 -> Portal
 		for(j in portalInput){
 			if(bullets1[i].collide(portalInput[j])){
 		  		bullets1.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
-	}
-	for(i in bullets1){
 		for(j in portalOutput){
 			if(bullets1[i].collide(portalOutput[j])){
 		  		bullets1.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
-	}
 
-	// Bullets1 -> Enemy
-	for(i in bullets1){
+		// Bullets1 -> Enemy
 		for(j in enemy){
 			if(bullets1[i].collide(enemy[j])){
 				player.score += _PointsTouchEnemy;
@@ -397,8 +366,9 @@ function collisionBullets1(){
 }
 
 function collisionBullets2(){
-	// Bullets2 -> BlockBrown
 	for(i in bullets2){
+
+		// Bullets2 -> BlockBrown
 		for(j in blockBrown){
 			if(bullets2[i].collide(blockBrown[j])){
 	  			player.score += _PointsBlock;
@@ -412,10 +382,8 @@ function collisionBullets2(){
 				templateSetLightEfects(true);
 			}
 		}
-	}
 
-	// Bullets2 -> BlockWhite
-	for(i in bullets2){
+		// Bullets2 -> BlockWhite
 		for(j in blockWhiteVert){
 	  		if(bullets2[i].collide(blockWhiteVert[j])){
 	  			if(bullets2[i].maxRebounds < _MaxRebounds){
@@ -426,8 +394,6 @@ function collisionBullets2(){
 					bullets2.splice(i,1);
 			}
 		}
-	}
-	for(i in bullets2){
 		for(j in blockWhiteHor){
 	  		if(bullets2[i].collide(blockWhiteHor[j])){
 	  			if(bullets2[i].maxRebounds < _MaxRebounds){
@@ -438,48 +404,38 @@ function collisionBullets2(){
 					bullets2.splice(i,1);
 			}
 		}
-	}
 
-	// Bullets2 -> BlockLife
-	for(i in bullets2){
+		// Bullets2 -> BlockLife
 		if(bullets2[i].collide(blockLife)){
 			player.life++;
 			loadSound(sGetLife);
 	  		blockLife.x = random(canvas.width - 10);
 	  		blockLife.y = random(canvas.height - 10);
 		}
-	}
 
-	// Bullets2 ->Portal
-	for(i in bullets2){
+		// Bullets2 ->Portal
 		for(j in portalInput){
 			if(bullets2[i].collide(portalInput[j])){
 		  		bullets2.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
-	}
-	for(i in bullets2){
 		for(j in portalOutput){
 			if(bullets2[i].collide(portalOutput[j])){
 		  		bullets2.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
-	}
 
-	// Bullets2 -> BlockRed
-	for(i in bullets2){
+		// Bullets2 -> BlockRed
 		for(j in blockRed){
 			if(bullets2[i].collide(blockRed[j])){
 	  			bullets2.splice(i,1);
 	  			templateSetLightEfects(true);
  			}
 		}
-	}
 
-	// Bullets2 -> Enemy
-	for(i in bullets2){
+		// Bullets2 -> Enemy
 		for(j in enemy){
 			if(bullets2[i].collide(enemy[j])){
 				player.score += _PointsTouchEnemy;
@@ -498,11 +454,6 @@ function collisionBullets2(){
 		}
 	}
 }
-
-
-
-
-
 
 
 
