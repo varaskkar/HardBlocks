@@ -14,14 +14,12 @@ Hard Blocks
 
 | Key | Function |
 |------|---------------|
-| <kbd>Pad num 1</kbd> | Mapa 1
-| <kbd>Pad num 2</kbd> | Mapa 2
-| <kbd>Pad num 3</kbd> | Empty Map
 | <kbd>Pad num 7</kbd> | information
-| <kbd>Enter</kbd> | Pause
+| <kbd>Enter</kbd> | Pause & Start
 | <kbd>Z</kbd> | Weapon 1
 | <kbd>X</kbd> | Weapon 2
 | <kbd>M</kbd> | Fullscreen
+| <kbd>S</kbd> | Sound
 
 ###License
 This proyect is under the license [GNU GPL v2](https://github.com/felipetiza/nave/blob/master/LICENSE).
