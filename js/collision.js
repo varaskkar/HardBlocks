@@ -26,12 +26,12 @@ function collisionPlayer(){
 			movementBackPlayer();
 	}
 
-	// Player -> BlockLife
-	if(player.collide(blockLife)){
+	// Player -> life
+	if(player.collide(life)){
   		player.life++;
   		loadSound(sGetLife);
-  		blockLife.x = random(canvas.width - 10);
-  		blockLife.y = random(canvas.height - 10);
+  		life.x = random(canvas.width - 10);
+  		life.y = random(canvas.height - 10);
  	}
 
 	// Player -> BlockRed
@@ -226,64 +226,67 @@ function collisionEnemy(){
 	}
 }
 
-function collisionBlockLife(){
-	// BlockLife -> BlockRed
-	for(i in blockRed){
-		if(blockLife.collide(blockRed[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
-	}
+function collisionLife(){
 
-	// BlockLife -> BloqueBlanco
-	for(i in blockWhiteVert){
-		if(blockLife.collide(blockWhiteVert[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
+	if(typeof life != "undefined"){
+		// life -> BlockRed
+		for(i in blockRed){
+			if(life.collide(blockRed[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
 		}
-	}
-	for(i in blockWhiteHor){
-		if(blockLife.collide(blockWhiteHor[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
-	}
 
-	// BlockLife -> BlockBrown
-	for(i in blockBrown){
-		if(blockLife.collide(blockBrown[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
+		// life -> BloqueBlanco
+		for(i in blockWhiteVert){
+			if(life.collide(blockWhiteVert[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
 		}
-	}
+		for(i in blockWhiteHor){
+			if(life.collide(blockWhiteHor[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
+		}
 
-	// BlockLife -> Portal
-	for(i in portalInput){
-		if(blockLife.collide(portalInput[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
+		// life -> BlockBrown
+		for(i in blockBrown){
+			if(life.collide(blockBrown[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
 		}
-	}
-	for(i in portalOutput){
-		if(blockLife.collide(portalOutput[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
-		}
-	}
 
-	// BlockLife -> Enemy
-	for(i in enemy){
-		if(blockLife.collide(enemy[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
+		// life -> Portal
+		for(i in portalInput){
+			if(life.collide(portalInput[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
 		}
-	}
+		for(i in portalOutput){
+			if(life.collide(portalOutput[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
+		}
 
-	// BlockLife -> Home
-	for(i in home){
-		if(blockLife.collide(home[i])){
-  			blockLife.x = random(canvas.width - 10);
-  			blockLife.y = random(canvas.height - 10);
+		// life -> Enemy
+		for(i in enemy){
+			if(life.collide(enemy[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
+		}
+
+		// life -> Home
+		for(i in home){
+			if(life.collide(home[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
 		}
 	}
 }
@@ -339,12 +342,12 @@ function collisionBullets1(){
 			}
 		}
 
-		// Bullets1 -> BlockLife
-		if(bullets1[i].collide(blockLife)){
+		// Bullets1 -> life
+		if(bullets1[i].collide(life)){
 			player.life++;
 			loadSound(sGetLife);
-	  		blockLife.x = random(canvas.width - 10);
-	  		blockLife.y = random(canvas.height - 10);
+	  		life.x = random(canvas.width - 10);
+	  		life.y = random(canvas.height - 10);
 		}
 
 		// Bullets1 -> Portal
@@ -421,12 +424,12 @@ function collisionBullets2(){
 			}
 		}
 
-		// Bullets2 -> BlockLife
-		if(bullets2[i].collide(blockLife)){
+		// Bullets2 -> life
+		if(bullets2[i].collide(life)){
 			player.life++;
 			loadSound(sGetLife);
-	  		blockLife.x = random(canvas.width - 10);
-	  		blockLife.y = random(canvas.height - 10);
+	  		life.x = random(canvas.width - 10);
+	  		life.y = random(canvas.height - 10);
 		}
 
 		// Bullets2 ->Portal

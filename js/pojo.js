@@ -1,3 +1,11 @@
+function Map(name, map, sound, colorBackground, size){
+	this.name = name;
+	this.map = map;
+ 	this.sound = sound;
+ 	this.colorBackground = colorBackground;
+ 	this.size = size;
+}
+
 function Element(x, y, width, height, life){
 	this.x = x;
  	this.y = y;
@@ -16,14 +24,6 @@ function Element(x, y, width, height, life){
 	   			   this.y+this.height>thing.y;
 	  	}
  	}
-}
-
-function Map(name, map, sound, colorBackground, size){
-	this.name = name;
-	this.map = map;
- 	this.sound = sound;
- 	this.colorBackground = colorBackground;
- 	this.size = size;
 }
 
 function Enemy(x, y, width, height, life){

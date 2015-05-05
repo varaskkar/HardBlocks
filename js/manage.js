@@ -17,10 +17,9 @@ const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,       _Mu
 	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 1;
 
 var canvas = null, ctx = null;
-var player, blockLife;
 var key = null;
 var keyPressed = [];
-var bullets1 = [], bulletsTest = [], bullets2 = [];
+var bullets1 = [], bullets2 = [], bulletsTest = [];
 
 var info             = true,
 	pause            = false,
@@ -69,15 +68,13 @@ function init(){
 		canvas = document.getElementsByTagName('canvas')[0];
 		ctx = canvas.getContext('2d');
 
-		player = new Player(225,200,16,16);
-		blockLife = new Element(null,null,16,16);
 		createMap();
-
 		loadAssets();
 		reset();
 		run();
 	}, 250);
 }
+
 function loadAssets(){
 	iPlayer.src      = 'assets/img/player1.png';
 	iEnemy.src       = 'assets/img/boat.png';
@@ -112,17 +109,17 @@ function loadAssets(){
 	templateSetFullscreen(fullScreen);
 	templateSetLightEfects(false);
 }
+
 function reset(){
 	player.score           = 0;
 	player.life            = _LifePlayer;
 	player.munitionWeapon1 = _MunitionWeapon1;
 	player.munitionWeapon2 = _MunitionWeapon2;
 	player.timeProtected   = 0;
-	blockLife.x            = random(canvas.width - blockLife.width);
-	blockLife.y            = random(canvas.height - blockLife.height);
 	gameOver               = false
 	loadMap("map1", 270, 330, 0);
 }
+
 function run(){
 	requestAnimFrame(run);
 	game();
@@ -201,7 +198,8 @@ function draw() {
 	}else
 		showRotatedPlayer();
 
-	ctx.drawImage(iBlockLife,blockLife.x,blockLife.y, blockLife.width, blockLife.height);
+	if(typeof life != "undefined")
+		ctx.drawImage(iBlockLife,life.x,life.y,life.width,life.height);
 
 	for(i in blockBrown){
 		if(blockBrown[i].life == 0)
@@ -292,7 +290,7 @@ function draw() {
 function collision(){
 	collisionPlayer();
 	collisionEnemy();
-	collisionBlockLife();
+	collisionLife();
 	collisionBullets1();
 	collisionBullets2();
 }

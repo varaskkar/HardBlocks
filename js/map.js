@@ -2,17 +2,37 @@
 // -------------------------------------------------------------
 // Canvas 						560				360
 // _SizeBlock = 20				20				20
-// Bloques que encajan 			560/20 > 28 	360/20 > 18
+// Blocks fit					560/20 > 28 	360/20 > 18
 
-// Bloques caben en pantalla 	28 * 18 = 504
+// Blocks fit on screen 		28 * 18 = 504
 
+// Maps
 var currentMap = "";
-var mapList = [], map1 = [], map2 = [], map3 = [], map4 = [], map5 = [], map6 = [], map7 = [];
-var home = [], portalInput = [], portalOutput = [], blockBrown = [], blockRed = [], blockWhiteVert = [], blockWhiteHor = [];
-var enemy = [];
+var mapList = [],
+	map1    = [],
+	map2    = [],
+	map3    = [],
+	map4    = [],
+	map5    = [],
+	map6    = [],
+	map7    = [];
+
+// Elements
+var player, life;
+var blockBrown     = [],
+	blockRed       = [],
+	blockWhiteVert = [],
+	blockWhiteHor  = [],
+	home           = [],
+	portalInput    = [],
+	portalOutput   = [],
+	enemy          = [];
+
 var portalInputCrossed = false, portalOutputCrossed = false;
+
 // Backup for when return to previous map
-var blockBrownCopyMap1 = [], blockBrownCopyMap2 = [];
+var blockBrownCopyMap1 = [],
+	blockBrownCopyMap2 = [];
 
 function createMap(){
 	mapList.push(new Map("map1", map1, sMap1, "#011224", _SizeBlock));
@@ -21,6 +41,8 @@ function createMap(){
 	mapList.push(new Map("map4", map4, sMap4, "#08212F", _SizeBlock));
 	mapList.push(new Map("map5", map5, sMap5, "#0F2F40", _SizeBlock));
 	mapList.push(new Map("map6", map6, sMap6, "#011224", _SizeBlock));
+
+	player = new Player(null,null,16,16);
 }
 
 function loadMap(map, posX, posY, rotation){
@@ -38,6 +60,8 @@ function loadMap(map, posX, posY, rotation){
 				blockWhiteVert.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 2)
 				blockWhiteHor.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+			else if(mapList[k].map[i][j] == 0)
+				life = new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size);
 			else if(mapList[k].map[i][j] == 'P1')
 				portalInput.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 'P2')

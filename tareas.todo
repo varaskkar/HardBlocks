@@ -48,14 +48,8 @@
 
 Cuando disparo a un barco, parpadean los 2...why???
 
-mapa
-> nombre "map1"
-> colorFondo
-> Sonido
 
-posiciones iniciales del player por constante...
-
-    loadMap("map1", 270, 330, 0); y player = new Player(225,200,16,16);
+✔ Simplificado el sistema de carga de mapas con mapList @done (05-05-15 19:08)
 
 ☐ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos
 ☐ El bloque de vida pueda activarse o no
