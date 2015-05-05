@@ -54,14 +54,14 @@ function collisionPlayer(){
 			}else if(player.timeChangeLevel == 1){
 				if(currentMap == "map1"){
 					makeBackupMap("map1");
-					createMap(map2, _SizeBlock, sMap2, "map2", "#010F1D", 32, 212, 90);
+					loadMap("map2", 32, 212, 90);
 					loadBackupMap("map2");
 				}else if(currentMap == "map2"){
 					makeBackupMap("map2");
-					createMap(map1, _SizeBlock, sMap1, "map1", "#011224", 532, 62, 180);
+					loadMap("map1", 532, 62, 180);
 					loadBackupMap("map1");
 				}else if(currentMap == "map3"){
-					// createMap(map3, _SizeBlock, sMap1, "map3", "#010B16", 512, 32, 270);
+					// loadMap("map3", 512, 32, 270);
 					setPositionPlayer(512, 32, 270);
 					// setTimeout(function(){
 					// 	setPositionPlayer(512, 32, 270);
@@ -69,6 +69,22 @@ function collisionPlayer(){
 				}
 				portalInputCrossed = true;
 				loadSound(sPortalOutput);
+			}else{
+				if(player.timeChangeLevel == 150)		templateSetBackgroundColor("#050B14");
+				else if(player.timeChangeLevel == 140)	templateSetBackgroundColor("#011326");
+				else if(player.timeChangeLevel == 130)	templateSetBackgroundColor("#011429");
+				else if(player.timeChangeLevel == 120)	templateSetBackgroundColor("#01152C");
+				else if(player.timeChangeLevel == 110)	templateSetBackgroundColor("#01162E");	// 18
+				else if(player.timeChangeLevel == 100)	templateSetBackgroundColor("#011731");
+				else if(player.timeChangeLevel == 90)	templateSetBackgroundColor("#011833");
+				else if(player.timeChangeLevel == 80)	templateSetBackgroundColor("#011A36");
+				else if(player.timeChangeLevel == 70)	templateSetBackgroundColor("#011B38");
+				else if(player.timeChangeLevel == 60)	templateSetBackgroundColor("#011C3B");
+				else if(player.timeChangeLevel == 50)	templateSetBackgroundColor("#011D3D");	// 24
+				else if(player.timeChangeLevel == 40)	templateSetBackgroundColor("#011F40");
+				else if(player.timeChangeLevel == 30)	templateSetBackgroundColor("#012143");
+				else if(player.timeChangeLevel == 20)	templateSetBackgroundColor("#012245");
+				else if(player.timeChangeLevel == 10)	templateSetBackgroundColor("#050B14");	// 28
 			}
 		}else{
 			// When you've croosed the portal, avoid return automaticaly to portal before

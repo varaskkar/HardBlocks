@@ -1,4 +1,4 @@
-function Element(x,y,width,height,life){
+function Element(x, y, width, height, life){
 	this.x = x;
  	this.y = y;
  	this.width = width;
@@ -18,7 +18,15 @@ function Element(x,y,width,height,life){
  	}
 }
 
-function Enemy(x,y,width,height,life){
+function Map(name, map, sound, colorBackground, size){
+	this.name = name;
+	this.map = map;
+ 	this.sound = sound;
+ 	this.colorBackground = colorBackground;
+ 	this.size = size;
+}
+
+function Enemy(x, y, width, height, life){
 	this.x = x;
  	this.y = y;
  	this.width = width;
@@ -51,7 +59,7 @@ function Enemy(x,y,width,height,life){
  	}
 }
 
-function Player(x,y,width,height){
+function Player(x, y, width, height){
 	this.x = x;
  	this.y = y;
  	this.width = width;
@@ -78,7 +86,7 @@ function Player(x,y,width,height){
  	}
 }
 
-function Bullet(x,y,width,height,velX,velY){
+function Bullet(x, y, width, height, velX, velY){
 	this.x = x;
  	this.y = y;
  	this.width = width;

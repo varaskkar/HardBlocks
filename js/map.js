@@ -7,42 +7,53 @@
 // Bloques caben en pantalla 	28 * 18 = 504
 
 var currentMap = "";
-var map1 = [], map2 = [], map3 = [], map4 = [], map5 = [], map6 = [], map7 = [];
+var mapList = [], map1 = [], map2 = [], map3 = [], map4 = [], map5 = [], map6 = [], map7 = [];
 var home = [], portalInput = [], portalOutput = [], blockBrown = [], blockRed = [], blockWhiteVert = [], blockWhiteHor = [];
 var enemy = [];
 var portalInputCrossed = false, portalOutputCrossed = false;
 // Backup for when return to previous map
 var blockBrownCopyMap1 = [], blockBrownCopyMap2 = [];
 
-function createMap(map, width, sound, nameMap, backgroundColor, posX, posY, rotation){
+function createMap(){
+	mapList.push(new Map("map1", map1, sMap1, "#011224", _SizeBlock));
+	mapList.push(new Map("map2", map2, sMap2, "#010F1D", _SizeBlock));
+	mapList.push(new Map("map3", map3, sMap3, "#010B16", _SizeBlock));
+	mapList.push(new Map("map4", map4, sMap4, "#08212F", _SizeBlock));
+	mapList.push(new Map("map5", map5, sMap5, "#0F2F40", _SizeBlock));
+	mapList.push(new Map("map6", map6, sMap6, "#011224", _SizeBlock));
+}
+
+function loadMap(map, posX, posY, rotation){
 	clearMap();
-	for(var i = 0; i < map.length; i++) {			// i = row   j = column
-		for(var j = 0; j < map[i].length; j++) {
-			if(map[i][j] == 5)
-				blockBrown.push(new Element(j*width,i*width,width,width, _LifeBlock));
-			else if(map[i][j] == 4)
-				blockRed.push(new Element(j*width,i*width,width,width));
-			else if(map[i][j] == 3)
-				blockWhiteVert.push(new Element(j*width,i*width,width,width));
-			else if(map[i][j] == 2)
-				blockWhiteHor.push(new Element(j*width,i*width,width,width));
-			else if(map[i][j] == 'P1')
-				portalInput.push(new Element(j*width,i*width,width,width));
-			else if(map[i][j] == 'P2')
-				portalOutput.push(new Element(j*width,i*width,width,width));
-			else if(map[i][j] == 'H')
-				home.push(new Element(j*width,i*width,width,width));
-			else if(map[i][j] == 'E')
-				enemy.push(new Enemy(j*width,i*width,width,width, _LifeEnemy));
+
+	var k = parseInt(map.charAt(map.length - 1)) - 1;			// Get the index of map received  		"map1" > 1 > 0
+
+	for(var i = 0; i < mapList[k].map.length; i++) {			// i = row   j = column
+		for(var j = 0; j < mapList[k].map[i].length; j++) {
+			if(mapList[k].map[i][j] == 5)
+				blockBrown.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeBlock));
+			else if(mapList[k].map[i][j] == 4)
+				blockRed.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+			else if(mapList[k].map[i][j] == 3)
+				blockWhiteVert.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+			else if(mapList[k].map[i][j] == 2)
+				blockWhiteHor.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+			else if(mapList[k].map[i][j] == 'P1')
+				portalInput.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+			else if(mapList[k].map[i][j] == 'P2')
+				portalOutput.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+			else if(mapList[k].map[i][j] == 'H')
+				home.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+			else if(mapList[k].map[i][j] == 'E')
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy));
 		}
 	}
-	templateSetBackgroundColor(backgroundColor);
-	loadSound(sound, true);
-	currentMap = nameMap;
+	templateSetBackgroundColor(mapList[k].colorBackground);
+	loadSound(mapList[k].sound, true);
+	currentMap = map;
 
-	if(typeof posX != "undefined")		player.x = posX;
-	if(typeof posY != "undefined")		player.y = posY;
-	if(typeof rotation != "undefined")	player.rotation = rotation;
+	if(typeof posX != "undefined" && typeof posY != "undefined" && typeof rotation != "undefined")
+		setPositionPlayer(posX, posY, rotation);
 }
 function clearMap(){
 	blockBrown.splice(0, blockBrown.length);
@@ -93,14 +104,14 @@ function setPositionPlayer(posX, posY, rotation){
 }
 
 map1 = [
-	[   ,   ,   ,   ,   , 2 , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,'P1','P1'],
-	[   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,'P1','P1'],
-	[   ,   ,   ,   ,   , 2 , 2 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 4 ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ,   ,   , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,'E',   ,   ,   ,   ,'P1','P1'],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ,   ,   , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,'P1','P1'],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   , 2 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 2 ,   ,   ,   ,   ,   ],
 	[ 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
@@ -197,27 +208,6 @@ map5 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ]
 	];
 
-map7 = [
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   , 2 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   , 2 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   , 2 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ]
-	];
-
 map6 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
@@ -240,6 +230,27 @@ map6 = [
 	];
 
 map7 = [
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   , 2 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ,   ,   ,   , 2 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ]
+	];
+
+map8 = [
 	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
 	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],
 	['H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H','H'],

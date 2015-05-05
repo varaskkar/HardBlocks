@@ -11,12 +11,16 @@
     ✔ Mover las balas a la dirección que haya rotado la nave @done (22-03-15 20:23)
     ☐ Tipos de armas
         ✔ Principal  > 1 bala redonda en 360º @done (22-03-15 20:47)
-        ✔ Secundaria > 3 balas paralelas @done (21-04-15 14:08)
+        ✔ Secundaria > 3 balas paralelas en 360º @done (21-04-15 14:08)
             ✔ Necesita ser recargada @done (04-05-15 19:35)
             ☐ Al conseguir un objeto, tener este arma, ¿recargar o tiempo limitado?¿antes del jefe final?
+            ☐ Solucionar dejar pulsado al disparar...que la bala se aleje X pixeles de la nave...al igual que hice con el algorit del portal
+            ☐ Que la bala no sea cuadrada si no redonda
+            ☐ Que mis balas sean largas en vertical, no cuadradas (al menos intentar que sean redondas)
         ☐ Bomba que explota en 3 segundos en el sitio colocado
         ☐ Misil que al chocar en cualquier sitio explote y provoque explosion redonda
             ☐ Mientras el misil este vivo no dejar lanzar más hasta que éste explote
+        ☐ Escudo: cuando pulse una tecla se saque y las balas reboten contra él y poder dirigirlas
     ☐ Tipos de bloque
         ✔ Rojo   > Fuego    (quita vida) @done (22-03-15 20:29)
         ✔ Marrón > Ladrillo (se rompe) @done (22-03-15 20:30)
@@ -40,15 +44,32 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
-
 ✔ Funcion de colision con los bordes del canvas (lienzo) @done (30-04-15 17:24)
 
-☐ Hacer gift de portales y disparando y que se vea en el suelo donde va la bala
+Cuando disparo a un barco, parpadean los 2...why???
+
+mapa
+> nombre "map1"
+> colorFondo
+> Sonido
+
+posiciones iniciales del player por constante...
+
+    loadMap("map1", 270, 330, 0); y player = new Player(225,200,16,16);
+
+☐ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos
+☐ El bloque de vida pueda activarse o no
+
+☐ Cambiar el nombre de "nave" por otro mejor y en inglés
+☐ Nueva captura del mapa en la pág de github y quitar las 2 actuales
+☐ Hacer gift @HACER
+    ☐ portales
+        ☐ Antes hacer lo de que se oscurezca el mapa
+    ☐ Enemigo
+    ✔ disparando balas triples que se vea en el suelo donde va la bala @done (05-05-15 16:32)
 ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
 ☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
 ☐ A medida que vaya faltando menos para transportarse por el portal, que vaya oscureciendose el fondo del mapa
-
-☐ Que las balas se hayan alejado un min de la nave...al igual que hice con el algoritmo del portal
 
 ☐ Enemigo
     ✔ Básico: quitarle vida y matarlo @done (26-04-15 13:36)
@@ -76,15 +97,11 @@
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
-☐ Que la nave saque un ESCUDO cuando pulse una tecla para que las balas reboten contra ella y poder dirigirlas
-☐ Que la bala no sea cuadrada si no redonda
-☐ Solucionar dejar pulsado al disparar...que la bala se aleje X pixeles de la nave
 ☐ Poner un bloqueMarron algo distinto que al romperse suene un "tin" y me de mas puntos que el resto o algo parecido
 ☐ sumar el numero de rebotes de las balas a los puntos que te dan al destruir un bloque
 ☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
-☐ Poner el canvas y el contexto en una sola línea
+✘ Poner el canvas y el contexto en una sola línea @cancelled (04-05-15 20:27)
 ☐ Buscar sonido para los mapas
-☐ Que mis balas sean largas en vertical, no cuadradas (al menos intentar que sean redondas)
 ☐ Fase: hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
      por rebote

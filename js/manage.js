@@ -9,12 +9,12 @@ requirejs(['sound']);
 window.addEventListener('load',init,false);
 
 const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,       _MunitionWeapon1 = 9999,
-	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 300,
+	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 9999,
 	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = 4,
 	  				   _TimeShowExplosionEnemy = 30,
 	  				   _TimeShowDamagedEnemy = 10,
 
-	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 5;
+	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 1;
 
 var canvas = null, ctx = null;
 var player, blockLife;
@@ -25,14 +25,14 @@ var bullets1 = [], bulletsTest = [], bullets2 = [];
 var info             = true,
 	pause            = false,
 	gameOver         = false,
-	fullScreen       = true,
+	fullScreen       = false,
 	sound            = false;
 
 // horizontal, vertical, random
+var	kindMovementEnemy = "";
 // var	kindMovementEnemy = "horizontal";
 // var	kindMovementEnemy = "vertical";
-var	kindMovementEnemy = "random";
-// var	kindMovementEnemy = "";
+// var	kindMovementEnemy = "random";
 
 var iPlayer      = new Image(),
 	iEnemy       = new Image(),
@@ -71,6 +71,7 @@ function init(){
 
 		player = new Player(225,200,16,16);
 		blockLife = new Element(null,null,16,16);
+		createMap();
 
 		loadAssets();
 		reset();
@@ -112,8 +113,6 @@ function loadAssets(){
 	templateSetLightEfects(false);
 }
 function reset(){
-	setPositionPlayer(270, 330, 0);
-	// setPositionPlayer(270, 280, 180);
 	player.score           = 0;
 	player.life            = _LifePlayer;
 	player.munitionWeapon1 = _MunitionWeapon1;
@@ -122,7 +121,7 @@ function reset(){
 	blockLife.x            = random(canvas.width - blockLife.width);
 	blockLife.y            = random(canvas.height - blockLife.height);
 	gameOver               = false
-	createMap(map1, _SizeBlock, sMap1, "map1", "#011224");
+	loadMap("map1", 270, 330, 0);
 }
 function run(){
 	requestAnimFrame(run);
@@ -358,22 +357,22 @@ function keyboard(){
 			toggleSound();
 		key = null;
 	}else if(key == formatKey("PadNum1") || key == formatKey("1")){
-		createMap(map1, _SizeBlock, sMap1, "map1", "#011224");
+		loadMap("map1");
 		key = null;
 	}else if(key == formatKey("PadNum2") || key == formatKey("2")){
-		createMap(map2, _SizeBlock, sMap2, "map2", "#010F1D");
+		loadMap("map2");
 		key = null;
 	}else if(key == formatKey("PadNum3") || key == formatKey("3")){
-		createMap(map3, _SizeBlock, sMap1, "map3", "#010B16");
+		loadMap("map3");
 		key = null;
 	}else if(key == formatKey("PadNum4") || key == formatKey("4")){
-		createMap(map4, _SizeBlock, sMap1, "map4", "#08212F");
+		loadMap("map4");
 		key = null;
 	}else if(key == formatKey("PadNum5") || key == formatKey("5")){
-		createMap(map5, _SizeBlock, sMap1, "map5", "#0F2F40");
+		loadMap("map5");
 		key = null;
 	}else if(key == formatKey("PadNum6") || key == formatKey("6")){
-		createMap(map6, _SizeBlock, sMap1, "map6", "#011224");
+		loadMap("map5");
 		key = null;
 	}else if(key == formatKey("PadNum7") || key == formatKey("7")){
 		info = !info;
@@ -382,7 +381,7 @@ function keyboard(){
 		key = null;
 	}else if(key == formatKey("R")){
 		reset();
-		createMap(map1, _SizeBlock, sMap1, "map1");
+		loadMap("map1");
 		key = null;
 	}
 }
