@@ -5,9 +5,10 @@ Hard Blocks
 ![avatar](http://i.imgur.com/6rR7iCL.jpg)
 
 ###Features
+
+![avatar](http://i.imgur.com/85JzPFG.gif)
+![avatar](http://i.imgur.com/cA70fJr.gif)
 ![avatar](http://i.imgur.com/N3nArah.gif)
-![avatar](http://i.imgur.com/NvmMQFP.gif)
-![avatar](http://i.imgur.com/8n81hzd.gif)
 
 ###keyboard shortcuts
 
