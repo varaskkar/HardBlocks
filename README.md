@@ -8,7 +8,8 @@ Hard Blocks
 
 ![avatar](http://i.imgur.com/85JzPFG.gif)
 ![avatar](http://i.imgur.com/cA70fJr.gif)
-![avatar](http://i.imgur.com/N3nArah.gif)
+![avatar](http://i.imgur.com/JRKa5zu.gif)
+![avatar](http://i.imgur.com/VkP4vJ3.gif)
 
 ###keyboard shortcuts
 
