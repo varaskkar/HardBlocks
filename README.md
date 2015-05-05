@@ -1,8 +1,7 @@
 Hard Blocks
 ===============
 
-![avatar](http://i.imgur.com/A4GHjSq.jpg)
-![avatar](http://i.imgur.com/6rR7iCL.jpg)
+![avatar](http://i.imgur.com/Ffy0WYd.jpg)
 
 ###Features
 
