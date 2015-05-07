@@ -40,16 +40,17 @@ var blockBrownCopyMap1 = [],
 	blockBrownCopyMap2 = [];
 
 function createMap(){
-	mapList.push(new Map("map1", map5, sMap1, "#011224", _SizeBlock));
-	mapList.push(new Map("map2", map10, sMap2, "#010B16", _SizeBlock));
-	mapList.push(new Map("map3", map3, sMap3, "#010F1D", _SizeBlock));
-	mapList.push(new Map("map4", map4, sMap4, "#08212F", _SizeBlock));
-	mapList.push(new Map("map5", map5, sMap5, "#0F2F40", _SizeBlock));
-	mapList.push(new Map("map6", map6, sMap6, "#011224", _SizeBlock));
-	mapList.push(new Map("map7", map7, sMap6, "#011224", _SizeBlock));
-	mapList.push(new Map("map8", map8, sMap6, "#011224", _SizeBlock));
-	// mapList.push(new Map("map1", map9, sMap6, "#011224", _SizeBlock));
-	// mapList.push(new Map("map2", map10, sMap6, "#010B16", _SizeBlock));
+	mapList.push(new Map("map_1", map1, sMap1, "#011224", _SizeBlock));
+	mapList.push(new Map("map_2", map2, sMap2, "#010B16", _SizeBlock));
+	mapList.push(new Map("map_3", map3, sMap3, "#010F1D", _SizeBlock));
+	mapList.push(new Map("map_4", map4, sMap4, "#08212F", _SizeBlock));
+	mapList.push(new Map("map_5", map5, sMap5, "#0F2F40", _SizeBlock));
+	mapList.push(new Map("map_6", map6, sMap6, "#011224", _SizeBlock));
+	mapList.push(new Map("map_7", map7, sMap6, "#011224", _SizeBlock));
+	mapList.push(new Map("map_8", map8, sMap6, "#011224", _SizeBlock));
+	mapList.push(new Map("map_9", map9, sMap6, "#011224", _SizeBlock));
+	mapList.push(new Map("map_10", map10, sMap6, "#010B16", _SizeBlock));
+	mapList.push(new Map("map_11", map11, sMap6, "#08212F", _SizeBlock));
 
 	player = new Player(null,null,16,16);
 }
@@ -57,7 +58,9 @@ function createMap(){
 function loadMap(map, posX, posY, rotation){
 	clearMap();
 
-	var k = parseInt(map.charAt(map.length - 1)) - 1;			// Get the index of map received  		"map1" > 1 > 0
+	// Get the index of map received  		"map_12" > 12 > index 11
+	var array = map.split("_");
+	var k = parseInt(array[1]) - 1;
 
 	for(var i = 0; i < mapList[k].map.length; i++) {			// i = row   j = column
 		for(var j = 0; j < mapList[k].map[i].length; j++) {
@@ -223,7 +226,7 @@ map4 = [
 	[ 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 ]
 	];
 
-map11 = [
+map5 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
@@ -349,15 +352,15 @@ map10 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ]
 	];
 
-map5 = [
+map11 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   , 1 ,   , 1 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,'E',   , 1 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   , 1 ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,'E',   , 1 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   , 1 ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   , 1 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],

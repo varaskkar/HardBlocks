@@ -8,7 +8,7 @@ requirejs(['sound']);
 
 window.addEventListener('load',init,false);
 
-const _LifePlayer = 1000, _TimeProtected = 125,         _PointsBlock = 3,       _MunitionWeapon1 = 9999,
+const _LifePlayer = 2, _TimeProtected = 125,         _PointsBlock = 3,       _MunitionWeapon1 = 9999,
 	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 300,
 	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = 4,
 	  				   _TimeShowExplosionEnemy = 30,
@@ -119,8 +119,10 @@ function reset(){
 	player.munitionWeapon2 = _MunitionWeapon2;
 	player.timeProtected   = 0;
 	gameOver               = false
-	// loadMap("map1", 270, 330, 0);
-	loadMap("map1", 290, 81, 90);
+	loadMap("map_1", 270, 330, 0);
+
+	// Map to create animated gifs, to show the game's features in Github
+	// loadMap("map_11", 290, 81, 90);
 }
 
 function run(){
@@ -272,7 +274,7 @@ function draw() {
 		ctx.fillText('Fps: '+ getFps().toFixed(1),5,105);
 		ctx.fillText('Lifes: '+player.life,5,120);
 		ctx.fillText('Rotation: '+player.rotation,5,135);
-		ctx.fillText('Map: '+currentMap,5,150);
+		ctx.fillText('Map: '+currentMap.replace("map_",""),5,150);
 		// ctx.fillText('Time Protection: '+player.timeProtected,5,165);
 		// ctx.fillText('Time Level: '+player.timeChangeLevel,5,180);
 		// ctx.fillText('Time Home: '+player.timeRechargeHome,5,195);
@@ -361,22 +363,22 @@ function keyboard(){
 			toggleSound();
 		key = null;
 	}else if(key == formatKey("PadNum1") || key == formatKey("1")){
-		loadMap("map1");
+		loadMap("map_1");
 		key = null;
 	}else if(key == formatKey("PadNum2") || key == formatKey("2")){
-		loadMap("map2");
+		loadMap("map_2");
 		key = null;
 	}else if(key == formatKey("PadNum3") || key == formatKey("3")){
-		loadMap("map3");
+		loadMap("map_3");
 		key = null;
 	}else if(key == formatKey("PadNum4") || key == formatKey("4")){
-		loadMap("map4");
+		loadMap("map_4");
 		key = null;
 	}else if(key == formatKey("PadNum5") || key == formatKey("5")){
-		loadMap("map5");
+		loadMap("map_5");
 		key = null;
 	}else if(key == formatKey("PadNum6") || key == formatKey("6")){
-		loadMap("map6");
+		loadMap("map_6");
 		key = null;
 	}else if(key == formatKey("PadNum7") || key == formatKey("7")){
 		info = !info;
@@ -385,7 +387,6 @@ function keyboard(){
 		key = null;
 	}else if(key == formatKey("R")){
 		reset();
-		loadMap("map1");
 		key = null;
 	}
 }

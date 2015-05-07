@@ -188,24 +188,24 @@ function collisionEnemy(){
 
 		// Enemy -> CanvasEdge
 		if(enemy[i].x >= canvas.width - enemy[i].width){
-			movementBackEnemy();
-			enemy[i].direction = parseDirectionEnemy();
+			movementBackEnemy(i);
+			enemy[i].direction = parseDirectionEnemy(i);
 		}else if(enemy[i].x <= 0){
-			movementBackEnemy();
-			enemy[i].direction = parseDirectionEnemy();
+			movementBackEnemy(i);
+			enemy[i].direction = parseDirectionEnemy(i);
 		}if(enemy[i].y >= canvas.height - enemy[i].height){
-			movementBackEnemy();
-			enemy[i].direction = parseDirectionEnemy();
+			movementBackEnemy(i);
+			enemy[i].direction = parseDirectionEnemy(i);
 		}else if(enemy[i].y <= 0){
-			movementBackEnemy();
-			enemy[i].direction = parseDirectionEnemy();
+			movementBackEnemy(i);
+			enemy[i].direction = parseDirectionEnemy(i);
 		}
 
 		// Enemy -> BlockBrown
 		for(j in blockBrown){
 			if(enemy[i].collide(blockBrown[j])){
-				movementBackEnemy();
-				enemy[i].direction = parseDirectionEnemy();
+				movementBackEnemy(i);
+				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 
@@ -220,44 +220,44 @@ function collisionEnemy(){
 		// Enemy -> blockWhite
 		for(j in blockWhiteVert){
 			if(enemy[i].collide(blockWhiteVert[j])){
-				movementBackEnemy();
-				enemy[i].direction = parseDirectionEnemy();
+				movementBackEnemy(i);
+				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 		for(j in blockWhiteHor){
 			if(enemy[i].collide(blockWhiteHor[j])){
-				movementBackEnemy();
-				enemy[i].direction = parseDirectionEnemy();
+				movementBackEnemy(i);
+				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 
 		// Enemy -> BlockRed
 		for(j in blockRed){
 			if(enemy[i].collide(blockRed[j])){
-				movementBackEnemy();
-				enemy[i].direction = parseDirectionEnemy();
+				movementBackEnemy(i);
+				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 
 		// Enemy -> Portal
 		for(j in portalInput){
 			if(enemy[i].collide(portalInput[j])){
-				movementBackEnemy();
-				enemy[i].direction = parseDirectionEnemy();
+				movementBackEnemy(i);
+				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 		for(j in portalOutput){
 			if(enemy[i].collide(portalOutput[j])){
-				movementBackEnemy();
-				enemy[i].direction = parseDirectionEnemy();
+				movementBackEnemy(i);
+				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 
 		// Enemy -> Home
 		for(j in home){
 			if(enemy[i].collide(home[j])){
-				movementBackEnemy();
-				enemy[i].direction = parseDirectionEnemy();
+				movementBackEnemy(i);
+				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 
@@ -429,13 +429,13 @@ function collisionBullets1(){
 				player.score += _PointsTouchEnemy;
 	  			bullets1.splice(i,1);
 
-				enemy[j].life -= _DamageWeapon;
-
-				if(enemy[j].life <= 0){
+	  			if(enemy[j].life > 0)
+					enemy[j].life -= _DamageWeapon;
+				else{
 					loadSound(sExplosion);
 					player.score += _PointsEnemy;
 				}
-				enemy[i].timeShowDamage = _TimeShowDamagedEnemy;
+				enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
 
 	  			templateSetLightEfects(true);
  			}
@@ -526,13 +526,13 @@ function collisionBullets2(){
 				player.score += _PointsTouchEnemy;
 	  			bullets2.splice(i,1);
 
-				enemy[j].life -= _DamageWeapon;
-
-				if(enemy[j].life <= 0){
+	  			if(enemy[j].life > 0)
+					enemy[j].life -= _DamageWeapon;
+				else{
 					loadSound(sExplosion);
 					player.score += _PointsEnemy;
 				}
-				enemy[i].timeShowDamage = _TimeShowDamagedEnemy;
+				enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
 
 	  			templateSetLightEfects(true);
  			}

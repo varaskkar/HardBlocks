@@ -194,7 +194,7 @@ function movementEnemy(kindMovement){
 				// If enemy have traveled the map's middle, change his direction
 				enemy[i].distanceTraveled += _SpeedEnemy;
 
-				if(enemy[i].distanceTraveled >= canvas.width/2){
+				if(enemy[i].distanceTraveled >= canvas.width/3){
 					enemy[i].direction = parseDirectionEnemy(i);
 					enemy[i].distanceTraveled = 0;
 				}
