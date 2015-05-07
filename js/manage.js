@@ -8,8 +8,8 @@ requirejs(['sound']);
 
 window.addEventListener('load',init,false);
 
-const _LifePlayer = 1, _TimeProtected = 125,         _PointsBlock = 3,       _MunitionWeapon1 = 9999,
-	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 9999,
+const _LifePlayer = 1000, _TimeProtected = 125,         _PointsBlock = 3,       _MunitionWeapon1 = 9999,
+	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 300,
 	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = 4,
 	  				   _TimeShowExplosionEnemy = 30,
 	  				   _TimeShowDamagedEnemy = 10,
@@ -28,16 +28,17 @@ var info             = true,
 	sound            = false;
 
 // horizontal, vertical, random
-var	kindMovementEnemy = "";
+// var	kindMovementEnemy = "";
 // var	kindMovementEnemy = "horizontal";
 // var	kindMovementEnemy = "vertical";
-// var	kindMovementEnemy = "random";
+var	kindMovementEnemy = "random";
 
 var iPlayer      = new Image(),
 	iEnemy       = new Image(),
- 	iBlockLife   = new Image(),
+ 	iLife        = new Image(),
  	iBlockRed    = new Image(),
  	iBlockWhite  = new Image(),
+ 	iBlockGray   = new Image(),
  	iBlockBrown0 = new Image(),
  	iBlockBrown1 = new Image(),
  	iBlockBrown2 = new Image(),
@@ -78,9 +79,10 @@ function init(){
 function loadAssets(){
 	iPlayer.src      = 'assets/img/player1.png';
 	iEnemy.src       = 'assets/img/boat.png';
-	iBlockLife.src   = 'assets/img/life1.png';
+	iLife.src        = 'assets/img/life1.png';
 	iBlockRed.src    = 'assets/img/fire2.png';
 	iBlockWhite.src  = 'assets/img/blockWhite.png';
+	iBlockGray.src   = 'assets/img/blockGray.png';
 	iBlockBrown0.src = 'assets/img/blockBrown0.png';
 	iBlockBrown1.src = 'assets/img/blockBrown1.png';
 	iBlockBrown2.src = 'assets/img/blockBrown2.png';
@@ -117,7 +119,8 @@ function reset(){
 	player.munitionWeapon2 = _MunitionWeapon2;
 	player.timeProtected   = 0;
 	gameOver               = false
-	loadMap("map1", 270, 330, 0);
+	// loadMap("map1", 270, 330, 0);
+	loadMap("map1", 290, 81, 90);
 }
 
 function run(){
@@ -199,18 +202,7 @@ function draw() {
 		showRotatedPlayer();
 
 	if(typeof life != "undefined")
-		ctx.drawImage(iBlockLife,life.x,life.y,life.width,life.height);
-
-	for(i in blockBrown){
-		if(blockBrown[i].life == 0)
-			ctx.drawImage(iBlockBrown3,blockBrown[i].x,blockBrown[i].y,blockBrown[i].width,blockBrown[i].height);
-		else if(blockBrown[i].life == 1)
-			ctx.drawImage(iBlockBrown2,blockBrown[i].x,blockBrown[i].y,blockBrown[i].width,blockBrown[i].height);
-		else if(blockBrown[i].life == 2)
-			ctx.drawImage(iBlockBrown1,blockBrown[i].x,blockBrown[i].y,blockBrown[i].width,blockBrown[i].height);
-		else if(blockBrown[i].life == 3)
-			ctx.drawImage(iBlockBrown0,blockBrown[i].x,blockBrown[i].y,blockBrown[i].width,blockBrown[i].height);
-	}
+		ctx.drawImage(iLife,life.x,life.y,life.width,life.height);
 
 	for(i in enemy){
 		if(enemy[i].life > 0){
@@ -232,6 +224,20 @@ function draw() {
 				enemy.splice(i,1);
 		}
 	}
+
+	for(i in blockBrown){
+		if(blockBrown[i].life == 0)
+			ctx.drawImage(iBlockBrown3,blockBrown[i].x,blockBrown[i].y,blockBrown[i].width,blockBrown[i].height);
+		else if(blockBrown[i].life == 1)
+			ctx.drawImage(iBlockBrown2,blockBrown[i].x,blockBrown[i].y,blockBrown[i].width,blockBrown[i].height);
+		else if(blockBrown[i].life == 2)
+			ctx.drawImage(iBlockBrown1,blockBrown[i].x,blockBrown[i].y,blockBrown[i].width,blockBrown[i].height);
+		else if(blockBrown[i].life == 3)
+			ctx.drawImage(iBlockBrown0,blockBrown[i].x,blockBrown[i].y,blockBrown[i].width,blockBrown[i].height);
+	}
+
+	for(i in blockGray)
+		ctx.drawImage(iBlockGray,blockGray[i].x,blockGray[i].y,blockGray[i].width,blockGray[i].height);
 
 	for(i in blockWhiteVert)
 		ctx.drawImage(iBlockWhite,blockWhiteVert[i].x,blockWhiteVert[i].y,blockWhiteVert[i].width,blockWhiteVert[i].height);
@@ -271,10 +277,10 @@ function draw() {
 		// ctx.fillText('Time Level: '+player.timeChangeLevel,5,180);
 		// ctx.fillText('Time Home: '+player.timeRechargeHome,5,195);
 		// ctx.fillText('Enemy: '+enemy.length,5,210);
-		// ctx.fillText('Direction Enemy1: '+toggleDirection,5,210);
-		// ctx.fillText('Distance Enemy 1: '+enemy[0].distanceTraveled,5,225);
-		// ctx.fillText('Direction Enemy 1: '+enemy[0].direction,5,210);
-		// ctx.fillText('Direction Enemy 2: '+enemy[1].direction,5,225);
+		// ctx.fillText('Enemy 1 - Hor/Vert: '+enemy[0].toggleDirection,5,210);
+		// ctx.fillText('Enemy 2 - Hor/Vert: '+enemy[1].toggleDirection,5,225);
+		// ctx.fillText('Enemy 1 - Dir: '+enemy[0].direction,5,240);
+		// ctx.fillText('Enemy 2 - Dir: '+enemy[1].direction,5,255);
 	}
 
 	ctx.font = "18px Verdana";
@@ -370,7 +376,7 @@ function keyboard(){
 		loadMap("map5");
 		key = null;
 	}else if(key == formatKey("PadNum6") || key == formatKey("6")){
-		loadMap("map5");
+		loadMap("map6");
 		key = null;
 	}else if(key == formatKey("PadNum7") || key == formatKey("7")){
 		info = !info;

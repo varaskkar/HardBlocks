@@ -16,6 +16,12 @@ function collisionPlayer(){
 			movementBackPlayer();
 	}
 
+	// Player -> BlockGray
+	for(i in blockGray){
+		if(player.collide(blockGray[i]))
+			movementBackPlayer();
+	}
+
 	// Player -> BlockWhite
 	for(i in blockWhiteVert){
 		if(player.collide(blockWhiteVert[i]))
@@ -54,11 +60,13 @@ function collisionPlayer(){
 			}else if(player.timeChangeLevel == 1){
 				if(currentMap == "map1"){
 					makeBackupMap("map1");
-					loadMap("map2", 32, 212, 90);
+					// loadMap("map2", 32, 212, 90);
+					loadMap("map2", 352, 32, 180);
 					loadBackupMap("map2");
 				}else if(currentMap == "map2"){
 					makeBackupMap("map2");
-					loadMap("map1", 532, 62, 180);
+					// loadMap("map1", 532, 62, 180);
+					loadMap("map1", 511, 82, 270);
 					loadBackupMap("map1");
 				}else if(currentMap == "map3"){
 					// loadMap("map3", 512, 32, 270);
@@ -70,27 +78,54 @@ function collisionPlayer(){
 				portalInputCrossed = true;
 				loadSound(sPortalOutput);
 			}else{
-				if(player.timeChangeLevel == 150)		templateSetBackgroundColor("#050B14");
-				else if(player.timeChangeLevel == 140)	templateSetBackgroundColor("#011326");
-				else if(player.timeChangeLevel == 130)	templateSetBackgroundColor("#011429");
-				else if(player.timeChangeLevel == 120)	templateSetBackgroundColor("#01152C");
-				else if(player.timeChangeLevel == 110)	templateSetBackgroundColor("#01162E");	// 18
-				else if(player.timeChangeLevel == 100)	templateSetBackgroundColor("#011731");
-				else if(player.timeChangeLevel == 90)	templateSetBackgroundColor("#011833");
-				else if(player.timeChangeLevel == 80)	templateSetBackgroundColor("#011A36");
-				else if(player.timeChangeLevel == 70)	templateSetBackgroundColor("#011B38");
-				else if(player.timeChangeLevel == 60)	templateSetBackgroundColor("#011C3B");
-				else if(player.timeChangeLevel == 50)	templateSetBackgroundColor("#011D3D");	// 24
-				else if(player.timeChangeLevel == 40)	templateSetBackgroundColor("#011F40");
-				else if(player.timeChangeLevel == 30)	templateSetBackgroundColor("#012143");
-				else if(player.timeChangeLevel == 20)	templateSetBackgroundColor("#012245");
-				else if(player.timeChangeLevel == 10)	templateSetBackgroundColor("#050B14");	// 28
+				if(currentMap == "map1"){
+					if(player.timeChangeLevel == 150)		templateSetBackgroundColor(mapList[0].colorBackground);
+					else if(player.timeChangeLevel == 140)	templateSetBackgroundColor("#011123");
+					else if(player.timeChangeLevel == 130)	templateSetBackgroundColor("#011122");
+					else if(player.timeChangeLevel == 120)	templateSetBackgroundColor("#011021");
+					else if(player.timeChangeLevel == 110)	templateSetBackgroundColor("#01101f");
+					else if(player.timeChangeLevel == 100)	templateSetBackgroundColor("#010f1e");
+					else if(player.timeChangeLevel == 90)	templateSetBackgroundColor("#010e1d");
+					else if(player.timeChangeLevel == 80)	templateSetBackgroundColor("#010e1c");
+					else if(player.timeChangeLevel == 70)	templateSetBackgroundColor("#010d1b");
+					else if(player.timeChangeLevel == 60)	templateSetBackgroundColor("#010d1a");
+					else if(player.timeChangeLevel == 50)	templateSetBackgroundColor("#010c18");
+					else if(player.timeChangeLevel == 40)	templateSetBackgroundColor("#010c17");
+					else if(player.timeChangeLevel == 30)	templateSetBackgroundColor("#010b16");
+					else if(player.timeChangeLevel == 20)	templateSetBackgroundColor(mapList[1].colorBackground);
+					else if(player.timeChangeLevel == 10)	templateSetBackgroundColor(mapList[1].colorBackground);
+				}else if(currentMap == "map2"){
+					if(player.timeChangeLevel == 150)		templateSetBackgroundColor(mapList[1].colorBackground);
+					else if(player.timeChangeLevel == 140)	templateSetBackgroundColor("#010b16");
+					else if(player.timeChangeLevel == 130)	templateSetBackgroundColor("#010c17");
+					else if(player.timeChangeLevel == 120)	templateSetBackgroundColor("#010c18");
+					else if(player.timeChangeLevel == 110)	templateSetBackgroundColor("#010d1a");
+					else if(player.timeChangeLevel == 100)	templateSetBackgroundColor("#010d1b");
+					else if(player.timeChangeLevel == 90)	templateSetBackgroundColor("#010e1c");
+					else if(player.timeChangeLevel == 80)	templateSetBackgroundColor("#010e1d");
+					else if(player.timeChangeLevel == 70)	templateSetBackgroundColor("#010f1e");
+					else if(player.timeChangeLevel == 60)	templateSetBackgroundColor("#01101f");
+					else if(player.timeChangeLevel == 50)	templateSetBackgroundColor("#011021");
+					else if(player.timeChangeLevel == 40)	templateSetBackgroundColor("#011122");
+					else if(player.timeChangeLevel == 30)	templateSetBackgroundColor("#011123");
+					else if(player.timeChangeLevel == 20)	templateSetBackgroundColor(mapList[0].colorBackground);
+					else if(player.timeChangeLevel == 10)	templateSetBackgroundColor(mapList[0].colorBackground);
+				}
 			}
 		}else{
 			// When you've croosed the portal, avoid return automaticaly to portal before
 			// There is move player in 4 directions outside the portal
 			setTimeout(function(){
-				if(portalInput[0].x + 50 < player.x || portalInput[0].x - 50 > player.x || portalInput[0].y + 50 < player.y || portalInput[0].y - 50 > player.y){
+				if(player.timeChangeLevel == 1){
+					if(currentMap == "map1")
+						templateSetBackgroundColor(mapList[0].colorBackground);
+					else if(currentMap == "map2")
+						templateSetBackgroundColor(mapList[1].colorBackground);
+				}
+
+				if(portalInput[0].x + 50 < player.x || portalInput[0].x - 50 > player.x ||
+				   portalInput[0].y + 50 < player.y || portalInput[0].y - 50 > player.y){
+
 					portalInputCrossed = false;
 					// console.log("Yes");
 				}
@@ -174,6 +209,14 @@ function collisionEnemy(){
 			}
 		}
 
+		// Enemy -> BlockGray
+		for(j in blockGray){
+			if(enemy[i].collide(blockGray[j])){
+				movementBackEnemy(i);
+				enemy[i].direction = parseDirectionEnemy(i);
+			}
+		}
+
 		// Enemy -> blockWhite
 		for(j in blockWhiteVert){
 			if(enemy[i].collide(blockWhiteVert[j])){
@@ -219,16 +262,17 @@ function collisionEnemy(){
 		}
 
 		// Enemy -> Enemy
-		for(j in enemy){
-			if(enemy[i].collide(enemy[j]))
-				enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		}
+		// for(j in enemy){
+		// 	if(enemy[i].collide(enemy[j]))
+		// 		enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		// }
 	}
 }
 
 function collisionLife(){
 
 	if(typeof life != "undefined"){
+
 		// life -> BlockRed
 		for(i in blockRed){
 			if(life.collide(blockRed[i])){
@@ -254,6 +298,14 @@ function collisionLife(){
 		// life -> BlockBrown
 		for(i in blockBrown){
 			if(life.collide(blockBrown[i])){
+	  			life.x = random(canvas.width - 10);
+	  			life.y = random(canvas.height - 10);
+			}
+		}
+
+		// life -> BlockGray
+		for(i in blockGray){
+			if(life.collide(blockGray[i])){
 	  			life.x = random(canvas.width - 10);
 	  			life.y = random(canvas.height - 10);
 			}
@@ -308,6 +360,13 @@ function collisionBullets1(){
 
 				templateSetLightEfects(true);
 			}
+		}
+
+		// Bullets1 -> BlockGray
+		for(j in blockGray){
+			if(bullets1[i].collide(blockGray[j])){
+	  			bullets1.splice(i,1);
+ 			}
 		}
 
 		// Bullets1 -> BlockRed
@@ -400,6 +459,13 @@ function collisionBullets2(){
 
 				templateSetLightEfects(true);
 			}
+		}
+
+		// Bullets1 -> BlockGray
+		for(j in blockGray){
+			if(bullets2[i].collide(blockGray[j])){
+	  			bullets2.splice(i,1);
+ 			}
 		}
 
 		// Bullets2 -> BlockWhite

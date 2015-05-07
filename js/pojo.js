@@ -41,7 +41,7 @@ function Enemy(x, y, width, height, life){
  	this.setTimeOnlyOnce = true;
 
  	// Movement
- 	this.toggleDirection = false;
+ 	this.toggleDirection = true;
  	this.direction = "left";
 
  	this.distanceTraveled = 0;

@@ -29,6 +29,7 @@
             ✔ Rebotar las balas contra la pared @done (22-03-15 20:24)
         ☐ Amarillo > Ladrillo (da puntos)
         ☐ Verde    > Ladrillo (da objetos)
+        ☐ Gris     > Inrrompible
     ☐ Colisiones
         ☐ Nave - bloques > no atravesarlo
             ✔ La nave rota en 36 posiciones  > 360º/10 @done (22-03-15 20:24)
@@ -46,8 +47,9 @@
 
 ✔ Funcion de colision con los bordes del canvas (lienzo) @done (30-04-15 17:24)
 
-Cuando disparo a un barco, parpadean los 2...why???
 
+
+si no te llegas a teletrandsportar que se quede el color de fondo que tenia el canvas
 
 ✔ Simplificado el sistema de carga de mapas con mapList @done (05-05-15 19:08)
 
@@ -57,9 +59,10 @@ Cuando disparo a un barco, parpadean los 2...why???
 ☐ Cambiar el nombre de "nave" por otro mejor y en inglés
 ☐ Nueva captura del mapa en la pág de github y quitar las 2 actuales
 ☐ Hacer gift @HACER
-    ☐ portales
-        ☐ Antes hacer lo de que se oscurezca el mapa
+    ✔ portales @done (06-05-15 21:20)
+        ✔ Antes hacer lo de que se oscurezca el mapa @done (06-05-15 21:20)
     ☐ Enemigo
+        ☐ Antes crear bloque gris
     ✔ disparando balas triples que se vea en el suelo donde va la bala @done (05-05-15 16:32)
 ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
 ☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
@@ -86,7 +89,7 @@ Cuando disparo a un barco, parpadean los 2...why???
             ✔ Si se ha desplazado la mitad del mapa, que ya cambie de direccion @done (04-05-15 19:23)
             ✔ Cuando choque que se desplace en una direccion diferente de la que tenia anteriormente @done (04-05-15 18:30)
         ☐ Algoritmo del movimiento angular para que me siga
-    ☐ Concurrencia @VerPorQuéPasa
+    ✔ Concurrencia @done (07-05-15 21:01)
     ☐ IA > Me dispare cuando me acerque a él
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten

@@ -195,7 +195,7 @@ function movementEnemy(kindMovement){
 				enemy[i].distanceTraveled += _SpeedEnemy;
 
 				if(enemy[i].distanceTraveled >= canvas.width/2){
-					enemy[i].direction = parseDirectionEnemy();
+					enemy[i].direction = parseDirectionEnemy(i);
 					enemy[i].distanceTraveled = 0;
 				}
 			}
@@ -203,54 +203,43 @@ function movementEnemy(kindMovement){
 	}
 }
 
-function movementBackEnemy(){
-	for(i in enemy){
-		if(kindMovementEnemy == "horizontal")
-			enemy[i].x += (enemy[i].toggleDirection == true) ? -15 : +15;
-		else if(kindMovementEnemy == "vertical")
-			enemy[i].y += (enemy[i].toggleDirection == true) ? -15 : +15;
-		else if(kindMovementEnemy == "random"){
-			switch(enemy[i].direction) {
-			    case "up":
-			        enemy[i].y += 15;
-			        break;
-			    case "down":
-			        enemy[i].y -= 15;
-			        break;
-			    case "left":
-			        enemy[i].x += 15;
-			        break;
-			    case "right":
-			        enemy[i].x -= 15;
-			        break;
-			}
+function movementBackEnemy(index){
+	if(kindMovementEnemy == "horizontal")
+		enemy[index].x += (enemy[index].toggleDirection) ? -15 : +15;
+	else if(kindMovementEnemy == "vertical")
+		enemy[index].y += (enemy[index].toggleDirection) ? -15 : +15;
+	else if(kindMovementEnemy == "random"){
+		switch(enemy[index].direction) {
+		    case "up":
+		        enemy[index].y += 15;
+		        break;
+		    case "down":
+		        enemy[index].y -= 15;
+		        break;
+		    case "left":
+		        enemy[index].x += 15;
+		        break;
+		    case "right":
+		        enemy[index].x -= 15;
+		        break;
 		}
 	}
 }
 
 // When the enemy collides with a block, he change of direction depending on the previous direction
-function parseDirectionEnemy(){
+function parseDirectionEnemy(index){
 	var newDirection = "right";
 	if(kindMovementEnemy == "horizontal" || kindMovementEnemy == "vertical"){
-		for(i in enemy)
-			enemy[i].toggleDirection = !enemy[i].toggleDirection;
+		enemy[index].toggleDirection = !enemy[index].toggleDirection;
 	}else if(kindMovementEnemy == "random"){
-		var previousDirection = enemy[i].direction;
-		if(previousDirection != newDirection){
+		var previousDirection = enemy[index].direction;
+		do{
 			var rn = random(4);
 			if(rn == 0)			newDirection = "up";
 			else if(rn == 1)	newDirection = "down";
 			else if(rn == 2)	newDirection = "left";
 			else if(rn == 3)	newDirection = "right";
-		}else{
-			while(previousDirection == newDirection){
-				var rn = random(4);
-				if(rn == 0)			newDirection = "up";
-				else if(rn == 1)	newDirection = "down";
-				else if(rn == 2)	newDirection = "left";
-				else if(rn == 3)	newDirection = "right";
-			}
-		}
+		}while(previousDirection == newDirection);
 	}
 	return newDirection;
 }
