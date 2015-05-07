@@ -9,6 +9,7 @@ Hard Blocks
 ![avatar](http://i.imgur.com/cA70fJr.gif)
 ![avatar](http://i.imgur.com/JRKa5zu.gif)
 ![avatar](http://i.imgur.com/VkP4vJ3.gif)
+![avatar](http://i.imgur.com/a0fpQm1.gif)
 
 ###keyboard shortcuts
 
