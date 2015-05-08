@@ -46,13 +46,14 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
-✔ Funcion de colision con los bordes del canvas (lienzo) @done (30-04-15 17:24)
 
-☐ Al chocar 2 enemigos entre ellos, que cambien de dirección @Intentar
+
 ☐ Hacer fase con enemigos vert/horz que choquen contra bloqueMarron y si yo los rompo que cambien su mov sea mayor
-☐ Cambiar nombre de bloqueRojo a fuego(fire)
+☐ Fase que un enemigo se mueva hor y que se interponga entre player y un portal, necesito matarlo
+    ☐ Que me ataque si me acerco
+☐ Poner en la plantilla las balas del arma1 y arma2
 
-✔ Simplificado el sistema de carga de mapas con mapList @done (05-05-15 19:08)
+los enemigos pueden chocar entre sí y ...
 
 ☐ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos
 ☐ Cambiar el nombre de "nave" por otro mejor y en inglés
@@ -82,6 +83,7 @@
         ✔ Cambiar posición @done (28-04-15 13:18)
         ✔ Cuando choque con algo, retroceder posición @done (30-04-15 15:57)
         ✔ Si una bala choca contra un enemigo, que éste parpadee @done (04-05-15 18:10)
+        ✔ Puedan colisionar los enemigos entre sí @done (08-05-15 11:56)
     ☐ Ponerle movimiento
         ✔ Horizontal @done (28-04-15 01:59)
         ✔ Vertical @done (28-04-15 13:34)
@@ -98,7 +100,7 @@
 ☐ sumar el numero de rebotes de las balas a los puntos que te dan al destruir un bloque
 ☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
 ✘ Poner el canvas y el contexto en una sola línea @cancelled (04-05-15 20:27)
-☐ Buscar sonido para los mapas
+
 ☐ Fase: hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
      por rebote
@@ -109,10 +111,6 @@
             ☐ ¿recagar cuando balas = 0 ó balas < _MaxBalas?
     ✔ Al morir reaparecer en la base y poner el sonido de recargar "recharge.wav" @done (22-04-15 18:25)
     ✔ La base este solo en el mapa1 y haya que regresar a ella para restablecer valores @done (22-04-15 18:26)
-☐ Hacerlo compatible con GamePad
-☐ Crear Splash Screen
-☐ poner un limite de vidas que se puedan conseguir y de puntos
-☐ for of
 ☐ Portales
      ☐ Internos > Dentro del mismo mapa: 2 portales dentro del mismo mapa para acceder a zonas impenetrables
      ✔ Externos > De Mapa a Mapa        @done (09-04-15 14:39)
@@ -124,6 +122,8 @@
     ☐ No poder usar el portal si estas en un nivel con monstruo final. No dejar huir
     ☐ Al cambiar de mapa con los portales, guardar la posicion de los enemigos @También
     ✔ Oscurecer el mapa a medida que falte menos para irse. Degradado entre color mapa1 y mapa2 @done (07-05-15 21:32)
+✔ Funcion de colision con los bordes del canvas (lienzo) @done (30-04-15 17:24)
+✔ Simplificado el sistema de carga de mapas con mapList @done (05-05-15 19:08)
 ✔ poner x,y y rotacion como parametros al crearMapa(): @done (09-04-15 01:26)
 ✔ Que la puerta que cambia de fase tenga los bordes redondeados @done (08-04-15 15:54)
 ☐ Sonido
@@ -133,6 +133,7 @@
     ✔ variable para saber el sonido del mapa actual para cuando pause (Tecla S) y vuelva a reaundar @done (07-04-15 16:57)
     ✔ Cambiar de fase, poner el que tengo asignado a getLife, pega mejor @done (07-04-15 16:58)
     ✔ Poder activar/desactivar el sonido haciendo clic en la img de la plantilla @done (07-04-15 17:52)
+    ☐ Buscar sonido para los mapas
 ✔ Cambiar el tema de la vida del bloqueMarron @done (26-04-15 13:35)
 ✔ Problema sonido: Si le doy a pausa y el sonido esta inactivo....no activarlo si no dejarlo inactivo @done (28-04-15 16:56)
 ✔ Al metodo createMap() pasarle el color de fondo del mapa como parámetro @done (07-04-15 18:17)
@@ -180,6 +181,10 @@
     ☐ Poner cohete que me suba de velocidad mientras se pulse tecla
     ☐ Deslizar nave al moverse, tipo Asteroids
     ☐ Poner torreta fija que te dispara al acercarte y bloque gordo de piedras que destruya ella
+    ☐ Hacerlo compatible con GamePad
+    ☐ Crear Splash Screen
+    ☐ for of
+    ☐ poner un limite de vidas que se puedan conseguir y de puntos
 
 
 --- ✄ -----------------------

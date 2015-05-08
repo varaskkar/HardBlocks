@@ -40,9 +40,9 @@ function collisionPlayer(){
   		life.y = random(canvas.height - 10);
  	}
 
-	// Player -> BlockRed
-	for(i in blockRed){
-		if(player.collide(blockRed[i]) && player.timeProtected < 1){
+	// Player -> fire
+	for(i in fire){
+		if(player.collide(fire[i]) && player.timeProtected < 1){
 			// In the last life, not hear the sound of lose it, otherwise the sound of GameOver
 			if(player.life != 1)
 				loadSound(sLoseLife);
@@ -231,9 +231,9 @@ function collisionEnemy(){
 			}
 		}
 
-		// Enemy -> BlockRed
-		for(j in blockRed){
-			if(enemy[i].collide(blockRed[j])){
+		// Enemy -> fire
+		for(j in fire){
+			if(enemy[i].collide(fire[j])){
 				movementBackEnemy(i);
 				enemy[i].direction = parseDirectionEnemy(i);
 			}
@@ -262,10 +262,11 @@ function collisionEnemy(){
 		}
 
 		// Enemy -> Enemy
-		// for(j in enemy){
-		// 	if(enemy[i].collide(enemy[j]))
-		// 		enemy[i].toggleDirection = !enemy[i].toggleDirection;
-		// }
+		for(j in enemy){
+			// "i != j" avoid that the enemy collides with itself
+			if(enemy[i].collide(enemy[j]) && i != j)
+				enemy[i].direction = parseDirectionEnemy(i);
+		}
 	}
 }
 
@@ -273,9 +274,9 @@ function collisionLife(){
 
 	if(typeof life != "undefined"){
 
-		// life -> BlockRed
-		for(i in blockRed){
-			if(life.collide(blockRed[i])){
+		// life -> fire
+		for(i in fire){
+			if(life.collide(fire[i])){
 	  			life.x = random(canvas.width - 10);
 	  			life.y = random(canvas.height - 10);
 			}
@@ -369,9 +370,9 @@ function collisionBullets1(){
  			}
 		}
 
-		// Bullets1 -> BlockRed
-		for(j in blockRed){
-			if(bullets1[i].collide(blockRed[j])){
+		// Bullets1 -> fire
+		for(j in fire){
+			if(bullets1[i].collide(fire[j])){
 	  			bullets1.splice(i,1);
 	  			templateSetLightEfects(true);
  			}
@@ -512,9 +513,9 @@ function collisionBullets2(){
 			}
 		}
 
-		// Bullets2 -> BlockRed
-		for(j in blockRed){
-			if(bullets2[i].collide(blockRed[j])){
+		// Bullets2 -> fire
+		for(j in fire){
+			if(bullets2[i].collide(fire[j])){
 	  			bullets2.splice(i,1);
 	  			templateSetLightEfects(true);
  			}

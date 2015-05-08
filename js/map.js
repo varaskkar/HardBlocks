@@ -25,9 +25,9 @@ var mapList = [],
 var player, life;
 var blockBrown     = [],
 	blockGray      = [],
-	blockRed       = [],
 	blockWhiteVert = [],
 	blockWhiteHor  = [],
+	fire           = [],
 	home           = [],
 	portalInput    = [],
 	portalOutput   = [],
@@ -67,7 +67,7 @@ function loadMap(map, posX, posY, rotation){
 			if(mapList[k].map[i][j] == 5)
 				blockBrown.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeBlock));
 			else if(mapList[k].map[i][j] == 4)
-				blockRed.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+				fire.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 3)
 				blockWhiteVert.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 2)
@@ -96,7 +96,7 @@ function loadMap(map, posX, posY, rotation){
 function clearMap(){
 	blockBrown.splice(0, blockBrown.length);
 	blockGray.splice(0, blockGray.length);
-	blockRed.splice(0, blockRed.length);
+	fire.splice(0, fire.length);
 	blockWhiteVert.splice(0, blockWhiteVert.length);
 	blockWhiteHor.splice(0, blockWhiteHor.length);
 	bullets1.splice(0, bullets1.length);
@@ -153,7 +153,7 @@ map1 = [
 	[   ,   ,   ,   ,   , 2 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 2 ,   ,   ,   ,   ,   ],
 	[ 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
+	[ 2 ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   , 0 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 3 , 3 , 3 , 3 , 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 , 3 , 3 , 3 , 3 ],

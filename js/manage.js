@@ -9,12 +9,12 @@ requirejs(['sound']);
 window.addEventListener('load',init,false);
 
 const _LifePlayer = 2, _TimeProtected = 125,         _PointsBlock = 3,       _MunitionWeapon1 = 9999,
-	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 300,
+	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 500,
 	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = 4,
 	  				   _TimeShowExplosionEnemy = 30,
 	  				   _TimeShowDamagedEnemy = 10,
 
-	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 1;
+	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 2;
 
 var canvas = null, ctx = null;
 var key = null;
@@ -247,8 +247,8 @@ function draw() {
 	for(i in blockWhiteHor)
 		ctx.drawImage(iBlockWhite,blockWhiteHor[i].x,blockWhiteHor[i].y,blockWhiteHor[i].width,blockWhiteHor[i].height);
 
-	for(i in blockRed)
-		ctx.drawImage(iBlockRed,blockRed[i].x,blockRed[i].y,blockRed[i].width,blockRed[i].height);
+	for(i in fire)
+		ctx.drawImage(iBlockRed,fire[i].x,fire[i].y,fire[i].width,fire[i].height);
 
 	ctx.fillStyle = '#614E70';
 	for(i in bullets1)
