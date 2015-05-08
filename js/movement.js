@@ -168,14 +168,14 @@ function movementBackPlayer(){
 	else if(player.rotation == 265){		player.y -= 4;		player.x += 1; }
 }
 
-function movementEnemy(kindMovement){
+function movementEnemy(){
 	for(i in enemy){
 		if(enemy[i].life > 0){
-			if(kindMovement == "horizontal")
+			if(enemy[i].movement == "horizontal")
 				enemy[i].x += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
-			else if(kindMovement == "vertical")
+			else if(enemy[i].movement == "vertical")
 				enemy[i].y += (enemy[i].toggleDirection) ? +_SpeedEnemy : -_SpeedEnemy;
-			else if(kindMovement == "random"){
+			else if(enemy[i].movement == "random"){
 				switch(enemy[i].direction){
 				    case "up":
 				        enemy[i].y -= _SpeedEnemy;
@@ -204,11 +204,11 @@ function movementEnemy(kindMovement){
 }
 
 function movementBackEnemy(index){
-	if(kindMovementEnemy == "horizontal")
+	if(enemy[i].movement == "horizontal")
 		enemy[index].x += (enemy[index].toggleDirection) ? -15 : +15;
-	else if(kindMovementEnemy == "vertical")
+	else if(enemy[i].movement == "vertical")
 		enemy[index].y += (enemy[index].toggleDirection) ? -15 : +15;
-	else if(kindMovementEnemy == "random"){
+	else if(enemy[i].movement == "random"){
 		switch(enemy[index].direction) {
 		    case "up":
 		        enemy[index].y += 15;
@@ -229,9 +229,9 @@ function movementBackEnemy(index){
 // When the enemy collides with a block, he change of direction depending on the previous direction
 function parseDirectionEnemy(index){
 	var newDirection = "right";
-	if(kindMovementEnemy == "horizontal" || kindMovementEnemy == "vertical"){
+	if(enemy[i].movement == "horizontal" || enemy[i].movement == "vertical"){
 		enemy[index].toggleDirection = !enemy[index].toggleDirection;
-	}else if(kindMovementEnemy == "random"){
+	}else if(enemy[i].movement == "random"){
 		var previousDirection = enemy[index].direction;
 		do{
 			var rn = random(4);

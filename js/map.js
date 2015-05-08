@@ -62,8 +62,9 @@ function loadMap(map, posX, posY, rotation){
 	var array = map.split("_");
 	var k = parseInt(array[1]) - 1;
 
-	for(var i = 0; i < mapList[k].map.length; i++) {			// i = row   j = column
-		for(var j = 0; j < mapList[k].map[i].length; j++) {
+	for(i in mapList[k].map) {
+		for(j in mapList[k].map[i]) {
+
 			if(mapList[k].map[i][j] == 5)
 				blockBrown.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeBlock));
 			else if(mapList[k].map[i][j] == 4)
@@ -82,8 +83,12 @@ function loadMap(map, posX, posY, rotation){
 				portalOutput.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 'H')
 				home.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
-			else if(mapList[k].map[i][j] == 'E')
-				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy));
+			else if(mapList[k].map[i][j] == 'EH')
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy, "horizontal"));
+			else if(mapList[k].map[i][j] == 'EV')
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy, "vertical"));
+			else if(mapList[k].map[i][j] == 'ER')
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy, "random"));
 		}
 	}
 	templateSetBackgroundColor(mapList[k].colorBackground);
@@ -146,14 +151,14 @@ map1 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ,   ,   , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,'E',   ,   ,   ,   ,'P1','P1'],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,'ER',   ,   ,   ,   ,'P1','P1'],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 ,   ,   , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,'P1','P1'],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   , 2 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 3 , 2 ,   ,   ,   ,   ,   ],
 	[ 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
-	[ 2 ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,'E',   ,   ,   ,   ,   ,   ,   , 2 ],
+	[ 2 ,   ,   ,   ,'EV',   ,   ,   ,   ,   ,   ,   ,'EH',   ,   ,   ,   ,   ,   ,'EH',   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   , 0 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 2 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 2 ],
 	[ 3 , 3 , 3 , 3 , 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 , 3 , 3 , 3 , 3 ],

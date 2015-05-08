@@ -53,9 +53,9 @@
     ☐ Que me ataque si me acerco
 ☐ Poner en la plantilla las balas del arma1 y arma2
 
-los enemigos pueden chocar entre sí y ...
+los enemigos pueden chocar entre sí y ... cada enemigo tenga su propio mov
 
-☐ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos
+☐ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos @Probar
 ☐ Cambiar el nombre de "nave" por otro mejor y en inglés
 ✔ El bloque de vida pueda activarse o no @done (08-05-15 01:32)
 ✔ Nueva captura del mapa en la pág de github y quitar las 2 actuales @done (08-05-15 01:32)
@@ -67,7 +67,7 @@ los enemigos pueden chocar entre sí y ...
     ✔ disparando balas triples que se vea en el suelo donde va la bala @done (05-05-15 16:32)
 ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
 ☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
-☐ A medida que vaya faltando menos para transportarse por el portal, que vaya oscureciendose el fondo del mapa
+
 
 ☐ Enemigo
     ✔ Básico: quitarle vida y matarlo @done (26-04-15 13:36)

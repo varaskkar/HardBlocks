@@ -27,12 +27,6 @@ var info             = true,
 	fullScreen       = false,
 	sound            = false;
 
-// horizontal, vertical, random
-// var	kindMovementEnemy = "";
-// var	kindMovementEnemy = "horizontal";
-// var	kindMovementEnemy = "vertical";
-var	kindMovementEnemy = "random";
-
 var iPlayer      = new Image(),
 	iEnemy       = new Image(),
  	iLife        = new Image(),
@@ -136,7 +130,7 @@ function run(){
 function game(){
     if(!pause){
 	    movementPlayer();
-		movementEnemy(kindMovementEnemy);
+		movementEnemy();
 		weapon1(player, bullets1);
 		weapon2(player, bullets2);
 		// weaponTest(player, bulletsTest);

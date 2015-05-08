@@ -26,7 +26,7 @@ function Element(x, y, width, height, life){
  	}
 }
 
-function Enemy(x, y, width, height, life){
+function Enemy(x, y, width, height, life, movement){
 	this.x = x;
  	this.y = y;
  	this.width = width;
@@ -41,6 +41,7 @@ function Enemy(x, y, width, height, life){
  	this.setTimeOnlyOnce = true;
 
  	// Movement
+ 	this.movement = "";
  	this.toggleDirection = true;
  	this.direction = "left";
 
@@ -48,6 +49,8 @@ function Enemy(x, y, width, height, life){
 
  	if(typeof life != "undefined")
  		this.life = life;
+ 	if(typeof movement != "undefined")
+ 		this.movement = movement;
 
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){
