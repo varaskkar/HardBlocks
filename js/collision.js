@@ -58,18 +58,18 @@ function collisionPlayer(){
 				player.timeChangeLevel = _TimeChangeLevel;
 				loadSound(sPortalInput);
 			}else if(player.timeChangeLevel == 1){
-				if(currentMap == "map1"){
-					makeBackupMap("map1");
-					// loadMap("map2", 32, 212, 90);
-					loadMap("map2", 352, 32, 180);
-					loadBackupMap("map2");
-				}else if(currentMap == "map2"){
-					makeBackupMap("map2");
-					// loadMap("map1", 532, 62, 180);
-					loadMap("map1", 511, 82, 270);
-					loadBackupMap("map1");
-				}else if(currentMap == "map3"){
-					// loadMap("map3", 512, 32, 270);
+				if(currentMap == "map_1"){
+					makeBackupMap("map_1");
+					loadMap("map_2", 32, 212, 90);
+					// loadMap("map_2", 352, 32, 180);			Animated gif of Github
+					loadBackupMap("map_2");
+				}else if(currentMap == "map_2"){
+					makeBackupMap("map_2");
+					loadMap("map_1", 532, 62, 180);
+					// loadMap("map_1", 511, 82, 270);			Animated gif of Github
+					loadBackupMap("map_1");
+				}else if(currentMap == "map_3"){
+					// loadMap("map_3", 512, 32, 270);
 					setPositionPlayer(512, 32, 270);
 					// setTimeout(function(){
 					// 	setPositionPlayer(512, 32, 270);
@@ -193,7 +193,7 @@ function collisionEnemy(){
 		}else if(enemy[i].x <= 0){
 			movementBackEnemy(i);
 			enemy[i].direction = parseDirectionEnemy(i);
-		}if(enemy[i].y >= canvas.height - enemy[i].height){
+		}else if(enemy[i].y >= canvas.height - enemy[i].height){
 			movementBackEnemy(i);
 			enemy[i].direction = parseDirectionEnemy(i);
 		}else if(enemy[i].y <= 0){
@@ -204,8 +204,11 @@ function collisionEnemy(){
 		// Enemy -> BlockBrown
 		for(j in blockBrown){
 			if(enemy[i].collide(blockBrown[j])){
-				movementBackEnemy(i);
-				enemy[i].direction = parseDirectionEnemy(i);
+				if(enemy[i].life > 0){
+					movementBackEnemy(i);
+					enemy[i].direction = parseDirectionEnemy(i);
+				}else
+					blockBrown[j].life -= _DamageWeapon;
 			}
 		}
 
@@ -349,15 +352,14 @@ function collisionBullets1(){
 
 		// Bullets1 -> BlockBrown
 		for(j in blockBrown){
-			// console.log(bullets1[i].collide(blockBrown[j]));
 			if(bullets1[i].collide(blockBrown[j])){
 	  			player.score += _PointsBlock;
 				bullets1.splice(i,1);
 
-				if(blockBrown[j].life <= 0)
-					blockBrown.splice(j,1);
-				else
+				if(blockBrown[j].life > 0)
 					blockBrown[j].life -= _DamageWeapon;
+				else
+					blockBrown.splice(j,1);
 
 				templateSetLightEfects(true);
 			}

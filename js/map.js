@@ -37,7 +37,10 @@ var portalInputCrossed = false, portalOutputCrossed = false;
 
 // Backup for when return to previous map
 var blockBrownCopyMap1 = [],
-	blockBrownCopyMap2 = [];
+	enemyCopyMap1      = [];
+
+var	blockBrownCopyMap2 = [],
+	enemyCopyMap2      = [];
 
 function createMap(){
 	mapList.push(new Map("map_1", map1, sMap1, "#011224", _SizeBlock));
@@ -114,30 +117,42 @@ function clearMap(){
 	stopSounds();
 }
 function makeBackupMap(nameMap){
-	if(nameMap == "map1"){
+	if(nameMap == "map_1"){
 		blockBrownCopyMap1.splice(0, blockBrownCopyMap1.length);
+		enemyCopyMap1.splice(0, enemyCopyMap1.length);
 		for(i in blockBrown)
 			blockBrownCopyMap1[i] = blockBrown[i];
-	}else if(nameMap == "map2"){
+		for(i in enemy)
+			enemyCopyMap1[i] = enemy[i];
+	}else if(nameMap == "map_2"){
 		blockBrownCopyMap2.splice(0, blockBrownCopyMap2.length);
+		enemyCopyMap2.splice(0, enemyCopyMap2.length);
 		for(i in blockBrown)
 			blockBrownCopyMap2[i] = blockBrown[i];
+		for(i in enemy)
+			enemyCopyMap2[i] = enemy[i];
 	}
 }
 function loadBackupMap(nameMap){
-	if(nameMap == "map1"){
+	if(nameMap == "map_1"){
 		if(blockBrownCopyMap1.length != 0){
-			// delete the current blocks
+			// delete the current elements
 			blockBrown.splice(0, blockBrown.length);
-			// Put the previous blocks on the current blocks
+			enemy.splice(0, enemy.length);
+			// Put the previous elements on the current elements
 			for(i in blockBrownCopyMap1)
 				blockBrown[i] = blockBrownCopyMap1[i];
+			for(i in enemyCopyMap1)
+				enemy[i] = enemyCopyMap1[i];
 		}
-	}else if(nameMap == "map2"){
+	}else if(nameMap == "map_2"){
 		if(blockBrownCopyMap2.length != 0){
 			blockBrown.splice(0, blockBrown.length);
+			enemy.splice(0, enemy.length);
 			for(i in blockBrownCopyMap2)
 				blockBrown[i] = blockBrownCopyMap2[i];
+			for(i in enemyCopyMap2)
+				enemy[i] = enemyCopyMap1[i];
 		}
 	}
 }
@@ -164,7 +179,7 @@ map1 = [
 	[ 3 , 3 , 3 , 3 , 4 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 4 , 3 , 3 , 3 , 3 ],
 	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
 	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
-	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,'H','H','H','H',   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
+	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,'H','H','H','H',   ,'EH', 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ],
 	[ 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ,   ,'H','H','H','H',   , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 , 5 ]
 	];
 

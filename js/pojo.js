@@ -39,6 +39,7 @@ function Enemy(x, y, width, height, life, movement){
  	// Explosion
  	this.timeShowExplosion = 0;
  	this.setTimeOnlyOnce = true;
+ 	this.sizeExplosion = 0;
 
  	// Movement
  	this.movement = "";

@@ -46,16 +46,25 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
+☐ 1. La explosión del enemigo que sea un circulo pequeño y vaya creciendo a medida @Probar
+☐ 2. La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos @Probar
 
-
-☐ Hacer fase con enemigos vert/horz que choquen contra bloqueMarron y si yo los rompo que cambien su mov sea mayor
-☐ Fase que un enemigo se mueva hor y que se interponga entre player y un portal, necesito matarlo
-    ☐ Que me ataque si me acerco
+☐ Fase
+    ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
+     pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
+     por rebote
+    ☐ Enemigos vert/horz que choquen contra bloqueMarron y si yo los rompo que cambien su mov sea mayor
+    ☐ 1 enemigo se mueva hor y que se interponga entre player y un portal, necesito matarlo
+        ☐ Que me ataque si me acerco
 ☐ Poner en la plantilla las balas del arma1 y arma2
-
-los enemigos pueden chocar entre sí y ... cada enemigo tenga su propio mov
-
-☐ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos @Probar
+☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
+☐ Efecto de chispa y sonido de cuando las balas impacten
+☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
+☐ Poner un bloqueMarron algo distinto que al romperse suene un "tin" y me de mas puntos que el resto o algo parecido
+☐ sumar el numero de rebotes de las balas a los puntos que te dan al destruir un bloque
+☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
+☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
+☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
 ☐ Cambiar el nombre de "nave" por otro mejor y en inglés
 ✔ El bloque de vida pueda activarse o no @done (08-05-15 01:32)
 ✔ Nueva captura del mapa en la pág de github y quitar las 2 actuales @done (08-05-15 01:32)
@@ -65,10 +74,6 @@ los enemigos pueden chocar entre sí y ... cada enemigo tenga su propio mov
     ✔ Enemigo @done (08-05-15 01:30)
         ✔ Antes crear bloque gris @done (08-05-15 01:30)
     ✔ disparando balas triples que se vea en el suelo donde va la bala @done (05-05-15 16:32)
-☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
-☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
-
-
 ☐ Enemigo
     ✔ Básico: quitarle vida y matarlo @done (26-04-15 13:36)
     ✔ Puntos @done (26-04-15 13:36)
@@ -78,6 +83,7 @@ los enemigos pueden chocar entre sí y ... cada enemigo tenga su propio mov
         ✔ Mostrarla @done (27-04-15 14:39)
         ✔ Sonido @done (27-04-15 17:02)
         ☐ La onda expansiva de la explosión me quite vidas si me da > Colisión Rectángulo - Círculo
+        ☐ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos @Probar
         ☐ Al morir que deje objetos o algo
     ✔ Colisión @done (04-05-15 18:10)
         ✔ Cambiar posición @done (28-04-15 13:18)
@@ -93,17 +99,6 @@ los enemigos pueden chocar entre sí y ... cada enemigo tenga su propio mov
         ☐ Algoritmo del movimiento angular para que me siga
     ✔ Concurrencia @done (07-05-15 21:01)
     ☐ IA > Me dispare cuando me acerque a él
-☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
-☐ Efecto de chispa y sonido de cuando las balas impacten
-☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
-☐ Poner un bloqueMarron algo distinto que al romperse suene un "tin" y me de mas puntos que el resto o algo parecido
-☐ sumar el numero de rebotes de las balas a los puntos que te dan al destruir un bloque
-☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
-✘ Poner el canvas y el contexto en una sola línea @cancelled (04-05-15 20:27)
-
-☐ Fase: hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
-     pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
-     por rebote
 ☐ Base de salida
     ☐ Siempre que se vuelva a ella se reestablezcan los valores
         ☐ Vida
@@ -120,7 +115,7 @@ los enemigos pueden chocar entre sí y ... cada enemigo tenga su propio mov
      ☐ Activar el portal cuando mate a todos los enemigos
      ✔ Al cambiar de mapas, que se guarde el mapa como estaba (mantener los bloques destruidos) @done (10-04-15 00:49)
     ☐ No poder usar el portal si estas en un nivel con monstruo final. No dejar huir
-    ☐ Al cambiar de mapa con los portales, guardar la posicion de los enemigos @También
+    ✔ Al cambiar de mapa con los portales, guardar los enemigos enemigos destrudios @done (09-05-15 15:31)
     ✔ Oscurecer el mapa a medida que falte menos para irse. Degradado entre color mapa1 y mapa2 @done (07-05-15 21:32)
 ✔ Funcion de colision con los bordes del canvas (lienzo) @done (30-04-15 17:24)
 ✔ Simplificado el sistema de carga de mapas con mapList @done (05-05-15 19:08)
@@ -133,7 +128,7 @@ los enemigos pueden chocar entre sí y ... cada enemigo tenga su propio mov
     ✔ variable para saber el sonido del mapa actual para cuando pause (Tecla S) y vuelva a reaundar @done (07-04-15 16:57)
     ✔ Cambiar de fase, poner el que tengo asignado a getLife, pega mejor @done (07-04-15 16:58)
     ✔ Poder activar/desactivar el sonido haciendo clic en la img de la plantilla @done (07-04-15 17:52)
-    ☐ Buscar sonido para los mapas
+    ☐ Buscar sonido para los mapas...¿Guzmán?
 ✔ Cambiar el tema de la vida del bloqueMarron @done (26-04-15 13:35)
 ✔ Problema sonido: Si le doy a pausa y el sonido esta inactivo....no activarlo si no dejarlo inactivo @done (28-04-15 16:56)
 ✔ Al metodo createMap() pasarle el color de fondo del mapa como parámetro @done (07-04-15 18:17)
@@ -164,6 +159,7 @@ los enemigos pueden chocar entre sí y ... cada enemigo tenga su propio mov
 ✔ Bloque marrón ahora no se destruye @Problema @done (30-03-15 17:26)
 ✔ tecla = null; @done (30-03-15 23:51)
 ✔ Formateadas código ASCII de las teclas @done (30-03-15 21:53)
+✘ Poner el canvas y el contexto en una sola línea @cancelled (04-05-15 20:27)
 ✘ Unificar variables del POJO de horizontal/vertical y azar en 1 sola @cancelled (04-05-15 17:49)
 ✘ Fullscreen no funciona en Firefox @cancelled (22-04-15 17:42)
 ✘ Crear sistema de puntuacion en php. Mostrar los nombres en la plantilla.

@@ -215,7 +215,9 @@ function draw() {
 			if(enemy[i].timeShowExplosion > 0){
 				var centerX = enemy[i].x+enemy[i].width/2;
 				var centerY = enemy[i].y+enemy[i].height/2;
-				circle(ctx, centerX, centerY, enemy[i].width, true, true, "#6B0801", "#6B1601");
+				if(enemy[i].sizeExplosion <= enemy[i].width)
+					enemy[i].sizeExplosion++;
+				circle(ctx, centerX, centerY, enemy[i].sizeExplosion, true, true, "#6B0801", "#6B1601");
 			}else
 				enemy.splice(i,1);
 		}
