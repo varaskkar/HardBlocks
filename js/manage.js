@@ -8,24 +8,27 @@ requirejs(['sound']);
 
 window.addEventListener('load',init,false);
 
-const _LifePlayer = 2, _TimeProtected = 125,         _PointsBlock = 3,       _MunitionWeapon1 = 9999,
-	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsEnemy = 10,      _MunitionWeapon2 = 500,
-	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsTouchEnemy = 4,
-	  				   _TimeShowExplosionEnemy = 30,
-	  				   _TimeShowDamagedEnemy = 10,
+const _LifePlayer = 2, _TimeProtected = 125,         _PointsTouchBlock = 2, _MunitionWeapon1 = 9999,
+	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsTouchEnemy = 4, _MunitionWeapon2 = 500,
+	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsKillBlock = 5,
+	  				   _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
+	  				   _TimeShowDamagedEnemy = 10,   _PointsGetLife = 3,
 
-	  _SizeBlock = 20, _DamageWeapon = 1, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 2;
+	  _DamageWeapon = 1,
+	  _DamageExplosionEnemy = _LifeEnemy,
+
+	  _SizeBlock = 20, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 2;
 
 var canvas = null, ctx = null;
 var key = null;
 var keyPressed = [];
 var bullets1 = [], bullets2 = [], bulletsTest = [];
 
-var info             = true,
-	pause            = false,
-	gameOver         = false,
-	fullScreen       = false,
-	sound            = false;
+var info       = true,
+	pause      = false,
+	gameOver   = false,
+	fullScreen = false,
+	sound      = false;
 
 var iPlayer      = new Image(),
 	iEnemy       = new Image(),
@@ -220,7 +223,7 @@ function draw() {
 				var centerY = enemy[i].copyY+enemy[i].copyHeight/2;
 				if(enemy[i].sizeExplosion <= enemy[i].copyWidth)
 					enemy[i].sizeExplosion++;
-				// rectangle(ctx, enemy[i].x, enemy[i].y, enemy[i].width, enemy[i].height, "#D38600");
+				rectangle(ctx, enemy[i].x, enemy[i].y, enemy[i].width, enemy[i].height, "#D38600");
 				circle(ctx, centerX, centerY, enemy[i].sizeExplosion, "#6B0801", "#6B1601", 5);
 			}else
 				enemy.splice(i,1);

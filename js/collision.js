@@ -35,6 +35,7 @@ function collisionPlayer(){
 	// Player -> life
 	if(player.collide(life)){
   		player.life++;
+  		player.score += _PointsGetLife;
   		loadSound(sGetLife);
   		life.x = random(canvas.width - 10);
   		life.y = random(canvas.height - 10);
@@ -207,8 +208,10 @@ function collisionEnemy(){
 				if(enemy[i].life > 0){
 					movementBackEnemy(i);
 					enemy[i].direction = parseDirectionEnemy(i);
-				}else
-					blockBrown[j].life -= _DamageWeapon;
+				}else{
+					blockBrown[j].life -= _DamageExplosionEnemy;
+					player.score += _PointsKillBlock;
+				}
 			}
 		}
 
@@ -264,11 +267,16 @@ function collisionEnemy(){
 			}
 		}
 
-		// Enemy -> Enemy
 		for(j in enemy){
 			// "i != j" avoid that the enemy collides with itself
-			if(enemy[i].collide(enemy[j]) && i != j)
-				enemy[i].direction = parseDirectionEnemy(i);
+			if(enemy[i].collide(enemy[j]) && i != j){
+				if(enemy[i].life > 0){
+					enemy[i].direction = parseDirectionEnemy(i);
+				}else{
+					enemy[j].life -= _DamageExplosionEnemy;
+					player.score += _PointsKillEnemy;
+				}
+			}
 		}
 	}
 }
@@ -353,7 +361,7 @@ function collisionBullets1(){
 		// Bullets1 -> BlockBrown
 		for(j in blockBrown){
 			if(bullets1[i].collide(blockBrown[j])){
-	  			player.score += _PointsBlock;
+	  			player.score += _PointsTouchBlock;
 				bullets1.splice(i,1);
 
 				if(blockBrown[j].life > 0)
@@ -436,7 +444,7 @@ function collisionBullets1(){
 					enemy[j].life -= _DamageWeapon;
 				else{
 					loadSound(sExplosion);
-					player.score += _PointsEnemy;
+					player.score += _PointsKillEnemy;
 				}
 				enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
 
@@ -452,7 +460,7 @@ function collisionBullets2(){
 		// Bullets2 -> BlockBrown
 		for(j in blockBrown){
 			if(bullets2[i].collide(blockBrown[j])){
-	  			player.score += _PointsBlock;
+	  			player.score += _PointsTouchBlock;
 				bullets2.splice(i,1);
 
 				if(blockBrown[j].life <= 0)
@@ -533,7 +541,7 @@ function collisionBullets2(){
 					enemy[j].life -= _DamageWeapon;
 				else{
 					loadSound(sExplosion);
-					player.score += _PointsEnemy;
+					player.score += _PointsKillEnemy;
 				}
 				enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
 
