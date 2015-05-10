@@ -205,7 +205,7 @@ function pressKey(){
 	},false);
 }
 
-function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+function roundRect(ctx, x, y, width, height, radius, fill, stroke, fillStyle, strokeStyle) {
 	if (typeof radius == "undefined")	radius = 5;
 	if (typeof fill == "undefined")		fill   = true;
 	if (typeof stroke == "undefined")	stroke = false;
@@ -222,33 +222,52 @@ function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
 	ctx.quadraticCurveTo(x, y, x + radius, y);
 	ctx.closePath();
 
-	if(fill)
+	if(fill){
+		if(fillStyle != "undefined")
+			ctx.fillStyle = fillStyle;
 		ctx.fill();
-	if(stroke)
+	}
+	if(stroke){
+		if(strokeStyle != "undefined")
+			ctx.strokeStyle = strokeStyle;
 		ctx.stroke();
+	}
 }
 
-function circle(ctx, x, y, radius, fill, stroke, fillStyle, strokeStyle, lineWidth){
-	if (typeof radius == "undefined")		radius      = 20;
-	if (typeof fill == "undefined")			fill        = true;
-	if (typeof stroke == "undefined")		stroke      = false;
-	if (typeof fillStyle == "undefined")	fillStyle   = 'green';
-	if (typeof strokeStyle == "undefined")	strokeStyle = '#003300';
-	if (typeof lineWidth == "undefined")	lineWidth   = 5;
+function rectangle(ctx, x, y, width, height, fillStyle, strokeStyle){
+	if(typeof strokeStyle != "undefined")
+		ctx.strokeStyle = strokeStyle;
+	ctx.fillStyle = (typeof fillStyle == "undefined") ? "green" : fillStyle;
 
+	ctx.fillRect(x,y,width,height);
+}
+
+function circle(ctx, x, y, radius, fillStyle, strokeStyle, lineWidth){
 	ctx.beginPath();
 	ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
-	ctx.lineWidth = lineWidth;
 
-	ctx.fillStyle = fillStyle;
-	ctx.strokeStyle = strokeStyle;
-	if(fill)
+	if (typeof lineWidth != "undefined")
+		ctx.lineWidth = lineWidth;
+	if (typeof fillStyle != "undefined"){
+		ctx.fillStyle = fillStyle;
 		ctx.fill();
-	if(stroke)
+	}
+	if (typeof strokeStyle != "undefined"){
+		ctx.strokeStyle = strokeStyle;
 		ctx.stroke();
+	}
+
+	// Leave the default value in the canvas
 	ctx.lineWidth = 1;
 }
 
 function isInt(n){
 	return Number(n)===n && n%1===0;
 }
+
+
+
+
+
+
+

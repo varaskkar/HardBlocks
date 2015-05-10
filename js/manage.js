@@ -143,6 +143,7 @@ function game(){
 function draw() {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 
+	// player -> home
 	for(i in home){
 		if(player.timeRechargeHome > 0)
   			ctx.strokeStyle = (player.timeRechargeHome%3 == 0) ? "#022939" : "#03404A";
@@ -152,22 +153,18 @@ function draw() {
 	}
 
 	// bullets1 -> home
-	ctx.fillStyle = '#690303';
-	ctx.strokeStyle = "#692A03";
 	for(i in bullets1){
 		for(j in home){
 			if(bullets1[i].collide(home[j]))
-				roundRect(ctx, home[j].x, home[j].y, home[j].width, home[j].height, 20, false, true);
+				roundRect(ctx, home[j].x, home[j].y, home[j].width, home[j].height, 20, false, true, null, "#692A03");
 		}
 	}
 
 	// bullets2 -> home
-	ctx.fillStyle = '#690303';
-	ctx.strokeStyle = "#692A03";
 	for(i in bullets2){
 		for(j in home){
 			if(bullets2[i].collide(home[j]))
-				roundRect(ctx, home[j].x, home[j].y, home[j].width, home[j].height, 20, false, true);
+				roundRect(ctx, home[j].x, home[j].y, home[j].width, home[j].height, 20, false, true, null, "#692A03");
 		}
 	}
 
@@ -177,8 +174,7 @@ function draw() {
 		else
 			ctx.fillStyle = '#07213C';
 
-		ctx.strokeStyle = "#8A0A0A";
-		roundRect(ctx, portalInput[i].x, portalInput[i].y, portalInput[i].width, portalInput[i].height, 25, true, true);
+		roundRect(ctx,portalInput[i].x,portalInput[i].y,portalInput[i].width,portalInput[i].height,25,true,true,null,"#8A0A0A");
 	}
 
 	for(i in portalOutput){
@@ -187,8 +183,7 @@ function draw() {
 		else
 			ctx.fillStyle = '#07213C';
 
-		ctx.strokeStyle = "#8A0A0A";
-		roundRect(ctx, portalOutput[i].x, portalOutput[i].y, portalOutput[i].width, portalOutput[i].height, 25, true, true);
+		roundRect(ctx,portalOutput[i].x,portalOutput[i].y,portalOutput[i].width,portalOutput[i].height,25,true,true,null,"#8A0A0A");
 	}
 
 	if(player.timeProtected > 0){
@@ -211,13 +206,22 @@ function draw() {
 	  		if(enemy[i].setTimeOnlyOnce){
 	  			enemy[i].timeShowExplosion = _TimeShowExplosionEnemy;
 	  			enemy[i].setTimeOnlyOnce = false;
+
+	  			// Increase the enemy size to collides with blockBrown and destroy it
+	  			// The x,y axis are to center the collision zone (square) with the visual explosion (circle)
+				enemy[i].x -= enemy[i].width/2;
+				enemy[i].y -= enemy[i].height/2;
+	  			enemy[i].width = _SizeBlock*2;
+				enemy[i].height = _SizeBlock*2;
 	  		}
 			if(enemy[i].timeShowExplosion > 0){
-				var centerX = enemy[i].x+enemy[i].width/2;
-				var centerY = enemy[i].y+enemy[i].height/2;
-				if(enemy[i].sizeExplosion <= enemy[i].width)
+				// Put the explosion in enemy initial position
+				var centerX = enemy[i].copyX+enemy[i].copyWidth/2;
+				var centerY = enemy[i].copyY+enemy[i].copyHeight/2;
+				if(enemy[i].sizeExplosion <= enemy[i].copyWidth)
 					enemy[i].sizeExplosion++;
-				circle(ctx, centerX, centerY, enemy[i].sizeExplosion, true, true, "#6B0801", "#6B1601");
+				// rectangle(ctx, enemy[i].x, enemy[i].y, enemy[i].width, enemy[i].height, "#D38600");
+				circle(ctx, centerX, centerY, enemy[i].sizeExplosion, "#6B0801", "#6B1601", 5);
 			}else
 				enemy.splice(i,1);
 		}
@@ -246,17 +250,14 @@ function draw() {
 	for(i in fire)
 		ctx.drawImage(iBlockRed,fire[i].x,fire[i].y,fire[i].width,fire[i].height);
 
-	ctx.fillStyle = '#614E70';
 	for(i in bullets1)
-  		ctx.fillRect(bullets1[i].x,bullets1[i].y,bullets1[i].width,bullets1[i].height);
+  		rectangle(ctx, bullets1[i].x,bullets1[i].y,bullets1[i].width,bullets1[i].height, "#614E70");
 
-  	ctx.fillStyle = '#4A6192';
 	for(i in bullets2)
-  		ctx.fillRect(bullets2[i].x,bullets2[i].y,bullets2[i].width,bullets2[i].height);
+  		rectangle(ctx, bullets2[i].x,bullets2[i].y,bullets2[i].width,bullets2[i].height, "#4A6192");
 
-  	ctx.fillStyle = '#4A6192';
 	for(i in bulletsTest)
-  		ctx.fillRect(bulletsTest[i].x,bulletsTest[i].y,bulletsTest[i].width,bulletsTest[i].height);
+  		rectangle(ctx, bulletsTest[i].x,bulletsTest[i].y,bulletsTest[i].width,bulletsTest[i].height, "#4A6192");
 
 	ctx.font = "10px Verdana";
 	ctx.fillStyle = '#fff';

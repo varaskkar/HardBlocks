@@ -46,8 +46,21 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
-☐ 1. La explosión del enemigo que sea un circulo pequeño y vaya creciendo a medida @Probar
-☐ 2. La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos @Probar
+When the map is changed, the dead's enemies don't return to show
+Add effects: enemy's explosion
+Sound problem fixed
+Simplificado el código de mostrar en el canvas
+
+si la explosion de un enemigo que muere choca con un enemigo vivo, éste se muera
+Error: no se oye la explosion del enemigo cuando se le mata con el arma1
+
+
+✔ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos @Probar @done (09-05-15 17:33)
+    ☐ ¿Cambiar el tamaño en el momento de la explosion?
+    ☐ ¿funcion de chocar? ¿pero en verdad necesita chocar?
+    ☐ Probar con el algoritmo de portal de alejarse un poco y si entra en contacto destruir lo que haya cerca
+
+
 
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
@@ -82,8 +95,9 @@
     ☐ Explosión
         ✔ Mostrarla @done (27-04-15 14:39)
         ✔ Sonido @done (27-04-15 17:02)
-        ☐ La onda expansiva de la explosión me quite vidas si me da > Colisión Rectángulo - Círculo
+        ✔ Que sea un circulo pequeño y vaya creciendo a medida @done (09-05-15 16:07)
         ☐ La explosion del enemigo destruya los bloques del mapa si entra en contacto con ellos @Probar
+        ☐ La onda expansiva de la explosión me quite vidas si me da > Colisión Rectángulo - Círculo
         ☐ Al morir que deje objetos o algo
     ✔ Colisión @done (04-05-15 18:10)
         ✔ Cambiar posición @done (28-04-15 13:18)
@@ -179,8 +193,10 @@
     ☐ Poner torreta fija que te dispara al acercarte y bloque gordo de piedras que destruya ella
     ☐ Hacerlo compatible con GamePad
     ☐ Crear Splash Screen
-    ☐ for of
-    ☐ poner un limite de vidas que se puedan conseguir y de puntos
+    ☐ For of
+    ☐ Poner un limite de vidas que se puedan conseguir y de puntos
+    ☐ Conseguir monedas o puntos para poder comprar cosas en home(base): armas, vida, ...
+    ☐ Objeto, tanque de combustible, si le disparas explota como un enemigo, si lo coges te da combustible
 
 
 --- ✄ -----------------------

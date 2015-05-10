@@ -21,19 +21,19 @@ function loadSound(nameVarSound, repeat){
 
 function playMapSound(){
 	// Convert nameMap to nameSoundMap
-	// Before: map1		After: sMap1
+	// Before: map_1	After: sMap_1
 	var soundCurrentMap = "s" + currentMap.charAt(0).toUpperCase() + currentMap.substr(1, currentMap.length);
-	if(soundCurrentMap == "sMap1")
+	if(soundCurrentMap == "sMap_1")
 		loadSound(sMap1, true);
-	else if(soundCurrentMap == "sMap2")
+	else if(soundCurrentMap == "sMap_2")
 		loadSound(sMap2, true);
-	else if(soundCurrentMap == "sMap3")
+	else if(soundCurrentMap == "sMap_3")
 		loadSound(sMap3, true);
-	else if(soundCurrentMap == "sMap4")
+	else if(soundCurrentMap == "sMap_4")
 		loadSound(sMap4, true);
-	else if(soundCurrentMap == "sMap5")
+	else if(soundCurrentMap == "sMap_5")
 		loadSound(sMap5, true);
-	else if(soundCurrentMap == "sMap6")
+	else if(soundCurrentMap == "sMap_6")
 		loadSound(sMap6, true);
 }
 
