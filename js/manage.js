@@ -146,6 +146,8 @@ function game(){
 function draw() {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 
+	// rectangle(ctx, enemy[0].x,enemy[0].y,enemy[0].width,enemy[0].height + 75, "#614E70");
+
 	// player -> home
 	for(i in home){
 		if(player.timeRechargeHome > 0)
@@ -210,6 +212,12 @@ function draw() {
 	  			enemy[i].timeShowExplosion = _TimeShowExplosionEnemy;
 	  			enemy[i].setTimeOnlyOnce = false;
 
+	  			// Save the enemy's data
+				enemy[i].copyX = enemy[i].x;
+				enemy[i].copyY = enemy[i].y;
+				enemy[i].copyWidth = enemy[i].width;
+				enemy[i].copyHeight = enemy[i].height;
+
 	  			// Increase the enemy size to collides with blockBrown and destroy it
 	  			// The x,y axis are to center the collision zone (square) with the visual explosion (circle)
 				enemy[i].x -= enemy[i].width/2;
@@ -223,7 +231,7 @@ function draw() {
 				var centerY = enemy[i].copyY+enemy[i].copyHeight/2;
 				if(enemy[i].sizeExplosion <= enemy[i].copyWidth)
 					enemy[i].sizeExplosion++;
-				rectangle(ctx, enemy[i].x, enemy[i].y, enemy[i].width, enemy[i].height, "#D38600");
+				// rectangle(ctx, enemy[i].x, enemy[i].y, enemy[i].width, enemy[i].height, "#D38600");
 				circle(ctx, centerX, centerY, enemy[i].sizeExplosion, "#6B0801", "#6B1601", 5);
 			}else
 				enemy.splice(i,1);
@@ -283,6 +291,8 @@ function draw() {
 		// ctx.fillText('Enemy 2 - Hor/Vert: '+enemy[1].toggleDirection,5,225);
 		// ctx.fillText('Enemy 1 - Dir: '+enemy[0].direction,5,240);
 		// ctx.fillText('Enemy 2 - Dir: '+enemy[1].direction,5,255);
+		ctx.fillText('Player - x: '+player.x,5,240);
+		ctx.fillText('Enemy - X: '+enemy[0].x,5,255);
 	}
 
 	ctx.font = "18px Verdana";

@@ -40,16 +40,17 @@ function Enemy(x, y, width, height, life, movement){
  	this.timeShowExplosion = 0;
  	this.setTimeOnlyOnce = true;
  	this.sizeExplosion = 0;
- 	this.copyX = x;
- 	this.copyY = y;
- 	this.copyWidth = width;
- 	this.copyHeight = height;
+ 	this.copyX;
+ 	this.copyY;
+ 	this.copyWidth;
+ 	this.copyHeight;
 
  	// Movement
  	this.movement = "";
  	this.toggleDirection = true;
  	this.direction = "left";
  	this.distanceTraveled = 0;
+ 	this.acceleration = 0;
 
  	if(typeof life != "undefined")
  		this.life = life;

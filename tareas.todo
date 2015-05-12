@@ -3,7 +3,6 @@
 
     ☐ Buscar nombre    Rebo Blocks, Invert Block, Destroy Blocks, Shoot Blocks, Pedel, Connector Gun, Half Block
                         Hard Blocks, Hell Blocks, hem block, hide blocks, Hund blocks
-    ☐ Añadir fondo en vez de color plano
 
  Versión 0.1:
 
@@ -46,10 +45,15 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
+new enemy's movement system
 
- ☐ Error: no se oye la explosion del enemigo cuando se le mata con el arma1
+ ☐ movementBackEnemy cambiar las "i" del for por el "index" que recibe
 
-
+ ☐ Error
+     ☐ no se oye la explosion del enemigo cuando se le mata con el arma1
+     ☐ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse esté como esté de tamaño
+     ✔ La explosion de los enemigos en movimiento se muestra en un sitio distinto...why??? @done (12-05-15 16:41)
+     ☐ No mostrar -1 en las municiones del arma2
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
@@ -57,6 +61,8 @@
     ☐ Enemigos vert/horz que choquen contra bloqueMarron y si yo los rompo que cambien su mov sea mayor
     ☐ 1 enemigo se mueva hor y que se interponga entre player y un portal, necesito matarlo
         ☐ Que me ataque si me acerco
+    ☐ Que la nave pueda dejar bombas en el mapa y que si se le disparan explotan
+        ☐ Si se pone unas al lado de otras exploten en cadena, al igual que los enemigos
 ☐ Poner en la plantilla las balas del arma1 y arma2
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
@@ -175,6 +181,7 @@
 
  Versión 0.2:
 
+    ☐ Añadir fondo en vez de color plano
     ☐ 2 jugadores
     ☐ Mover fondo en vez de nave
     ☐ Poner tiempo y mientras destruyas bloques pasas de fase

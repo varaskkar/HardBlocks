@@ -552,7 +552,9 @@ function weapon2(player, bullets){
 		 	bullets.push(new Bullet(player.x+player.width/2 - 21,player.y + 0,_SizeWeapon,_SizeWeapon,4,1));
 		}
 
-		player.munitionWeapon2 = player.munitionWeapon2 - 3;
+		player.munitionWeapon2 -= 3;
+		if(player.munitionWeapon2 < 0)
+			player.munitionWeapon2 = 0;
 		loadSound(sWeapon1);
 
 		key = null;

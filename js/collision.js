@@ -189,16 +189,16 @@ function collisionEnemy(){
 
 		// Enemy -> CanvasEdge
 		if(enemy[i].x >= canvas.width - enemy[i].width){
-			movementBackEnemy(i);
+			movementBackEnemy(i, canvas.width);
 			enemy[i].direction = parseDirectionEnemy(i);
 		}else if(enemy[i].x <= 0){
-			movementBackEnemy(i);
+			movementBackEnemy(i, 0);
 			enemy[i].direction = parseDirectionEnemy(i);
 		}else if(enemy[i].y >= canvas.height - enemy[i].height){
-			movementBackEnemy(i);
+			movementBackEnemy(i, canvas.height);
 			enemy[i].direction = parseDirectionEnemy(i);
 		}else if(enemy[i].y <= 0){
-			movementBackEnemy(i);
+			movementBackEnemy(i, 0);
 			enemy[i].direction = parseDirectionEnemy(i);
 		}
 
@@ -218,7 +218,7 @@ function collisionEnemy(){
 		// Enemy -> BlockGray
 		for(j in blockGray){
 			if(enemy[i].collide(blockGray[j])){
-				movementBackEnemy(i);
+				movementBackEnemy(i, blockGray[j].x);
 				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
@@ -226,13 +226,13 @@ function collisionEnemy(){
 		// Enemy -> blockWhite
 		for(j in blockWhiteVert){
 			if(enemy[i].collide(blockWhiteVert[j])){
-				movementBackEnemy(i);
+				movementBackEnemy(i, blockWhiteVert[j].x);
 				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 		for(j in blockWhiteHor){
 			if(enemy[i].collide(blockWhiteHor[j])){
-				movementBackEnemy(i);
+				movementBackEnemy(i, blockWhiteHor[j].x);
 				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
@@ -240,7 +240,7 @@ function collisionEnemy(){
 		// Enemy -> fire
 		for(j in fire){
 			if(enemy[i].collide(fire[j])){
-				movementBackEnemy(i);
+				movementBackEnemy(i, fire[j].x);
 				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
@@ -248,13 +248,13 @@ function collisionEnemy(){
 		// Enemy -> Portal
 		for(j in portalInput){
 			if(enemy[i].collide(portalInput[j])){
-				movementBackEnemy(i);
+				movementBackEnemy(i, portalInput[j].x);
 				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
 		for(j in portalOutput){
 			if(enemy[i].collide(portalOutput[j])){
-				movementBackEnemy(i);
+				movementBackEnemy(i, portalOutput[j].x);
 				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}
@@ -262,7 +262,7 @@ function collisionEnemy(){
 		// Enemy -> Home
 		for(j in home){
 			if(enemy[i].collide(home[j])){
-				movementBackEnemy(i);
+				movementBackEnemy(i, home[j].x);
 				enemy[i].direction = parseDirectionEnemy(i);
 			}
 		}

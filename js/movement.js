@@ -198,12 +198,36 @@ function movementEnemy(){
 					enemy[i].direction = parseDirectionEnemy(i);
 					enemy[i].distanceTraveled = 0;
 				}
+			}else if(enemy[i].movement == "chaseHor"){
+
+				// If player is down of enemy and player is between a space
+				// if(player.y >= enemy[i].y && player.y <= enemy[i].y+100){
+				if(player.y <= enemy[i].y+100 && player.y >= enemy[i].y-100){
+					if(enemy[i].x < player.x){
+						if(enemy[i].acceleration < _SpeedEnemy*1.2)
+							enemy[i].acceleration += 1;
+						else
+							enemy[i].acceleration -= 1;
+						enemy[i].x += enemy[i].acceleration;
+						enemy[i].direction = "right";
+					}else if(enemy[i].x > player.x){
+						if(enemy[i].acceleration < _SpeedEnemy*1.2)
+							enemy[i].acceleration += 1;
+						else
+							enemy[i].acceleration -= 1;
+						enemy[i].x -= enemy[i].acceleration;
+						enemy[i].direction = "left";
+					}else{
+						if(enemy[i].acceleration > 0)
+							enemy[i].acceleration -= 1;
+					}
+				}
 			}
 		}
 	}
 }
 
-function movementBackEnemy(index){
+function movementBackEnemy(index, elementOfColissionX){
 	if(enemy[i].movement == "horizontal")
 		enemy[index].x += (enemy[index].toggleDirection) ? -15 : +15;
 	else if(enemy[i].movement == "vertical")
@@ -222,6 +246,15 @@ function movementBackEnemy(index){
 		    case "right":
 		        enemy[index].x -= 15;
 		        break;
+		}
+	}else if(enemy[i].movement == "chaseHor"){
+		switch(enemy[index].direction) {
+			case "left":
+				enemy[index].x = elementOfColissionX + _SizeBlock;
+				break;
+			case "right":
+				enemy[index].x = elementOfColissionX - _SizeBlock;
+				break;
 		}
 	}
 }
