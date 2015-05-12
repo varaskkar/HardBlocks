@@ -228,11 +228,11 @@ function movementEnemy(){
 }
 
 function movementBackEnemy(index, elementOfColissionX){
-	if(enemy[i].movement == "horizontal")
+	if(enemy[index].movement == "horizontal")
 		enemy[index].x += (enemy[index].toggleDirection) ? -15 : +15;
-	else if(enemy[i].movement == "vertical")
+	else if(enemy[index].movement == "vertical")
 		enemy[index].y += (enemy[index].toggleDirection) ? -15 : +15;
-	else if(enemy[i].movement == "random"){
+	else if(enemy[index].movement == "random"){
 		switch(enemy[index].direction) {
 		    case "up":
 		        enemy[index].y += 15;
@@ -247,7 +247,7 @@ function movementBackEnemy(index, elementOfColissionX){
 		        enemy[index].x -= 15;
 		        break;
 		}
-	}else if(enemy[i].movement == "chaseHor"){
+	}else if(enemy[index].movement == "chaseHor"){
 		switch(enemy[index].direction) {
 			case "left":
 				enemy[index].x = elementOfColissionX + _SizeBlock;
@@ -262,9 +262,9 @@ function movementBackEnemy(index, elementOfColissionX){
 // When the enemy collides with a block, he change of direction depending on the previous direction
 function parseDirectionEnemy(index){
 	var newDirection = "right";
-	if(enemy[i].movement == "horizontal" || enemy[i].movement == "vertical"){
+	if(enemy[index].movement == "horizontal" || enemy[index].movement == "vertical"){
 		enemy[index].toggleDirection = !enemy[index].toggleDirection;
-	}else if(enemy[i].movement == "random"){
+	}else if(enemy[index].movement == "random"){
 		var previousDirection = enemy[index].direction;
 		do{
 			var rn = random(4);

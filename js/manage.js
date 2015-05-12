@@ -8,7 +8,7 @@ requirejs(['sound']);
 
 window.addEventListener('load',init,false);
 
-const _LifePlayer = 2, _TimeProtected = 125,         _PointsTouchBlock = 2, _MunitionWeapon1 = 9999,
+const _LifePlayer = 2, _TimeProtected = 125,         _PointsTouchBlock = 2, _MunitionWeapon1 = 999999,
 	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsTouchEnemy = 4, _MunitionWeapon2 = 500,
 	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsKillBlock = 5,
 	  				   _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
@@ -128,6 +128,8 @@ function run(){
 	draw();
 	templateSetPoints(player.score);
 	templateSetLives(player.life);
+	templateSetWeapon1(player.munitionWeapon1);
+	templateSetWeapon2(player.munitionWeapon2);
 }
 
 function game(){
@@ -274,15 +276,15 @@ function draw() {
 	ctx.fillStyle = '#fff';
 	if(info){
 		ctx.fillText('Key: '+key,5,15);
-		ctx.fillText('Score: '+player.score,5,30);
-		ctx.fillText('Bullets 1: '+bullets1.length,5,45);
-		ctx.fillText('Bullets 2: '+bullets2.length,5,60);
-		ctx.fillText('Bullets Test: '+bulletsTest.length,5,75);
-		ctx.fillText('Weapon2: '+player.munitionWeapon2,5,90);
-		ctx.fillText('Fps: '+ getFps().toFixed(1),5,105);
-		ctx.fillText('Lifes: '+player.life,5,120);
-		ctx.fillText('Rotation: '+player.rotation,5,135);
-		ctx.fillText('Map: '+currentMap.replace("map_",""),5,150);
+		ctx.fillText('Fps: '+ getFps().toFixed(1),5,30);
+		ctx.fillText('Rotation: '+player.rotation,5,45);
+		ctx.fillText('Bullets 1: '+bullets1.length,5,60);
+		ctx.fillText('Bullets 2: '+bullets2.length,5,75);
+		ctx.fillText('Bullets Test: '+bulletsTest.length,5,90);
+		ctx.fillText('Map: '+currentMap.replace("map_",""),5,105);
+		// ctx.fillText('Score: '+player.score,5,30);
+		// ctx.fillText('Weapon2: '+player.munitionWeapon2,5,90);
+		// ctx.fillText('Lifes: '+player.life,5,120);
 		// ctx.fillText('Time Protection: '+player.timeProtected,5,165);
 		// ctx.fillText('Time Level: '+player.timeChangeLevel,5,180);
 		// ctx.fillText('Time Home: '+player.timeRechargeHome,5,195);
@@ -291,8 +293,8 @@ function draw() {
 		// ctx.fillText('Enemy 2 - Hor/Vert: '+enemy[1].toggleDirection,5,225);
 		// ctx.fillText('Enemy 1 - Dir: '+enemy[0].direction,5,240);
 		// ctx.fillText('Enemy 2 - Dir: '+enemy[1].direction,5,255);
-		ctx.fillText('Player - x: '+player.x,5,240);
-		ctx.fillText('Enemy - X: '+enemy[0].x,5,255);
+		// ctx.fillText('Player - x: '+player.x,5,240);
+		// ctx.fillText('Enemy - X: '+enemy[0].x,5,255);
 	}
 
 	ctx.font = "18px Verdana";

@@ -55,8 +55,9 @@ canvas{
 	position: relative;
 }
 #logo{
-	margin-top: -70px;
-	margin-left: 100px;
+	margin-top: -65px;
+	/*margin-left: 100px;*/
+	float: right;
 	width: 300px;
 	-webkit-filter: grayscale(0.3);
 	filter: grayscale(0.3);
@@ -64,29 +65,9 @@ canvas{
 	-ms-filter: grayscale(0.3);
 	filter: grayscale(0.3);
 }
-#score{
-	margin-top: -40px;
-	margin-left: 50px;
-}
-#scoreNum{
-	margin-top: -41px;
-	margin-left: 280px;
-}
-#lives{
-	margin-left: 40px;
-}
-#livesNum{
-	margin-top: -42px;
-	margin-left: 280px;
-}
 h1{
 	font-family: penstriped;
 	color: #A2B2C8;
-}
-.info{
-	text-shadow: 2px 2px 2px #888;
-	font-family: divertida;
-	color: #DFE1E4;
 }
 #sound{
 	width: 32px;
@@ -106,38 +87,40 @@ h1{
 	font-family: divertida;
 	src: url('../assets/font/playtime.ttf');
 }
-table {
+#right table {
 	width: 300px;
 	background: rgba(255, 255, 255, 0.15);
 	border-collapse: collapse;
 	/*font-family: Helvetica, Arial, sans-serif;*/
 	font-family: divertida;
 	/*border-radius:15px;*/
+	margin-top: 10px;
+	/*float: left;*/
 }
-th{
+#right th{
 	background: rgba(3, 33, 73, 0.15);
 	/*color: #D6DFE9;*/
 	padding: 5px 10px;
 	/*border-radius:15px;*/
 	color: #9EA8B3;
 }
-td{
+#right td{
 	padding: 5px;
 	padding-left: 10px;
 	/*color: #CCD6E1;*/
 	/*border-top: 1px solid #2C4969;*/
 	color: #1E1E2A;
 }
-td:nth-child(2n),
-td:nth-child(3n){
+#right td:nth-child(2n),
+#right td:nth-child(3n){
 	/*border-left: 1px solid #2C4969;*/
 }
-td:nth-child(2n):hover,
-td:nth-child(3n):hover{
+#right td:nth-child(2n):hover,
+#right td:nth-child(3n):hover{
 	/*background: rgba(125, 55, 255, 0.55);*/
 	background-size: 26px 26px;
 }
-td:hover{
+#right td:hover{
 	background-size: 26px 26px;
 }
 
@@ -145,6 +128,30 @@ td:hover{
         Al tener el borde inferior tabla redondeado, esto hace que en las filas impares
         muestre las esquinas. Solucionado con JQuery dentro de PHP más abajo.*/
 
-tr:nth-child(2n) {
-   	background: rgba(255, 255, 255, 0.15);
+#right tr:nth-child(2n) {
+   	background: rgba(255, 255, 255, 0.10);
+}
+#left table#text {
+	width: 130px;
+	float: right;
+	/*background: red;*/
+}
+#left table#values {
+	width: 130px;
+	float: right;
+	/*background: rgba(255, 255, 255, 0.15);*/
+}
+#left tr:nth-child(2n) {
+   	/*background: rgba(255, 255, 255, 0.10);*/
+}
+#left td{
+	padding: 3px;
+	/*padding-left: 10px;*/
+	/*padding-bottom: 2px;*/
+	/*color: #1E1E2A;*/
+
+	text-shadow: 2px 2px 2px #424345;
+	font-family: divertida;
+	color: #C3C8CF;
+	font-size: 18px;
 }

@@ -45,9 +45,7 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
-new enemy's movement system
-
- ☐ movementBackEnemy cambiar las "i" del for por el "index" que recibe
+ ☐ Que el enemigo dispare
 
  ☐ Error
      ☐ no se oye la explosion del enemigo cuando se le mata con el arma1
@@ -106,6 +104,7 @@ new enemy's movement system
         ✔ Azar: Al chocar un núm al azar decida que direccion elegir y seguir en ella hasta chocar @done (30-04-15 15:57)
             ✔ Si se ha desplazado la mitad del mapa, que ya cambie de direccion @done (04-05-15 19:23)
             ✔ Cuando choque que se desplace en una direccion diferente de la que tenia anteriormente @done (04-05-15 18:30)
+        ✔ Perseguir Horizontalmente @done (12-05-15 20:42)
         ☐ Algoritmo del movimiento angular para que me siga
     ✔ Concurrencia @done (07-05-15 21:01)
     ☐ IA > Me dispare cuando me acerque a él

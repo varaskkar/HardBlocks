@@ -1,16 +1,18 @@
 var fps = 0, now, lastUpdate = (new Date)*1 - 1, fpsFilter = 50;
 
-var ElementLives  = document.getElementById("livesNum");
-var ElementPoints = document.getElementById("scoreNum");
-var ElementLight1 = document.getElementById("light1");
-var ElementLight2 = document.getElementById("light2");
-var ElementTable  = document.getElementsByTagName("table")[0];
-var ElementShadow = document.getElementById("shadow");
-var ElementSound  = document.getElementById("sound");
-var ElementLogo   = document.getElementById("logo");
-var ElementLine   = document.getElementsByTagName("hr")[0];
-var ElementBody   = document.getElementsByTagName("body")[0];
-var ElementCanvas = document.getElementsByTagName("canvas")[0];
+var ElementLives   = document.getElementById("livesNum");
+var ElementPoints  = document.getElementById("scoreNum");
+var ElementWeapon1 = document.getElementById("weapon1Num");
+var ElementWeapon2 = document.getElementById("weapon2Num");
+var ElementLight1  = document.getElementById("light1");
+var ElementLight2  = document.getElementById("light2");
+var ElementTable   = document.getElementsByTagName("table")[0];
+var ElementShadow  = document.getElementById("shadow");
+var ElementSound   = document.getElementById("sound");
+var ElementLogo    = document.getElementById("logo");
+var ElementLine    = document.getElementsByTagName("hr")[0];
+var ElementBody    = document.getElementsByTagName("body")[0];
+var ElementCanvas  = document.getElementsByTagName("canvas")[0];
 
 function getFps(){
 	if(!pause){
@@ -79,12 +81,14 @@ function templateSetFullscreen(enable){
 
 function templateSetLives(lives){ ElementLives.innerHTML = formatNumbers(lives); }
 function templateSetPoints(points){ ElementPoints.innerHTML = formatNumbers(points); }
+function templateSetWeapon1(munition){ if(munition >= 9999){ munition = "∞"; } ElementWeapon1.innerHTML = munition; }
+function templateSetWeapon2(munition){ ElementWeapon2.innerHTML = formatNumbers(munition); }
 
 function templateSetLightEfects(enable){
 	if(!enable){
 		setTimeout(templateSetLightEfects,100);
-		ElementLives.style.color  = '#DFE1E4';
-		ElementPoints.style.color = '#DFE1E4';
+		ElementLives.style.color  = '#C3C8CF';
+		ElementPoints.style.color = '#C3C8CF';
 		ElementLight1.src         = "assets/img/lighEffect1.png";
 		ElementLight2.src         = "assets/img/lighEffect1.png";
 	}else{

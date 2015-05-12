@@ -81,9 +81,6 @@ function Player(x, y, width, height){
  	this.munitionWeapon1 = 0;
  	this.munitionWeapon2 = 0;
 
- 	if(this.munitionWeapon1 >= 999)
- 		this.munitionWeapon1 = 99999999999;
-
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){
 	   		return this.x < thing.x+thing.width &&

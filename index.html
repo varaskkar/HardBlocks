@@ -19,10 +19,18 @@
     <section>
         <div id="left">
             <img id="logo" src="assets/img/dodoSoftware.png">
-            <h3 class="info" id="score">Score</h3>
-            <h3 class="info" id="scoreNum">0</h3>
-            <h3 class="info" id="lives">Lives</h3>
-            <h3 class="info" id="livesNum">1</h3>
+            <table id="values">
+                <tr><td id="scoreNum">0</td></tr>
+                <tr><td id="livesNum">0</td></tr>
+                <tr><td id="weapon1Num">0</td></tr>
+                <tr><td id="weapon2Num">0</td></tr>
+            </table>
+            <table id="text">
+                <tr><td>Score</td></tr>
+                <tr><td>Lives</td></tr>
+                <tr><td>Weapon 1</td></tr>
+                <tr><td>Weapon 2</td></tr>
+            </table>
         </div>
         <div id="center">
             <canvas width="560" height="360">Sorry, your browser don't support Canvas</canvas>
@@ -33,10 +41,7 @@
                 <thead>
                     <tr><th>Key</th><th>Description</th></tr>
                 </thead>
-<!--                 <tbody>
-                    <tr><td>1</td><td>Map 1</td></tr>
-                    <tr><td>2</td><td>Map 2</td></tr>
-                    <tr><td>3</td><td>Empty map</td></tr> -->
+                <tbody>
                     <tr><td>7</td><td>Information</td></tr>
                     <tr><td>Enter</td><td>Pause & Start</td></tr>
                     <tr><td>Z</td><td>Weapon 1</td></tr>
