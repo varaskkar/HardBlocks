@@ -13,6 +13,7 @@ const _LifePlayer = 2, _TimeProtected = 125,         _PointsTouchBlock = 2, _Mun
 	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsKillBlock = 5,
 	  				   _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
 	  				   _TimeShowDamagedEnemy = 10,   _PointsGetLife = 3,
+	  				   _TimeToShoot = 30,
 
 	  _DamageWeapon = 1,
 	  _DamageExplosionEnemy = _LifeEnemy,
@@ -22,7 +23,6 @@ const _LifePlayer = 2, _TimeProtected = 125,         _PointsTouchBlock = 2, _Mun
 var canvas = null, ctx = null;
 var key = null;
 var keyPressed = [];
-var bullets1 = [], bullets2 = [], bulletsTest = [];
 
 var info       = true,
 	pause      = false,
@@ -116,7 +116,8 @@ function reset(){
 	player.munitionWeapon2 = _MunitionWeapon2;
 	player.timeProtected   = 0;
 	gameOver               = false
-	loadMap("map_1", 270, 330, 0);
+	// loadMap("map_1", 270, 330, 0);
+	loadMap("map_1", 479, 339, 0);
 
 	// Map to create animated gifs, to show the game's features in Github
 	// loadMap("map_11", 290, 81, 90);
@@ -128,17 +129,17 @@ function run(){
 	draw();
 	templateSetPoints(player.score);
 	templateSetLives(player.life);
-	templateSetWeapon1(player.munitionWeapon1);
-	templateSetWeapon2(player.munitionWeapon2);
+	templateSetWeapon1(player.munition1);
+	templateSetWeapon2(player.munition2);
 }
 
 function game(){
     if(!pause){
 	    movementPlayer();
 		movementEnemy();
-		weapon1(player, bullets1);
-		weapon2(player, bullets2);
-		// weaponTest(player, bulletsTest);
+		weapon1(player, player.bullets1);
+		weapon2(player, player.bullets2);
+		// weaponTest(player, player.bulletsWeapon3);
 		collision();
 		basicConditions();
 	}
@@ -148,7 +149,8 @@ function game(){
 function draw() {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 
-	// rectangle(ctx, enemy[0].x,enemy[0].y,enemy[0].width,enemy[0].height + 75, "#614E70");
+	if(typeof enemy[0] != "undefined")
+		rectangle(ctx, enemy[0].x,enemy[0].y,enemy[0].width,enemy[0].height + 125, "#692A03");
 
 	// player -> home
 	for(i in home){
@@ -160,17 +162,17 @@ function draw() {
 	}
 
 	// bullets1 -> home
-	for(i in bullets1){
+	for(i in player.bullets1){
 		for(j in home){
-			if(bullets1[i].collide(home[j]))
+			if(player.bullets1[i].collide(home[j]))
 				roundRect(ctx, home[j].x, home[j].y, home[j].width, home[j].height, 20, false, true, null, "#692A03");
 		}
 	}
 
 	// bullets2 -> home
-	for(i in bullets2){
+	for(i in player.bullets2){
 		for(j in home){
-			if(bullets2[i].collide(home[j]))
+			if(player.bullets2[i].collide(home[j]))
 				roundRect(ctx, home[j].x, home[j].y, home[j].width, home[j].height, 20, false, true, null, "#692A03");
 		}
 	}
@@ -263,14 +265,21 @@ function draw() {
 	for(i in fire)
 		ctx.drawImage(iBlockRed,fire[i].x,fire[i].y,fire[i].width,fire[i].height);
 
-	for(i in bullets1)
-  		rectangle(ctx, bullets1[i].x,bullets1[i].y,bullets1[i].width,bullets1[i].height, "#614E70");
+	for(i in player.bullets1){
+  		rectangle(ctx, player.bullets1[i].x,player.bullets1[i].y,player.bullets1[i].width,player.bullets1[i].height, "#614E70");
+	}
 
-	for(i in bullets2)
-  		rectangle(ctx, bullets2[i].x,bullets2[i].y,bullets2[i].width,bullets2[i].height, "#4A6192");
+	for(i in player.bullets2)
+  		rectangle(ctx, player.bullets2[i].x,player.bullets2[i].y,player.bullets2[i].width,player.bullets2[i].height, "#4A6192");
 
-	for(i in bulletsTest)
-  		rectangle(ctx, bulletsTest[i].x,bulletsTest[i].y,bulletsTest[i].width,bulletsTest[i].height, "#4A6192");
+	// for(i in bulletsTest)
+ //  		rectangle(ctx, bulletsTest[i].x,bulletsTest[i].y,bulletsTest[i].width,bulletsTest[i].height, "#4A6192");
+
+  	for(i in enemy){
+  		for(j in enemy[i].bullets){
+  			rectangle(ctx, enemy[i].bullets[j].x,enemy[i].bullets[j].y,enemy[i].bullets[j].width,enemy[i].bullets[j].height, "#4DE700");
+  		}
+  	}
 
 	ctx.font = "10px Verdana";
 	ctx.fillStyle = '#fff';
@@ -278,10 +287,11 @@ function draw() {
 		ctx.fillText('Key: '+key,5,15);
 		ctx.fillText('Fps: '+ getFps().toFixed(1),5,30);
 		ctx.fillText('Rotation: '+player.rotation,5,45);
-		ctx.fillText('Bullets 1: '+bullets1.length,5,60);
-		ctx.fillText('Bullets 2: '+bullets2.length,5,75);
-		ctx.fillText('Bullets Test: '+bulletsTest.length,5,90);
-		ctx.fillText('Map: '+currentMap.replace("map_",""),5,105);
+		ctx.fillText('Bullets 1: '+player.bullets1.length,5,60);
+		ctx.fillText('Bullets 2: '+player.bullets2.length,5,75);
+		// ctx.fillText('Bullets Test: '+bulletsTest.length,5,90);
+		// ctx.fillText('Bullets Enemy: '+enemy[0].bulletsEnemy.length,5,105);
+		ctx.fillText('Map: '+currentMap.replace("map_",""),5,120);
 		// ctx.fillText('Score: '+player.score,5,30);
 		// ctx.fillText('Weapon2: '+player.munitionWeapon2,5,90);
 		// ctx.fillText('Lifes: '+player.life,5,120);
@@ -320,25 +330,33 @@ function basicConditions(){
 		pause = true;
 		loadSound(sGameOver);
 	}else{
-		if(player.rotation > 360)
-			player.rotation = 0;
-   	 	else if(player.rotation < 0)
-			player.rotation = 360;
+		if(player.life > 1){
+			if(player.rotation > 360)
+				player.rotation = 0;
+	   	 	else if(player.rotation < 0)
+				player.rotation = 360;
 
-		if(player.life < 1)
+			if(player.timeProtected > 0)
+			    player.timeProtected--;
+			if(player.timeChangeLevel > 0)
+				player.timeChangeLevel--;
+			if(player.timeRechargeHome > 0)
+				player.timeRechargeHome--;
+
+			for(i in enemy){
+				if(enemy[i].life > 0){
+					if(enemy[i].timeShowDamage > 0)
+						enemy[i].timeShowDamage--;
+					if(enemy[i].timeToShoot > 0)
+						enemy[i].timeToShoot--;
+				}else{
+					if(enemy[i].timeShowExplosion > 0)
+						enemy[i].timeShowExplosion--;
+					enemy[i].bullets.splice(0, enemy[i].bullets.length);
+				}
+			}
+		}else
 			gameOver = true;
-		if(player.timeProtected > 0)
-	        player.timeProtected--;
-		if(player.timeChangeLevel > 0)
-			player.timeChangeLevel--;
-		if(player.timeRechargeHome > 0)
-			player.timeRechargeHome--;
-		for(i in enemy){
-			if(enemy[i].timeShowExplosion > 0)
-				enemy[i].timeShowExplosion--;
-			if(enemy[i].timeShowDamage > 0)
-				enemy[i].timeShowDamage--;
-		}
 	}
 }
 

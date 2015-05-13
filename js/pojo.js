@@ -52,6 +52,10 @@ function Enemy(x, y, width, height, life, movement){
  	this.distanceTraveled = 0;
  	this.acceleration = 0;
 
+ 	// Weapon
+ 	this.timeToShoot = 0;
+ 	this.bullets = [];
+
  	if(typeof life != "undefined")
  		this.life = life;
  	if(typeof movement != "undefined")
@@ -78,8 +82,14 @@ function Player(x, y, width, height){
  	this.timeProtected = 0;
  	this.timeChangeLevel = 0;
  	this.timeRechargeHome = 0;
- 	this.munitionWeapon1 = 0;
- 	this.munitionWeapon2 = 0;
+
+ 	// Weapon 1
+ 	this.bullets1 = [];
+ 	this.munition1 = 0;
+
+ 	// Weapon 2
+ 	this.bullets2 = [];
+ 	this.munition2 = 0;
 
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){

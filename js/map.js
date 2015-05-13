@@ -111,9 +111,9 @@ function clearMap(){
 	fire.splice(0, fire.length);
 	blockWhiteVert.splice(0, blockWhiteVert.length);
 	blockWhiteHor.splice(0, blockWhiteHor.length);
-	bullets1.splice(0, bullets1.length);
-	bullets2.splice(0, bullets2.length);
-	bulletsTest.splice(0, bulletsTest.length);
+	player.bullets1.splice(0, player.bullets1.length);
+	player.bullets2.splice(0, player.bullets2.length);
+	// bulletsTest.splice(0, bulletsTest.length);
 	portalInput.splice(0, portalInput.length);
 	portalOutput.splice(0, portalOutput.length);
 	home.splice(0, home.length);
@@ -401,18 +401,18 @@ map12 = [
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,'H','H', 1 ,   ,'P1','P1','P1',   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,'H','H', 1 ,   ,'P1','P1','P1',   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   ,   ,'H','H', 1 ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,'ER',   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   , 1 , 1 , 1 , 1 ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 , 5 ,   ,   ,   ,   ,   ,   , 1 , 1 , 1 , 1 ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 , 1 ,   ,   ,   ,   ,   ,   , 1 , 0 ,   , 1 ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 ,'EV',   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,'ES',   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 5 ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 5 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ,   ,   ,   ,'ES',   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
-	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,'EV',   ,   ,   ,   ,   ,   ,'EV',   ,   ,   ,   ,   ,   ,   ,   ],
+	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ],
 	[   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   , 1 ,   ,   ,   ,   ,   ,   ,   ,   ]

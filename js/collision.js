@@ -356,13 +356,13 @@ function collisionLife(){
 }
 
 function collisionBullets1(){
-	for(i in bullets1){
+	for(i in player.bullets1){
 
 		// Bullets1 -> BlockBrown
 		for(j in blockBrown){
-			if(bullets1[i].collide(blockBrown[j])){
+			if(player.bullets1[i].collide(blockBrown[j])){
 	  			player.score += _PointsTouchBlock;
-				bullets1.splice(i,1);
+				player.bullets1.splice(i,1);
 
 				if(blockBrown[j].life > 0)
 					blockBrown[j].life -= _DamageWeapon;
@@ -375,45 +375,45 @@ function collisionBullets1(){
 
 		// Bullets1 -> BlockGray
 		for(j in blockGray){
-			if(bullets1[i].collide(blockGray[j])){
-	  			bullets1.splice(i,1);
+			if(player.bullets1[i].collide(blockGray[j])){
+	  			player.bullets1.splice(i,1);
  			}
 		}
 
 		// Bullets1 -> fire
 		for(j in fire){
-			if(bullets1[i].collide(fire[j])){
-	  			bullets1.splice(i,1);
+			if(player.bullets1[i].collide(fire[j])){
+	  			player.bullets1.splice(i,1);
 	  			templateSetLightEfects(true);
  			}
 		}
 
 		// Bullets1 -> BlockWhite
 		for(j in blockWhiteVert){
-	  		if(bullets1[i].collide(blockWhiteVert[j])){
-	  			if(bullets1[i].maxRebounds < _MaxRebounds){
-	  				// bullets1[i].velY = -bullets1[i].velY;
-	  				bullets1[i].velY *= -1;
-	  				bullets1[i].maxRebounds++;
+	  		if(player.bullets1[i].collide(blockWhiteVert[j])){
+	  			if(player.bullets1[i].maxRebounds < _MaxRebounds){
+	  				// player.bullets1[i].velY = -player.bullets1[i].velY;
+	  				player.bullets1[i].velY *= -1;
+	  				player.bullets1[i].maxRebounds++;
 	  				loadSound(sRebounds);
 	  			}else
-					bullets1.splice(i,1);
+					player.bullets1.splice(i,1);
 			}
 		}
 		for(j in blockWhiteHor){
-	  		if(bullets1[i].collide(blockWhiteHor[j])){
-	  			if(bullets1[i].maxRebounds < _MaxRebounds){
-	  				// bullets1[i].velX = -bullets1[i].velX;
-	  				bullets1[i].velX *= -1;
-	  				bullets1[i].maxRebounds++;
+	  		if(player.bullets1[i].collide(blockWhiteHor[j])){
+	  			if(player.bullets1[i].maxRebounds < _MaxRebounds){
+	  				// player.bullets1[i].velX = -player.bullets1[i].velX;
+	  				player.bullets1[i].velX *= -1;
+	  				player.bullets1[i].maxRebounds++;
 	  				loadSound(sRebounds);
 				}else
-					bullets1.splice(i,1);
+					player.bullets1.splice(i,1);
 			}
 		}
 
 		// Bullets1 -> life
-		if(bullets1[i].collide(life)){
+		if(player.bullets1[i].collide(life)){
 			player.life++;
 			loadSound(sGetLife);
 	  		life.x = random(canvas.width - 10);
@@ -422,23 +422,23 @@ function collisionBullets1(){
 
 		// Bullets1 -> Portal
 		for(j in portalInput){
-			if(bullets1[i].collide(portalInput[j])){
-		  		bullets1.splice(i,1);
+			if(player.bullets1[i].collide(portalInput[j])){
+		  		player.bullets1.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
 		for(j in portalOutput){
-			if(bullets1[i].collide(portalOutput[j])){
-		  		bullets1.splice(i,1);
+			if(player.bullets1[i].collide(portalOutput[j])){
+		  		player.bullets1.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
 
 		// Bullets1 -> Enemy
 		for(j in enemy){
-			if(bullets1[i].collide(enemy[j])){
+			if(player.bullets1[i].collide(enemy[j])){
 				player.score += _PointsTouchEnemy;
-	  			bullets1.splice(i,1);
+	  			player.bullets1.splice(i,1);
 
 	  			if(enemy[j].life > 0)
 					enemy[j].life -= _DamageWeapon;
@@ -455,13 +455,13 @@ function collisionBullets1(){
 }
 
 function collisionBullets2(){
-	for(i in bullets2){
+	for(i in player.bullets2){
 
 		// Bullets2 -> BlockBrown
 		for(j in blockBrown){
-			if(bullets2[i].collide(blockBrown[j])){
+			if(player.bullets2[i].collide(blockBrown[j])){
 	  			player.score += _PointsTouchBlock;
-				bullets2.splice(i,1);
+				player.bullets2.splice(i,1);
 
 				if(blockBrown[j].life <= 0)
 					blockBrown.splice(j,1);
@@ -472,70 +472,70 @@ function collisionBullets2(){
 			}
 		}
 
-		// Bullets1 -> BlockGray
+		// Bullets2 -> BlockGray
 		for(j in blockGray){
-			if(bullets2[i].collide(blockGray[j])){
-	  			bullets2.splice(i,1);
+			if(player.bullets2[i].collide(blockGray[j])){
+	  			player.bullets2.splice(i,1);
  			}
 		}
 
 		// Bullets2 -> BlockWhite
 		for(j in blockWhiteVert){
-	  		if(bullets2[i].collide(blockWhiteVert[j])){
-	  			if(bullets2[i].maxRebounds < _MaxRebounds){
-	  				bullets2[i].velY *= -1;
-	  				bullets2[i].maxRebounds++;
+	  		if(player.bullets2[i].collide(blockWhiteVert[j])){
+	  			if(player.bullets2[i].maxRebounds < _MaxRebounds){
+	  				player.bullets2[i].velY *= -1;
+	  				player.bullets2[i].maxRebounds++;
 	  				loadSound(sRebounds);
 	  			}else
-					bullets2.splice(i,1);
+					player.bullets2.splice(i,1);
 			}
 		}
 		for(j in blockWhiteHor){
-	  		if(bullets2[i].collide(blockWhiteHor[j])){
-	  			if(bullets2[i].maxRebounds < _MaxRebounds){
-	  				bullets2[i].velX *= -1;
-	  				bullets2[i].maxRebounds++;
+	  		if(player.bullets2[i].collide(blockWhiteHor[j])){
+	  			if(player.bullets2[i].maxRebounds < _MaxRebounds){
+	  				player.bullets2[i].velX *= -1;
+	  				player.bullets2[i].maxRebounds++;
 	  				loadSound(sRebounds);
 				}else
-					bullets2.splice(i,1);
+					player.bullets2.splice(i,1);
 			}
 		}
 
 		// Bullets2 -> life
-		if(bullets2[i].collide(life)){
+		if(player.bullets2[i].collide(life)){
 			player.life++;
 			loadSound(sGetLife);
 	  		life.x = random(canvas.width - 10);
 	  		life.y = random(canvas.height - 10);
 		}
 
-		// Bullets2 ->Portal
+		// Bullets2 -> Portal
 		for(j in portalInput){
-			if(bullets2[i].collide(portalInput[j])){
-		  		bullets2.splice(i,1);
+			if(player.bullets2[i].collide(portalInput[j])){
+		  		player.bullets2.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
 		for(j in portalOutput){
-			if(bullets2[i].collide(portalOutput[j])){
-		  		bullets2.splice(i,1);
+			if(player.bullets2[i].collide(portalOutput[j])){
+		  		player.bullets2.splice(i,1);
 		  		templateSetLightEfects(true);
 			}
 		}
 
 		// Bullets2 -> fire
 		for(j in fire){
-			if(bullets2[i].collide(fire[j])){
-	  			bullets2.splice(i,1);
+			if(player.bullets2[i].collide(fire[j])){
+	  			player.bullets2.splice(i,1);
 	  			templateSetLightEfects(true);
  			}
 		}
 
 		// Bullets2 -> Enemy
 		for(j in enemy){
-			if(bullets2[i].collide(enemy[j])){
+			if(player.bullets2[i].collide(enemy[j])){
 				player.score += _PointsTouchEnemy;
-	  			bullets2.splice(i,1);
+	  			player.bullets2.splice(i,1);
 
 	  			if(enemy[j].life > 0)
 					enemy[j].life -= _DamageWeapon;

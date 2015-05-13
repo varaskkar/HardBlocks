@@ -6,7 +6,9 @@ var ElementWeapon1 = document.getElementById("weapon1Num");
 var ElementWeapon2 = document.getElementById("weapon2Num");
 var ElementLight1  = document.getElementById("light1");
 var ElementLight2  = document.getElementById("light2");
-var ElementTable   = document.getElementsByTagName("table")[0];
+var ElementTable1   = document.getElementsByTagName("table")[0];
+var ElementTable2   = document.getElementsByTagName("table")[1];
+var ElementTable3   = document.getElementsByTagName("table")[2];
 var ElementShadow  = document.getElementById("shadow");
 var ElementSound   = document.getElementById("sound");
 var ElementLogo    = document.getElementById("logo");
@@ -51,7 +53,9 @@ function templateSetFullscreen(enable){
 		canvas.style.marginTop  =- (canvas.height*scale)/2+'px';
 		// canvas.style.transition = "all 2s";
 
-		ElementTable.style.visibility = "hidden";
+		ElementTable1.style.visibility = "hidden";
+		ElementTable2.style.visibility = "hidden";
+		ElementTable3.style.visibility = "hidden";
 		ElementShadow.style.visibility = "hidden";
 		ElementLine.style.visibility = "hidden";
 		ElementLight1.style.visibility = "hidden";
@@ -68,7 +72,9 @@ function templateSetFullscreen(enable){
 		canvas.style.marginLeft = '';
 		canvas.style.marginTop  = '';
 
-		ElementTable.style.visibility = "";
+		ElementTable1.style.visibility = "";
+		ElementTable2.style.visibility = "";
+		ElementTable3.style.visibility = "";
 		ElementShadow.style.visibility = "";
 		ElementLine.style.visibility = "";
 		ElementLight1.style.visibility = "";
@@ -227,12 +233,12 @@ function roundRect(ctx, x, y, width, height, radius, fill, stroke, fillStyle, st
 	ctx.closePath();
 
 	if(fill){
-		if(fillStyle != "undefined")
+		if(fillStyle != null)
 			ctx.fillStyle = fillStyle;
 		ctx.fill();
 	}
 	if(stroke){
-		if(strokeStyle != "undefined")
+		if(strokeStyle != null)
 			ctx.strokeStyle = strokeStyle;
 		ctx.stroke();
 	}

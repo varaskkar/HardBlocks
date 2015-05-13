@@ -201,8 +201,8 @@ function movementEnemy(){
 			}else if(enemy[i].movement == "chaseHor"){
 
 				// If player is down of enemy and player is between a space
-				// if(player.y >= enemy[i].y && player.y <= enemy[i].y+100){
-				if(player.y <= enemy[i].y+100 && player.y >= enemy[i].y-100){
+				if(player.y <= enemy[i].y+125 && player.y >= enemy[i].y-125){
+					weaponEnemy(i);
 					if(enemy[i].x < player.x){
 						if(enemy[i].acceleration < _SpeedEnemy*1.2)
 							enemy[i].acceleration += 1;
@@ -221,6 +221,9 @@ function movementEnemy(){
 						if(enemy[i].acceleration > 0)
 							enemy[i].acceleration -= 1;
 					}
+				}else{
+					// Return to initial position
+					enemy[i].bullets.splice(0, enemy[i].bullets.length);
 				}
 			}
 		}

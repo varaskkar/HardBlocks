@@ -46,12 +46,21 @@
     ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
 
  ☐ Que el enemigo dispare
+     ☐ Que la bala se mueva aunque el player no se encuentre en la zona del enemigo
+     ✔ Que no dispare infinitas balas seguidas...1bala/seg por ejemplo @done (13-05-15 18:08)
+     ☐ Que comience a disparar y a moverse cuando el player esté solo en la zona del enemigo
+     ☐ Colision balas enemigo
+     ☐ idea de poner los arrays de los bloques como atributos de una clase
+ ☐ Boton que al ser disparado active y desactive una pared que permita/bloquee el paso
+ ☐ en el metodo draw() poner condicionales para que no se ejecuten siempre
+ ✔ Poner las balas del player como atributos al igual que estan las del enemigo @done (13-05-15 18:08)
 
  ☐ Error
      ☐ no se oye la explosion del enemigo cuando se le mata con el arma1
      ☐ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse esté como esté de tamaño
+     ✔ roundRect() con algo de un color indefinido @done (12-05-15 23:34)
      ✔ La explosion de los enemigos en movimiento se muestra en un sitio distinto...why??? @done (12-05-15 16:41)
-     ☐ No mostrar -1 en las municiones del arma2
+     ✔ No mostrar -1 en las municiones del arma2 @done (12-05-15 23:05)
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
@@ -61,6 +70,7 @@
         ☐ Que me ataque si me acerco
     ☐ Que la nave pueda dejar bombas en el mapa y que si se le disparan explotan
         ☐ Si se pone unas al lado de otras exploten en cadena, al igual que los enemigos
+        ☐ Poder detonarlas una a una, pulsar una tecla y que exploten en el orden respectivo que se colocaron
 ☐ Poner en la plantilla las balas del arma1 y arma2
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten

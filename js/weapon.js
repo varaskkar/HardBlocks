@@ -754,3 +754,20 @@ function weaponTest(player, bullets){
     		bullets.splice(i,1);*/
   	}
 }
+
+function weaponEnemy(idx){
+
+	if(enemy[idx].timeToShoot == 0){
+		enemy[idx].bullets.push(new Bullet(enemy[idx].x+enemy[idx].width/2 + 1,enemy[idx].y + 15,_SizeWeapon,_SizeWeapon,0,4));
+		loadSound(sWeapon2);
+		enemy[idx].timeToShoot = _TimeToShoot;
+	}
+
+	for(j in enemy[idx].bullets){
+		enemy[idx].bullets[j].y += enemy[idx].bullets[j].velY;
+
+		// Remove bullets if exceed the map limits
+	 	if(enemy[idx].bullets[j].x < 0 || enemy[idx].bullets[j].y < 0)								enemy[idx].bullets.splice(j,1);
+		else if(enemy[idx].bullets[j].x > canvas.width || enemy[idx].bullets[j].y > canvas.height)	enemy[idx].bullets.splice(j,1);
+	}
+}
