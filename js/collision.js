@@ -551,7 +551,75 @@ function collisionBullets2(){
 	}
 }
 
+function collisionBulletsEnemy(){
+	for(i in enemy){
+		for(j in enemy[i].bullets){
 
+			// BulletsEnemy -> Player
+			if(enemy[i].bullets[j].collide(player)){
+				enemy[i].bullets.splice(j,1);
+			}
+
+			// BulletsEnemy -> BlockBrown
+			for(k in blockBrown){
+				if(enemy[i].bullets[j].collide(blockBrown[k])){
+					enemy[i].bullets.splice(j,1);
+				}
+			}
+
+			// BulletsEnemy -> BlockGray
+			for(k in blockGray){
+				if(enemy[i].bullets[j].collide(blockGray[k])){
+		  			enemy[i].bullets.splice(j,1);
+	 			}
+			}
+
+			// BulletsEnemy -> BlockWhite
+			for(k in blockWhiteVert){
+		  		if(enemy[i].bullets[j].collide(blockWhiteVert[k])){
+					enemy[i].bullets.splice(j,1);
+				}
+			}
+			for(k in blockWhiteHor){
+		  		if(enemy[i].bullets[j].collide(blockWhiteHor[k])){
+					enemy[i].bullets.splice(j,1);
+				}
+			}
+
+			// BulletsEnemy -> life
+			if(enemy[i].bullets[j].collide(life)){
+				enemy[i].bullets.splice(j,1);
+			}
+
+			// BulletsEnemy -> Portal
+			for(k in portalInput){
+				if(enemy[i].bullets[j].collide(portalInput[k])){
+					enemy[i].bullets.splice(j,1);
+				}
+			}
+			for(k in portalOutput){
+				if(enemy[i].bullets[j].collide(portalOutput[k])){
+					enemy[i].bullets.splice(j,1);
+				}
+			}
+
+			// BulletsEnemy -> fire
+			for(k in fire){
+				if(enemy[i].bullets[j].collide(fire[k])){
+		  			enemy[i].bullets.splice(j,1);
+	 			}
+			}
+
+			// BulletsEnemy -> Enemy
+			for(k in enemy){
+				// "j != k" avoid that enemy's bullets collides with itself
+				if(enemy[i].bullets[j].collide(enemy[k]) && j != k){
+					enemy[i].bullets.splice(j,1);
+	 			}
+			}
+		}
+	}
+}
 
 
 

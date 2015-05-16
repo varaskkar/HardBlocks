@@ -55,12 +55,18 @@
  ☐ en el metodo draw() poner condicionales para que no se ejecuten siempre
  ✔ Poner las balas del player como atributos al igual que estan las del enemigo @done (13-05-15 18:08)
 
+
+
+
  ☐ Error
+     ✔ Aun teniendo 2 vidas el player, se muere con solo 1 toque con el enemigo @done (16-05-15 14:54)
      ☐ no se oye la explosion del enemigo cuando se le mata con el arma1
      ☐ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse esté como esté de tamaño
      ✔ roundRect() con algo de un color indefinido @done (12-05-15 23:34)
      ✔ La explosion de los enemigos en movimiento se muestra en un sitio distinto...why??? @done (12-05-15 16:41)
      ✔ No mostrar -1 en las municiones del arma2 @done (12-05-15 23:05)
+     ☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
+     ☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
@@ -71,15 +77,13 @@
     ☐ Que la nave pueda dejar bombas en el mapa y que si se le disparan explotan
         ☐ Si se pone unas al lado de otras exploten en cadena, al igual que los enemigos
         ☐ Poder detonarlas una a una, pulsar una tecla y que exploten en el orden respectivo que se colocaron
-☐ Poner en la plantilla las balas del arma1 y arma2
+✔ Poner en la plantilla las balas del arma1 y arma2 @done (16-05-15 14:55)
 ☐ Al crear el mapa, poder poner el bloque marron con la vida que yo quiera, para hacer mapas coloridos
 ☐ Efecto de chispa y sonido de cuando las balas impacten
 ☐ Cuanto mas rebote una bala mas vida quite y vaya cambiando de color
 ☐ Poner un bloqueMarron algo distinto que al romperse suene un "tin" y me de mas puntos que el resto o algo parecido
 ☐ sumar el numero de rebotes de las balas a los puntos que te dan al destruir un bloque
 ☐ Al destruir bloques, que aparezcan al azar objetos en su misma posición
-☐ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y disminuye @Mirar
-☐ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye
 ☐ Cambiar el nombre de "nave" por otro mejor y en inglés
 ✔ El bloque de vida pueda activarse o no @done (08-05-15 01:32)
 ✔ Nueva captura del mapa en la pág de github y quitar las 2 actuales @done (08-05-15 01:32)

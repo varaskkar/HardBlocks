@@ -323,6 +323,7 @@ function collision(){
 	collisionLife();
 	collisionBullets1();
 	collisionBullets2();
+	collisionBulletsEnemy();
 }
 
 function basicConditions(){
@@ -330,7 +331,7 @@ function basicConditions(){
 		pause = true;
 		loadSound(sGameOver);
 	}else{
-		if(player.life > 1){
+		if(player.life > 0){
 			if(player.rotation > 360)
 				player.rotation = 0;
 	   	 	else if(player.rotation < 0)
