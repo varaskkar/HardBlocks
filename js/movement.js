@@ -199,31 +199,37 @@ function movementEnemy(){
 					enemy[i].distanceTraveled = 0;
 				}
 			}else if(enemy[i].movement == "chaseHor"){
+				getValuesAttackZone(i);
 
-				// If player is down of enemy and player is between a space
-				if(player.y <= enemy[i].y+125 && player.y >= enemy[i].y-125){
-					weaponEnemy(i);
+				// Attack's Zone
+				if(player.y > enemy[i].y && player.x > enemy[i].blockXClosestLeft && player.x < enemy[i].blockXClosestRight){
+					weaponEnemy(i, true);
 					if(enemy[i].x < player.x){
-						if(enemy[i].acceleration < _SpeedEnemy*1.2)
-							enemy[i].acceleration += 1;
-						else
-							enemy[i].acceleration -= 1;
+						enemy[i].acceleration += (enemy[i].acceleration < _SpeedEnemy*1.2) ? 1 : -1;
 						enemy[i].x += enemy[i].acceleration;
 						enemy[i].direction = "right";
 					}else if(enemy[i].x > player.x){
-						if(enemy[i].acceleration < _SpeedEnemy*1.2)
-							enemy[i].acceleration += 1;
-						else
-							enemy[i].acceleration -= 1;
+						enemy[i].acceleration += (enemy[i].acceleration < _SpeedEnemy*1.2) ? 1 : -1;
 						enemy[i].x -= enemy[i].acceleration;
 						enemy[i].direction = "left";
 					}else{
 						if(enemy[i].acceleration > 0)
-							enemy[i].acceleration -= 1;
+							enemy[i].acceleration--;
 					}
 				}else{
 					// Return to initial position
-					enemy[i].bullets.splice(0, enemy[i].bullets.length);
+					if(enemy[i].x < enemy[i].initX){
+						enemy[i].acceleration += (enemy[i].acceleration < _SpeedEnemy*1.2) ? 1 : -1;
+						enemy[i].x += enemy[i].acceleration;
+					}else if(enemy[i].x > enemy[i].initX){
+						enemy[i].acceleration += (enemy[i].acceleration < _SpeedEnemy*1.2) ? 1 : -1;
+						enemy[i].x -= enemy[i].acceleration;
+					}else{
+						if(enemy[i].acceleration > 0)
+							enemy[i].acceleration--;
+					}
+					// Bullets continues their movement
+					weaponEnemy(i, false);
 				}
 			}
 		}
@@ -280,11 +286,27 @@ function parseDirectionEnemy(index){
 	return newDirection;
 }
 
+function getValuesAttackZone(index){
+	// Save the values of axisX of blockGray, to get the enemy closer's valueX to left and right
+	if(enemy[index].getValuesXOnlyOnce){
+		var valuesBlocksXLeft = [], valuesBlocksXRight = [];
+		for(j in blockGray){
+			if(enemy[index].initY == blockGray[j].y){
+				if(blockGray[j].x < enemy[index].initX)
+					valuesBlocksXLeft.push(blockGray[j].x);
+				else
+					valuesBlocksXRight.push(blockGray[j].x);
+			}
+		}
+		valuesBlocksXLeft.sort(sortNumbersAscending);
+		valuesBlocksXRight.sort(sortNumbersDescending);
 
+		enemy[index].blockXClosestLeft = valuesBlocksXLeft[valuesBlocksXLeft.length - 1];
+		enemy[index].blockXClosestRight = valuesBlocksXRight[valuesBlocksXRight.length - 1];
 
-
-
-
+		enemy[index].getValuesXOnlyOnce = false;
+	}
+}
 
 
 

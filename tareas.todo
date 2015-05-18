@@ -43,19 +43,9 @@
     ✔ Al disparar las balas salgan desde el extremo sup. de la nave en todos los ejes @done (22-03-15 20:36)
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
-    ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
-
- ☐ Que el enemigo dispare
-     ☐ Que la bala se mueva aunque el player no se encuentre en la zona del enemigo
-     ✔ Que no dispare infinitas balas seguidas...1bala/seg por ejemplo @done (13-05-15 18:08)
-     ☐ Que comience a disparar y a moverse cuando el player esté solo en la zona del enemigo
-     ☐ Colision balas enemigo
-     ☐ idea de poner los arrays de los bloques como atributos de una clase
- ☐ Boton que al ser disparado active y desactive una pared que permita/bloquee el paso
- ☐ en el metodo draw() poner condicionales para que no se ejecuten siempre
- ✔ Poner las balas del player como atributos al igual que estan las del enemigo @done (13-05-15 18:08)
 
 
+ ☐ No poner efectos cuando las balas choquen contra los portales
 
 
  ☐ Error
@@ -112,16 +102,25 @@
         ✔ Cuando choque con algo, retroceder posición @done (30-04-15 15:57)
         ✔ Si una bala choca contra un enemigo, que éste parpadee @done (04-05-15 18:10)
         ✔ Puedan colisionar los enemigos entre sí @done (08-05-15 11:56)
-    ☐ Ponerle movimiento
+    ☐ Movimiento
         ✔ Horizontal @done (28-04-15 01:59)
         ✔ Vertical @done (28-04-15 13:34)
         ✔ Azar: Al chocar un núm al azar decida que direccion elegir y seguir en ella hasta chocar @done (30-04-15 15:57)
             ✔ Si se ha desplazado la mitad del mapa, que ya cambie de direccion @done (04-05-15 19:23)
             ✔ Cuando choque que se desplace en una direccion diferente de la que tenia anteriormente @done (04-05-15 18:30)
         ✔ Perseguir Horizontalmente @done (12-05-15 20:42)
+            ☐ Concurrencia ... no disparan mas de 2 a la vez
+            ☐ Choquen entre si
         ☐ Algoritmo del movimiento angular para que me siga
     ✔ Concurrencia @done (07-05-15 21:01)
-    ☐ IA > Me dispare cuando me acerque a él
+    ☐ Disparo
+        ✔ Que la bala se mueva aunque el player no se encuentre en la zona del enemigo @done (16-05-15 15:47)
+        ✔ Que no dispare infinitas balas seguidas...1bala/seg por ejemplo @done (13-05-15 18:08)
+        ☐ IA > Disparo automático: Me dispare cuando me acerque a él
+            ✔ Detecccion > Zona de ataque @done (18-05-15 18:52)
+                ✔ Verticalmente, por debajo del enemy @done (16-05-15 16:51)
+                ✔ Horizontalmente, comparando los ejesX de los bloques y los 2 más cerca, a izq y der @done (18-05-15 18:52)
+        ✔ Las balas colisionen @done (16-05-15 15:47)
 ☐ Base de salida
     ☐ Siempre que se vuelva a ella se reestablezcan los valores
         ☐ Vida
@@ -152,6 +151,7 @@
     ✔ Cambiar de fase, poner el que tengo asignado a getLife, pega mejor @done (07-04-15 16:58)
     ✔ Poder activar/desactivar el sonido haciendo clic en la img de la plantilla @done (07-04-15 17:52)
     ☐ Buscar sonido para los mapas...¿Guzmán?
+✔ Poner las balas del player como atributos al igual que estan las del enemigo @done (13-05-15 18:08)
 ✔ Cambiar el tema de la vida del bloqueMarron @done (26-04-15 13:35)
 ✔ Problema sonido: Si le doy a pausa y el sonido esta inactivo....no activarlo si no dejarlo inactivo @done (28-04-15 16:56)
 ✔ Al metodo createMap() pasarle el color de fondo del mapa como parámetro @done (07-04-15 18:17)
@@ -182,6 +182,9 @@
 ✔ Bloque marrón ahora no se destruye @Problema @done (30-03-15 17:26)
 ✔ tecla = null; @done (30-03-15 23:51)
 ✔ Formateadas código ASCII de las teclas @done (30-03-15 21:53)
+✘ en el metodo draw() poner condicionales para que no se ejecuten siempre @cancelled (16-05-15 16:08)
+✘ idea de poner los arrays de los bloques como atributos de una clase @cancelled (16-05-15 15:57)
+✘ Quitar los arrays de los mapas y cargar dichos mapas directamente desde mapList[i].map @cancelled (16-05-15 16:01)
 ✘ Poner el canvas y el contexto en una sola línea @cancelled (04-05-15 20:27)
 ✘ Unificar variables del POJO de horizontal/vertical y azar en 1 sola @cancelled (04-05-15 17:49)
 ✘ Fullscreen no funciona en Firefox @cancelled (22-04-15 17:42)
@@ -207,6 +210,9 @@
     ☐ Poner un limite de vidas que se puedan conseguir y de puntos
     ☐ Conseguir monedas o puntos para poder comprar cosas en home(base): armas, vida, ...
     ☐ Objeto, tanque de combustible, si le disparas explota como un enemigo, si lo coges te da combustible
+    ☐ Algo que al ser disparado aumente de tamaño poco a poco y luego explote
+    ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
+    ☐ Boton que al ser disparado active y desactive una pared que permita/bloquee el paso
 
 
 --- ✄ -----------------------

@@ -149,8 +149,8 @@ function game(){
 function draw() {
 	ctx.clearRect(0,0,canvas.width,canvas.height);
 
-	if(typeof enemy[0] != "undefined")
-		rectangle(ctx, enemy[0].x,enemy[0].y,enemy[0].width,enemy[0].height + 125, "#692A03");
+	// if(typeof enemy[0] != "undefined")
+	// 	rectangle(ctx, enemy[0].x,enemy[0].y,enemy[0].width,enemy[0].height + 125, "#692A03");
 
 	// player -> home
 	for(i in home){
@@ -276,9 +276,8 @@ function draw() {
  //  		rectangle(ctx, bulletsTest[i].x,bulletsTest[i].y,bulletsTest[i].width,bulletsTest[i].height, "#4A6192");
 
   	for(i in enemy){
-  		for(j in enemy[i].bullets){
+  		for(j in enemy[i].bullets)
   			rectangle(ctx, enemy[i].bullets[j].x,enemy[i].bullets[j].y,enemy[i].bullets[j].width,enemy[i].bullets[j].height, "#4DE700");
-  		}
   	}
 
 	ctx.font = "10px Verdana";
@@ -291,7 +290,7 @@ function draw() {
 		ctx.fillText('Bullets 2: '+player.bullets2.length,5,75);
 		// ctx.fillText('Bullets Test: '+bulletsTest.length,5,90);
 		// ctx.fillText('Bullets Enemy: '+enemy[0].bulletsEnemy.length,5,105);
-		ctx.fillText('Map: '+currentMap.replace("map_",""),5,120);
+		ctx.fillText('Map: '+currentMap.replace("map_",""),5,90);
 		// ctx.fillText('Score: '+player.score,5,30);
 		// ctx.fillText('Weapon2: '+player.munitionWeapon2,5,90);
 		// ctx.fillText('Lifes: '+player.life,5,120);

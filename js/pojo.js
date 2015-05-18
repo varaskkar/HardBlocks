@@ -33,6 +33,12 @@ function Enemy(x, y, width, height, life, movement){
  	this.height = height;
  	this.life = 0;
 
+	// Initial's values
+	this.initX = x;
+ 	this.initY = y;
+ 	this.initWidth = width;
+ 	this.initHeight = height;
+
 	// Damage
  	this.timeShowDamage = 0;
 
@@ -55,6 +61,11 @@ function Enemy(x, y, width, height, life, movement){
  	// Weapon
  	this.timeToShoot = 0;
  	this.bullets = [];
+
+ 	// Zone Attack
+ 	this.blockXClosestLeft;
+ 	this.blockXClosestRight;
+ 	this.getValuesXOnlyOnce = true;
 
  	if(typeof life != "undefined")
  		this.life = life;

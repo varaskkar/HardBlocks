@@ -755,9 +755,9 @@ function weaponTest(player, bullets){
   	}
 }
 
-function weaponEnemy(idx){
+function weaponEnemy(idx, shoot){
 
-	if(enemy[idx].timeToShoot == 0){
+	if(enemy[idx].timeToShoot == 0 && shoot){
 		enemy[idx].bullets.push(new Bullet(enemy[idx].x+enemy[idx].width/2 + 1,enemy[idx].y + 15,_SizeWeapon,_SizeWeapon,0,4));
 		loadSound(sWeapon2);
 		enemy[idx].timeToShoot = _TimeToShoot;

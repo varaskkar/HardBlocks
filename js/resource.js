@@ -271,11 +271,10 @@ function circle(ctx, x, y, radius, fillStyle, strokeStyle, lineWidth){
 	ctx.lineWidth = 1;
 }
 
-function isInt(n){
-	return Number(n)===n && n%1===0;
-}
+function isInt(n){ return Number(n)===n && n%1===0; }
 
-
+function sortNumbersAscending(elem1, elem2) { return elem1-elem2; }
+function sortNumbersDescending(elem1, elem2) { return elem2-elem1; }
 
 
 
