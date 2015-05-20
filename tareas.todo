@@ -26,7 +26,7 @@
             ✔ Cuando una bala da en el bloque, este cambia de color     @done (22-03-15 20:32)
         ✔ Blanco > Ladrillo (rebotan balas) @done (22-03-15 20:30)
             ✔ Rebotar las balas contra la pared @done (22-03-15 20:24)
-        ✔ Gris     > Inrrompible @done (08-05-15 01:30)
+        ✔ Gris     > Irrompible @done (08-05-15 01:30)
         ☐ Azul     > 1. Al destruirlo desaparezcan y 3s después aparezcan     2. Exploten
         ☐ Amarillo > Da puntos
         ☐ Verde    > Da objetos
@@ -58,6 +58,7 @@
      ✔ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y baja @done (20-05-15 18:24)
      ✔ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye @done (20-05-15 18:26)
      ✔ En la plantilla no aparecen las balas del jugador @done (20-05-15 18:21)
+     ☐ Cuando choca bala player con bala enemy...borrar del player la bala concreta que chooca, que no se vea en el canvas
      ☐ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse esté como esté de tamaño
      ☐ No se ve al enemigo cuando muere
 ☐ Fase
@@ -96,16 +97,20 @@
         ✔ Sonido @done (27-04-15 17:02)
         ✔ Que sea un circulo pequeño y vaya creciendo a medida @done (09-05-15 16:07)
         ✔ Destruya @done (10-05-15 13:40)
-        ☐ Al morir que deje objetos o algo
             ✔ los bloquesMarrones del mapa si entra en contacto con ellos @done (10-05-15 02:35)
             ✔ Player @done (10-05-15 02:37)
             ✔ Otros enemigos @done (10-05-15 13:40)
+        ☐ Al morir que deje objetos o algo
     ✔ Colisión @done (04-05-15 18:10)
         ✔ Cambiar posición @done (28-04-15 13:18)
         ✔ Cuando choque con algo, retroceder posición @done (30-04-15 15:57)
         ✔ Si una bala choca contra un enemigo, que éste parpadee @done (04-05-15 18:10)
         ✔ Puedan colisionar los enemigos entre sí @done (08-05-15 11:56)
         ☐ Con cualquier bloque @Hacer
+    ✔ Tipos @done (20-05-15 19:28)
+        ✔ 1. Movimiento > Horizontal || Vertical         No Dispara @done (20-05-15 19:28)
+        ✔ 2. Movimiento > Azar                           No Dispara @done (20-05-15 19:28)
+        ✔ 3. Movimiento > Perseguir Horizontalmente      Sí Dispara @done (20-05-15 19:28)
     ☐ Movimiento
         ✔ Horizontal @done (28-04-15 01:59)
         ✔ Vertical @done (28-04-15 13:34)
@@ -126,7 +131,6 @@
         ☐ Un mapa con el enemigo arriba que me siga, se ponga encima de un btn y que se abra una puerta que
         yo meta una bala por rebote en la sala y consiga un objeto
     ✔ Concurrencia @done (07-05-15 21:01)
-    ☐ A la hora de dibujar, que cada tipo de movimiento muestre una img distinta (parezcan como distintos enemigos) @Hacer
 ☐ Base de salida
     ☐ Siempre que se vuelva a ella se reestablezcan los valores
         ☐ Vida

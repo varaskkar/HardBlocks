@@ -31,7 +31,9 @@ var info       = true,
 	sound      = false;
 
 var iPlayer      = new Image(),
-	iEnemy       = new Image(),
+	iEnemy1      = new Image(),
+	iEnemy2      = new Image(),
+	iEnemy3      = new Image(),
  	iLife        = new Image(),
  	iBlockRed    = new Image(),
  	iBlockWhite  = new Image(),
@@ -75,7 +77,9 @@ function init(){
 
 function loadAssets(){
 	iPlayer.src      = 'assets/img/player1.png';
-	iEnemy.src       = 'assets/img/boat.png';
+	iEnemy1.src      = 'assets/img/boat.png';
+	iEnemy2.src      = 'assets/img/plane1.png';
+	iEnemy3.src      = 'assets/img/satelite.png';
 	iLife.src        = 'assets/img/life1.png';
 	iBlockRed.src    = 'assets/img/fire2.png';
 	iBlockWhite.src  = 'assets/img/blockWhite.png';
@@ -207,10 +211,26 @@ function draw() {
 	for(i in enemy){
 		if(enemy[i].life > 0){
 			if(enemy[i].timeShowDamage > 0){
-				if(enemy[i].timeShowDamage%2 == 0)
-					ctx.drawImage(iEnemy,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
-			}else
-				ctx.drawImage(iEnemy,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+				if(enemy[i].timeShowDamage%2 == 0){
+					if(enemy[i].movement == "horizontal" || enemy[i].movement == "vertical")
+						ctx.drawImage(iEnemy1,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+					else if(enemy[i].movement == "random")
+						ctx.drawImage(iEnemy2,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+					else if(enemy[i].movement == "chaseHor")
+						ctx.drawImage(iEnemy3,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+					else
+						ctx.drawImage(iEnemy1,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+				}
+			}else{
+				if(enemy[i].movement == "horizontal" || enemy[i].movement == "vertical")
+					ctx.drawImage(iEnemy1,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+				else if(enemy[i].movement == "random")
+					ctx.drawImage(iEnemy2,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+				else if(enemy[i].movement == "chaseHor")
+					ctx.drawImage(iEnemy3,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+				else
+					ctx.drawImage(iEnemy1,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+			}
 		}else{
 	  		if(enemy[i].setTimeOnlyOnce){
 	  			enemy[i].timeShowExplosion = _TimeShowExplosionEnemy;
