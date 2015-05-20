@@ -162,10 +162,10 @@ function collisionPlayer(){
 	for(i in home){
 		if(player.collide(home[i])){
 			// Recover life and munition
-			if(player.munitionWeapon2 <= 0 && player.timeRechargeHome == 0){
+			if(player.munition2 <= 0 && player.timeRechargeHome == 0){
 				player.timeRechargeHome = _TimeRechargeHome;
 
-				player.munitionWeapon2 = _MunitionWeapon2;
+				player.munition2 = _MunitionWeapon2;
 				loadSound(sHome);
 			}
 		}
@@ -267,12 +267,13 @@ function collisionEnemy(){
 			}
 		}
 
+		// Enemy -> Enemy
 		for(j in enemy){
 			// "i != j" avoid that the enemy collides with itself
 			if(enemy[i].collide(enemy[j]) && i != j){
-				if(enemy[i].life > 0){
+				if(enemy[i].life > 0)
 					enemy[i].direction = parseDirectionEnemy(i);
-				}else{
+				else{
 					enemy[j].life -= _DamageExplosionEnemy;
 					player.score += _PointsKillEnemy;
 				}
@@ -422,16 +423,12 @@ function collisionBullets1(){
 
 		// Bullets1 -> Portal
 		for(j in portalInput){
-			if(player.bullets1[i].collide(portalInput[j])){
+			if(player.bullets1[i].collide(portalInput[j]))
 		  		player.bullets1.splice(i,1);
-		  		templateSetLightEfects(true);
-			}
 		}
 		for(j in portalOutput){
-			if(player.bullets1[i].collide(portalOutput[j])){
+			if(player.bullets1[i].collide(portalOutput[j]))
 		  		player.bullets1.splice(i,1);
-		  		templateSetLightEfects(true);
-			}
 		}
 
 		// Bullets1 -> Enemy
@@ -450,6 +447,16 @@ function collisionBullets1(){
 
 	  			templateSetLightEfects(true);
  			}
+		}
+
+		// Bullets1 -> BulletsEnemy
+		for(j in enemy){
+			for(k in enemy[j].bullets){
+				if(player.bullets1[i].collide(enemy[j].bullets[k])){
+					enemy[j].bullets.splice(k, 1);
+					player.bullets1[i].splice(i, 1);
+				}
+			}
 		}
 	}
 }
@@ -548,6 +555,16 @@ function collisionBullets2(){
 	  			templateSetLightEfects(true);
  			}
 		}
+
+		// Bullets2 -> BulletsEnemy
+		for(j in enemy){
+			for(k in enemy[j].bullets){
+				if(player.bullets2[i].collide(enemy[j].bullets[k])){
+					enemy[j].bullets.splice(k, 1);
+					player.bullets2[i].splice(i, 1);
+				}
+			}
+		}
 	}
 }
 
@@ -562,9 +579,11 @@ function collisionBulletsEnemy(){
 
 			// BulletsEnemy -> BlockBrown
 			for(k in blockBrown){
-				if(enemy[i].bullets[j].collide(blockBrown[k])){
-					enemy[i].bullets.splice(j,1);
-				}
+				// if(typeof blockBrown[k] != "undefined"){
+					if(enemy[i].bullets[j].collide(blockBrown[k])){
+						enemy[i].bullets.splice(j,1);
+					}
+				// }
 			}
 
 			// BulletsEnemy -> BlockGray
@@ -612,9 +631,16 @@ function collisionBulletsEnemy(){
 
 			// BulletsEnemy -> Enemy
 			for(k in enemy){
-				// "j != k" avoid that enemy's bullets collides with itself
-				if(enemy[i].bullets[j].collide(enemy[k]) && j != k){
+				// "i != k" avoid that enemy's bullets collides with itself
+				if(enemy[i].bullets[j].collide(enemy[k]) && i != k){
 					enemy[i].bullets.splice(j,1);
+
+					// if(enemy[k].life > 0){
+					// 	enemy[k].life -= _DamageWeapon;
+					// }else{
+					// 	loadSound(sExplosion);
+					// 	player.score += _PointsKillEnemy;
+					// }
 	 			}
 			}
 		}

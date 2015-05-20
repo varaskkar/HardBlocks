@@ -253,7 +253,7 @@ function weapon1(player, bullets){
 function weapon2(player, bullets){
 
 	// Make bullets
-	if((key == formatKey("X") || key == formatKey("CTRL")) && player.munitionWeapon2 > 0){
+	if((key == formatKey("X") || key == formatKey("CTRL")) && player.munition2 > 0){
 		if(player.rotation == 0 || player.rotation == 360){
 			bullets.push(new Bullet(player.x-2,player.y - 3,_SizeWeapon,_SizeWeapon,4,4));
 			bullets.push(new Bullet(player.x+player.width/2-2,player.y - 3,_SizeWeapon,_SizeWeapon,4,4));
@@ -552,13 +552,13 @@ function weapon2(player, bullets){
 		 	bullets.push(new Bullet(player.x+player.width/2 - 21,player.y + 0,_SizeWeapon,_SizeWeapon,4,1));
 		}
 
-		player.munitionWeapon2 -= 3;
-		if(player.munitionWeapon2 < 0)
-			player.munitionWeapon2 = 0;
+		player.munition2 -= 3;
+		if(player.munition2 < 0)
+			player.munition2 = 0;
 		loadSound(sWeapon1);
 
 		key = null;
-	}else if((key == formatKey("X") || key == formatKey("CTRL")) && player.munitionWeapon2 <= 0){
+	}else if((key == formatKey("X") || key == formatKey("CTRL")) && player.munition2 <= 0){
 		loadSound(sNoMunition);
 		key = null;
 	}
@@ -756,7 +756,6 @@ function weaponTest(player, bullets){
 }
 
 function weaponEnemy(idx, shoot){
-
 	if(enemy[idx].timeToShoot == 0 && shoot){
 		enemy[idx].bullets.push(new Bullet(enemy[idx].x+enemy[idx].width/2 + 1,enemy[idx].y + 15,_SizeWeapon,_SizeWeapon,0,4));
 		loadSound(sWeapon2);

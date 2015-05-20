@@ -229,7 +229,8 @@ function movementEnemy(){
 							enemy[i].acceleration--;
 					}
 					// Bullets continues their movement
-					weaponEnemy(i, false);
+					if(enemy[i].bullets.length > 0)
+						weaponEnemy(i, false);
 				}
 			}
 		}
@@ -282,12 +283,13 @@ function parseDirectionEnemy(index){
 			else if(rn == 2)	newDirection = "left";
 			else if(rn == 3)	newDirection = "right";
 		}while(previousDirection == newDirection);
-	}
+	}else if(enemy[index].movement == "chaseHor")
+		enemy[index].direction = (enemy[index].direction == "left") ? "right" : "left";
 	return newDirection;
 }
 
+// Save the values of axisX of blockGray, to get the enemy closer's valueX to left and right
 function getValuesAttackZone(index){
-	// Save the values of axisX of blockGray, to get the enemy closer's valueX to left and right
 	if(enemy[index].getValuesXOnlyOnce){
 		var valuesBlocksXLeft = [], valuesBlocksXRight = [];
 		for(j in blockGray){

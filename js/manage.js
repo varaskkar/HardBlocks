@@ -110,12 +110,12 @@ function loadAssets(){
 }
 
 function reset(){
-	player.score           = 0;
-	player.life            = _LifePlayer;
-	player.munitionWeapon1 = _MunitionWeapon1;
-	player.munitionWeapon2 = _MunitionWeapon2;
-	player.timeProtected   = 0;
-	gameOver               = false
+	player.score         = 0;
+	player.life          = _LifePlayer;
+	player.munition1     = _MunitionWeapon1;
+	player.munition2     = _MunitionWeapon2;
+	player.timeProtected = 0;
+	gameOver             = false
 	// loadMap("map_1", 270, 330, 0);
 	loadMap("map_1", 479, 339, 0);
 
