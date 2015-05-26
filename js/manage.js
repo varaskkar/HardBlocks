@@ -254,7 +254,7 @@ function draw() {
 				// Put the explosion in enemy initial position
 				var centerX = enemy[i].copyX+enemy[i].copyWidth/2;
 				var centerY = enemy[i].copyY+enemy[i].copyHeight/2;
-				if(enemy[i].sizeExplosion <= enemy[i].copyWidth)
+				if(enemy[i].sizeExplosion <= enemy[i].copyWidth && !pause)
 					enemy[i].sizeExplosion++;
 				// rectangle(ctx, enemy[i].x, enemy[i].y, enemy[i].width, enemy[i].height, "#D38600");
 				circle(ctx, centerX, centerY, enemy[i].sizeExplosion, "#6B0801", "#6B1601", 5);
@@ -313,7 +313,7 @@ function draw() {
 		// ctx.fillText('Bullets Test: '+bulletsTest.length,5,90);
 		// ctx.fillText('Bullets Enemy: '+enemy[0].bulletsEnemy.length,5,105);
 		// ctx.fillText('Score: '+player.score,5,30);
-		ctx.fillText('Time Protected: '+player.timeProtected,5,105);
+		ctx.fillText('timeChangeLevel: '+player.timeChangeLevel,5,105);
 		// ctx.fillText('Weapon2: '+player.munitionWeapon2,5,90);
 		// ctx.fillText('Lifes: '+player.life,5,120);
 		// ctx.fillText('Time Protection: '+player.timeProtected,5,165);
