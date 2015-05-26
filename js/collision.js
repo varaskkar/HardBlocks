@@ -635,14 +635,17 @@ function collisionBulletsEnemy(){
 				if(enemy[i].bullets[j].collide(enemy[k]) && i != k){
 					enemy[i].bullets.splice(j,1);
 
-					// if(enemy[k].life > 0){
-					// 	enemy[k].life -= _DamageWeapon;
-					// }else{
-					// 	loadSound(sExplosion);
-					// 	player.score += _PointsKillEnemy;
-					// }
+					if(friendlyFire){
+						if(enemy[k].life > 0)
+							enemy[k].life -= _DamageWeapon;
+						else{
+							loadSound(sExplosion);
+							player.score += _PointsKillEnemy;
+						}
+					}
 	 			}
 			}
+
 		}
 	}
 }

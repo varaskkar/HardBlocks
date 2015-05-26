@@ -24,11 +24,12 @@ var canvas = null, ctx = null;
 var key = null;
 var keyPressed = [];
 
-var info       = true,
-	pause      = false,
-	gameOver   = false,
-	fullScreen = false,
-	sound      = false;
+var info         = true,
+	pause        = false,
+	gameOver     = false,
+	fullScreen   = false,
+	sound        = false,
+	friendlyFire = false;
 
 var iPlayer      = new Image(),
 	iEnemy1      = new Image(),
