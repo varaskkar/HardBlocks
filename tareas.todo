@@ -59,8 +59,8 @@
      ✔ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye @done (20-05-15 18:26)
      ✔ En la plantilla no aparecen las balas del jugador @done (20-05-15 18:21)
      ✔ Cuando choca bala player con bala enemy...borrar la bala concreta que choca del player @done (26-05-15 20:18)
+     ✔ No se ve al player cuando muere @done (27-05-15 00:27)
      ☐ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse esté como esté de tamaño
-     ☐ No se ve al player cuando muere
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando

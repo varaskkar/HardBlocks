@@ -201,7 +201,7 @@ function draw() {
 	}
 
 	if(player.timeProtected > 0){
-		if(player.timeProtected%2 == 0)
+		if(player.timeProtected%2 != 0)
 			showRotatedPlayer();
 	}else
 		showRotatedPlayer();
@@ -309,10 +309,11 @@ function draw() {
 		ctx.fillText('Rotation: '+player.rotation,5,45);
 		ctx.fillText('Bullets 1: '+player.bullets1.length,5,60);
 		ctx.fillText('Bullets 2: '+player.bullets2.length,5,75);
+		ctx.fillText('Map: '+currentMap.replace("map_",""),5,90);
 		// ctx.fillText('Bullets Test: '+bulletsTest.length,5,90);
 		// ctx.fillText('Bullets Enemy: '+enemy[0].bulletsEnemy.length,5,105);
-		ctx.fillText('Map: '+currentMap.replace("map_",""),5,90);
 		// ctx.fillText('Score: '+player.score,5,30);
+		ctx.fillText('Time Protected: '+player.timeProtected,5,105);
 		// ctx.fillText('Weapon2: '+player.munitionWeapon2,5,90);
 		// ctx.fillText('Lifes: '+player.life,5,120);
 		// ctx.fillText('Time Protection: '+player.timeProtected,5,165);
