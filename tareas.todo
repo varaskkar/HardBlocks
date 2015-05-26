@@ -58,7 +58,7 @@
      ✔ Cuando tengo 1 vida, el fuego no mata al player pero el tiempo de proteccion se asigna y baja @done (20-05-15 18:24)
      ✔ Si consigo 1 vida y me quito 2...debo morir con sonido pero no se oye @done (20-05-15 18:26)
      ✔ En la plantilla no aparecen las balas del jugador @done (20-05-15 18:21)
-     ☐ Cuando choca bala player con bala enemy...borrar del player la bala concreta que choca, que no se vea en el canvas
+     ✔ Cuando choca bala player con bala enemy...borrar la bala concreta que choca del player @done (26-05-15 20:18)
      ☐ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse esté como esté de tamaño
      ☐ No se ve al player cuando muere
 ☐ Fase

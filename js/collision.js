@@ -454,7 +454,7 @@ function collisionBullets1(){
 			for(k in enemy[j].bullets){
 				if(player.bullets1[i].collide(enemy[j].bullets[k])){
 					enemy[j].bullets.splice(k, 1);
-					player.bullets1[i].splice(i, 1);
+					player.bullets1.splice(i, 1);
 				}
 			}
 		}
@@ -561,7 +561,7 @@ function collisionBullets2(){
 			for(k in enemy[j].bullets){
 				if(player.bullets2[i].collide(enemy[j].bullets[k])){
 					enemy[j].bullets.splice(k, 1);
-					player.bullets2[i].splice(i, 1);
+					player.bullets2.splice(i, 1);
 				}
 			}
 		}
