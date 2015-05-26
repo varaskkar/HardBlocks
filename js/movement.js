@@ -217,6 +217,10 @@ function movementEnemy(){
 							enemy[i].acceleration--;
 					}
 				}else{
+					// Recalculate axisX by whether a block has been destroyed
+					enemy[i].getValuesXOnlyOnce = !enemy[i].getValuesXOnlyOnce;
+					getValuesAttackZone(i);
+
 					// Return to initial position
 					if(enemy[i].x < enemy[i].initX){
 						enemy[i].acceleration += (enemy[i].acceleration < _SpeedEnemy*1.2) ? 1 : -1;
@@ -291,13 +295,16 @@ function parseDirectionEnemy(index){
 // Save the values of axisX of blockGray, to get the enemy closer's valueX to left and right
 function getValuesAttackZone(index){
 	if(enemy[index].getValuesXOnlyOnce){
-		var valuesBlocksXLeft = [], valuesBlocksXRight = [];
-		for(j in blockGray){
-			if(enemy[index].initY == blockGray[j].y){
-				if(blockGray[j].x < enemy[index].initX)
-					valuesBlocksXLeft.push(blockGray[j].x);
-				else
-					valuesBlocksXRight.push(blockGray[j].x);
+		var valuesBlocksXLeft = [], valuesBlocksXRight = [], block = [blockGray, blockBrown, blockWhiteVert, blockWhiteHor, fire];
+
+		for(j in block){ 			// block's kind
+			for(k in block[j]){		// index of block's kind
+				if(enemy[index].initY == block[j][k].y){
+					if(block[j][k].x < enemy[index].initX)
+						valuesBlocksXLeft.push(block[j][k].x);
+					else
+						valuesBlocksXRight.push(block[j][k].x);
+				}
 			}
 		}
 		valuesBlocksXLeft.sort(sortNumbersAscending);
@@ -309,6 +316,14 @@ function getValuesAttackZone(index){
 		enemy[index].getValuesXOnlyOnce = false;
 	}
 }
+
+
+
+
+
+
+
+
 
 
 

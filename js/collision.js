@@ -206,7 +206,7 @@ function collisionEnemy(){
 		for(j in blockBrown){
 			if(enemy[i].collide(blockBrown[j])){
 				if(enemy[i].life > 0){
-					movementBackEnemy(i);
+					movementBackEnemy(i, blockBrown[j].x);
 					enemy[i].direction = parseDirectionEnemy(i);
 				}else{
 					blockBrown[j].life -= _DamageExplosionEnemy;

@@ -106,7 +106,8 @@
         ✔ Cuando choque con algo, retroceder posición @done (30-04-15 15:57)
         ✔ Si una bala choca contra un enemigo, que éste parpadee @done (04-05-15 18:10)
         ✔ Puedan colisionar los enemigos entre sí @done (08-05-15 11:56)
-        ☐ Con cualquier bloque @Hacer
+        ✔ Con cualquier bloque @done (26-05-15 19:32)
+        ✔ Si un bloque lateral se destruye, recalcular la zona de ataque con el sig bloque mas cercano @done (26-05-15 19:55)
     ✔ Tipos @done (20-05-15 19:28)
         ✔ 1. Movimiento > Horizontal || Vertical         No Dispara @done (20-05-15 19:28)
         ✔ 2. Movimiento > Azar                           No Dispara @done (20-05-15 19:28)
