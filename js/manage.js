@@ -313,7 +313,7 @@ function draw() {
 		// ctx.fillText('Bullets Test: '+bulletsTest.length,5,90);
 		// ctx.fillText('Bullets Enemy: '+enemy[0].bulletsEnemy.length,5,105);
 		// ctx.fillText('Score: '+player.score,5,30);
-		ctx.fillText('timeChangeLevel: '+player.timeChangeLevel,5,105);
+		// ctx.fillText('timeChangeLevel: '+player.timeChangeLevel,5,105);
 		// ctx.fillText('Weapon2: '+player.munitionWeapon2,5,90);
 		// ctx.fillText('Lifes: '+player.life,5,120);
 		// ctx.fillText('Time Protection: '+player.timeProtected,5,165);

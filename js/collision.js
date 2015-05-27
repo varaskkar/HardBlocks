@@ -361,100 +361,119 @@ function collisionBullets1(){
 
 		// Bullets1 -> BlockBrown
 		for(j in blockBrown){
-			if(player.bullets1[i].collide(blockBrown[j])){
-	  			player.score += _PointsTouchBlock;
-				player.bullets1.splice(i,1);
+			if(typeof player.bullets1[i] != "undefined"){
+				if(player.bullets1[i].collide(blockBrown[j])){
+		  			player.score += _PointsTouchBlock;
+					player.bullets1.splice(i,1);
 
-				if(blockBrown[j].life > 0)
-					blockBrown[j].life -= _DamageWeapon;
-				else
-					blockBrown.splice(j,1);
+					if(blockBrown[j].life > 0)
+						blockBrown[j].life -= _DamageWeapon;
+					else
+						blockBrown.splice(j,1);
 
-				templateSetLightEfects(true);
+					templateSetLightEfects(true);
+				}
 			}
 		}
 
 		// Bullets1 -> BlockGray
 		for(j in blockGray){
-			if(player.bullets1[i].collide(blockGray[j])){
-	  			player.bullets1.splice(i,1);
+			if(typeof player.bullets1[i] != "undefined"){
+				if(player.bullets1[i].collide(blockGray[j]))
+		  			player.bullets1.splice(i,1);
  			}
 		}
 
 		// Bullets1 -> fire
 		for(j in fire){
-			if(player.bullets1[i].collide(fire[j])){
-	  			player.bullets1.splice(i,1);
-	  			templateSetLightEfects(true);
- 			}
+			if(typeof player.bullets1[i] != "undefined"){
+				if(player.bullets1[i].collide(fire[j])){
+		  			player.bullets1.splice(i,1);
+		  			templateSetLightEfects(true);
+	 			}
+	 		}
 		}
 
 		// Bullets1 -> BlockWhite
 		for(j in blockWhiteVert){
-	  		if(player.bullets1[i].collide(blockWhiteVert[j])){
-	  			if(player.bullets1[i].maxRebounds < _MaxRebounds){
-	  				// player.bullets1[i].velY = -player.bullets1[i].velY;
-	  				player.bullets1[i].velY *= -1;
-	  				player.bullets1[i].maxRebounds++;
-	  				loadSound(sRebounds);
-	  			}else
-					player.bullets1.splice(i,1);
+			if(typeof player.bullets1[i] != "undefined"){
+		  		if(player.bullets1[i].collide(blockWhiteVert[j])){
+		  			if(player.bullets1[i].maxRebounds < _MaxRebounds){
+		  				// player.bullets1[i].velY = -player.bullets1[i].velY;
+		  				player.bullets1[i].velY *= -1;
+		  				player.bullets1[i].maxRebounds++;
+		  				loadSound(sRebounds);
+		  			}else
+						player.bullets1.splice(i,1);
+				}
 			}
 		}
 		for(j in blockWhiteHor){
-	  		if(player.bullets1[i].collide(blockWhiteHor[j])){
-	  			if(player.bullets1[i].maxRebounds < _MaxRebounds){
-	  				// player.bullets1[i].velX = -player.bullets1[i].velX;
-	  				player.bullets1[i].velX *= -1;
-	  				player.bullets1[i].maxRebounds++;
-	  				loadSound(sRebounds);
-				}else
-					player.bullets1.splice(i,1);
+			if(typeof player.bullets1[i] != "undefined"){
+		  		if(player.bullets1[i].collide(blockWhiteHor[j])){
+		  			if(player.bullets1[i].maxRebounds < _MaxRebounds){
+		  				// player.bullets1[i].velX = -player.bullets1[i].velX;
+		  				player.bullets1[i].velX *= -1;
+		  				player.bullets1[i].maxRebounds++;
+		  				loadSound(sRebounds);
+					}else
+						player.bullets1.splice(i,1);
+				}
 			}
 		}
 
 		// Bullets1 -> life
-		if(player.bullets1[i].collide(life)){
-			player.life++;
-			loadSound(sGetLife);
-	  		life.x = random(canvas.width - 10);
-	  		life.y = random(canvas.height - 10);
+		if(typeof player.bullets1[i] != "undefined"){
+			if(player.bullets1[i].collide(life)){
+				player.life++;
+				loadSound(sGetLife);
+		  		life.x = random(canvas.width - 10);
+		  		life.y = random(canvas.height - 10);
+			}
 		}
 
 		// Bullets1 -> Portal
 		for(j in portalInput){
-			if(player.bullets1[i].collide(portalInput[j]))
-		  		player.bullets1.splice(i,1);
+			if(typeof player.bullets1[i] != "undefined"){
+				if(player.bullets1[i].collide(portalInput[j]))
+			  		player.bullets1.splice(i,1);
+			}
 		}
 		for(j in portalOutput){
-			if(player.bullets1[i].collide(portalOutput[j]))
-		  		player.bullets1.splice(i,1);
+			if(typeof player.bullets1[i] != "undefined"){
+				if(player.bullets1[i].collide(portalOutput[j]))
+			  		player.bullets1.splice(i,1);
+			}
 		}
 
 		// Bullets1 -> Enemy
 		for(j in enemy){
-			if(player.bullets1[i].collide(enemy[j])){
-				player.score += _PointsTouchEnemy;
-	  			player.bullets1.splice(i,1);
+			if(typeof player.bullets1[i] != "undefined"){
+				if(player.bullets1[i].collide(enemy[j])){
+					player.score += _PointsTouchEnemy;
+		  			player.bullets1.splice(i,1);
 
-	  			if(enemy[j].life > 0)
-					enemy[j].life -= _DamageWeapon;
-				else{
-					loadSound(sExplosion);
-					player.score += _PointsKillEnemy;
-				}
-				enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
+		  			if(enemy[j].life > 0)
+						enemy[j].life -= _DamageWeapon;
+					else{
+						loadSound(sExplosion);
+						player.score += _PointsKillEnemy;
+					}
+					enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
 
-	  			templateSetLightEfects(true);
- 			}
+		  			templateSetLightEfects(true);
+	 			}
+	 		}
 		}
 
 		// Bullets1 -> BulletsEnemy
 		for(j in enemy){
 			for(k in enemy[j].bullets){
-				if(player.bullets1[i].collide(enemy[j].bullets[k])){
-					enemy[j].bullets.splice(k, 1);
-					player.bullets1.splice(i, 1);
+				if(typeof player.bullets1[i] != "undefined"){
+					if(player.bullets1[i].collide(enemy[j].bullets[k])){
+						enemy[j].bullets.splice(k, 1);
+						player.bullets1.splice(i, 1);
+					}
 				}
 			}
 		}
@@ -466,102 +485,121 @@ function collisionBullets2(){
 
 		// Bullets2 -> BlockBrown
 		for(j in blockBrown){
-			if(player.bullets2[i].collide(blockBrown[j])){
-	  			player.score += _PointsTouchBlock;
-				player.bullets2.splice(i,1);
+			if(typeof player.bullets2[i] != "undefined"){
+				if(player.bullets2[i].collide(blockBrown[j])){
+		  			player.score += _PointsTouchBlock;
+					player.bullets2.splice(i,1);
 
-				if(blockBrown[j].life <= 0)
-					blockBrown.splice(j,1);
-				else
-					blockBrown[j].life -= _DamageWeapon;
+					if(blockBrown[j].life <= 0)
+						blockBrown.splice(j,1);
+					else
+						blockBrown[j].life -= _DamageWeapon;
 
-				templateSetLightEfects(true);
+					templateSetLightEfects(true);
+				}
 			}
 		}
 
 		// Bullets2 -> BlockGray
 		for(j in blockGray){
-			if(player.bullets2[i].collide(blockGray[j])){
-	  			player.bullets2.splice(i,1);
+			if(typeof player.bullets2[i] != "undefined"){
+				if(player.bullets2[i].collide(blockGray[j]))
+		  			player.bullets2.splice(i,1);
  			}
 		}
 
 		// Bullets2 -> BlockWhite
 		for(j in blockWhiteVert){
-	  		if(player.bullets2[i].collide(blockWhiteVert[j])){
-	  			if(player.bullets2[i].maxRebounds < _MaxRebounds){
-	  				player.bullets2[i].velY *= -1;
-	  				player.bullets2[i].maxRebounds++;
-	  				loadSound(sRebounds);
-	  			}else
-					player.bullets2.splice(i,1);
+			if(typeof player.bullets2[i] != "undefined"){
+		  		if(player.bullets2[i].collide(blockWhiteVert[j])){
+		  			if(player.bullets2[i].maxRebounds < _MaxRebounds){
+		  				player.bullets2[i].velY *= -1;
+		  				player.bullets2[i].maxRebounds++;
+		  				loadSound(sRebounds);
+		  			}else
+						player.bullets2.splice(i,1);
+				}
 			}
 		}
 		for(j in blockWhiteHor){
-	  		if(player.bullets2[i].collide(blockWhiteHor[j])){
-	  			if(player.bullets2[i].maxRebounds < _MaxRebounds){
-	  				player.bullets2[i].velX *= -1;
-	  				player.bullets2[i].maxRebounds++;
-	  				loadSound(sRebounds);
-				}else
-					player.bullets2.splice(i,1);
+			if(typeof player.bullets2[i] != "undefined"){
+		  		if(player.bullets2[i].collide(blockWhiteHor[j])){
+		  			if(player.bullets2[i].maxRebounds < _MaxRebounds){
+		  				player.bullets2[i].velX *= -1;
+		  				player.bullets2[i].maxRebounds++;
+		  				loadSound(sRebounds);
+					}else
+						player.bullets2.splice(i,1);
+				}
 			}
 		}
 
 		// Bullets2 -> life
-		if(player.bullets2[i].collide(life)){
-			player.life++;
-			loadSound(sGetLife);
-	  		life.x = random(canvas.width - 10);
-	  		life.y = random(canvas.height - 10);
+		if(typeof player.bullets2[i] != "undefined"){
+			if(player.bullets2[i].collide(life)){
+				player.life++;
+				loadSound(sGetLife);
+		  		life.x = random(canvas.width - 10);
+		  		life.y = random(canvas.height - 10);
+			}
 		}
 
 		// Bullets2 -> Portal
 		for(j in portalInput){
-			if(player.bullets2[i].collide(portalInput[j])){
-		  		player.bullets2.splice(i,1);
-		  		templateSetLightEfects(true);
+			if(typeof player.bullets2[i] != "undefined"){
+				if(player.bullets2[i].collide(portalInput[j])){
+			  		player.bullets2.splice(i,1);
+			  		templateSetLightEfects(true);
+				}
 			}
 		}
 		for(j in portalOutput){
-			if(player.bullets2[i].collide(portalOutput[j])){
-		  		player.bullets2.splice(i,1);
-		  		templateSetLightEfects(true);
+			if(typeof player.bullets2[i] != "undefined"){
+				if(player.bullets2[i].collide(portalOutput[j])){
+			  		player.bullets2.splice(i,1);
+			  		templateSetLightEfects(true);
+				}
 			}
 		}
 
 		// Bullets2 -> fire
 		for(j in fire){
-			if(player.bullets2[i].collide(fire[j])){
-	  			player.bullets2.splice(i,1);
-	  			templateSetLightEfects(true);
- 			}
+			if(typeof player.bullets2[i] != "undefined"){
+				if(player.bullets2[i].collide(fire[j])){
+		  			player.bullets2.splice(i,1);
+		  			templateSetLightEfects(true);
+	 			}
+	 		}
 		}
 
 		// Bullets2 -> Enemy
 		for(j in enemy){
-			if(player.bullets2[i].collide(enemy[j])){
-				player.score += _PointsTouchEnemy;
-	  			player.bullets2.splice(i,1);
+			if(typeof player.bullets2[i] != "undefined"){
+				if(player.bullets2[i].collide(enemy[j])){
+					player.score += _PointsTouchEnemy;
+		  			player.bullets2.splice(i,1);
 
-	  			if(enemy[j].life > 0)
-					enemy[j].life -= _DamageWeapon;
-				else{
-					loadSound(sExplosion);
-					player.score += _PointsKillEnemy;
-				}
-				enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
+		  			if(enemy[j].life > 0)
+						enemy[j].life -= _DamageWeapon;
+					else{
+						loadSound(sExplosion);
+						player.score += _PointsKillEnemy;
+					}
+					enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
 
-	  			templateSetLightEfects(true);
- 			}
+		  			templateSetLightEfects(true);
+	 			}
+	 		}
 		}
 
 		// Bullets2 -> BulletsEnemy
 		for(j in enemy){
 			for(k in enemy[j].bullets){
-				if(player.bullets2[i].collide(enemy[j].bullets[k])){
-					enemy[j].bullets.splice(k, 1);
-					player.bullets2.splice(i, 1);
+				if(typeof player.bullets2[i] != "undefined"){
+					if(player.bullets2[i].collide(enemy[j].bullets[k])){
+						enemy[j].bullets.splice(k, 1);
+						player.bullets2.splice(i, 1);
+					}
 				}
 			}
 		}
@@ -573,77 +611,88 @@ function collisionBulletsEnemy(){
 		for(j in enemy[i].bullets){
 
 			// BulletsEnemy -> Player
-			if(enemy[i].bullets[j].collide(player)){
-				enemy[i].bullets.splice(j,1);
+			if(typeof enemy[i].bullets[j] != "undefined"){
+				if(enemy[i].bullets[j].collide(player))
+					enemy[i].bullets.splice(j,1);
 			}
+
 
 			// BulletsEnemy -> BlockBrown
 			for(k in blockBrown){
-				// if(typeof blockBrown[k] != "undefined"){
+				if(typeof enemy[i].bullets[j] != "undefined"){
 					if(enemy[i].bullets[j].collide(blockBrown[k])){
 						enemy[i].bullets.splice(j,1);
 					}
-				// }
+				}
 			}
 
 			// BulletsEnemy -> BlockGray
 			for(k in blockGray){
-				if(enemy[i].bullets[j].collide(blockGray[k])){
-		  			enemy[i].bullets.splice(j,1);
-	 			}
+				if(typeof enemy[i].bullets[j] != "undefined"){
+					if(enemy[i].bullets[j].collide(blockGray[k]))
+			  			enemy[i].bullets.splice(j,1);
+			  	}
 			}
 
 			// BulletsEnemy -> BlockWhite
 			for(k in blockWhiteVert){
-		  		if(enemy[i].bullets[j].collide(blockWhiteVert[k])){
-					enemy[i].bullets.splice(j,1);
+				if(typeof enemy[i].bullets[j] != "undefined"){
+			  		if(enemy[i].bullets[j].collide(blockWhiteVert[k]))
+						enemy[i].bullets.splice(j,1);
 				}
 			}
 			for(k in blockWhiteHor){
-		  		if(enemy[i].bullets[j].collide(blockWhiteHor[k])){
-					enemy[i].bullets.splice(j,1);
+				if(typeof enemy[i].bullets[j] != "undefined"){
+			  		if(enemy[i].bullets[j].collide(blockWhiteHor[k]))
+						enemy[i].bullets.splice(j,1);
 				}
 			}
 
 			// BulletsEnemy -> life
-			if(enemy[i].bullets[j].collide(life)){
-				enemy[i].bullets.splice(j,1);
+			if(typeof enemy[i].bullets[j] != "undefined"){
+				if(enemy[i].bullets[j].collide(life))
+					enemy[i].bullets.splice(j,1);
 			}
 
 			// BulletsEnemy -> Portal
 			for(k in portalInput){
-				if(enemy[i].bullets[j].collide(portalInput[k])){
-					enemy[i].bullets.splice(j,1);
+				if(typeof enemy[i].bullets[j] != "undefined"){
+					if(enemy[i].bullets[j].collide(portalInput[k]))
+						enemy[i].bullets.splice(j,1);
 				}
 			}
 			for(k in portalOutput){
-				if(enemy[i].bullets[j].collide(portalOutput[k])){
-					enemy[i].bullets.splice(j,1);
+				if(typeof enemy[i].bullets[j] != "undefined"){
+					if(enemy[i].bullets[j].collide(portalOutput[k]))
+						enemy[i].bullets.splice(j,1);
 				}
 			}
 
 			// BulletsEnemy -> fire
 			for(k in fire){
-				if(enemy[i].bullets[j].collide(fire[k])){
-		  			enemy[i].bullets.splice(j,1);
+				if(typeof enemy[i].bullets[j] != "undefined"){
+					if(enemy[i].bullets[j].collide(fire[k]))
+			  			enemy[i].bullets.splice(j,1);
 	 			}
 			}
 
 			// BulletsEnemy -> Enemy
 			for(k in enemy){
-				// "i != k" avoid that enemy's bullets collides with itself
-				if(enemy[i].bullets[j].collide(enemy[k]) && i != k){
-					enemy[i].bullets.splice(j,1);
+				if(typeof enemy[i].bullets[j] != "undefined"){
+					// "i != k" avoid that enemy's bullets collides with itself
+					if(enemy[i].bullets[j].collide(enemy[k]) && i != k){
+						enemy[i].bullets.splice(j,1);
 
-					if(friendlyFire){
-						if(enemy[k].life > 0)
-							enemy[k].life -= _DamageWeapon;
-						else{
-							loadSound(sExplosion);
-							player.score += _PointsKillEnemy;
+						if(friendlyFire){
+							if(enemy[k].life > 0)
+								enemy[k].life -= _DamageWeapon;
+							else{
+								loadSound(sExplosion);
+								player.score += _PointsKillEnemy;
+							}
 						}
-					}
-	 			}
+		 			}
+		 		}
 			}
 
 		}

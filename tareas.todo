@@ -61,6 +61,7 @@
      ✔ Cuando choca bala player con bala enemy...borrar la bala concreta que choca del player @done (26-05-15 20:18)
      ✔ No se ve al player cuando muere @done (27-05-15 00:27)
      ✔ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse el tamaño @done (27-05-15 00:44)
+     ✔ Quitar los logs de JS de la consola del navegador @done (27-05-15 16:38)
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
