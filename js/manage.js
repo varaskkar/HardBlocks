@@ -36,7 +36,8 @@ var iPlayer      = new Image(),
 	iEnemy2      = new Image(),
 	iEnemy3      = new Image(),
  	iLife        = new Image(),
- 	iBlockRed    = new Image(),
+ 	iFire    	 = new Image(),
+ 	// iBullet1  	 = new Image(),
  	iBlockWhite  = new Image(),
  	iBlockGray   = new Image(),
  	iBlockBrown0 = new Image(),
@@ -78,11 +79,12 @@ function init(){
 
 function loadAssets(){
 	iPlayer.src      = 'assets/img/player1.png';
-	iEnemy1.src      = 'assets/img/boat.png';
-	iEnemy2.src      = 'assets/img/plane1.png';
-	iEnemy3.src      = 'assets/img/satelite.png';
+	iEnemy1.src      = 'assets/img/satellite1.png';
+	iEnemy2.src      = 'assets/img/ufo.png';
+	iEnemy3.src      = 'assets/img/drone.png';
 	iLife.src        = 'assets/img/life1.png';
-	iBlockRed.src    = 'assets/img/fire2.png';
+	iFire.src    	 = 'assets/img/fire2.png';
+	// iBullet1.src     = 'assets/img/bullet2.png';
 	iBlockWhite.src  = 'assets/img/blockWhite.png';
 	iBlockGray.src   = 'assets/img/blockGray.png';
 	iBlockBrown0.src = 'assets/img/blockBrown0.png';
@@ -284,10 +286,12 @@ function draw() {
 		ctx.drawImage(iBlockWhite,blockWhiteHor[i].x,blockWhiteHor[i].y,blockWhiteHor[i].width,blockWhiteHor[i].height);
 
 	for(i in fire)
-		ctx.drawImage(iBlockRed,fire[i].x,fire[i].y,fire[i].width,fire[i].height);
+		ctx.drawImage(iFire,fire[i].x,fire[i].y,fire[i].width,fire[i].height);
 
 	for(i in player.bullets1){
+		// ctx.drawImage(iBullet1,player.bullets1[i].x,player.bullets1[i].y,player.bullets1[i].width,player.bullets1[i].height);
   		rectangle(ctx, player.bullets1[i].x,player.bullets1[i].y,player.bullets1[i].width,player.bullets1[i].height, "#614E70");
+  		// rectangle(ctx, player.bullets1[i].x,player.bullets1[i].y,player.bullets1[i].width,player.bullets1[i].height, "#FBD490");
 	}
 
 	for(i in player.bullets2)
@@ -439,6 +443,12 @@ function keyboard(){
 		key = null;
 	}else if(key == formatKey("R")){
 		reset();
+		key = null;
+	}else if(key == formatKey("F1")){
+		player.life = _LifePlayer;
+		key = null;
+	}else if(key == formatKey("F2")){
+		player.munition2 = _MunitionWeapon2;
 		key = null;
 	}
 }

@@ -165,6 +165,18 @@ function formatKey(key){
 	else if(key == "PadNum7" ) 		codeAscii = 103;
 	else if(key == "PadNum8" ) 		codeAscii = 104;
 	else if(key == "PadNum9" ) 		codeAscii = 105;
+	else if(key == "F1" ) 			codeAscii = 112;
+	else if(key == "F2" ) 			codeAscii = 113;
+	else if(key == "F3" ) 			codeAscii = 114;
+	else if(key == "F4" ) 			codeAscii = 115;
+	else if(key == "F5" ) 			codeAscii = 116;
+	else if(key == "F6" ) 			codeAscii = 117;
+	else if(key == "F7" ) 			codeAscii = 118;
+	else if(key == "F8" ) 			codeAscii = 119;
+	else if(key == "F9" ) 			codeAscii = 120;
+	else if(key == "F10" ) 			codeAscii = 121;
+	else if(key == "F11" ) 			codeAscii = 122;
+	else if(key == "F12" ) 			codeAscii = 123;
 	else if(key == "A" ) 			codeAscii = 65;
 	else if(key == "B" ) 			codeAscii = 66;
 	else if(key == "C" ) 			codeAscii = 67;

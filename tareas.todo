@@ -45,8 +45,12 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
 
 
-
-
+ ☐ IA enemy: Si detecta que su vida ha bajado, cambiar de posicion (pos opuesta a la que traia)
+ ☐ Tema barra de vida
+     ☐ El enemigo me quite al darme
+ ☐ Arma de misiles que aparezca explosion al colisionar
+ ☐ Un mapa con el enemigo arriba que me siga, se ponga encima de un btn y que se abra una puerta que
+ ☐ Ponerle a las balas img's y que sean redondas
 
  ☐ Error
      ✔ No se muestran las balas cuando hay varios enemigos de tipo "chaseHor" (si se crean las balas) @done (20-05-15 17:04)
@@ -130,7 +134,6 @@
                 ✔ Verticalmente, por debajo del enemy @done (16-05-15 16:51)
                 ✔ Horizontalmente, comparando los ejesX de los bloques y los 2 más cerca, a izq y der @done (18-05-15 18:52)
         ✔ Las balas colisionen @done (16-05-15 15:47)
-        ☐ Un mapa con el enemigo arriba que me siga, se ponga encima de un btn y que se abra una puerta que
         yo meta una bala por rebote en la sala y consiga un objeto
     ✔ Concurrencia @done (07-05-15 21:01)
 ☐ Base de salida
