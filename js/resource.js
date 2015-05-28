@@ -1,14 +1,15 @@
 var fps = 0, now, lastUpdate = (new Date)*1 - 1, fpsFilter = 50;
 
+var ElementHealth = document.getElementById("lifeBar");
 var ElementLives   = document.getElementById("livesNum");
 var ElementPoints  = document.getElementById("scoreNum");
 var ElementWeapon1 = document.getElementById("weapon1Num");
 var ElementWeapon2 = document.getElementById("weapon2Num");
 var ElementLight1  = document.getElementById("light1");
 var ElementLight2  = document.getElementById("light2");
-var ElementTable1   = document.getElementsByTagName("table")[0];
-var ElementTable2   = document.getElementsByTagName("table")[1];
-var ElementTable3   = document.getElementsByTagName("table")[2];
+var ElementTable1  = document.getElementsByTagName("table")[0];
+var ElementTable2  = document.getElementsByTagName("table")[1];
+var ElementTable3  = document.getElementsByTagName("table")[2];
 var ElementShadow  = document.getElementById("shadow");
 var ElementSound   = document.getElementById("sound");
 var ElementLogo    = document.getElementById("logo");
@@ -85,10 +86,34 @@ function templateSetFullscreen(enable){
 	}
 }
 
-function templateSetLives(lives){ ElementLives.innerHTML = formatNumbers(lives); }
 function templateSetPoints(points){ ElementPoints.innerHTML = formatNumbers(points); }
 function templateSetWeapon1(munition){ if(munition >= 9999){ munition = "∞"; } ElementWeapon1.innerHTML = munition; }
 function templateSetWeapon2(munition){ ElementWeapon2.innerHTML = formatNumbers(munition); }
+function templateSetLives(lives){ ElementLives.innerHTML = formatNumbers(lives); }
+function templateSetHealth(health){
+	if(health == 0)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar0.png";
+	else if(health == 1)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar1.png";
+	else if(health == 2)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar2.png";
+	else if(health == 3)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar3.png";
+	else if(health == 4)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar4.png";
+	else if(health == 5)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar5.png";
+	else if(health == 6)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar6.png";
+	else if(health == 7)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar7.png";
+	else if(health == 8)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar8.png";
+	else if(health == 9)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar9.png";
+	else if(health == 10)
+		ElementHealth.src = "assets/img/lifeBar/lifeBar10.png";
+}
 
 function templateSetLightEfects(enable){
 	if(!enable){

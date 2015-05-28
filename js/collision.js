@@ -35,6 +35,7 @@ function collisionPlayer(){
 	// Player -> life
 	if(player.collide(life)){
   		player.life++;
+  		player.health = _HealthPlayer;
   		player.score += _PointsGetLife;
   		loadSound(sGetLife);
   		life.x = random(canvas.width - 10);
@@ -44,11 +45,10 @@ function collisionPlayer(){
 	// Player -> fire
 	for(i in fire){
 		if(player.collide(fire[i]) && player.timeProtected < 1){
-			// In the last life, not hear the sound of lose it, otherwise the sound of GameOver
-			if(player.life != 1)
-				loadSound(sLoseLife);
-			player.timeProtected = _TimeProtected;
-			player.life--;
+			if(damage){
+				player.timeProtected = _TimeProtected;
+				player.health--;
+			}
 		}
 	}
 
@@ -162,10 +162,10 @@ function collisionPlayer(){
 	for(i in home){
 		if(player.collide(home[i])){
 			// Recover life and munition
-			if(player.munition2 <= 0 && player.timeRechargeHome == 0){
+			if( (player.health < _HealthPlayer || player.munition2 < _MunitionWeapon2) && player.timeRechargeHome == 0){
 				player.timeRechargeHome = _TimeRechargeHome;
-
-				player.munition2 = _MunitionWeapon2;
+				player.health           = _HealthPlayer;
+				player.munition2        = _MunitionWeapon2;
 				loadSound(sHome);
 			}
 		}
@@ -174,11 +174,10 @@ function collisionPlayer(){
 	// Player -> Enemy
 	for(i in enemy){
 		if(player.collide(enemy[i]) && player.timeProtected < 1){
-			// In the last life, not hear the sound of lose it, otherwise the sound of GameOver
-			if(player.life != 1)
-				loadSound(sLoseLife);
-			player.timeProtected = _TimeProtected;
-			player.life--;
+			if(damage){
+				player.timeProtected = _TimeProtected;
+				player.health--;
+			}
 		}
 	}
 }
@@ -426,6 +425,7 @@ function collisionBullets1(){
 		if(typeof player.bullets1[i] != "undefined"){
 			if(player.bullets1[i].collide(life)){
 				player.life++;
+				player.health = _HealthPlayer;
 				loadSound(sGetLife);
 		  		life.x = random(canvas.width - 10);
 		  		life.y = random(canvas.height - 10);
@@ -538,6 +538,7 @@ function collisionBullets2(){
 		if(typeof player.bullets2[i] != "undefined"){
 			if(player.bullets2[i].collide(life)){
 				player.life++;
+				player.health = _HealthPlayer;
 				loadSound(sGetLife);
 		  		life.x = random(canvas.width - 10);
 		  		life.y = random(canvas.height - 10);
@@ -612,17 +613,18 @@ function collisionBulletsEnemy(){
 
 			// BulletsEnemy -> Player
 			if(typeof enemy[i].bullets[j] != "undefined"){
-				if(enemy[i].bullets[j].collide(player))
+				if(enemy[i].bullets[j].collide(player)){
 					enemy[i].bullets.splice(j,1);
+					if(damage)
+						player.health--;
+				}
 			}
-
 
 			// BulletsEnemy -> BlockBrown
 			for(k in blockBrown){
 				if(typeof enemy[i].bullets[j] != "undefined"){
-					if(enemy[i].bullets[j].collide(blockBrown[k])){
+					if(enemy[i].bullets[j].collide(blockBrown[k]))
 						enemy[i].bullets.splice(j,1);
-					}
 				}
 			}
 

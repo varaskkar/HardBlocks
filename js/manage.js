@@ -8,12 +8,12 @@ requirejs(['sound']);
 
 window.addEventListener('load',init,false);
 
-const _LifePlayer = 2, _TimeProtected = 125,         _PointsTouchBlock = 2, _MunitionWeapon1 = 999999,
-	  _LifeBlock = 3,  _TimeChangeLevel = 150,       _PointsTouchEnemy = 4, _MunitionWeapon2 = 500,
-	  _LifeEnemy = 21, _TimeRechargeHome = 75,       _PointsKillBlock = 5,
-	  				   _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
-	  				   _TimeShowDamagedEnemy = 10,   _PointsGetLife = 3,
-	  				   _TimeToShoot = 30,
+const _LifePlayer = 2,    _TimeProtected = 125,         _PointsTouchBlock = 2, _MunitionWeapon1 = 999999,
+	  _LifeBlock = 3,     _TimeChangeLevel = 150,       _PointsTouchEnemy = 4, _MunitionWeapon2 = 500,
+	  _LifeEnemy = 21,    _TimeRechargeHome = 75,       _PointsKillBlock = 5,
+	  _HealthPlayer = 10, _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
+	  				      _TimeShowDamagedEnemy = 10,   _PointsGetLife = 3,
+	  				      _TimeToShoot = 30,
 
 	  _DamageWeapon = 1,
 	  _DamageExplosionEnemy = _LifeEnemy,
@@ -29,7 +29,8 @@ var info         = true,
 	gameOver     = false,
 	fullScreen   = false,
 	sound        = false,
-	friendlyFire = false;
+	friendlyFire = false,
+	damage  	 = true;
 
 var iPlayer      = new Image(),
 	iEnemy1      = new Image(),
@@ -118,6 +119,7 @@ function loadAssets(){
 
 function reset(){
 	player.score         = 0;
+	player.health        = _HealthPlayer;
 	player.life          = _LifePlayer;
 	player.munition1     = _MunitionWeapon1;
 	player.munition2     = _MunitionWeapon2;
@@ -135,9 +137,10 @@ function run(){
 	game();
 	draw();
 	templateSetPoints(player.score);
-	templateSetLives(player.life);
 	templateSetWeapon1(player.munition1);
 	templateSetWeapon2(player.munition2);
+	templateSetLives(player.life);
+	templateSetHealth(player.health);
 }
 
 function game(){
@@ -369,6 +372,16 @@ function basicConditions(){
 			if(player.timeRechargeHome > 0)
 				player.timeRechargeHome--;
 
+			if(player.health < 1){
+				player.life--;
+				if(player.life > 0)
+					player.health = _HealthPlayer;
+				player.timeProtected = _TimeProtected;
+				// Hear the sound of life lose, except in the last: sound of GameOver
+				if(player.life != 1)
+					loadSound(sLoseLife);
+			}
+
 			for(i in enemy){
 				if(enemy[i].life > 0){
 					if(enemy[i].timeShowDamage > 0)
@@ -445,7 +458,8 @@ function keyboard(){
 		reset();
 		key = null;
 	}else if(key == formatKey("F1")){
-		player.life = _LifePlayer;
+		player.life++;
+		player.health = _HealthPlayer;
 		key = null;
 	}else if(key == formatKey("F2")){
 		player.munition2 = _MunitionWeapon2;

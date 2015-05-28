@@ -132,9 +132,10 @@ h1{
    	background: rgba(255, 255, 255, 0.10);
 }
 #left table#text {
-	width: 130px;
+	width: 100px;
 	float: right;
 	/*background: red;*/
+	text-align: left;
 }
 #left table#values {
 	width: 130px;
@@ -150,4 +151,9 @@ h1{
 	font-family: divertida;
 	color: #C3C8CF;
 	font-size: 18px;
+}
+#lifeBar{
+	margin-top: 15px;
+    margin-left: 38px;
+    opacity: 0.9;
 }

@@ -46,11 +46,13 @@
 
 
  ☐ IA enemy: Si detecta que su vida ha bajado, cambiar de posicion (pos opuesta a la que traia)
- ☐ Tema barra de vida
-     ☐ El enemigo me quite al darme
+ ✔ Tema barra de vida @done (28-05-15 02:07)
+     ✔ El enemigo me quite al darme @done (28-05-15 02:07)
+     ☐ Cambiar la barra de vida de 10 a 6...probar con colores 2 de cada (verde, amarillo y rojo) @Hacer
  ☐ Arma de misiles que aparezca explosion al colisionar
  ☐ Un mapa con el enemigo arriba que me siga, se ponga encima de un btn y que se abra una puerta que
- ☐ Ponerle a las balas img's y que sean redondas
+     ✔ La img del btn ya la tengo @done (28-05-15 02:11)
+ ✘ Ponerle a las balas img's y que sean redondas @cancelled (27-05-15 19:03)
 
  ☐ Error
      ✔ No se muestran las balas cuando hay varios enemigos de tipo "chaseHor" (si se crean las balas) @done (20-05-15 17:04)
@@ -66,6 +68,7 @@
      ✔ No se ve al player cuando muere @done (27-05-15 00:27)
      ✔ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse el tamaño @done (27-05-15 00:44)
      ✔ Quitar los logs de JS de la consola del navegador @done (27-05-15 16:38)
+     ☐ Arreglar lo que siempre parpadeen las luces, que no cambien las img's constantemente
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
@@ -136,11 +139,10 @@
         ✔ Las balas colisionen @done (16-05-15 15:47)
         yo meta una bala por rebote en la sala y consiga un objeto
     ✔ Concurrencia @done (07-05-15 21:01)
-☐ Base de salida
-    ☐ Siempre que se vuelva a ella se reestablezcan los valores
-        ☐ Vida
+✔ Base de salida @done (28-05-15 02:07)
+    ✔ Siempre que se vuelva a ella se reestablezcan los valores @done (28-05-15 02:07)
+        ✔ Vida @done (28-05-15 02:07)
         ✔ Munición @done (22-04-15 18:26)
-            ☐ ¿recagar cuando balas = 0 ó balas < _MaxBalas?
     ✔ Al morir reaparecer en la base y poner el sonido de recargar "recharge.wav" @done (22-04-15 18:25)
     ✔ La base este solo en el mapa1 y haya que regresar a ella para restablecer valores @done (22-04-15 18:26)
 ☐ Portales

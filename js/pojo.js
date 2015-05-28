@@ -87,6 +87,7 @@ function Player(x, y, width, height){
  	this.y = y;
  	this.width = width;
  	this.height = height;
+ 	this.health = 0;
  	this.life = 0;
  	this.rotation = 0;
  	this.score = 0;
