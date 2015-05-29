@@ -44,7 +44,6 @@
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
 
-
  ☐ IA enemy: Si detecta que su vida ha bajado, cambiar de posicion (pos opuesta a la que traia)
  ✔ Tema barra de vida @done (28-05-15 02:07)
      ✔ El enemigo me quite al darme @done (28-05-15 02:07)

@@ -28,13 +28,13 @@ section{
 	float: left;
 }
 #left{
-	/*background-color: #0f0;*/
+	/*background-color: #051A39;*/
 	width: 25%;
 	height: 500px;
 	float: left;
 }
 #center{
-	/*background-color: #f0f;*/
+	/*background-color: #174D03;*/
 	width: 50%;
 	height: 500px;
 	float: left;
@@ -132,15 +132,20 @@ h1{
    	background: rgba(255, 255, 255, 0.10);
 }
 #left table#text {
-	width: 100px;
-	float: right;
-	/*background: red;*/
-	text-align: left;
+	/*background: green;*/
+	margin-left: 0px;
+	width: 110px;
+	height: 40px;
+	float: left;
 }
 #left table#values {
+	float: left;
 	width: 130px;
-	float: right;
-	/*background: rgba(255, 255, 255, 0.15);*/
+	/*background: #355E0A;*/
+	margin-left: 115px;
+	width: 110px;
+	height: 40px;
+	margin-top: -40px;
 }
 #left tr:nth-child(2n) {
    	/*background: rgba(255, 255, 255, 0.10);*/
@@ -151,9 +156,102 @@ h1{
 	font-family: divertida;
 	color: #C3C8CF;
 	font-size: 18px;
+	margin-left: -50px;
 }
-#lifeBar{
-	margin-top: 15px;
-    margin-left: 38px;
+#boxTop{
+	float: left;
+	width: 100%;
+	/*background: #bc1339;*/
+}
+#boxBottom{
+	float: left;
+	width: 100%;
+  	height: 200px;
+	/*background: #2F516C;*/
+}
+#boxBottomCenter{
+	width: 70%;
+  	height: 170px;
+  	background: rgba(255, 255, 255, 0.15);
+	border-radius: 8px;
+	float: right;
+}
+#boxBullets{
+	/*background: #5E0A0A;*/
+	float: left;
+	width: 50%;
+}
+#boxHealth{
+	/*background: #550A5E;*/
+	float: left;
+	width: 50%;
+}
+#boxWeapon1{
+	/*background: #528767;*/
+	width: 110px;
+	height: 40px;
+	margin-left: 0px;
+}
+#boxWeapon2{
+	/*background: #737F1E;*/
+	width: 110px;
+	height: 40px;
+	margin-left: 0px;
+}
+#boxWeapon3{
+	/*background: #6E604B;*/
+	width: 110px;
+	height: 40px;
+	margin-left: 0px;
+}
+#boxhealth{
+	/*background: red;*/
+  	height: 40px;
+	padding-top:20px;
+}
+#boxLife{
+	/*background: yellow;*/
+	padding-top:5px;
+	height: 50px;
+}
+#healthBar{
     opacity: 0.9;
 }
+#life{
+    /*position:absolute;*/
+	/*float: right;*/
+/*	margin-top: -42px;
+	margin-left: 180px;*/
+}
+#livesNum{
+    z-index:100;
+	margin-top: -37px;
+}
+#weapon1{
+
+}
+#weapon2{
+
+}
+#weapon3{
+	margin-top: 5px;
+}
+.values{
+	color:#1E1E2A;
+	font-family: divertida;
+    font-size:18px;
+}
+#weapon1Num{
+	margin-top: -36px;
+	margin-left: 70px;
+	font-size:28px;
+}
+#weapon2Num{
+	margin-top: -30px;
+	margin-left: 70px;
+}
+#weapon3Num{
+	margin-top: -27px;
+	margin-left: 70px;
+}
+

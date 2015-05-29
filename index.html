@@ -18,20 +18,44 @@
     </header>
     <section>
         <div id="left">
-            <img id="logo" src="assets/img/dodoSoftware.png">
-            <table id="values">
-                <tr><td id="scoreNum">0</td></tr>
-                <tr><td id="weapon1Num">0</td></tr>
-                <tr><td id="weapon2Num">0</td></tr>
-                <tr><td id="livesNum">0</td></tr>
-            </table>
-            <table id="text">
-                <tr><td>Score</td></tr>
-                <tr><td>Weapon 1</td></tr>
-                <tr><td>Weapon 2</td></tr>
-                <tr><td>Lives</td></tr>
-            </table>
-            <img id="lifeBar" src="assets/img/lifeBar/lifeBar10.png">
+            <div id="boxTop">
+                <img id="logo" src="assets/img/dodoSoftware.png">
+            </div>
+            <div id="boxBottom">
+                <div id="boxBottomCenter">
+                    <table id="text">
+                        <tr><td>Score</td></tr>
+                    </table>
+                    <table id="values">
+                        <tr><td id="scoreNum">0</td></tr>
+                    </table>
+
+                    <div id="boxBullets">
+                        <div id="boxWeapon1">
+                            <img id="weapon1" src="assets/img/weapon1.png" height="28" width="15">
+                            <p id="weapon1Num" class="values">0</p>
+                        </div>
+                        <div id="boxWeapon2">
+                            <img id="weapon2" src="assets/img/weapon2.png" height="31" width="23">
+                            <p id="weapon2Num" class="values">0</p>
+                        </div>
+                        <div id="boxWeapon3">
+                            <img id="weapon3" src="assets/img/weapon3.png" height="27" width="12">
+                            <p id="weapon3Num" class="values">0</p>
+                        </div>
+                    </div>
+                    <div id="boxHealth">
+                        <div id="boxhealth">
+                            <img id="healthBar" src="assets/img/lifeBarShort/lifeBar6.png">
+                        </div>
+                        <div id="boxLife">
+                            <img id="life" src="assets/img/life.png">
+                            <p id="livesNum" class="values">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div id="center">
             <canvas width="560" height="360">Sorry, your browser don't support Canvas</canvas>

@@ -11,7 +11,7 @@ window.addEventListener('load',init,false);
 const _LifePlayer = 2,    _TimeProtected = 125,         _PointsTouchBlock = 2, _MunitionWeapon1 = 999999,
 	  _LifeBlock = 3,     _TimeChangeLevel = 150,       _PointsTouchEnemy = 4, _MunitionWeapon2 = 500,
 	  _LifeEnemy = 21,    _TimeRechargeHome = 75,       _PointsKillBlock = 5,
-	  _HealthPlayer = 10, _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
+	  _HealthPlayer = 6, _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
 	  				      _TimeShowDamagedEnemy = 10,   _PointsGetLife = 3,
 	  				      _TimeToShoot = 30,
 
@@ -373,13 +373,13 @@ function basicConditions(){
 				player.timeRechargeHome--;
 
 			if(player.health < 1){
+				// Hear the sound of life lose, except in the last: sound of GameOver
+				if(player.life != 1)
+					loadSound(sLoseLife);
 				player.life--;
 				if(player.life > 0)
 					player.health = _HealthPlayer;
 				player.timeProtected = _TimeProtected;
-				// Hear the sound of life lose, except in the last: sound of GameOver
-				if(player.life != 1)
-					loadSound(sLoseLife);
 			}
 
 			for(i in enemy){

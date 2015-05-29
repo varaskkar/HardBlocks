@@ -1,6 +1,6 @@
 var fps = 0, now, lastUpdate = (new Date)*1 - 1, fpsFilter = 50;
 
-var ElementHealth = document.getElementById("lifeBar");
+var ElementHealth = document.getElementById("healthBar");
 var ElementLives   = document.getElementById("livesNum");
 var ElementPoints  = document.getElementById("scoreNum");
 var ElementWeapon1 = document.getElementById("weapon1Num");
@@ -92,39 +92,27 @@ function templateSetWeapon2(munition){ ElementWeapon2.innerHTML = formatNumbers(
 function templateSetLives(lives){ ElementLives.innerHTML = formatNumbers(lives); }
 function templateSetHealth(health){
 	if(health == 0)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar0.png";
+		ElementHealth.src = "assets/img/lifeBarShort/lifeBar0.png";
 	else if(health == 1)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar1.png";
+		ElementHealth.src = "assets/img/lifeBarShort/lifeBar1.png";
 	else if(health == 2)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar2.png";
+		ElementHealth.src = "assets/img/lifeBarShort/lifeBar2.png";
 	else if(health == 3)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar3.png";
+		ElementHealth.src = "assets/img/lifeBarShort/lifeBar3.png";
 	else if(health == 4)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar4.png";
+		ElementHealth.src = "assets/img/lifeBarShort/lifeBar4.png";
 	else if(health == 5)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar5.png";
+		ElementHealth.src = "assets/img/lifeBarShort/lifeBar5.png";
 	else if(health == 6)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar6.png";
-	else if(health == 7)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar7.png";
-	else if(health == 8)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar8.png";
-	else if(health == 9)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar9.png";
-	else if(health == 10)
-		ElementHealth.src = "assets/img/lifeBar/lifeBar10.png";
+		ElementHealth.src = "assets/img/lifeBarShort/lifeBar6.png";
 }
 
 function templateSetLightEfects(enable){
 	if(!enable){
 		setTimeout(templateSetLightEfects,100);
-		ElementLives.style.color  = '#C3C8CF';
-		ElementPoints.style.color = '#C3C8CF';
 		ElementLight1.src         = "assets/img/lighEffect1.png";
 		ElementLight2.src         = "assets/img/lighEffect1.png";
 	}else{
-		ElementLives.style.color  = '#94A2B7';
-		ElementPoints.style.color = '#94A2B7';
 		ElementLight1.src         = "assets/img/lighEffect2.png";
 		ElementLight2.src         = "assets/img/lighEffect2.png";
 	}

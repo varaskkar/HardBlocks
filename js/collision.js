@@ -613,7 +613,7 @@ function collisionBulletsEnemy(){
 
 			// BulletsEnemy -> Player
 			if(typeof enemy[i].bullets[j] != "undefined"){
-				if(enemy[i].bullets[j].collide(player)){
+				if(enemy[i].bullets[j].collide(player) && player.timeProtected < 1){
 					enemy[i].bullets.splice(j,1);
 					if(damage)
 						player.health--;
