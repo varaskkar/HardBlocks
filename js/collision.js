@@ -607,6 +607,154 @@ function collisionBullets2(){
 	}
 }
 
+function collisionBullets3(){
+	for(i in player.bullets3){
+
+		// Bullets3 -> BlockBrown
+		for(j in blockBrown){
+			if(typeof player.bullets3[i] != "undefined"){
+				if(player.bullets3[i].collide(blockBrown[j])){
+					if(!player.bullets3[i].isCollide)
+						player.bullets3[i].isCollide = true;
+		  			player.score += _PointsTouchBlock;
+					// player.bullets3.splice(i,1);
+
+					if(blockBrown[j].life > 0)
+						blockBrown[j].life -= _DamageWeapon3;
+					else{
+						loadSound(sExplosion);
+						blockBrown.splice(j,1);
+					}
+
+					templateSetLightEfects(true);
+				}
+			}
+		}
+
+		// Bullets3 -> BlockGray
+		for(j in blockGray){
+			if(typeof player.bullets3[i] != "undefined"){
+				if(player.bullets3[i].collide(blockGray[j])){
+					if(!player.bullets3[i].isCollide)
+						player.bullets3[i].isCollide = true;
+					loadSound(sExplosion);
+		  			player.bullets3.splice(i,1);
+				}
+ 			}
+		}
+
+		// Bullets3 -> fire
+		for(j in fire){
+			if(typeof player.bullets3[i] != "undefined"){
+				if(player.bullets3[i].collide(fire[j])){
+					if(!player.bullets3[i].isCollide)
+						player.bullets3[i].isCollide = true;
+					loadSound(sExplosion);
+		  			player.bullets3.splice(i,1);
+		  			templateSetLightEfects(true);
+	 			}
+	 		}
+		}
+
+		// Bullets3 -> BlockWhite
+		for(j in blockWhiteVert){
+			if(typeof player.bullets3[i] != "undefined"){
+		  		if(player.bullets3[i].collide(blockWhiteVert[j])){
+		  			if(player.bullets3[i].maxRebounds < _MaxRebounds){
+		  				player.bullets3[i].velY *= -1;
+		  				player.bullets3[i].maxRebounds++;
+		  				loadSound(sRebounds);
+		  			}else
+						player.bullets3.splice(i,1);
+				}
+			}
+		}
+		for(j in blockWhiteHor){
+			if(typeof player.bullets3[i] != "undefined"){
+		  		if(player.bullets3[i].collide(blockWhiteHor[j])){
+		  			if(player.bullets3[i].maxRebounds < _MaxRebounds){
+		  				// player.bullets3[i].velX = -player.bullets3[i].velX;
+		  				player.bullets3[i].velX *= -1;
+		  				player.bullets3[i].maxRebounds++;
+		  				loadSound(sRebounds);
+					}else
+						player.bullets3.splice(i,1);
+				}
+			}
+		}
+
+		// Bullets3 -> life
+		if(typeof player.bullets3[i] != "undefined"){
+			if(player.bullets3[i].collide(life)){
+				player.life++;
+				player.health = _HealthPlayer;
+				loadSound(sGetLife);
+		  		life.x = random(canvas.width - 10);
+		  		life.y = random(canvas.height - 10);
+			}
+		}
+
+		// Bullets3 -> Portal
+		for(j in portalInput){
+			if(typeof player.bullets3[i] != "undefined"){
+				if(player.bullets3[i].collide(portalInput[j])){
+					if(!player.bullets3[i].isCollide)
+						player.bullets3[i].isCollide = true;
+					loadSound(sExplosion);
+			  		player.bullets3.splice(i,1);
+				}
+			}
+		}
+		for(j in portalOutput){
+			if(typeof player.bullets3[i] != "undefined"){
+				if(player.bullets3[i].collide(portalOutput[j])){
+					if(!player.bullets3[i].isCollide)
+						player.bullets3[i].isCollide = true;
+					loadSound(sExplosion);
+			  		player.bullets3.splice(i,1);
+				}
+			}
+		}
+
+		// Bullets3 -> Enemy
+		for(j in enemy){
+			if(typeof player.bullets3[i] != "undefined"){
+				if(player.bullets3[i].collide(enemy[j])){
+					if(!player.bullets3[i].isCollide)
+						player.bullets3[i].isCollide = true;
+					player.score += _PointsTouchEnemy;
+		  			player.bullets3.splice(i,1);
+
+		  			if(enemy[j].life > 0)
+						enemy[j].life -= _DamageWeapon3;
+					else{
+						loadSound(sExplosion);
+						player.score += _PointsKillEnemy;
+					}
+					enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
+
+		  			templateSetLightEfects(true);
+	 			}
+	 		}
+		}
+
+		// Bullets3 -> BulletsEnemy
+		for(j in enemy){
+			for(k in enemy[j].bullets){
+				if(typeof player.bullets3[i] != "undefined"){
+					if(player.bullets3[i].collide(enemy[j].bullets[k])){
+						if(!player.bullets3[i].isCollide)
+							player.bullets3[i].isCollide = true;
+						loadSound(sExplosion);
+						enemy[j].bullets.splice(k, 1);
+						player.bullets3.splice(i, 1);
+					}
+				}
+			}
+		}
+	}
+}
+
 function collisionBulletsEnemy(){
 	for(i in enemy){
 		for(j in enemy[i].bullets){

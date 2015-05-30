@@ -43,7 +43,8 @@ var	blockBrownCopyMap2 = [],
 	enemyCopyMap2      = [];
 
 function createMap(){
-	mapList.push(new Map("map_1", map12, sMap1, "#011224", _SizeBlock));
+	mapList.push(new Map("map_1", map6, sMap1, "#011224", _SizeBlock));
+	// mapList.push(new Map("map_1", map12, sMap1, "#011224", _SizeBlock));
 	mapList.push(new Map("map_2", map2, sMap2, "#010B16", _SizeBlock));
 	mapList.push(new Map("map_3", map3, sMap3, "#010F1D", _SizeBlock));
 	mapList.push(new Map("map_4", map4, sMap4, "#08212F", _SizeBlock));

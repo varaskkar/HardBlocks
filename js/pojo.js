@@ -59,7 +59,7 @@ function Enemy(x, y, width, height, life, movement){
  	this.acceleration = 0;
 
  	// Weapon
- 	this.timeToShoot = 0;
+ 	this.timeReturnShoot = 0;
  	this.bullets = [];
 
  	// Zone Attack
@@ -103,6 +103,11 @@ function Player(x, y, width, height){
  	this.bullets2 = [];
  	this.munition2 = 0;
 
+ 	// Weapon 3
+ 	this.timeReturnShoot = 0;
+ 	this.bullets3 = [];
+ 	this.munition3 = 0;
+
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){
 	   		return this.x < thing.x+thing.width &&
@@ -121,6 +126,16 @@ function Bullet(x, y, width, height, velX, velY){
  	this.velX = velX;
  	this.velY = velY;
  	this.maxRebounds = 0;
+
+ 	// Explosion to collide - Weapon3
+ 	this.isCollide = false;
+ 	this.timeShowExplosion = 0;
+ 	this.setTimeOnlyOnce = true;
+ 	this.sizeExplosion = 0;
+ 	this.copyX;
+ 	this.copyY;
+ 	this.copyWidth;
+ 	this.copyHeight;
 
 	// Bullets's Atributes
  	this.mover360 = false;		// Up

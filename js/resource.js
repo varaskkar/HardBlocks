@@ -5,6 +5,7 @@ var ElementLives   = document.getElementById("livesNum");
 var ElementPoints  = document.getElementById("scoreNum");
 var ElementWeapon1 = document.getElementById("weapon1Num");
 var ElementWeapon2 = document.getElementById("weapon2Num");
+var ElementWeapon3 = document.getElementById("weapon3Num");
 var ElementLight1  = document.getElementById("light1");
 var ElementLight2  = document.getElementById("light2");
 var ElementTable1  = document.getElementsByTagName("table")[0];
@@ -89,40 +90,41 @@ function templateSetFullscreen(enable){
 function templateSetPoints(points){ ElementPoints.innerHTML = formatNumbers(points); }
 function templateSetWeapon1(munition){ if(munition >= 9999){ munition = "∞"; } ElementWeapon1.innerHTML = munition; }
 function templateSetWeapon2(munition){ ElementWeapon2.innerHTML = formatNumbers(munition); }
+function templateSetWeapon3(munition){ ElementWeapon3.innerHTML = formatNumbers(munition); }
 function templateSetLives(lives){ ElementLives.innerHTML = formatNumbers(lives); }
 function templateSetHealth(health){
 	if(health == 0)
-		ElementHealth.src = "assets/img/lifeBarShort/lifeBar0.png";
+		ElementHealth.src = "assets/img/template/lifeBar/lifeBar0.png";
 	else if(health == 1)
-		ElementHealth.src = "assets/img/lifeBarShort/lifeBar1.png";
+		ElementHealth.src = "assets/img/template/lifeBar/lifeBar1.png";
 	else if(health == 2)
-		ElementHealth.src = "assets/img/lifeBarShort/lifeBar2.png";
+		ElementHealth.src = "assets/img/template/lifeBar/lifeBar2.png";
 	else if(health == 3)
-		ElementHealth.src = "assets/img/lifeBarShort/lifeBar3.png";
+		ElementHealth.src = "assets/img/template/lifeBar/lifeBar3.png";
 	else if(health == 4)
-		ElementHealth.src = "assets/img/lifeBarShort/lifeBar4.png";
+		ElementHealth.src = "assets/img/template/lifeBar/lifeBar4.png";
 	else if(health == 5)
-		ElementHealth.src = "assets/img/lifeBarShort/lifeBar5.png";
+		ElementHealth.src = "assets/img/template/lifeBar/lifeBar5.png";
 	else if(health == 6)
-		ElementHealth.src = "assets/img/lifeBarShort/lifeBar6.png";
+		ElementHealth.src = "assets/img/template/lifeBar/lifeBar6.png";
 }
 
 function templateSetLightEfects(enable){
 	if(!enable){
 		setTimeout(templateSetLightEfects,100);
-		ElementLight1.src         = "assets/img/lighEffect1.png";
-		ElementLight2.src         = "assets/img/lighEffect1.png";
+		ElementLight1.src         = "assets/img/template/lighEffect1.png";
+		ElementLight2.src         = "assets/img/template/lighEffect1.png";
 	}else{
-		ElementLight1.src         = "assets/img/lighEffect2.png";
-		ElementLight2.src         = "assets/img/lighEffect2.png";
+		ElementLight1.src         = "assets/img/template/lighEffect2.png";
+		ElementLight2.src         = "assets/img/template/lighEffect2.png";
 	}
 }
 
 function templateSetSound(enable){
 	if(enable)
-		ElementSound.src = "assets/img/soundFull.png";
+		ElementSound.src = "assets/img/template/soundFull.png";
 	else
-		ElementSound.src = "assets/img/soundNotFull.png";
+		ElementSound.src = "assets/img/template/soundNotFull.png";
 }
 
 function formatNumbers(number){

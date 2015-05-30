@@ -10,12 +10,14 @@ window.addEventListener('load',init,false);
 
 const _LifePlayer = 2,    _TimeProtected = 125,         _PointsTouchBlock = 2, _MunitionWeapon1 = 999999,
 	  _LifeBlock = 3,     _TimeChangeLevel = 150,       _PointsTouchEnemy = 4, _MunitionWeapon2 = 500,
-	  _LifeEnemy = 21,    _TimeRechargeHome = 75,       _PointsKillBlock = 5,
-	  _HealthPlayer = 6, _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
+	  _LifeEnemy = 21,    _TimeRechargeHome = 75,       _PointsKillBlock = 5,  _MunitionWeapon3 = 50,
+	  _HealthPlayer = 6,  _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
 	  				      _TimeShowDamagedEnemy = 10,   _PointsGetLife = 3,
-	  				      _TimeToShoot = 30,
+	  				      _TimeReturnShootEnemy = 30,
+	  				      _TimeReturnShootPlayer = 20,
 
 	  _DamageWeapon = 1,
+	  _DamageWeapon3 = 5,
 	  _DamageExplosionEnemy = _LifeEnemy,
 
 	  _SizeBlock = 20, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 2;
@@ -123,6 +125,7 @@ function reset(){
 	player.life          = _LifePlayer;
 	player.munition1     = _MunitionWeapon1;
 	player.munition2     = _MunitionWeapon2;
+	player.munition3     = _MunitionWeapon3;
 	player.timeProtected = 0;
 	gameOver             = false
 	// loadMap("map_1", 270, 330, 0);
@@ -139,6 +142,7 @@ function run(){
 	templateSetPoints(player.score);
 	templateSetWeapon1(player.munition1);
 	templateSetWeapon2(player.munition2);
+	templateSetWeapon3(player.munition3);
 	templateSetLives(player.life);
 	templateSetHealth(player.health);
 }
@@ -149,7 +153,7 @@ function game(){
 		movementEnemy();
 		weapon1(player, player.bullets1);
 		weapon2(player, player.bullets2);
-		// weaponTest(player, player.bulletsWeapon3);
+		weapon3(player, player.bullets3);
 		collision();
 		basicConditions();
 	}
@@ -300,8 +304,45 @@ function draw() {
 	for(i in player.bullets2)
   		rectangle(ctx, player.bullets2[i].x,player.bullets2[i].y,player.bullets2[i].width,player.bullets2[i].height, "#4A6192");
 
-	// for(i in bulletsTest)
- //  		rectangle(ctx, bulletsTest[i].x,bulletsTest[i].y,bulletsTest[i].width,bulletsTest[i].height, "#4A6192");
+	for(i in player.bullets3){
+		var bullet = player.bullets3[i];
+		if(!bullet.isCollide)
+  			rectangle(ctx, bullet.x,bullet.y,bullet.width,bullet.height, "#FBD490");
+		else{
+			if(bullet.setTimeOnlyOnce){
+	  			bullet.timeShowExplosion = _TimeShowExplosionEnemy;
+	  			bullet.setTimeOnlyOnce = false;
+
+	  			// Save the bullet's data
+				bullet.copyX = bullet.x;
+				bullet.copyY = bullet.y;
+				bullet.copyWidth = bullet.width;
+				bullet.copyHeight = bullet.height;
+
+	  			// Increase the bullet size to collides with blockBrown and destroy it
+	  			// The x,y axis are to center the collision zone (square) with the visual explosion (circle)
+	  			bullet.width = _SizeBlock*2;
+				bullet.height = _SizeBlock*2;
+				bullet.x -= bullet.width/2;
+				bullet.y -= bullet.height/2;
+
+				// Tweak the align
+				bullet.x += 2;
+				bullet.y += 2;
+	  		}
+			if(player.bullets3[i].timeShowExplosion > 0){
+				// Put the explosion in bullet initial position
+				var centerX = bullet.copyX+bullet.copyWidth/2;
+				var centerY = bullet.copyY+bullet.copyHeight/2;
+				if(bullet.sizeExplosion <= _SizeBlock && !pause)
+					bullet.sizeExplosion++;
+				// rectangle(ctx, bullet.x, bullet.y, bullet.width, bullet.height, "#D38600");
+				circle(ctx, centerX, centerY, bullet.sizeExplosion, "#6B0801", "#6B1601", 5);
+			}else
+				player.bullets3.splice(i,1);
+		}
+
+	}
 
   	for(i in enemy){
   		for(j in enemy[i].bullets)
@@ -316,7 +357,8 @@ function draw() {
 		ctx.fillText('Rotation: '+player.rotation,5,45);
 		ctx.fillText('Bullets 1: '+player.bullets1.length,5,60);
 		ctx.fillText('Bullets 2: '+player.bullets2.length,5,75);
-		ctx.fillText('Map: '+currentMap.replace("map_",""),5,90);
+		ctx.fillText('Bullets 2: '+player.bullets3.length,5,90);
+		ctx.fillText('Map: '+currentMap.replace("map_",""),5,105);
 		// ctx.fillText('Bullets Test: '+bulletsTest.length,5,90);
 		// ctx.fillText('Bullets Enemy: '+enemy[0].bulletsEnemy.length,5,105);
 		// ctx.fillText('Score: '+player.score,5,30);
@@ -351,6 +393,7 @@ function collision(){
 	collisionLife();
 	collisionBullets1();
 	collisionBullets2();
+	collisionBullets3();
 	collisionBulletsEnemy();
 }
 
@@ -371,6 +414,12 @@ function basicConditions(){
 				player.timeChangeLevel--;
 			if(player.timeRechargeHome > 0)
 				player.timeRechargeHome--;
+			if(player.timeReturnShoot > 0)
+				player.timeReturnShoot--;
+			for(i in player.bullets3){
+				if(player.bullets3[i].timeShowExplosion > 0)
+					player.bullets3[i].timeShowExplosion--;
+			}
 
 			if(player.health < 1){
 				// Hear the sound of life lose, except in the last: sound of GameOver
@@ -386,8 +435,8 @@ function basicConditions(){
 				if(enemy[i].life > 0){
 					if(enemy[i].timeShowDamage > 0)
 						enemy[i].timeShowDamage--;
-					if(enemy[i].timeToShoot > 0)
-						enemy[i].timeToShoot--;
+					if(enemy[i].timeReturnShoot > 0)
+						enemy[i].timeReturnShoot--;
 				}else{
 					if(enemy[i].timeShowExplosion > 0)
 						enemy[i].timeShowExplosion--;
@@ -463,6 +512,7 @@ function keyboard(){
 		key = null;
 	}else if(key == formatKey("F2")){
 		player.munition2 = _MunitionWeapon2;
+		player.munition3 = _MunitionWeapon3;
 		key = null;
 	}
 }

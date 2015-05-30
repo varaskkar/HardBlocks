@@ -44,11 +44,19 @@
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
 
+ ☐ Cambiar sonido al arma3
+ ☐ Producir explosion al colisionar
+ ☐ Al igual que el arma3, ponerle a las otras 2 un tiempo de disparo
+ ☐ Problema: undefined al disparar con weapon3
+ ☐ la bala solamente si mueva si no ha chocado
+ ☐ Cada tipo de enemigo tengo una cantidad de vida distinta
+ ☐ Ponerle a los enemigos en el pojo una var booleana de si dispara o no, al crear el mapa pasársela
+ ☐ Arma de misiles que aparezca explosion al colisionar @Hacer
  ☐ IA enemy: Si detecta que su vida ha bajado, cambiar de posicion (pos opuesta a la que traia)
  ✔ Tema barra de vida @done (28-05-15 02:07)
      ✔ El enemigo me quite al darme @done (28-05-15 02:07)
-     ☐ Cambiar la barra de vida de 10 a 6...probar con colores 2 de cada (verde, amarillo y rojo) @Hacer
- ☐ Arma de misiles que aparezca explosion al colisionar
+     ✔ Cambiar la barra de vida de 10 a 6...probar con colores 2 de cada (verde, amarillo y rojo) @done (29-05-15 16:25)
+ ✔ La plantilla ahora muestra iconos en vez de texto @done (29-05-15 16:51)
  ☐ Un mapa con el enemigo arriba que me siga, se ponga encima de un btn y que se abra una puerta que
      ✔ La img del btn ya la tengo @done (28-05-15 02:11)
  ✘ Ponerle a las balas img's y que sean redondas @cancelled (27-05-15 19:03)
