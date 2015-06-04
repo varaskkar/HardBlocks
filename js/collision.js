@@ -175,7 +175,7 @@ function collisionPlayer(){
 	for(i in enemy){
 		if(player.collide(enemy[i]) && player.timeProtected < 1){
 			if(damage){
-				player.timeProtected = _TimeProtected;
+				// player.timeProtected = _TimeProtected;
 				player.health--;
 			}
 		}
@@ -366,7 +366,7 @@ function collisionBullets1(){
 					player.bullets1.splice(i,1);
 
 					if(blockBrown[j].life > 0)
-						blockBrown[j].life -= _DamageWeapon;
+						blockBrown[j].life -= _DamageWeapon1;
 					else
 						blockBrown.splice(j,1);
 
@@ -454,10 +454,10 @@ function collisionBullets1(){
 		  			player.bullets1.splice(i,1);
 
 		  			if(enemy[j].life > 0)
-						enemy[j].life -= _DamageWeapon;
+						enemy[j].life -= _DamageWeapon1;
 					else{
-						loadSound(sExplosion);
 						player.score += _PointsKillEnemy;
+						enemy[j].showExplosionBullet3 = true;
 					}
 					enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
 
@@ -493,7 +493,7 @@ function collisionBullets2(){
 					if(blockBrown[j].life <= 0)
 						blockBrown.splice(j,1);
 					else
-						blockBrown[j].life -= _DamageWeapon;
+						blockBrown[j].life -= _DamageWeapon2;
 
 					templateSetLightEfects(true);
 				}
@@ -581,10 +581,10 @@ function collisionBullets2(){
 		  			player.bullets2.splice(i,1);
 
 		  			if(enemy[j].life > 0)
-						enemy[j].life -= _DamageWeapon;
+						enemy[j].life -= _DamageWeapon2;
 					else{
-						loadSound(sExplosion);
 						player.score += _PointsKillEnemy;
+						enemy[j].showExplosionBullet3 = true;
 					}
 					enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
 
@@ -617,14 +617,11 @@ function collisionBullets3(){
 					if(!player.bullets3[i].isCollide)
 						player.bullets3[i].isCollide = true;
 		  			player.score += _PointsTouchBlock;
-					// player.bullets3.splice(i,1);
 
 					if(blockBrown[j].life > 0)
 						blockBrown[j].life -= _DamageWeapon3;
-					else{
-						loadSound(sExplosion);
+					else
 						blockBrown.splice(j,1);
-					}
 
 					templateSetLightEfects(true);
 				}
@@ -637,8 +634,6 @@ function collisionBullets3(){
 				if(player.bullets3[i].collide(blockGray[j])){
 					if(!player.bullets3[i].isCollide)
 						player.bullets3[i].isCollide = true;
-					loadSound(sExplosion);
-		  			player.bullets3.splice(i,1);
 				}
  			}
 		}
@@ -649,8 +644,6 @@ function collisionBullets3(){
 				if(player.bullets3[i].collide(fire[j])){
 					if(!player.bullets3[i].isCollide)
 						player.bullets3[i].isCollide = true;
-					loadSound(sExplosion);
-		  			player.bullets3.splice(i,1);
 		  			templateSetLightEfects(true);
 	 			}
 	 		}
@@ -700,8 +693,6 @@ function collisionBullets3(){
 				if(player.bullets3[i].collide(portalInput[j])){
 					if(!player.bullets3[i].isCollide)
 						player.bullets3[i].isCollide = true;
-					loadSound(sExplosion);
-			  		player.bullets3.splice(i,1);
 				}
 			}
 		}
@@ -710,8 +701,6 @@ function collisionBullets3(){
 				if(player.bullets3[i].collide(portalOutput[j])){
 					if(!player.bullets3[i].isCollide)
 						player.bullets3[i].isCollide = true;
-					loadSound(sExplosion);
-			  		player.bullets3.splice(i,1);
 				}
 			}
 		}
@@ -720,19 +709,23 @@ function collisionBullets3(){
 		for(j in enemy){
 			if(typeof player.bullets3[i] != "undefined"){
 				if(player.bullets3[i].collide(enemy[j])){
-					if(!player.bullets3[i].isCollide)
-						player.bullets3[i].isCollide = true;
 					player.score += _PointsTouchEnemy;
-		  			player.bullets3.splice(i,1);
 
 		  			if(enemy[j].life > 0)
 						enemy[j].life -= _DamageWeapon3;
 					else{
-						loadSound(sExplosion);
+						// First time enemy die, only display his explosion (not bullet3's explosion)
+						// If to that enemy/explosion is returned to shoot, then yes show bullet3's explosion
+						if(!enemy[j].showExplosionBullet3){
+							enemy[j].showExplosionBullet3 = true;
+							player.bullets3.splice(i, 1);
+						}else{
+							if(!player.bullets3[i].isCollide)
+								player.bullets3[i].isCollide = true;
+						}
 						player.score += _PointsKillEnemy;
 					}
 					enemy[j].timeShowDamage = _TimeShowDamagedEnemy;
-
 		  			templateSetLightEfects(true);
 	 			}
 	 		}
@@ -745,11 +738,28 @@ function collisionBullets3(){
 					if(player.bullets3[i].collide(enemy[j].bullets[k])){
 						if(!player.bullets3[i].isCollide)
 							player.bullets3[i].isCollide = true;
-						loadSound(sExplosion);
 						enemy[j].bullets.splice(k, 1);
-						player.bullets3.splice(i, 1);
 					}
 				}
+			}
+		}
+
+		// Bullets3 -> Bullets3
+		for(j in player.bullets3){
+			if(typeof player.bullets3[i] != "undefined"){
+				// "i != j" avoid that the bullet collides with itself
+				if(player.bullets3[i].collide(player.bullets3[j]) && i != j){
+					if(!player.bullets3[i].isCollide)
+						player.bullets3[i].isCollide = true;
+				}
+			}
+		}
+
+		// Bullets3 -> Player
+		if(typeof player.bullets3[i] != "undefined"){
+			if(player.bullets3[i].collide(player) && player.timeProtected < 1){
+				if(damage && player.bullets3[i].isCollide)
+					player.health--;
 			}
 		}
 	}
@@ -837,8 +847,8 @@ function collisionBulletsEnemy(){
 							if(enemy[k].life > 0)
 								enemy[k].life -= _DamageWeapon;
 							else{
-								loadSound(sExplosion);
 								player.score += _PointsKillEnemy;
+								enemy[k].showExplosionBullet3 = true;
 							}
 						}
 		 			}

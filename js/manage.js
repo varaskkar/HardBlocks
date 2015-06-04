@@ -11,13 +11,16 @@ window.addEventListener('load',init,false);
 const _LifePlayer = 2,    _TimeProtected = 125,         _PointsTouchBlock = 2, _MunitionWeapon1 = 999999,
 	  _LifeBlock = 3,     _TimeChangeLevel = 150,       _PointsTouchEnemy = 4, _MunitionWeapon2 = 500,
 	  _LifeEnemy = 21,    _TimeRechargeHome = 75,       _PointsKillBlock = 5,  _MunitionWeapon3 = 50,
-	  _HealthPlayer = 6,  _TimeShowExplosionEnemy = 30, _PointsKillEnemy = 10,
+	  _HealthPlayer = 6,  _TimeShowExplosionEnemy = 40, _PointsKillEnemy = 10,
 	  				      _TimeShowDamagedEnemy = 10,   _PointsGetLife = 3,
 	  				      _TimeReturnShootEnemy = 30,
-	  				      _TimeReturnShootPlayer = 20,
+	  				      _TimeReturnShootPlayerWeapon1 = 5,
+	  				      _TimeReturnShootPlayerWeapon2 = 10,
+	  				      _TimeReturnShootPlayerWeapon3 = 20,
 
-	  _DamageWeapon = 1,
-	  _DamageWeapon3 = 5,
+	  _DamageWeapon1 = 1,
+	  _DamageWeapon2 = 1,
+	  _DamageWeapon3 = 30,
 	  _DamageExplosionEnemy = _LifeEnemy,
 
 	  _SizeBlock = 20, _SizeWeapon = 4, _MaxRebounds = 100, _SpeedEnemy = 2;
@@ -40,7 +43,6 @@ var iPlayer      = new Image(),
 	iEnemy3      = new Image(),
  	iLife        = new Image(),
  	iFire    	 = new Image(),
- 	// iBullet1  	 = new Image(),
  	iBlockWhite  = new Image(),
  	iBlockGray   = new Image(),
  	iBlockBrown0 = new Image(),
@@ -50,6 +52,8 @@ var iPlayer      = new Image(),
 
 var sWeapon1      = new Audio(),
 	sWeapon2      = new Audio(),
+	sWeapon3      = new Audio(),
+	sWeaponEnemy  = new Audio(),
 	sGetLife      = new Audio(),
 	sLoseLife     = new Audio(),
 	sRebounds     = new Audio(),
@@ -87,7 +91,6 @@ function loadAssets(){
 	iEnemy3.src      = 'assets/img/drone.png';
 	iLife.src        = 'assets/img/life1.png';
 	iFire.src    	 = 'assets/img/fire2.png';
-	// iBullet1.src     = 'assets/img/bullet2.png';
 	iBlockWhite.src  = 'assets/img/blockWhite.png';
 	iBlockGray.src   = 'assets/img/blockGray.png';
 	iBlockBrown0.src = 'assets/img/blockBrown0.png';
@@ -96,7 +99,9 @@ function loadAssets(){
 	iBlockBrown3.src = 'assets/img/blockBrown3.png';
 
 	sWeapon1.src      = 'assets/audio/weapon1.wav';
-	sWeapon2.src      = 'assets/audio/weapon2.wav';
+	sWeapon2.src      = 'assets/audio/weapon1.wav';
+	sWeapon3.src      = 'assets/audio/weapon3.wav';
+	sWeaponEnemy.src  = 'assets/audio/weaponEnemy.wav';
 	sGetLife.src      = 'assets/audio/blip.wav';
 	sLoseLife.src     = 'assets/audio/error.wav';
 	sRebounds.src     = 'assets/audio/rebounds.wav';
@@ -210,7 +215,7 @@ function draw() {
 	}
 
 	if(player.timeProtected > 0){
-		if(player.timeProtected%2 != 0)
+		if(player.timeProtected%2 == 0)
 			showRotatedPlayer();
 	}else
 		showRotatedPlayer();
@@ -326,7 +331,7 @@ function draw() {
 				bullet.x -= bullet.width/2;
 				bullet.y -= bullet.height/2;
 
-				// Tweak the align
+				// Tweak the alignment
 				bullet.x += 2;
 				bullet.y += 2;
 	  		}
@@ -414,11 +419,22 @@ function basicConditions(){
 				player.timeChangeLevel--;
 			if(player.timeRechargeHome > 0)
 				player.timeRechargeHome--;
-			if(player.timeReturnShoot > 0)
-				player.timeReturnShoot--;
+			if(player.timeReturnShootWeapon1 > 0)
+				player.timeReturnShootWeapon1--;
+			if(player.timeReturnShootWeapon2 > 0)
+				player.timeReturnShootWeapon2--;
+			if(player.timeReturnShootWeapon3 > 0)
+				player.timeReturnShootWeapon3--;
 			for(i in player.bullets3){
 				if(player.bullets3[i].timeShowExplosion > 0)
 					player.bullets3[i].timeShowExplosion--;
+				if(player.bullets3[i].isCollide)
+					loadSound(sExplosion);
+			}
+			// If it's blinking, avoid not display nothing
+			if(pause){
+				if(player.timeProtected%2 != 0)
+					player.timeProtected++;
 			}
 
 			if(player.health < 1){
@@ -433,15 +449,24 @@ function basicConditions(){
 
 			for(i in enemy){
 				if(enemy[i].life > 0){
-					if(enemy[i].timeShowDamage > 0)
+					if(enemy[i].timeShowDamage > 0){
 						enemy[i].timeShowDamage--;
+						// If it's blinking, avoid not display nothing
+						if(pause){
+							if(enemy[i].timeShowDamage%2 != 0)
+								enemy[i].timeShowDamage++;
+						}
+					}
 					if(enemy[i].timeReturnShoot > 0)
 						enemy[i].timeReturnShoot--;
 				}else{
 					if(enemy[i].timeShowExplosion > 0)
 						enemy[i].timeShowExplosion--;
-					enemy[i].bullets.splice(0, enemy[i].bullets.length);
+					loadSound(sExplosion);
 				}
+				// Bullets continues their movement under any circunstance
+				if(enemy[i].bullets.length > 0)
+					weaponEnemy(i, false);
 			}
 		}else
 			gameOver = true;
@@ -471,6 +496,8 @@ function keyboard(){
 		else
 			playMapSound();
 
+		// There's some conditions only works if the game is paused
+		basicConditions();
 		key = null;
 	}else if(key == formatKey("M")){
 		fullScreen = !fullScreen;

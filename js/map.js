@@ -43,8 +43,8 @@ var	blockBrownCopyMap2 = [],
 	enemyCopyMap2      = [];
 
 function createMap(){
-	mapList.push(new Map("map_1", map6, sMap1, "#011224", _SizeBlock));
-	// mapList.push(new Map("map_1", map12, sMap1, "#011224", _SizeBlock));
+	// mapList.push(new Map("map_1", map6, sMap1, "#011224", _SizeBlock));
+	mapList.push(new Map("map_1", map12, sMap1, "#011224", _SizeBlock));
 	mapList.push(new Map("map_2", map2, sMap2, "#010B16", _SizeBlock));
 	mapList.push(new Map("map_3", map3, sMap3, "#010F1D", _SizeBlock));
 	mapList.push(new Map("map_4", map4, sMap4, "#08212F", _SizeBlock));
@@ -114,6 +114,7 @@ function clearMap(){
 	blockWhiteHor.splice(0, blockWhiteHor.length);
 	player.bullets1.splice(0, player.bullets1.length);
 	player.bullets2.splice(0, player.bullets2.length);
+	player.bullets3.splice(0, player.bullets3.length);
 	// bulletsTest.splice(0, bulletsTest.length);
 	portalInput.splice(0, portalInput.length);
 	portalOutput.splice(0, portalOutput.length);

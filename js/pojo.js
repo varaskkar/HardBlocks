@@ -50,6 +50,7 @@ function Enemy(x, y, width, height, life, movement){
  	this.copyY;
  	this.copyWidth;
  	this.copyHeight;
+ 	this.showExplosionBullet3 = false;		// Colission.js 	Bullets3 -> Enemy
 
  	// Movement
  	this.movement = "";
@@ -96,15 +97,17 @@ function Player(x, y, width, height){
  	this.timeRechargeHome = 0;
 
  	// Weapon 1
+ 	this.timeReturnShootWeapon1 = 0;
  	this.bullets1 = [];
  	this.munition1 = 0;
 
  	// Weapon 2
+ 	this.timeReturnShootWeapon2 = 0;
  	this.bullets2 = [];
  	this.munition2 = 0;
 
  	// Weapon 3
- 	this.timeReturnShoot = 0;
+ 	this.timeReturnShootWeapon3 = 0;
  	this.bullets3 = [];
  	this.munition3 = 0;
 
@@ -138,84 +141,84 @@ function Bullet(x, y, width, height, velX, velY){
  	this.copyHeight;
 
 	// Bullets's Atributes
- 	this.mover360 = false;		// Up
- 	this.mover180 = false;		// Down
- 	this.mover270 = false;		// Left
- 	this.mover90 = false;		// Right
+ 	this.move360 = false;		// Up
+ 	this.move180 = false;		// Down
+ 	this.move270 = false;		// Left
+ 	this.move90 = false;		// Right
 
-	this.mover275 = false;
-	this.mover280 = false;
-	this.mover285 = false;
-	this.mover290 = false;
-	this.mover295 = false;
-	this.mover300 = false;
-	this.mover305 = false;
-	this.mover310 = false;
-	this.mover315 = false;
-	this.mover320 = false;
-	this.mover325 = false;
-	this.mover330 = false;
-	this.mover335 = false;
-	this.mover340 = false;
-	this.mover345 = false;
-	this.mover350 = false;
-	this.mover355 = false;
+	this.move275 = false;
+	this.move280 = false;
+	this.move285 = false;
+	this.move290 = false;
+	this.move295 = false;
+	this.move300 = false;
+	this.move305 = false;
+	this.move310 = false;
+	this.move315 = false;
+	this.move320 = false;
+	this.move325 = false;
+	this.move330 = false;
+	this.move335 = false;
+	this.move340 = false;
+	this.move345 = false;
+	this.move350 = false;
+	this.move355 = false;
 
-	this.mover5 = false;
-	this.mover10 = false;
-	this.mover15 = false;
- 	this.mover20 = false;
- 	this.mover25 = false;
- 	this.mover30 = false;
- 	this.mover35 = false;
- 	this.mover40 = false;
- 	this.mover45 = false;
-	this.mover50 = false;
-	this.mover55 = false;
- 	this.mover60 = false;
- 	this.mover65 = false;
- 	this.mover70 = false;
- 	this.mover75 = false;
- 	this.mover80 = false;
- 	this.mover85 = false;
+	this.move5 = false;
+	this.move10 = false;
+	this.move15 = false;
+ 	this.move20 = false;
+ 	this.move25 = false;
+ 	this.move30 = false;
+ 	this.move35 = false;
+ 	this.move40 = false;
+ 	this.move45 = false;
+	this.move50 = false;
+	this.move55 = false;
+ 	this.move60 = false;
+ 	this.move65 = false;
+ 	this.move70 = false;
+ 	this.move75 = false;
+ 	this.move80 = false;
+ 	this.move85 = false;
 
- 	this.mover95 = false;
- 	this.mover100 = false;
- 	this.mover105 = false;
- 	this.mover110 = false;
- 	this.mover115 = false;
- 	this.mover120 = false;
- 	this.mover125 = false;
- 	this.mover130 = false;
- 	this.mover135 = false;
- 	this.mover140 = false;
- 	this.mover145 = false;
- 	this.mover150 = false;
- 	this.mover155 = false;
- 	this.mover160 = false;
- 	this.mover165 = false;
- 	this.mover170 = false;
- 	this.mover175 = false;
+ 	this.move95 = false;
+ 	this.move100 = false;
+ 	this.move105 = false;
+ 	this.move110 = false;
+ 	this.move115 = false;
+ 	this.move120 = false;
+ 	this.move125 = false;
+ 	this.move130 = false;
+ 	this.move135 = false;
+ 	this.move140 = false;
+ 	this.move145 = false;
+ 	this.move150 = false;
+ 	this.move155 = false;
+ 	this.move160 = false;
+ 	this.move165 = false;
+ 	this.move170 = false;
+ 	this.move175 = false;
 
- 	this.mover185 = false;
- 	this.mover190 = false;
- 	this.mover195 = false;
- 	this.mover200 = false;
- 	this.mover205 = false;
- 	this.mover210 = false;
- 	this.mover215 = false;
- 	this.mover220 = false;
- 	this.mover225 = false;
- 	this.mover230 = false;
- 	this.mover235 = false;
- 	this.mover240 = false;
- 	this.mover245 = false;
- 	this.mover250 = false;
- 	this.mover255 = false;
- 	this.mover260 = false;
- 	this.mover265 = false;
+ 	this.move185 = false;
+ 	this.move190 = false;
+ 	this.move195 = false;
+ 	this.move200 = false;
+ 	this.move205 = false;
+ 	this.move210 = false;
+ 	this.move215 = false;
+ 	this.move220 = false;
+ 	this.move225 = false;
+ 	this.move230 = false;
+ 	this.move235 = false;
+ 	this.move240 = false;
+ 	this.move245 = false;
+ 	this.move250 = false;
+ 	this.move255 = false;
+ 	this.move260 = false;
+ 	this.move265 = false;
 
- 	this.permitir = false;
+ 	this.allow = false;
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){
 	   		return this.x < thing.x+thing.width &&

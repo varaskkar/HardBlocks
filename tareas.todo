@@ -44,14 +44,26 @@
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
 
- ☐ Cambiar sonido al arma3
- ☐ Producir explosion al colisionar
- ☐ Al igual que el arma3, ponerle a las otras 2 un tiempo de disparo
- ☐ Problema: undefined al disparar con weapon3
- ☐ la bala solamente si mueva si no ha chocado
+
+ ✔ Que pueda chocar la bala weapon3 con la explosion del enemy @done (01-06-15 20:29)
+ ☐ El tamaño de la bala de weapon3 ... probar cambiar por img y rotarla si fuese posible
+ ✔ Si mato al enemy, que las balas no desaparezcan, se sigan moviendo en el sentido que tenian @done (04-06-15 15:39)
+ ✔ Si a la explosion enemy le da bala weapon3 que aparezca otra explosion de la bala @done (01-06-15 17:25)
+ ✔ Bug: muchas explosiones seguidas hasta matarme y al reaparecer sigue activa la últ explosion @done (01-06-15 17:30)
+ ✔ Tiempos de proteccion del player cuando pierde vida @done (01-06-15 17:31)
+ ✔ Bala3 > Enemy ...salen 2 explosiones @done (01-06-15 16:41)
+     ✔ Mostrar solo la del enemy @done (01-06-15 16:41)
+ ✔ La explosion de la bala del weapon3 colisiona con una bala weapon3. Colision Bala3 > Bala3 @done (01-06-15 16:08)
+     ✔ Antes > Al igual que el arma3, ponerle a las otras 2 un tiempo de disparo @Hacer @done (04-06-15 15:54)
+ ✔ Comprobar si al colisionar con el bloque gris debe producir explosión @done (01-06-15 16:41)
+ ✔ Cambiar sonido al arma3 @done (01-06-15 17:31)
+ ☐ El cuadrado de la explosion crezca a medida al igual que el circulo
+ ✔ Producir explosion al colisionar @done (30-05-15 17:23)
+ ✔ Problema: undefined al disparar con weapon3 @done (30-05-15 17:23)
+ ✔ la bala solamente si mueva si no ha chocado @done (30-05-15 17:23)
  ☐ Cada tipo de enemigo tengo una cantidad de vida distinta
  ☐ Ponerle a los enemigos en el pojo una var booleana de si dispara o no, al crear el mapa pasársela
- ☐ Arma de misiles que aparezca explosion al colisionar @Hacer
+ ✔ Arma de misiles que aparezca explosion al colisionar @done (30-05-15 17:24)
  ☐ IA enemy: Si detecta que su vida ha bajado, cambiar de posicion (pos opuesta a la que traia)
  ✔ Tema barra de vida @done (28-05-15 02:07)
      ✔ El enemigo me quite al darme @done (28-05-15 02:07)
@@ -75,6 +87,7 @@
      ✔ No se ve al player cuando muere @done (27-05-15 00:27)
      ✔ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse el tamaño @done (27-05-15 00:44)
      ✔ Quitar los logs de JS de la consola del navegador @done (27-05-15 16:38)
+     ✔ Si doy a pausa cuando el player esta en tiempo proteccion...a veces no se ve@done (01-06-15 18:07)
      ☐ Arreglar lo que siempre parpadeen las luces, que no cambien las img's constantemente
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita

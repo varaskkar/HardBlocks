@@ -1,7 +1,7 @@
 function weapon1(player, bullets){
 
 	// Make bullets
-	if((key == formatKey("Z") || key == formatKey("SPACE")) && bullets.length < 500){
+	if((key == formatKey("Z") || key == formatKey("SPACE")) && player.timeReturnShootWeapon1 == 0){
 		if(player.rotation == 0 || player.rotation == 360)	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,4,4));
 		else if(player.rotation == 90)				bullets.push(new Bullet(player.x+player.width,player.y+player.height/2,_SizeWeapon,_SizeWeapon,4,4));
 		else if(player.rotation == 180)				bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,4,4));
@@ -80,169 +80,170 @@ function weapon1(player, bullets){
 		else if(player.rotation == 265){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 6,_SizeWeapon,_SizeWeapon,4,1));  }
 
 		loadSound(sWeapon1);
+		player.timeReturnShootWeapon1 = _TimeReturnShootPlayerWeapon1;
 
 		key = null;
 	}
 
 	// Move bullets
 	// ------------
-	// bullets[i].mover360 		-->		La bala sólo se mueva hacia arriba, aunque cambie la rotación
-	// bullets[i].permitir		-->		Impide que 1 bala concreta cambie de direccion cuando gire la nave(rotación)
+	// bullets[i].move360 		-->		The bullet only is moved to up though change the rotation
+	// bullets[i].allow			-->		Avoid 1 determinate bullet change of direction when spin the spaceship(rotation)
 	for(i in bullets){
-		if((player.rotation == 0 || player.rotation == 360) && !bullets[i].permitir){	bullets[i].mover360 = true;	bullets[i].permitir = true;	}
-		else if(player.rotation == 90 && !bullets[i].permitir){          		bullets[i].mover90 = true;	bullets[i].permitir = true;	}
-		else if(player.rotation == 180 && !bullets[i].permitir){				bullets[i].mover180 = true;	bullets[i].permitir = true; 	}
-		else if(player.rotation == 270 && !bullets[i].permitir){				bullets[i].mover270 = true;	bullets[i].permitir = true;	}
+		if((player.rotation == 0 || player.rotation == 360) && !bullets[i].allow){	bullets[i].move360 = true;	bullets[i].allow = true;	}
+		else if(player.rotation == 90 && !bullets[i].allow){          		bullets[i].move90 = true;	bullets[i].allow = true;	}
+		else if(player.rotation == 180 && !bullets[i].allow){				bullets[i].move180 = true;	bullets[i].allow = true; 	}
+		else if(player.rotation == 270 && !bullets[i].allow){				bullets[i].move270 = true;	bullets[i].allow = true;	}
 
-		else if(player.rotation == 275 && !bullets[i].permitir){  			bullets[i].mover275 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 280 && !bullets[i].permitir){  			bullets[i].mover280 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 285 && !bullets[i].permitir){  			bullets[i].mover285 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 290 && !bullets[i].permitir){  			bullets[i].mover290 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 295 && !bullets[i].permitir){  			bullets[i].mover295 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 300 && !bullets[i].permitir){  			bullets[i].mover300 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 305 && !bullets[i].permitir){  			bullets[i].mover305 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 310 && !bullets[i].permitir){  			bullets[i].mover310 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 315 && !bullets[i].permitir){  			bullets[i].mover315 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 320 && !bullets[i].permitir){  			bullets[i].mover320 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 325 && !bullets[i].permitir){  			bullets[i].mover325 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 330 && !bullets[i].permitir){  			bullets[i].mover330 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 335 && !bullets[i].permitir){  			bullets[i].mover335 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 340 && !bullets[i].permitir){  			bullets[i].mover340 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 345 && !bullets[i].permitir){  			bullets[i].mover345 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 350 && !bullets[i].permitir){  			bullets[i].mover350 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 355 && !bullets[i].permitir){  			bullets[i].mover355 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 275 && !bullets[i].allow){  			bullets[i].move275 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 280 && !bullets[i].allow){  			bullets[i].move280 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 285 && !bullets[i].allow){  			bullets[i].move285 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 290 && !bullets[i].allow){  			bullets[i].move290 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 295 && !bullets[i].allow){  			bullets[i].move295 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 300 && !bullets[i].allow){  			bullets[i].move300 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 305 && !bullets[i].allow){  			bullets[i].move305 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 310 && !bullets[i].allow){  			bullets[i].move310 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 315 && !bullets[i].allow){  			bullets[i].move315 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 320 && !bullets[i].allow){  			bullets[i].move320 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 325 && !bullets[i].allow){  			bullets[i].move325 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 330 && !bullets[i].allow){  			bullets[i].move330 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 335 && !bullets[i].allow){  			bullets[i].move335 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 340 && !bullets[i].allow){  			bullets[i].move340 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 345 && !bullets[i].allow){  			bullets[i].move345 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 350 && !bullets[i].allow){  			bullets[i].move350 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 355 && !bullets[i].allow){  			bullets[i].move355 = true; 	bullets[i].allow = true; 	}
 
-		else if(player.rotation == 5 && !bullets[i].permitir){  			bullets[i].mover5 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 10 && !bullets[i].permitir){  			bullets[i].mover10 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 15 && !bullets[i].permitir){  			bullets[i].mover15 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 20 && !bullets[i].permitir){  			bullets[i].mover20 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 25 && !bullets[i].permitir){  			bullets[i].mover25 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 30 && !bullets[i].permitir){  			bullets[i].mover30 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 35 && !bullets[i].permitir){  			bullets[i].mover35 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 40 && !bullets[i].permitir){  			bullets[i].mover40 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 45 && !bullets[i].permitir){  			bullets[i].mover45 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 50 && !bullets[i].permitir){  			bullets[i].mover50 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 55 && !bullets[i].permitir){  			bullets[i].mover55 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 60 && !bullets[i].permitir){  			bullets[i].mover60 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 65 && !bullets[i].permitir){  			bullets[i].mover65 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 70 && !bullets[i].permitir){  			bullets[i].mover70 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 75 && !bullets[i].permitir){  			bullets[i].mover75 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 80 && !bullets[i].permitir){  			bullets[i].mover80 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 85 && !bullets[i].permitir){  			bullets[i].mover85 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 5 && !bullets[i].allow){  			bullets[i].move5 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 10 && !bullets[i].allow){  			bullets[i].move10 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 15 && !bullets[i].allow){  			bullets[i].move15 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 20 && !bullets[i].allow){  			bullets[i].move20 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 25 && !bullets[i].allow){  			bullets[i].move25 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 30 && !bullets[i].allow){  			bullets[i].move30 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 35 && !bullets[i].allow){  			bullets[i].move35 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 40 && !bullets[i].allow){  			bullets[i].move40 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 45 && !bullets[i].allow){  			bullets[i].move45 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 50 && !bullets[i].allow){  			bullets[i].move50 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 55 && !bullets[i].allow){  			bullets[i].move55 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 60 && !bullets[i].allow){  			bullets[i].move60 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 65 && !bullets[i].allow){  			bullets[i].move65 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 70 && !bullets[i].allow){  			bullets[i].move70 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 75 && !bullets[i].allow){  			bullets[i].move75 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 80 && !bullets[i].allow){  			bullets[i].move80 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 85 && !bullets[i].allow){  			bullets[i].move85 = true; 		bullets[i].allow = true; 	}
 
-		else if(player.rotation == 95 && !bullets[i].permitir){  			bullets[i].mover95 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 100 && !bullets[i].permitir){  			bullets[i].mover100 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 105 && !bullets[i].permitir){  			bullets[i].mover105 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 110 && !bullets[i].permitir){  			bullets[i].mover110 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 115 && !bullets[i].permitir){  			bullets[i].mover115 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 120 && !bullets[i].permitir){  			bullets[i].mover120 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 125 && !bullets[i].permitir){  			bullets[i].mover125 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 130 && !bullets[i].permitir){  			bullets[i].mover130 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 135 && !bullets[i].permitir){  			bullets[i].mover135 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 140 && !bullets[i].permitir){  			bullets[i].mover140 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 145 && !bullets[i].permitir){  			bullets[i].mover145 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 150 && !bullets[i].permitir){  			bullets[i].mover150 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 155 && !bullets[i].permitir){  			bullets[i].mover155 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 160 && !bullets[i].permitir){  			bullets[i].mover160 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 165 && !bullets[i].permitir){  			bullets[i].mover165 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 170 && !bullets[i].permitir){  			bullets[i].mover170 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 175 && !bullets[i].permitir){  			bullets[i].mover175 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 95 && !bullets[i].allow){  			bullets[i].move95 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 100 && !bullets[i].allow){  			bullets[i].move100 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 105 && !bullets[i].allow){  			bullets[i].move105 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 110 && !bullets[i].allow){  			bullets[i].move110 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 115 && !bullets[i].allow){  			bullets[i].move115 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 120 && !bullets[i].allow){  			bullets[i].move120 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 125 && !bullets[i].allow){  			bullets[i].move125 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 130 && !bullets[i].allow){  			bullets[i].move130 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 135 && !bullets[i].allow){  			bullets[i].move135 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 140 && !bullets[i].allow){  			bullets[i].move140 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 145 && !bullets[i].allow){  			bullets[i].move145 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 150 && !bullets[i].allow){  			bullets[i].move150 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 155 && !bullets[i].allow){  			bullets[i].move155 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 160 && !bullets[i].allow){  			bullets[i].move160 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 165 && !bullets[i].allow){  			bullets[i].move165 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 170 && !bullets[i].allow){  			bullets[i].move170 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 175 && !bullets[i].allow){  			bullets[i].move175 = true; 	bullets[i].allow = true; 	}
 
-		else if(player.rotation == 185 && !bullets[i].permitir){  			bullets[i].mover185 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 190 && !bullets[i].permitir){  			bullets[i].mover190 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 195 && !bullets[i].permitir){  			bullets[i].mover195 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 200 && !bullets[i].permitir){  			bullets[i].mover200 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 205 && !bullets[i].permitir){  			bullets[i].mover205 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 210 && !bullets[i].permitir){  			bullets[i].mover210 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 215 && !bullets[i].permitir){  			bullets[i].mover215 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 220 && !bullets[i].permitir){  			bullets[i].mover220 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 225 && !bullets[i].permitir){  			bullets[i].mover225 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 230 && !bullets[i].permitir){  			bullets[i].mover230 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 235 && !bullets[i].permitir){  			bullets[i].mover235 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 240 && !bullets[i].permitir){  			bullets[i].mover240 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 245 && !bullets[i].permitir){  			bullets[i].mover245 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 250 && !bullets[i].permitir){  			bullets[i].mover250 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 255 && !bullets[i].permitir){  			bullets[i].mover255 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 260 && !bullets[i].permitir){  			bullets[i].mover260 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 265 && !bullets[i].permitir){  			bullets[i].mover265 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 185 && !bullets[i].allow){  			bullets[i].move185 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 190 && !bullets[i].allow){  			bullets[i].move190 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 195 && !bullets[i].allow){  			bullets[i].move195 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 200 && !bullets[i].allow){  			bullets[i].move200 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 205 && !bullets[i].allow){  			bullets[i].move205 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 210 && !bullets[i].allow){  			bullets[i].move210 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 215 && !bullets[i].allow){  			bullets[i].move215 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 220 && !bullets[i].allow){  			bullets[i].move220 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 225 && !bullets[i].allow){  			bullets[i].move225 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 230 && !bullets[i].allow){  			bullets[i].move230 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 235 && !bullets[i].allow){  			bullets[i].move235 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 240 && !bullets[i].allow){  			bullets[i].move240 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 245 && !bullets[i].allow){  			bullets[i].move245 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 250 && !bullets[i].allow){  			bullets[i].move250 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 255 && !bullets[i].allow){  			bullets[i].move255 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 260 && !bullets[i].allow){  			bullets[i].move260 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 265 && !bullets[i].allow){  			bullets[i].move265 = true; 	bullets[i].allow = true; 	}
 
 		// Move bullets
-  		if(bullets[i].mover360)				bullets[i].y -= bullets[i].velY;
-  		else if(bullets[i].mover180)		bullets[i].y += bullets[i].velY;
-  		else if(bullets[i].mover270)		bullets[i].x -= bullets[i].velX;
-  		else if(bullets[i].mover90)			bullets[i].x += bullets[i].velX;
+  		if(bullets[i].move360)				bullets[i].y -= bullets[i].velY;
+  		else if(bullets[i].move180)		bullets[i].y += bullets[i].velY;
+  		else if(bullets[i].move270)		bullets[i].x -= bullets[i].velX;
+  		else if(bullets[i].move90)			bullets[i].x += bullets[i].velX;
 
-  		else if(bullets[i].mover275){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover280){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover285){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover290){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover295){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover300){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover305){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover310){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover315){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover320){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover325){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover330){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover335){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover340){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover345){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover350){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move275){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move280){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move285){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move290){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move295){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move300){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move305){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move310){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move315){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move320){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move325){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move330){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move335){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move340){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move345){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move350){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
-		else if(bullets[i].mover5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover25){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover30){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover35){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover40){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover45){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover50){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover55){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover60){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover65){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover70){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover75){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover80){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover85){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move25){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move30){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move35){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move40){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move45){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move50){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move55){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move60){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move65){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move70){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move75){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move80){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move85){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 
-  		else if(bullets[i].mover95){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover100){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover105){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover110){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover115){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover120){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover125){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover130){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover135){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover140){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover145){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover150){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover155){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover160){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover165){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover170){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover175){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move95){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move100){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move105){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move110){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move115){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move120){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move125){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move130){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move135){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move140){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move145){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move150){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move155){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move160){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move165){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move170){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move175){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 
-  		else if(bullets[i].mover185){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover190){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover195){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover200){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover205){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover210){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover215){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover220){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover225){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover230){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover235){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover240){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover245){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover250){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover255){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover260){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover265){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move185){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move190){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move195){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move200){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move205){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move210){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move215){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move220){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move225){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move230){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move235){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move240){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move245){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move250){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move255){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move260){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move265){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
   		// Remove bullets if exceed the map limits
 	 	if(bullets[i].x < 0 || bullets[i].y < 0)								bullets.splice(i,1);
@@ -253,7 +254,7 @@ function weapon1(player, bullets){
 function weapon2(player, bullets){
 
 	// Make bullets
-	if((key == formatKey("X") || key == formatKey("CTRL")) && player.munition2 > 0){
+	if((key == formatKey("X") || key == formatKey("CTRL")) && player.timeReturnShootWeapon2 == 0 && player.munition2 > 0){
 		if(player.rotation == 0 || player.rotation == 360){
 			bullets.push(new Bullet(player.x-2,player.y - 3,_SizeWeapon,_SizeWeapon,4,4));
 			bullets.push(new Bullet(player.x+player.width/2-2,player.y - 3,_SizeWeapon,_SizeWeapon,4,4));
@@ -555,7 +556,8 @@ function weapon2(player, bullets){
 		player.munition2 -= 3;
 		if(player.munition2 < 0)
 			player.munition2 = 0;
-		loadSound(sWeapon1);
+		loadSound(sWeapon2);
+		player.timeReturnShootWeapon2 = _TimeReturnShootPlayerWeapon2;
 
 		key = null;
 	}else if((key == formatKey("X") || key == formatKey("CTRL")) && player.munition2 <= 0){
@@ -563,165 +565,165 @@ function weapon2(player, bullets){
 		key = null;
 	}
 
-	// Mover bullets
+	// Move bullets
 	// ------------
-	// bullets[i].mover360 		-->		La bala sólo se mueva hacia arriba, aunque cambie la rotación
-	// bullets[i].permitir		-->		Impide que 1 bala concreta cambie de direccion cuando gire la nave(rotación)
+	// bullets[i].move360 		-->		The bullet only is moved to up though change the rotation
+	// bullets[i].allow			-->		Avoid 1 determinate bullet change of direction when spin the spaceship(rotation)
 	for(i in bullets){
-		if((player.rotation == 0 || player.rotation == 360) && !bullets[i].permitir){	bullets[i].mover360 = true;	bullets[i].permitir = true;	}
-		else if(player.rotation == 90 && !bullets[i].permitir){          		bullets[i].mover90 = true;	bullets[i].permitir = true;	}
-		else if(player.rotation == 180 && !bullets[i].permitir){				bullets[i].mover180 = true;	bullets[i].permitir = true; 	}
-		else if(player.rotation == 270 && !bullets[i].permitir){				bullets[i].mover270 = true;	bullets[i].permitir = true;	}
+		if((player.rotation == 0 || player.rotation == 360) && !bullets[i].allow){	bullets[i].move360 = true;	bullets[i].allow = true;	}
+		else if(player.rotation == 90 && !bullets[i].allow){          		bullets[i].move90 = true;	bullets[i].allow = true;	}
+		else if(player.rotation == 180 && !bullets[i].allow){				bullets[i].move180 = true;	bullets[i].allow = true; 	}
+		else if(player.rotation == 270 && !bullets[i].allow){				bullets[i].move270 = true;	bullets[i].allow = true;	}
 
-		else if(player.rotation == 275 && !bullets[i].permitir){  			bullets[i].mover275 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 280 && !bullets[i].permitir){  			bullets[i].mover280 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 285 && !bullets[i].permitir){  			bullets[i].mover285 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 290 && !bullets[i].permitir){  			bullets[i].mover290 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 295 && !bullets[i].permitir){  			bullets[i].mover295 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 300 && !bullets[i].permitir){  			bullets[i].mover300 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 305 && !bullets[i].permitir){  			bullets[i].mover305 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 310 && !bullets[i].permitir){  			bullets[i].mover310 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 315 && !bullets[i].permitir){  			bullets[i].mover315 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 320 && !bullets[i].permitir){  			bullets[i].mover320 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 325 && !bullets[i].permitir){  			bullets[i].mover325 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 330 && !bullets[i].permitir){  			bullets[i].mover330 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 335 && !bullets[i].permitir){  			bullets[i].mover335 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 340 && !bullets[i].permitir){  			bullets[i].mover340 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 345 && !bullets[i].permitir){  			bullets[i].mover345 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 350 && !bullets[i].permitir){  			bullets[i].mover350 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 355 && !bullets[i].permitir){  			bullets[i].mover355 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 275 && !bullets[i].allow){  			bullets[i].move275 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 280 && !bullets[i].allow){  			bullets[i].move280 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 285 && !bullets[i].allow){  			bullets[i].move285 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 290 && !bullets[i].allow){  			bullets[i].move290 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 295 && !bullets[i].allow){  			bullets[i].move295 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 300 && !bullets[i].allow){  			bullets[i].move300 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 305 && !bullets[i].allow){  			bullets[i].move305 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 310 && !bullets[i].allow){  			bullets[i].move310 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 315 && !bullets[i].allow){  			bullets[i].move315 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 320 && !bullets[i].allow){  			bullets[i].move320 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 325 && !bullets[i].allow){  			bullets[i].move325 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 330 && !bullets[i].allow){  			bullets[i].move330 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 335 && !bullets[i].allow){  			bullets[i].move335 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 340 && !bullets[i].allow){  			bullets[i].move340 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 345 && !bullets[i].allow){  			bullets[i].move345 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 350 && !bullets[i].allow){  			bullets[i].move350 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 355 && !bullets[i].allow){  			bullets[i].move355 = true; 	bullets[i].allow = true; 	}
 
-		else if(player.rotation == 5 && !bullets[i].permitir){  			bullets[i].mover5 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 10 && !bullets[i].permitir){  			bullets[i].mover10 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 15 && !bullets[i].permitir){  			bullets[i].mover15 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 20 && !bullets[i].permitir){  			bullets[i].mover20 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 25 && !bullets[i].permitir){  			bullets[i].mover25 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 30 && !bullets[i].permitir){  			bullets[i].mover30 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 35 && !bullets[i].permitir){  			bullets[i].mover35 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 40 && !bullets[i].permitir){  			bullets[i].mover40 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 45 && !bullets[i].permitir){  			bullets[i].mover45 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 50 && !bullets[i].permitir){  			bullets[i].mover50 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 55 && !bullets[i].permitir){  			bullets[i].mover55 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 60 && !bullets[i].permitir){  			bullets[i].mover60 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 65 && !bullets[i].permitir){  			bullets[i].mover65 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 70 && !bullets[i].permitir){  			bullets[i].mover70 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 75 && !bullets[i].permitir){  			bullets[i].mover75 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 80 && !bullets[i].permitir){  			bullets[i].mover80 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 85 && !bullets[i].permitir){  			bullets[i].mover85 = true; 		bullets[i].permitir = true; 	}
+		else if(player.rotation == 5 && !bullets[i].allow){  			bullets[i].move5 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 10 && !bullets[i].allow){  			bullets[i].move10 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 15 && !bullets[i].allow){  			bullets[i].move15 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 20 && !bullets[i].allow){  			bullets[i].move20 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 25 && !bullets[i].allow){  			bullets[i].move25 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 30 && !bullets[i].allow){  			bullets[i].move30 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 35 && !bullets[i].allow){  			bullets[i].move35 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 40 && !bullets[i].allow){  			bullets[i].move40 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 45 && !bullets[i].allow){  			bullets[i].move45 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 50 && !bullets[i].allow){  			bullets[i].move50 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 55 && !bullets[i].allow){  			bullets[i].move55 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 60 && !bullets[i].allow){  			bullets[i].move60 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 65 && !bullets[i].allow){  			bullets[i].move65 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 70 && !bullets[i].allow){  			bullets[i].move70 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 75 && !bullets[i].allow){  			bullets[i].move75 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 80 && !bullets[i].allow){  			bullets[i].move80 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 85 && !bullets[i].allow){  			bullets[i].move85 = true; 		bullets[i].allow = true; 	}
 
-		else if(player.rotation == 95 && !bullets[i].permitir){  			bullets[i].mover95 = true; 		bullets[i].permitir = true; 	}
-		else if(player.rotation == 100 && !bullets[i].permitir){  			bullets[i].mover100 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 105 && !bullets[i].permitir){  			bullets[i].mover105 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 110 && !bullets[i].permitir){  			bullets[i].mover110 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 115 && !bullets[i].permitir){  			bullets[i].mover115 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 120 && !bullets[i].permitir){  			bullets[i].mover120 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 125 && !bullets[i].permitir){  			bullets[i].mover125 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 130 && !bullets[i].permitir){  			bullets[i].mover130 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 135 && !bullets[i].permitir){  			bullets[i].mover135 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 140 && !bullets[i].permitir){  			bullets[i].mover140 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 145 && !bullets[i].permitir){  			bullets[i].mover145 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 150 && !bullets[i].permitir){  			bullets[i].mover150 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 155 && !bullets[i].permitir){  			bullets[i].mover155 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 160 && !bullets[i].permitir){  			bullets[i].mover160 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 165 && !bullets[i].permitir){  			bullets[i].mover165 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 170 && !bullets[i].permitir){  			bullets[i].mover170 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 175 && !bullets[i].permitir){  			bullets[i].mover175 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 95 && !bullets[i].allow){  			bullets[i].move95 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 100 && !bullets[i].allow){  			bullets[i].move100 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 105 && !bullets[i].allow){  			bullets[i].move105 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 110 && !bullets[i].allow){  			bullets[i].move110 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 115 && !bullets[i].allow){  			bullets[i].move115 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 120 && !bullets[i].allow){  			bullets[i].move120 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 125 && !bullets[i].allow){  			bullets[i].move125 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 130 && !bullets[i].allow){  			bullets[i].move130 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 135 && !bullets[i].allow){  			bullets[i].move135 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 140 && !bullets[i].allow){  			bullets[i].move140 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 145 && !bullets[i].allow){  			bullets[i].move145 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 150 && !bullets[i].allow){  			bullets[i].move150 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 155 && !bullets[i].allow){  			bullets[i].move155 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 160 && !bullets[i].allow){  			bullets[i].move160 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 165 && !bullets[i].allow){  			bullets[i].move165 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 170 && !bullets[i].allow){  			bullets[i].move170 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 175 && !bullets[i].allow){  			bullets[i].move175 = true; 	bullets[i].allow = true; 	}
 
-		else if(player.rotation == 185 && !bullets[i].permitir){  			bullets[i].mover185 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 190 && !bullets[i].permitir){  			bullets[i].mover190 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 195 && !bullets[i].permitir){  			bullets[i].mover195 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 200 && !bullets[i].permitir){  			bullets[i].mover200 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 205 && !bullets[i].permitir){  			bullets[i].mover205 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 210 && !bullets[i].permitir){  			bullets[i].mover210 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 215 && !bullets[i].permitir){  			bullets[i].mover215 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 220 && !bullets[i].permitir){  			bullets[i].mover220 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 225 && !bullets[i].permitir){  			bullets[i].mover225 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 230 && !bullets[i].permitir){  			bullets[i].mover230 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 235 && !bullets[i].permitir){  			bullets[i].mover235 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 240 && !bullets[i].permitir){  			bullets[i].mover240 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 245 && !bullets[i].permitir){  			bullets[i].mover245 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 250 && !bullets[i].permitir){  			bullets[i].mover250 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 255 && !bullets[i].permitir){  			bullets[i].mover255 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 260 && !bullets[i].permitir){  			bullets[i].mover260 = true; 	bullets[i].permitir = true; 	}
-		else if(player.rotation == 265 && !bullets[i].permitir){  			bullets[i].mover265 = true; 	bullets[i].permitir = true; 	}
+		else if(player.rotation == 185 && !bullets[i].allow){  			bullets[i].move185 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 190 && !bullets[i].allow){  			bullets[i].move190 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 195 && !bullets[i].allow){  			bullets[i].move195 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 200 && !bullets[i].allow){  			bullets[i].move200 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 205 && !bullets[i].allow){  			bullets[i].move205 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 210 && !bullets[i].allow){  			bullets[i].move210 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 215 && !bullets[i].allow){  			bullets[i].move215 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 220 && !bullets[i].allow){  			bullets[i].move220 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 225 && !bullets[i].allow){  			bullets[i].move225 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 230 && !bullets[i].allow){  			bullets[i].move230 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 235 && !bullets[i].allow){  			bullets[i].move235 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 240 && !bullets[i].allow){  			bullets[i].move240 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 245 && !bullets[i].allow){  			bullets[i].move245 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 250 && !bullets[i].allow){  			bullets[i].move250 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 255 && !bullets[i].allow){  			bullets[i].move255 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 260 && !bullets[i].allow){  			bullets[i].move260 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 265 && !bullets[i].allow){  			bullets[i].move265 = true; 	bullets[i].allow = true; 	}
 
 		// Movemos las bullets
-  		if(bullets[i].mover360)			bullets[i].y -= bullets[i].velY;
-  		else if(bullets[i].mover180)		bullets[i].y += bullets[i].velY;
-  		else if(bullets[i].mover270)		bullets[i].x -= bullets[i].velX;
-  		else if(bullets[i].mover90)		bullets[i].x += bullets[i].velX;
+  		if(bullets[i].move360)			bullets[i].y -= bullets[i].velY;
+  		else if(bullets[i].move180)		bullets[i].y += bullets[i].velY;
+  		else if(bullets[i].move270)		bullets[i].x -= bullets[i].velX;
+  		else if(bullets[i].move90)		bullets[i].x += bullets[i].velX;
 
-  		else if(bullets[i].mover275){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover280){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover285){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover290){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover295){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover300){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover305){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover310){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover315){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover320){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover325){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover330){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover335){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover340){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover345){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover350){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move275){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move280){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move285){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move290){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move295){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move300){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move305){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move310){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move315){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move320){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move325){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move330){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move335){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move340){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move345){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move350){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
-		else if(bullets[i].mover5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover25){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover30){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover35){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover40){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover45){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover50){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover55){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover60){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover65){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover70){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover75){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover80){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover85){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move25){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move30){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move35){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move40){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move45){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move50){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move55){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move60){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move65){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move70){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move75){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move80){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move85){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 
-  		else if(bullets[i].mover95){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover100){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover105){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover110){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover115){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover120){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover125){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover130){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover135){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover140){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover145){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover150){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover155){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover160){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].mover165){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover170){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].mover175){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move95){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move100){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move105){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move110){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move115){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move120){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move125){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move130){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move135){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move140){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move145){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move150){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move155){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move160){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move165){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move170){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move175){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 
-  		else if(bullets[i].mover185){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover190){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover195){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover200){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover205){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover210){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover215){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover220){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover225){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover230){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover235){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover240){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover245){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover250){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-		else if(bullets[i].mover255){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover260){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-  		else if(bullets[i].mover265){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move185){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move190){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move195){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move200){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move205){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move210){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move215){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move220){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move225){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move230){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move235){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move240){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move245){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move250){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+		else if(bullets[i].move255){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move260){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+  		else if(bullets[i].move265){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
   		// Remove bullets if exceed the map limits
 	 	if(bullets[i].x < 0 || bullets[i].y < 0)								bullets.splice(i,1);
@@ -738,7 +740,7 @@ function weapon2(player, bullets){
 function weapon3(player, bullets){
 
 	// Make bullets
-	if(key == formatKey("C") && bullets.length < 50 && player.timeReturnShoot == 0 && player.munition3 > 0){
+	if(key == formatKey("C") && player.timeReturnShootWeapon3 == 0 && player.munition3 > 0){
 		if(player.rotation == 0 || player.rotation == 360)	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,4,4));
 		else if(player.rotation == 90)				bullets.push(new Bullet(player.x+player.width,player.y+player.height/2,_SizeWeapon,_SizeWeapon,4,4));
 		else if(player.rotation == 180)				bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,4,4));
@@ -816,9 +818,9 @@ function weapon3(player, bullets){
 		else if(player.rotation == 260){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 5,_SizeWeapon,_SizeWeapon,4,1));  }
 		else if(player.rotation == 265){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 6,_SizeWeapon,_SizeWeapon,4,1));  }
 
-		player.munition3 --;
-		loadSound(sWeapon1);
-		player.timeReturnShoot = _TimeReturnShootPlayer;
+		player.munition3--;
+		loadSound(sWeapon3);
+		player.timeReturnShootWeapon3 = _TimeReturnShootPlayerWeapon3;
 
 		key = null;
 	}else if(key == formatKey("C") && player.munition3 <= 0){
@@ -828,164 +830,164 @@ function weapon3(player, bullets){
 
 	// Move bullets
 	// ------------
-	// bullets[i].mover360 		-->		La bala sólo se mueva hacia arriba, aunque cambie la rotación
-	// bullets[i].permitir		-->		Impide que 1 bala concreta cambie de direccion cuando gire la nave(rotación)
+	// bullets[i].move360 		-->		The bullet only is moved to up though change the rotation
+	// bullets[i].allow			-->		Avoid 1 determinate bullet change of direction when spin the spaceship(rotation)
 	for(i in bullets){
 		if(!bullets[i].isCollide){
-			if((player.rotation == 0 || player.rotation == 360) && !bullets[i].permitir){	bullets[i].mover360 = true;	bullets[i].permitir = true;	}
-			else if(player.rotation == 90 && !bullets[i].permitir){          		bullets[i].mover90 = true;	bullets[i].permitir = true;	}
-			else if(player.rotation == 180 && !bullets[i].permitir){				bullets[i].mover180 = true;	bullets[i].permitir = true; 	}
-			else if(player.rotation == 270 && !bullets[i].permitir){				bullets[i].mover270 = true;	bullets[i].permitir = true;	}
+			if((player.rotation == 0 || player.rotation == 360) && !bullets[i].allow){	bullets[i].move360 = true;	bullets[i].allow = true;	}
+			else if(player.rotation == 90 && !bullets[i].allow){          		bullets[i].move90 = true;	bullets[i].allow = true;	}
+			else if(player.rotation == 180 && !bullets[i].allow){				bullets[i].move180 = true;	bullets[i].allow = true; 	}
+			else if(player.rotation == 270 && !bullets[i].allow){				bullets[i].move270 = true;	bullets[i].allow = true;	}
 
-			else if(player.rotation == 275 && !bullets[i].permitir){  			bullets[i].mover275 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 280 && !bullets[i].permitir){  			bullets[i].mover280 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 285 && !bullets[i].permitir){  			bullets[i].mover285 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 290 && !bullets[i].permitir){  			bullets[i].mover290 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 295 && !bullets[i].permitir){  			bullets[i].mover295 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 300 && !bullets[i].permitir){  			bullets[i].mover300 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 305 && !bullets[i].permitir){  			bullets[i].mover305 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 310 && !bullets[i].permitir){  			bullets[i].mover310 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 315 && !bullets[i].permitir){  			bullets[i].mover315 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 320 && !bullets[i].permitir){  			bullets[i].mover320 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 325 && !bullets[i].permitir){  			bullets[i].mover325 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 330 && !bullets[i].permitir){  			bullets[i].mover330 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 335 && !bullets[i].permitir){  			bullets[i].mover335 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 340 && !bullets[i].permitir){  			bullets[i].mover340 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 345 && !bullets[i].permitir){  			bullets[i].mover345 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 350 && !bullets[i].permitir){  			bullets[i].mover350 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 355 && !bullets[i].permitir){  			bullets[i].mover355 = true; 	bullets[i].permitir = true; 	}
+			else if(player.rotation == 275 && !bullets[i].allow){  			bullets[i].move275 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 280 && !bullets[i].allow){  			bullets[i].move280 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 285 && !bullets[i].allow){  			bullets[i].move285 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 290 && !bullets[i].allow){  			bullets[i].move290 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 295 && !bullets[i].allow){  			bullets[i].move295 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 300 && !bullets[i].allow){  			bullets[i].move300 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 305 && !bullets[i].allow){  			bullets[i].move305 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 310 && !bullets[i].allow){  			bullets[i].move310 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 315 && !bullets[i].allow){  			bullets[i].move315 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 320 && !bullets[i].allow){  			bullets[i].move320 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 325 && !bullets[i].allow){  			bullets[i].move325 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 330 && !bullets[i].allow){  			bullets[i].move330 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 335 && !bullets[i].allow){  			bullets[i].move335 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 340 && !bullets[i].allow){  			bullets[i].move340 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 345 && !bullets[i].allow){  			bullets[i].move345 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 350 && !bullets[i].allow){  			bullets[i].move350 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 355 && !bullets[i].allow){  			bullets[i].move355 = true; 	bullets[i].allow = true; 	}
 
-			else if(player.rotation == 5 && !bullets[i].permitir){  			bullets[i].mover5 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 10 && !bullets[i].permitir){  			bullets[i].mover10 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 15 && !bullets[i].permitir){  			bullets[i].mover15 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 20 && !bullets[i].permitir){  			bullets[i].mover20 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 25 && !bullets[i].permitir){  			bullets[i].mover25 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 30 && !bullets[i].permitir){  			bullets[i].mover30 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 35 && !bullets[i].permitir){  			bullets[i].mover35 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 40 && !bullets[i].permitir){  			bullets[i].mover40 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 45 && !bullets[i].permitir){  			bullets[i].mover45 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 50 && !bullets[i].permitir){  			bullets[i].mover50 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 55 && !bullets[i].permitir){  			bullets[i].mover55 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 60 && !bullets[i].permitir){  			bullets[i].mover60 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 65 && !bullets[i].permitir){  			bullets[i].mover65 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 70 && !bullets[i].permitir){  			bullets[i].mover70 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 75 && !bullets[i].permitir){  			bullets[i].mover75 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 80 && !bullets[i].permitir){  			bullets[i].mover80 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 85 && !bullets[i].permitir){  			bullets[i].mover85 = true; 		bullets[i].permitir = true; 	}
+			else if(player.rotation == 5 && !bullets[i].allow){  			bullets[i].move5 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 10 && !bullets[i].allow){  			bullets[i].move10 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 15 && !bullets[i].allow){  			bullets[i].move15 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 20 && !bullets[i].allow){  			bullets[i].move20 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 25 && !bullets[i].allow){  			bullets[i].move25 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 30 && !bullets[i].allow){  			bullets[i].move30 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 35 && !bullets[i].allow){  			bullets[i].move35 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 40 && !bullets[i].allow){  			bullets[i].move40 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 45 && !bullets[i].allow){  			bullets[i].move45 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 50 && !bullets[i].allow){  			bullets[i].move50 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 55 && !bullets[i].allow){  			bullets[i].move55 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 60 && !bullets[i].allow){  			bullets[i].move60 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 65 && !bullets[i].allow){  			bullets[i].move65 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 70 && !bullets[i].allow){  			bullets[i].move70 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 75 && !bullets[i].allow){  			bullets[i].move75 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 80 && !bullets[i].allow){  			bullets[i].move80 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 85 && !bullets[i].allow){  			bullets[i].move85 = true; 		bullets[i].allow = true; 	}
 
-			else if(player.rotation == 95 && !bullets[i].permitir){  			bullets[i].mover95 = true; 		bullets[i].permitir = true; 	}
-			else if(player.rotation == 100 && !bullets[i].permitir){  			bullets[i].mover100 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 105 && !bullets[i].permitir){  			bullets[i].mover105 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 110 && !bullets[i].permitir){  			bullets[i].mover110 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 115 && !bullets[i].permitir){  			bullets[i].mover115 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 120 && !bullets[i].permitir){  			bullets[i].mover120 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 125 && !bullets[i].permitir){  			bullets[i].mover125 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 130 && !bullets[i].permitir){  			bullets[i].mover130 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 135 && !bullets[i].permitir){  			bullets[i].mover135 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 140 && !bullets[i].permitir){  			bullets[i].mover140 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 145 && !bullets[i].permitir){  			bullets[i].mover145 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 150 && !bullets[i].permitir){  			bullets[i].mover150 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 155 && !bullets[i].permitir){  			bullets[i].mover155 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 160 && !bullets[i].permitir){  			bullets[i].mover160 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 165 && !bullets[i].permitir){  			bullets[i].mover165 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 170 && !bullets[i].permitir){  			bullets[i].mover170 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 175 && !bullets[i].permitir){  			bullets[i].mover175 = true; 	bullets[i].permitir = true; 	}
+			else if(player.rotation == 95 && !bullets[i].allow){  			bullets[i].move95 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 100 && !bullets[i].allow){  			bullets[i].move100 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 105 && !bullets[i].allow){  			bullets[i].move105 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 110 && !bullets[i].allow){  			bullets[i].move110 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 115 && !bullets[i].allow){  			bullets[i].move115 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 120 && !bullets[i].allow){  			bullets[i].move120 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 125 && !bullets[i].allow){  			bullets[i].move125 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 130 && !bullets[i].allow){  			bullets[i].move130 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 135 && !bullets[i].allow){  			bullets[i].move135 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 140 && !bullets[i].allow){  			bullets[i].move140 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 145 && !bullets[i].allow){  			bullets[i].move145 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 150 && !bullets[i].allow){  			bullets[i].move150 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 155 && !bullets[i].allow){  			bullets[i].move155 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 160 && !bullets[i].allow){  			bullets[i].move160 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 165 && !bullets[i].allow){  			bullets[i].move165 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 170 && !bullets[i].allow){  			bullets[i].move170 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 175 && !bullets[i].allow){  			bullets[i].move175 = true; 	bullets[i].allow = true; 	}
 
-			else if(player.rotation == 185 && !bullets[i].permitir){  			bullets[i].mover185 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 190 && !bullets[i].permitir){  			bullets[i].mover190 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 195 && !bullets[i].permitir){  			bullets[i].mover195 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 200 && !bullets[i].permitir){  			bullets[i].mover200 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 205 && !bullets[i].permitir){  			bullets[i].mover205 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 210 && !bullets[i].permitir){  			bullets[i].mover210 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 215 && !bullets[i].permitir){  			bullets[i].mover215 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 220 && !bullets[i].permitir){  			bullets[i].mover220 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 225 && !bullets[i].permitir){  			bullets[i].mover225 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 230 && !bullets[i].permitir){  			bullets[i].mover230 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 235 && !bullets[i].permitir){  			bullets[i].mover235 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 240 && !bullets[i].permitir){  			bullets[i].mover240 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 245 && !bullets[i].permitir){  			bullets[i].mover245 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 250 && !bullets[i].permitir){  			bullets[i].mover250 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 255 && !bullets[i].permitir){  			bullets[i].mover255 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 260 && !bullets[i].permitir){  			bullets[i].mover260 = true; 	bullets[i].permitir = true; 	}
-			else if(player.rotation == 265 && !bullets[i].permitir){  			bullets[i].mover265 = true; 	bullets[i].permitir = true; 	}
+			else if(player.rotation == 185 && !bullets[i].allow){  			bullets[i].move185 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 190 && !bullets[i].allow){  			bullets[i].move190 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 195 && !bullets[i].allow){  			bullets[i].move195 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 200 && !bullets[i].allow){  			bullets[i].move200 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 205 && !bullets[i].allow){  			bullets[i].move205 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 210 && !bullets[i].allow){  			bullets[i].move210 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 215 && !bullets[i].allow){  			bullets[i].move215 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 220 && !bullets[i].allow){  			bullets[i].move220 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 225 && !bullets[i].allow){  			bullets[i].move225 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 230 && !bullets[i].allow){  			bullets[i].move230 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 235 && !bullets[i].allow){  			bullets[i].move235 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 240 && !bullets[i].allow){  			bullets[i].move240 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 245 && !bullets[i].allow){  			bullets[i].move245 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 250 && !bullets[i].allow){  			bullets[i].move250 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 255 && !bullets[i].allow){  			bullets[i].move255 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 260 && !bullets[i].allow){  			bullets[i].move260 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 265 && !bullets[i].allow){  			bullets[i].move265 = true; 	bullets[i].allow = true; 	}
 
 			// Move bullets
-	  		if(bullets[i].mover360)				bullets[i].y -= bullets[i].velY;
-	  		else if(bullets[i].mover180)		bullets[i].y += bullets[i].velY;
-	  		else if(bullets[i].mover270)		bullets[i].x -= bullets[i].velX;
-	  		else if(bullets[i].mover90)			bullets[i].x += bullets[i].velX;
+	  		if(bullets[i].move360)				bullets[i].y -= bullets[i].velY;
+	  		else if(bullets[i].move180)		bullets[i].y += bullets[i].velY;
+	  		else if(bullets[i].move270)		bullets[i].x -= bullets[i].velX;
+	  		else if(bullets[i].move90)			bullets[i].x += bullets[i].velX;
 
-	  		else if(bullets[i].mover275){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover280){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover285){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover290){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover295){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover300){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover305){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover310){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover315){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover320){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover325){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover330){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover335){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover340){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover345){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover350){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move275){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move280){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move285){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move290){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move295){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move300){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move305){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move310){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move315){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move320){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move325){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move330){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move335){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move340){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move345){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move350){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
-			else if(bullets[i].mover5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover25){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover30){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover35){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover40){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover45){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover50){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover55){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover60){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover65){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover70){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover75){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover80){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover85){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move25){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move30){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move35){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move40){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move45){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move50){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move55){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move60){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move65){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move70){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move75){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move80){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move85){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 
-	  		else if(bullets[i].mover95){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover100){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover105){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover110){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover115){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover120){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover125){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover130){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover135){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover140){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover145){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover150){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover155){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover160){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].mover165){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover170){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].mover175){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move95){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move100){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move105){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move110){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move115){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move120){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move125){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move130){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move135){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move140){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move145){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move150){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move155){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move160){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move165){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move170){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move175){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 
-	  		else if(bullets[i].mover185){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover190){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover195){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover200){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover205){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover210){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover215){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover220){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover225){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover230){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover235){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover240){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover245){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover250){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-			else if(bullets[i].mover255){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover260){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
-	  		else if(bullets[i].mover265){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move185){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move190){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move195){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move200){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move205){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move210){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move215){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move220){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move225){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move230){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move235){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move240){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move245){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move250){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+			else if(bullets[i].move255){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move260){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+	  		else if(bullets[i].move265){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
 	  		// Remove bullets if exceed the map limits
 		 	if(bullets[i].x < 0 || bullets[i].y < 0)								bullets.splice(i,1);
@@ -994,33 +996,15 @@ function weapon3(player, bullets){
   	}
 }
 
-function weaponTest(player, bullets){
-	// Make bullets
-	if((key == formatKey("C")) && bullets.length <= 30){
-		bullets.push(new Bullet(player.x+5,player.y,2,10,1,5));
-		bullets.push(new Bullet(player.x+9,player.y,2,10,1,5));
-		loadSound(sWeapon2);
-		key = null;
-	}
-
-	// Move bullets
-	for(i in bullets){
-		bullets[i].y -= bullets[i].velY;
-		//bullets[i].x -= bullets[i].velX;
-	 	if(bullets[i].y < player.y-100)
-    		bullets.splice(i,1);
-    	/*else if(bullets[i].x > canvas.width || bullets[i].y > canvas.height)
-    		bullets.splice(i,1);*/
-  	}
-}
-
 function weaponEnemy(idx, shoot){
+	// Make bullets
 	if(enemy[idx].timeReturnShoot == 0 && shoot){
 		enemy[idx].bullets.push(new Bullet(enemy[idx].x+enemy[idx].width/2 + 1,enemy[idx].y + 15,_SizeWeapon,_SizeWeapon,0,4));
-		loadSound(sWeapon2);
+		loadSound(sWeaponEnemy);
 		enemy[idx].timeReturnShoot = _TimeReturnShootEnemy;
 	}
 
+	// Move bullets
 	for(j in enemy[idx].bullets){
 		enemy[idx].bullets[j].y += enemy[idx].bullets[j].velY;
 
@@ -1029,3 +1013,24 @@ function weaponEnemy(idx, shoot){
 		else if(enemy[idx].bullets[j].x > canvas.width || enemy[idx].bullets[j].y > canvas.height)	enemy[idx].bullets.splice(j,1);
 	}
 }
+
+// function weaponTest(player, bullets){
+// 	// Make bullets
+// 	if((key == formatKey("C")) && bullets.length <= 30){
+// 		bullets.push(new Bullet(player.x+5,player.y,2,10,1,5));
+// 		bullets.push(new Bullet(player.x+9,player.y,2,10,1,5));
+// 		loadSound(sWeapon2);
+// 		key = null;
+// 	}
+
+// 	// Move bullets
+// 	for(i in bullets){
+// 		bullets[i].y -= bullets[i].velY;
+// 		//bullets[i].x -= bullets[i].velX;
+// 	 	if(bullets[i].y < player.y-100)
+//     		bullets.splice(i,1);
+//     	/*else if(bullets[i].x > canvas.width || bullets[i].y > canvas.height)
+//     		bullets.splice(i,1);*/
+//   	}
+// }
+

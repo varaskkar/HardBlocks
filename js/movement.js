@@ -232,9 +232,6 @@ function movementEnemy(){
 						if(enemy[i].acceleration > 0)
 							enemy[i].acceleration--;
 					}
-					// Bullets continues their movement
-					if(enemy[i].bullets.length > 0)
-						weaponEnemy(i, false);
 				}
 			}
 		}
