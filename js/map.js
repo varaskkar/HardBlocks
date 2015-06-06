@@ -88,15 +88,15 @@ function loadMap(map, posX, posY, rotation){
 			else if(mapList[k].map[i][j] == 'H')
 				home.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 'EH')
-				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy, "horizontal"));
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy1, "horizontal"));
 			else if(mapList[k].map[i][j] == 'EV')
-				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy, "vertical"));
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy1, "vertical"));
 			else if(mapList[k].map[i][j] == 'ER')
-				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy, "random"));
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy2, "random"));
 			else if(mapList[k].map[i][j] == 'ES')
-				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy, "chaseHor"));
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy3, "chaseHor"));
 			else if(mapList[k].map[i][j] == 'E')
-				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy, ""));
+				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy1, ""));
 		}
 	}
 	templateSetBackgroundColor(mapList[k].colorBackground);

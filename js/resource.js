@@ -1,22 +1,24 @@
 var fps = 0, now, lastUpdate = (new Date)*1 - 1, fpsFilter = 50;
 
-var ElementHealth = document.getElementById("healthBar");
-var ElementLives   = document.getElementById("livesNum");
-var ElementPoints  = document.getElementById("scoreNum");
-var ElementWeapon1 = document.getElementById("weapon1Num");
-var ElementWeapon2 = document.getElementById("weapon2Num");
-var ElementWeapon3 = document.getElementById("weapon3Num");
-var ElementLight1  = document.getElementById("light1");
-var ElementLight2  = document.getElementById("light2");
-var ElementTable1  = document.getElementsByTagName("table")[0];
-var ElementTable2  = document.getElementsByTagName("table")[1];
-var ElementTable3  = document.getElementsByTagName("table")[2];
-var ElementShadow  = document.getElementById("shadow");
-var ElementSound   = document.getElementById("sound");
-var ElementLogo    = document.getElementById("logo");
-var ElementLine    = document.getElementsByTagName("hr")[0];
-var ElementBody    = document.getElementsByTagName("body")[0];
-var ElementCanvas  = document.getElementsByTagName("canvas")[0];
+var ElementHealth    = document.getElementById("healthBar");
+var ElementLives     = document.getElementById("livesNum");
+var ElementPoints    = document.getElementById("scoreNum");
+var ElementWeapon1   = document.getElementById("weapon1Num");
+var ElementWeapon2   = document.getElementById("weapon2Num");
+var ElementWeapon3   = document.getElementById("weapon3Num");
+var ElementLight1    = document.getElementById("light1");
+var ElementLight2    = document.getElementById("light2");
+var ElementTable1    = document.getElementsByTagName("table")[0];
+var ElementTable2    = document.getElementsByTagName("table")[1];
+var ElementTable3    = document.getElementsByTagName("table")[2];
+var ElementShadow    = document.getElementById("shadow");
+var ElementSound     = document.getElementById("sound");
+var ElementLogo      = document.getElementById("logo");
+var ElementLine      = document.getElementsByTagName("hr")[0];
+var ElementBody      = document.getElementsByTagName("body")[0];
+var ElementCanvas    = document.getElementsByTagName("canvas")[0];
+var ElementTitlePage = document.getElementsByTagName("h1")[0];
+var ElementInfo      = document.getElementById("boxBottom");
 
 function getFps(){
 	if(!pause){
@@ -55,16 +57,18 @@ function templateSetFullscreen(enable){
 		canvas.style.marginTop  =- (canvas.height*scale)/2+'px';
 		// canvas.style.transition = "all 2s";
 
-		ElementTable1.style.visibility = "hidden";
-		ElementTable2.style.visibility = "hidden";
-		ElementTable3.style.visibility = "hidden";
-		ElementShadow.style.visibility = "hidden";
-		ElementLine.style.visibility = "hidden";
-		ElementLight1.style.visibility = "hidden";
-		ElementLight2.style.visibility = "hidden";
-		ElementSound.style.visibility = "hidden";
-		ElementLogo.style.visibility = "hidden";
-		ElementBody.style.background = "#010B15";
+		ElementTable1.style.visibility    = "hidden";
+		ElementTable2.style.visibility    = "hidden";
+		ElementTable3.style.visibility    = "hidden";
+		ElementShadow.style.visibility    = "hidden";
+		ElementLine.style.visibility      = "hidden";
+		ElementLight1.style.visibility    = "hidden";
+		ElementLight2.style.visibility    = "hidden";
+		ElementSound.style.visibility     = "hidden";
+		ElementLogo.style.visibility      = "hidden";
+		ElementTitlePage.style.visibility = "hidden";
+		ElementInfo.style.visibility      = "hidden";
+		ElementBody.style.background      = "#010B15";
 	}else{
 		canvas.style.width      = '';
 		canvas.style.height     = '';
@@ -74,16 +78,18 @@ function templateSetFullscreen(enable){
 		canvas.style.marginLeft = '';
 		canvas.style.marginTop  = '';
 
-		ElementTable1.style.visibility = "";
-		ElementTable2.style.visibility = "";
-		ElementTable3.style.visibility = "";
-		ElementShadow.style.visibility = "";
-		ElementLine.style.visibility = "";
-		ElementLight1.style.visibility = "";
-		ElementLight2.style.visibility = "";
-		ElementSound.style.visibility = "";
-		ElementLogo.style.visibility = "";
-		ElementBody.style.background = "";
+		ElementTable1.style.visibility    = "";
+		ElementTable2.style.visibility    = "";
+		ElementTable3.style.visibility    = "";
+		ElementShadow.style.visibility    = "";
+		ElementLine.style.visibility      = "";
+		ElementLight1.style.visibility    = "";
+		ElementLight2.style.visibility    = "";
+		ElementSound.style.visibility     = "";
+		ElementLogo.style.visibility      = "";
+		ElementTitlePage.style.visibility = "";
+		ElementInfo.style.visibility      = "";
+		ElementBody.style.background      = "";
 	}
 }
 
@@ -112,11 +118,11 @@ function templateSetHealth(health){
 function templateSetLightEfects(enable){
 	if(!enable){
 		setTimeout(templateSetLightEfects,100);
-		ElementLight1.src         = "assets/img/template/lighEffect1.png";
-		ElementLight2.src         = "assets/img/template/lighEffect1.png";
+		ElementLight1.src = "assets/img/template/lighEffect1.png";
+		ElementLight2.src = "assets/img/template/lighEffect1.png";
 	}else{
-		ElementLight1.src         = "assets/img/template/lighEffect2.png";
-		ElementLight2.src         = "assets/img/template/lighEffect2.png";
+		ElementLight1.src = "assets/img/template/lighEffect2.png";
+		ElementLight2.src = "assets/img/template/lighEffect2.png";
 	}
 }
 

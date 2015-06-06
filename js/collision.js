@@ -604,6 +604,15 @@ function collisionBullets2(){
 				}
 			}
 		}
+
+		// Bullets2 -> Bullets3 (explosion)
+		for(j in player.bullets3){
+			if(typeof player.bullets2[i] != "undefined"){
+				if(player.bullets2[i].collide(player.bullets3[j]))
+					player.bullets2.splice(i, 1);
+			}
+		}
+
 	}
 }
 

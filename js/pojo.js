@@ -51,6 +51,10 @@ function Enemy(x, y, width, height, life, movement){
  	this.copyWidth;
  	this.copyHeight;
  	this.showExplosionBullet3 = false;		// Colission.js 	Bullets3 -> Enemy
+ 	// this.XTest;
+ 	// this.YTest;
+ 	// this.widthTest;
+ 	// this.heightTest;
 
  	// Movement
  	this.movement = "";
@@ -67,6 +71,9 @@ function Enemy(x, y, width, height, life, movement){
  	this.blockXClosestLeft;
  	this.blockXClosestRight;
  	this.getValuesXOnlyOnce = true;
+
+ 	// 2 images when is moved
+ 	// this.timeChangeImg = 0;
 
  	if(typeof life != "undefined")
  		this.life = life;
@@ -219,6 +226,11 @@ function Bullet(x, y, width, height, velX, velY){
  	this.move265 = false;
 
  	this.allow = false;
+
+ 	// Bullet's weapon3
+ 	this.rotationFixed;
+ 	this.blockRotation = false;
+
  	this.collide = function(thing){
 	  	if(typeof thing != "undefined"){
 	   		return this.x < thing.x+thing.width &&

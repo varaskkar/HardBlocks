@@ -593,25 +593,25 @@ function weapon2(player, bullets){
 		else if(player.rotation == 350 && !bullets[i].allow){  			bullets[i].move350 = true; 	bullets[i].allow = true; 	}
 		else if(player.rotation == 355 && !bullets[i].allow){  			bullets[i].move355 = true; 	bullets[i].allow = true; 	}
 
-		else if(player.rotation == 5 && !bullets[i].allow){  			bullets[i].move5 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 10 && !bullets[i].allow){  			bullets[i].move10 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 15 && !bullets[i].allow){  			bullets[i].move15 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 20 && !bullets[i].allow){  			bullets[i].move20 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 25 && !bullets[i].allow){  			bullets[i].move25 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 30 && !bullets[i].allow){  			bullets[i].move30 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 35 && !bullets[i].allow){  			bullets[i].move35 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 40 && !bullets[i].allow){  			bullets[i].move40 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 45 && !bullets[i].allow){  			bullets[i].move45 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 50 && !bullets[i].allow){  			bullets[i].move50 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 55 && !bullets[i].allow){  			bullets[i].move55 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 60 && !bullets[i].allow){  			bullets[i].move60 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 65 && !bullets[i].allow){  			bullets[i].move65 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 70 && !bullets[i].allow){  			bullets[i].move70 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 75 && !bullets[i].allow){  			bullets[i].move75 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 80 && !bullets[i].allow){  			bullets[i].move80 = true; 		bullets[i].allow = true; 	}
-		else if(player.rotation == 85 && !bullets[i].allow){  			bullets[i].move85 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 5 && !bullets[i].allow){  			bullets[i].move5 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 10 && !bullets[i].allow){  			bullets[i].move10 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 15 && !bullets[i].allow){  			bullets[i].move15 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 20 && !bullets[i].allow){  			bullets[i].move20 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 25 && !bullets[i].allow){  			bullets[i].move25 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 30 && !bullets[i].allow){  			bullets[i].move30 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 35 && !bullets[i].allow){  			bullets[i].move35 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 40 && !bullets[i].allow){  			bullets[i].move40 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 45 && !bullets[i].allow){  			bullets[i].move45 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 50 && !bullets[i].allow){  			bullets[i].move50 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 55 && !bullets[i].allow){  			bullets[i].move55 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 60 && !bullets[i].allow){  			bullets[i].move60 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 65 && !bullets[i].allow){  			bullets[i].move65 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 70 && !bullets[i].allow){  			bullets[i].move70 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 75 && !bullets[i].allow){  			bullets[i].move75 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 80 && !bullets[i].allow){  			bullets[i].move80 = true; 	bullets[i].allow = true; 	}
+		else if(player.rotation == 85 && !bullets[i].allow){  			bullets[i].move85 = true; 	bullets[i].allow = true; 	}
 
-		else if(player.rotation == 95 && !bullets[i].allow){  			bullets[i].move95 = true; 		bullets[i].allow = true; 	}
+		else if(player.rotation == 95 && !bullets[i].allow){  			bullets[i].move95 = true; 	bullets[i].allow = true; 	}
 		else if(player.rotation == 100 && !bullets[i].allow){  			bullets[i].move100 = true; 	bullets[i].allow = true; 	}
 		else if(player.rotation == 105 && !bullets[i].allow){  			bullets[i].move105 = true; 	bullets[i].allow = true; 	}
 		else if(player.rotation == 110 && !bullets[i].allow){  			bullets[i].move110 = true; 	bullets[i].allow = true; 	}
@@ -672,24 +672,24 @@ function weapon2(player, bullets){
   		else if(bullets[i].move355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
 		else if(bullets[i].move5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].move10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].move15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].move20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].move25){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].move30){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].move35){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].move40){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].move45){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].move50){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].move55){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].move60){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].move65){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].move70){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-		else if(bullets[i].move75){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].move80){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-  		else if(bullets[i].move85){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move10){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move15){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move20){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move25){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move30){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move35){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move40){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move45){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move50){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move55){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move60){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move65){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move70){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+		else if(bullets[i].move75){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move80){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move85){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 
-  		else if(bullets[i].move95){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+  		else if(bullets[i].move95){			bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 		else if(bullets[i].move100){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 		else if(bullets[i].move105){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
   		else if(bullets[i].move110){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
@@ -737,86 +737,86 @@ function weapon2(player, bullets){
   	}
 }
 
-function weapon3(player, bullets){
+function weapon3(player, bullets, size1, size2){
 
 	// Make bullets
 	if(key == formatKey("C") && player.timeReturnShootWeapon3 == 0 && player.munition3 > 0){
-		if(player.rotation == 0 || player.rotation == 360)	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,4,4));
-		else if(player.rotation == 90)				bullets.push(new Bullet(player.x+player.width,player.y+player.height/2,_SizeWeapon,_SizeWeapon,4,4));
-		else if(player.rotation == 180)				bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,4,4));
-		else if(player.rotation == 270)				bullets.push(new Bullet(player.x,player.y+player.height/2,_SizeWeapon,_SizeWeapon,4,4));
+		if(player.rotation == 0 || player.rotation == 360)	bullets.push(new Bullet(player.x+player.width/2,player.y,size1,size2,4,4));
+		else if(player.rotation == 90)				bullets.push(new Bullet(player.x+player.width,player.y+player.height/2,size1,size2,4,4));
+		else if(player.rotation == 180)				bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,size1,size2,4,4));
+		else if(player.rotation == 270)				bullets.push(new Bullet(player.x,player.y+player.height/2,size1,size2,4,4));
 
-		else if(player.rotation == 275){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 280){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 285){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 3,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 290){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 3,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 295){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 300){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 305){ 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y,_SizeWeapon,_SizeWeapon,4,3));  }
-		else if(player.rotation == 310){ 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y,_SizeWeapon,_SizeWeapon,4,3));  }
-		else if(player.rotation == 315){ 	bullets.push(new Bullet(player.x+player.width/2 - 4.5,player.y,_SizeWeapon,_SizeWeapon,3,3));  }
-		else if(player.rotation == 320){ 	bullets.push(new Bullet(player.x+player.width/2 - 4.5,player.y,_SizeWeapon,_SizeWeapon,3,4));  }
-		else if(player.rotation == 325){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y,_SizeWeapon,_SizeWeapon,3,4));  }
-		else if(player.rotation == 330){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 335){ 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 340){ 	bullets.push(new Bullet(player.x+player.width/2 - 0.75,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 345){ 	bullets.push(new Bullet(player.x+player.width/2 - 0.75,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 350){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 355){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 275){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 4,size1,size2,4,1));  }
+		else if(player.rotation == 280){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y + 4,size1,size2,4,1));  }
+		else if(player.rotation == 285){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 3,size1,size2,4,1));  }
+		else if(player.rotation == 290){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y + 3,size1,size2,4,2));  }
+		else if(player.rotation == 295){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 2,size1,size2,4,2));  }
+		else if(player.rotation == 300){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y + 2,size1,size2,4,2));  }
+		else if(player.rotation == 305){ 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y,size1,size2,4,3));  }
+		else if(player.rotation == 310){ 	bullets.push(new Bullet(player.x+player.width/2 - 5,player.y,size1,size2,4,3));  }
+		else if(player.rotation == 315){ 	bullets.push(new Bullet(player.x+player.width/2 - 4.5,player.y,size1,size2,3,3));  }
+		else if(player.rotation == 320){ 	bullets.push(new Bullet(player.x+player.width/2 - 4.5,player.y,size1,size2,3,4));  }
+		else if(player.rotation == 325){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y,size1,size2,3,4));  }
+		else if(player.rotation == 330){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y,size1,size2,2,4));  }
+		else if(player.rotation == 335){ 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y,size1,size2,2,4));  }
+		else if(player.rotation == 340){ 	bullets.push(new Bullet(player.x+player.width/2 - 0.75,player.y,size1,size2,2,4));  }
+		else if(player.rotation == 345){ 	bullets.push(new Bullet(player.x+player.width/2 - 0.75,player.y,size1,size2,1,4));  }
+		else if(player.rotation == 350){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,size1,size2,1,4));  }
+		else if(player.rotation == 355){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,size1,size2,1,4));  }
 
-		else if(player.rotation == 5){ 		bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 10){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 15){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 20){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 25){ 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 30){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 35){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y,_SizeWeapon,_SizeWeapon,3,4));  }
-		else if(player.rotation == 40){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y,_SizeWeapon,_SizeWeapon,3,4));  }
-		else if(player.rotation == 45){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y,_SizeWeapon,_SizeWeapon,3,3));  }
-		else if(player.rotation == 50){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y,_SizeWeapon,_SizeWeapon,4,3));  }
-		else if(player.rotation == 55){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y,_SizeWeapon,_SizeWeapon,4,3));  }
-		else if(player.rotation == 60){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 65){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y + 2,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 70){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 3,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 75){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 3,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 80){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 85){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y + 4,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 5){ 		bullets.push(new Bullet(player.x+player.width/2,player.y,size1,size2,1,4));  }
+		else if(player.rotation == 10){ 	bullets.push(new Bullet(player.x+player.width/2,player.y,size1,size2,1,4));  }
+		else if(player.rotation == 15){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y,size1,size2,1,4));  }
+		else if(player.rotation == 20){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y,size1,size2,2,4));  }
+		else if(player.rotation == 25){ 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y,size1,size2,2,4));  }
+		else if(player.rotation == 30){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y,size1,size2,2,4));  }
+		else if(player.rotation == 35){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y,size1,size2,3,4));  }
+		else if(player.rotation == 40){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y,size1,size2,3,4));  }
+		else if(player.rotation == 45){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y,size1,size2,3,3));  }
+		else if(player.rotation == 50){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y,size1,size2,4,3));  }
+		else if(player.rotation == 55){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y,size1,size2,4,3));  }
+		else if(player.rotation == 60){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y + 2,size1,size2,4,2));  }
+		else if(player.rotation == 65){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y + 2,size1,size2,4,2));  }
+		else if(player.rotation == 70){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 3,size1,size2,4,2));  }
+		else if(player.rotation == 75){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y + 3,size1,size2,4,1));  }
+		else if(player.rotation == 80){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y + 4,size1,size2,4,1));  }
+		else if(player.rotation == 85){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y + 4,size1,size2,4,1));  }
 
-		else if(player.rotation == 95){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y+player.height - 4,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 100){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y+player.height - 4,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 105){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y+player.height - 3,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 110){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y+player.height - 3,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 115){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y+player.height - 2,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 120){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y+player.height - 2,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 125){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y+player.height,_SizeWeapon,_SizeWeapon,4,3));  }
-		else if(player.rotation == 130){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y+player.height,_SizeWeapon,_SizeWeapon,4,3));  }
-		else if(player.rotation == 135){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y+player.height,_SizeWeapon,_SizeWeapon,3,3));  }
-		else if(player.rotation == 140){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y+player.height,_SizeWeapon,_SizeWeapon,3,4));  }
-		else if(player.rotation == 145){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y+player.height,_SizeWeapon,_SizeWeapon,3,4));  }
-		else if(player.rotation == 150){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 155){ 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 160){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 165){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 170){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 175){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
+		else if(player.rotation == 95){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y+player.height - 4,size1,size2,4,1));  }
+		else if(player.rotation == 100){ 	bullets.push(new Bullet(player.x+player.width/2 + 8,player.y+player.height - 4,size1,size2,4,1));  }
+		else if(player.rotation == 105){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y+player.height - 3,size1,size2,4,1));  }
+		else if(player.rotation == 110){ 	bullets.push(new Bullet(player.x+player.width/2 + 7,player.y+player.height - 3,size1,size2,4,2));  }
+		else if(player.rotation == 115){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y+player.height - 2,size1,size2,4,2));  }
+		else if(player.rotation == 120){ 	bullets.push(new Bullet(player.x+player.width/2 + 6,player.y+player.height - 2,size1,size2,4,2));  }
+		else if(player.rotation == 125){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y+player.height,size1,size2,4,3));  }
+		else if(player.rotation == 130){ 	bullets.push(new Bullet(player.x+player.width/2 + 5,player.y+player.height,size1,size2,4,3));  }
+		else if(player.rotation == 135){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y+player.height,size1,size2,3,3));  }
+		else if(player.rotation == 140){ 	bullets.push(new Bullet(player.x+player.width/2 + 4.5,player.y+player.height,size1,size2,3,4));  }
+		else if(player.rotation == 145){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y+player.height,size1,size2,3,4));  }
+		else if(player.rotation == 150){ 	bullets.push(new Bullet(player.x+player.width/2 + 3,player.y+player.height,size1,size2,2,4));  }
+		else if(player.rotation == 155){ 	bullets.push(new Bullet(player.x+player.width/2 + 2,player.y+player.height,size1,size2,2,4));  }
+		else if(player.rotation == 160){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y+player.height,size1,size2,2,4));  }
+		else if(player.rotation == 165){ 	bullets.push(new Bullet(player.x+player.width/2 + 0.75,player.y+player.height,size1,size2,1,4));  }
+		else if(player.rotation == 170){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,size1,size2,1,4));  }
+		else if(player.rotation == 175){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,size1,size2,1,4));  }
 
-		else if(player.rotation == 185){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 190){ 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 195){ 	bullets.push(new Bullet(player.x+player.width/2 - 2.5,player.y+player.height,_SizeWeapon,_SizeWeapon,1,4));  }
-		else if(player.rotation == 200){ 	bullets.push(new Bullet(player.x+player.width/2 - 2.5,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 205){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 210){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y+player.height,_SizeWeapon,_SizeWeapon,2,4));  }
-		else if(player.rotation == 215){ 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y+player.height,_SizeWeapon,_SizeWeapon,3,4));  }
-		else if(player.rotation == 220){ 	bullets.push(new Bullet(player.x+player.width/2 - 5.5,player.y+player.height,_SizeWeapon,_SizeWeapon,3,4));  }
-		else if(player.rotation == 225){ 	bullets.push(new Bullet(player.x+player.width/2 - 6.5,player.y+player.height,_SizeWeapon,_SizeWeapon,3,3));  }
-		else if(player.rotation == 230){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height,_SizeWeapon,_SizeWeapon,4,3));  }
-		else if(player.rotation == 235){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height,_SizeWeapon,_SizeWeapon,4,3));  }
-		else if(player.rotation == 240){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y+player.height - 3,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 245){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y+player.height - 3,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 250){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y+player.height - 4,_SizeWeapon,_SizeWeapon,4,2));  }
-		else if(player.rotation == 255){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y+player.height - 4,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 260){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 5,_SizeWeapon,_SizeWeapon,4,1));  }
-		else if(player.rotation == 265){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 6,_SizeWeapon,_SizeWeapon,4,1));  }
+		else if(player.rotation == 185){ 	bullets.push(new Bullet(player.x+player.width/2,player.y+player.height,size1,size2,1,4));  }
+		else if(player.rotation == 190){ 	bullets.push(new Bullet(player.x+player.width/2 - 2,player.y+player.height,size1,size2,1,4));  }
+		else if(player.rotation == 195){ 	bullets.push(new Bullet(player.x+player.width/2 - 2.5,player.y+player.height,size1,size2,1,4));  }
+		else if(player.rotation == 200){ 	bullets.push(new Bullet(player.x+player.width/2 - 2.5,player.y+player.height,size1,size2,2,4));  }
+		else if(player.rotation == 205){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y+player.height,size1,size2,2,4));  }
+		else if(player.rotation == 210){ 	bullets.push(new Bullet(player.x+player.width/2 - 3,player.y+player.height,size1,size2,2,4));  }
+		else if(player.rotation == 215){ 	bullets.push(new Bullet(player.x+player.width/2 - 4,player.y+player.height,size1,size2,3,4));  }
+		else if(player.rotation == 220){ 	bullets.push(new Bullet(player.x+player.width/2 - 5.5,player.y+player.height,size1,size2,3,4));  }
+		else if(player.rotation == 225){ 	bullets.push(new Bullet(player.x+player.width/2 - 6.5,player.y+player.height,size1,size2,3,3));  }
+		else if(player.rotation == 230){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height,size1,size2,4,3));  }
+		else if(player.rotation == 235){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height,size1,size2,4,3));  }
+		else if(player.rotation == 240){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y+player.height - 3,size1,size2,4,2));  }
+		else if(player.rotation == 245){ 	bullets.push(new Bullet(player.x+player.width/2 - 6,player.y+player.height - 3,size1,size2,4,2));  }
+		else if(player.rotation == 250){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y+player.height - 4,size1,size2,4,2));  }
+		else if(player.rotation == 255){ 	bullets.push(new Bullet(player.x+player.width/2 - 7,player.y+player.height - 4,size1,size2,4,1));  }
+		else if(player.rotation == 260){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 5,size1,size2,4,1));  }
+		else if(player.rotation == 265){ 	bullets.push(new Bullet(player.x+player.width/2 - 8,player.y+player.height - 6,size1,size2,4,1));  }
 
 		player.munition3--;
 		loadSound(sWeapon3);
@@ -857,25 +857,25 @@ function weapon3(player, bullets){
 			else if(player.rotation == 350 && !bullets[i].allow){  			bullets[i].move350 = true; 	bullets[i].allow = true; 	}
 			else if(player.rotation == 355 && !bullets[i].allow){  			bullets[i].move355 = true; 	bullets[i].allow = true; 	}
 
-			else if(player.rotation == 5 && !bullets[i].allow){  			bullets[i].move5 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 10 && !bullets[i].allow){  			bullets[i].move10 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 15 && !bullets[i].allow){  			bullets[i].move15 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 20 && !bullets[i].allow){  			bullets[i].move20 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 25 && !bullets[i].allow){  			bullets[i].move25 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 30 && !bullets[i].allow){  			bullets[i].move30 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 35 && !bullets[i].allow){  			bullets[i].move35 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 40 && !bullets[i].allow){  			bullets[i].move40 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 45 && !bullets[i].allow){  			bullets[i].move45 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 50 && !bullets[i].allow){  			bullets[i].move50 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 55 && !bullets[i].allow){  			bullets[i].move55 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 60 && !bullets[i].allow){  			bullets[i].move60 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 65 && !bullets[i].allow){  			bullets[i].move65 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 70 && !bullets[i].allow){  			bullets[i].move70 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 75 && !bullets[i].allow){  			bullets[i].move75 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 80 && !bullets[i].allow){  			bullets[i].move80 = true; 		bullets[i].allow = true; 	}
-			else if(player.rotation == 85 && !bullets[i].allow){  			bullets[i].move85 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 5 && !bullets[i].allow){  			bullets[i].move5 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 10 && !bullets[i].allow){  			bullets[i].move10 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 15 && !bullets[i].allow){  			bullets[i].move15 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 20 && !bullets[i].allow){  			bullets[i].move20 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 25 && !bullets[i].allow){  			bullets[i].move25 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 30 && !bullets[i].allow){  			bullets[i].move30 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 35 && !bullets[i].allow){  			bullets[i].move35 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 40 && !bullets[i].allow){  			bullets[i].move40 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 45 && !bullets[i].allow){  			bullets[i].move45 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 50 && !bullets[i].allow){  			bullets[i].move50 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 55 && !bullets[i].allow){  			bullets[i].move55 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 60 && !bullets[i].allow){  			bullets[i].move60 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 65 && !bullets[i].allow){  			bullets[i].move65 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 70 && !bullets[i].allow){  			bullets[i].move70 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 75 && !bullets[i].allow){  			bullets[i].move75 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 80 && !bullets[i].allow){  			bullets[i].move80 = true; 	bullets[i].allow = true; 	}
+			else if(player.rotation == 85 && !bullets[i].allow){  			bullets[i].move85 = true; 	bullets[i].allow = true; 	}
 
-			else if(player.rotation == 95 && !bullets[i].allow){  			bullets[i].move95 = true; 		bullets[i].allow = true; 	}
+			else if(player.rotation == 95 && !bullets[i].allow){  			bullets[i].move95 = true; 	bullets[i].allow = true; 	}
 			else if(player.rotation == 100 && !bullets[i].allow){  			bullets[i].move100 = true; 	bullets[i].allow = true; 	}
 			else if(player.rotation == 105 && !bullets[i].allow){  			bullets[i].move105 = true; 	bullets[i].allow = true; 	}
 			else if(player.rotation == 110 && !bullets[i].allow){  			bullets[i].move110 = true; 	bullets[i].allow = true; 	}
@@ -913,8 +913,8 @@ function weapon3(player, bullets){
 
 			// Move bullets
 	  		if(bullets[i].move360)				bullets[i].y -= bullets[i].velY;
-	  		else if(bullets[i].move180)		bullets[i].y += bullets[i].velY;
-	  		else if(bullets[i].move270)		bullets[i].x -= bullets[i].velX;
+	  		else if(bullets[i].move180)			bullets[i].y += bullets[i].velY;
+	  		else if(bullets[i].move270)			bullets[i].x -= bullets[i].velX;
 	  		else if(bullets[i].move90)			bullets[i].x += bullets[i].velX;
 
 	  		else if(bullets[i].move275){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
@@ -936,24 +936,24 @@ function weapon3(player, bullets){
 	  		else if(bullets[i].move355){		bullets[i].y -= bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 
 			else if(bullets[i].move5){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].move10){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].move15){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].move20){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].move25){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].move30){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].move35){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].move40){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].move45){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].move50){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].move55){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].move60){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].move65){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].move70){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-			else if(bullets[i].move75){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].move80){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
-	  		else if(bullets[i].move85){		bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move10){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move15){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move20){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move25){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move30){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move35){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move40){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move45){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move50){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move55){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move60){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move65){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move70){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+			else if(bullets[i].move75){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move80){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move85){			bullets[i].y -= bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 
-	  		else if(bullets[i].move95){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
+	  		else if(bullets[i].move95){			bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 			else if(bullets[i].move100){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 			else if(bullets[i].move105){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
 	  		else if(bullets[i].move110){		bullets[i].y += bullets[i].velY;	bullets[i].x += bullets[i].velX; }
@@ -988,6 +988,28 @@ function weapon3(player, bullets){
 			else if(bullets[i].move255){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 	  		else if(bullets[i].move260){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
 	  		else if(bullets[i].move265){		bullets[i].y += bullets[i].velY;	bullets[i].x -= bullets[i].velX; }
+
+
+			// According bullet's rotation, i modify his size
+			// Why? Width and Height of bullet3 have different values
+
+			// Current bug: When change the size, as well change the image that is displayed on the canvas
+
+			// if(!bullets[i].blockRotation){
+			// 	bullets[i].rotationFixed = player.rotation;
+			// 	bullets[i].blockRotation = true;
+			// }
+
+			// if((player.rotation == 0 || player.rotation == 360)){		bullets[i].width = size1;	bullets[i].height = size2;	}
+			// else if(player.rotation == 90){        						bullets[i].width = size2;	bullets[i].height = size1;	}
+			// else if(player.rotation == 180){							bullets[i].width = size1;	bullets[i].height = size2; 	}
+			// else if(player.rotation == 270){							bullets[i].width = size2;	bullets[i].height = size1;	}
+
+
+
+
+
+
 
 	  		// Remove bullets if exceed the map limits
 		 	if(bullets[i].x < 0 || bullets[i].y < 0)								bullets.splice(i,1);

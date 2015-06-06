@@ -20,6 +20,7 @@ Hard Blocks
 | <kbd>Enter</kbd> | Pause & Start
 | <kbd>Z</kbd> | Weapon 1
 | <kbd>X</kbd> | Weapon 2
+| <kbd>C</kbd> | Weapon 3
 | <kbd>M</kbd> | Fullscreen
 | <kbd>S</kbd> | Sound
 

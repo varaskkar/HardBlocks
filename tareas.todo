@@ -45,35 +45,12 @@
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
 
 
- ✔ Que pueda chocar la bala weapon3 con la explosion del enemy @done (01-06-15 20:29)
- ☐ El tamaño de la bala de weapon3 ... probar cambiar por img y rotarla si fuese posible
- ✔ Si mato al enemy, que las balas no desaparezcan, se sigan moviendo en el sentido que tenian @done (04-06-15 15:39)
- ✔ Si a la explosion enemy le da bala weapon3 que aparezca otra explosion de la bala @done (01-06-15 17:25)
- ✔ Bug: muchas explosiones seguidas hasta matarme y al reaparecer sigue activa la últ explosion @done (01-06-15 17:30)
- ✔ Tiempos de proteccion del player cuando pierde vida @done (01-06-15 17:31)
- ✔ Bala3 > Enemy ...salen 2 explosiones @done (01-06-15 16:41)
-     ✔ Mostrar solo la del enemy @done (01-06-15 16:41)
- ✔ La explosion de la bala del weapon3 colisiona con una bala weapon3. Colision Bala3 > Bala3 @done (01-06-15 16:08)
-     ✔ Antes > Al igual que el arma3, ponerle a las otras 2 un tiempo de disparo @Hacer @done (04-06-15 15:54)
- ✔ Comprobar si al colisionar con el bloque gris debe producir explosión @done (01-06-15 16:41)
- ✔ Cambiar sonido al arma3 @done (01-06-15 17:31)
- ☐ El cuadrado de la explosion crezca a medida al igual que el circulo
- ✔ Producir explosion al colisionar @done (30-05-15 17:23)
- ✔ Problema: undefined al disparar con weapon3 @done (30-05-15 17:23)
- ✔ la bala solamente si mueva si no ha chocado @done (30-05-15 17:23)
- ☐ Cada tipo de enemigo tengo una cantidad de vida distinta
- ☐ Ponerle a los enemigos en el pojo una var booleana de si dispara o no, al crear el mapa pasársela
- ✔ Arma de misiles que aparezca explosion al colisionar @done (30-05-15 17:24)
- ☐ IA enemy: Si detecta que su vida ha bajado, cambiar de posicion (pos opuesta a la que traia)
- ✔ Tema barra de vida @done (28-05-15 02:07)
-     ✔ El enemigo me quite al darme @done (28-05-15 02:07)
-     ✔ Cambiar la barra de vida de 10 a 6...probar con colores 2 de cada (verde, amarillo y rojo) @done (29-05-15 16:25)
- ✔ La plantilla ahora muestra iconos en vez de texto @done (29-05-15 16:51)
+ ☐ Si weapon3 dispara mientras la nave esta en movimiento, que la onda de la explosion se desplace en el sentido que tenia player
  ☐ Un mapa con el enemigo arriba que me siga, se ponga encima de un btn y que se abra una puerta que
      ✔ La img del btn ya la tengo @done (28-05-15 02:11)
  ✘ Ponerle a las balas img's y que sean redondas @cancelled (27-05-15 19:03)
 
- ☐ Error
+ ☐ Errores / Problemas
      ✔ No se muestran las balas cuando hay varios enemigos de tipo "chaseHor" (si se crean las balas) @done (20-05-15 17:04)
      ✔ Aun teniendo 2 vidas el player, se muere con solo 1 toque con el enemigo @done (16-05-15 14:54)
      ✔ no se oye la explosion del enemigo cuando se le mata con el arma1 @done (20-05-15 18:21)
@@ -88,7 +65,9 @@
      ✔ En pausa, se sigue viendo crecer la explosion del enemigo, deberia pausarse el tamaño @done (27-05-15 00:44)
      ✔ Quitar los logs de JS de la consola del navegador @done (27-05-15 16:38)
      ✔ Si doy a pausa cuando el player esta en tiempo proteccion...a veces no se ve@done (01-06-15 18:07)
-     ☐ Arreglar lo que siempre parpadeen las luces, que no cambien las img's constantemente
+     ☐ Arreglar lo que siempre parpadeen las luces, que no cambien las img's constantemente @Hacer
+     ☐ Explosion enemy y weapon3: El cuadrado de la explosion crezca a medida al igual que el circulo
+         ✘ Problema: Es necesario ajustar no solo tamaño, si no también los ejes @cancelled (04-06-15 16:54)
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
@@ -152,13 +131,16 @@
     ✔ Disparo @done (18-05-15 19:00)
         ✔ Que la bala se mueva aunque el player no se encuentre en la zona del enemigo @done (16-05-15 15:47)
         ✔ Que no dispare infinitas balas seguidas...1bala/seg por ejemplo @done (13-05-15 18:08)
-        ✔ IA > Disparo automático: Me dispare cuando me acerque a él @done (18-05-15 19:00)
+        ☐ IA > Disparo automático: Me dispare cuando me acerque a él
             ✔ Detecccion > Zona de ataque @done (18-05-15 18:52)
                 ✔ Verticalmente, por debajo del enemy @done (16-05-15 16:51)
                 ✔ Horizontalmente, comparando los ejesX de los bloques y los 2 más cerca, a izq y der @done (18-05-15 18:52)
+            ☐ Si detecta que... su vida ha bajado/yo le ataco, cambiar de posicion (opuesta a la que traia) @Hacer
+            ☐ Si yo le ataco, lanzar un chorro de balas en todas direcciones (360º) durante 2 segundos @Hacer
         ✔ Las balas colisionen @done (16-05-15 15:47)
         yo meta una bala por rebote en la sala y consiga un objeto
     ✔ Concurrencia @done (07-05-15 21:01)
+    ☐ Ponerle a los enemigos en el pojo una var booleana de si dispara o no, al crear el mapa pasársela
 ✔ Base de salida @done (28-05-15 02:07)
     ✔ Siempre que se vuelva a ella se reestablezcan los valores @done (28-05-15 02:07)
         ✔ Vida @done (28-05-15 02:07)
@@ -190,6 +172,31 @@
     ☐ Buscar sonido para los mapas...¿Guzmán?
 
 
+
+✔ Balas2 colisiones con balas3 ... es decir, que no atraviesen la explosion de weapon3 @done (06-06-15 16:55)
+✔ En fullscreen no se vean los elementos del fondo pantalla @done (04-06-15 17:48)
+✔ Que pueda chocar la bala weapon3 con la explosion del enemy @done (01-06-15 20:29)
+✔ Si mato al enemy, que las balas no desaparezcan, se sigan moviendo en el sentido que tenian @done (04-06-15 15:39)
+✔ Si a la explosion enemy le da bala weapon3 que aparezca otra explosion de la bala @done (01-06-15 17:25)
+✔ Bug: muchas explosiones seguidas hasta matarme y al reaparecer sigue activa la últ explosion @done (01-06-15 17:30)
+✔ Tiempos de proteccion del player cuando pierde vida @done (01-06-15 17:31)
+✔ Bala3 > Enemy ...salen 2 explosiones @done (01-06-15 16:41)
+    ✔ Mostrar solo la del enemy @done (01-06-15 16:41)
+✔ La explosion de la bala del weapon3 colisiona con una bala weapon3. Colision Bala3 > Bala3 @done (01-06-15 16:08)
+    ✔ Antes > Al igual que el arma3, ponerle a las otras 2 un tiempo de disparo @Hacer @done (04-06-15 15:54)
+✔ Comprobar si al colisionar con el bloque gris debe producir explosión @done (01-06-15 16:41)
+✔ Cambiar sonido al arma3 @done (01-06-15 17:31)
+✔ Producir explosion al colisionar @done (30-05-15 17:23)
+✔ Problema: undefined al disparar con weapon3 @done (30-05-15 17:23)
+✔ la bala solamente si mueva si no ha chocado @done (30-05-15 17:23)
+✔ Cada tipo de enemigo tengo una cantidad de vida distinta @done (04-06-15 17:59)
+✔ Arma de misiles que aparezca explosion al colisionar @done (30-05-15 17:24)
+✔ Tema barra de vida @done (28-05-15 02:07)
+    ✔ El enemigo me quite al darme @done (28-05-15 02:07)
+    ✔ Cambiar la barra de vida de 10 a 6...probar con colores 2 de cada (verde, amarillo y rojo) @done (29-05-15 16:25)
+✔ La plantilla ahora muestra iconos en vez de texto @done (29-05-15 16:51)
+✔ Poner un limite de vidas que se puedan conseguir y de puntos @done (06-06-15 16:47)
+✔ El jugador tenga 3 vidas y pierda una al darse 6 toques @done (06-06-15 16:48)
 ✔ No poner efectos cuando las balas choquen contra los portales @done (20-05-15 18:27)
 ✔ Chocar las balas con la del jugador @done (20-05-15 18:11)
 ✔ Poner las balas del player como atributos al igual que estan las del enemigo @done (13-05-15 18:08)
@@ -223,6 +230,8 @@
 ✔ Bloque marrón ahora no se destruye @Problema @done (30-03-15 17:26)
 ✔ tecla = null; @done (30-03-15 23:51)
 ✔ Formateadas código ASCII de las teclas @done (30-03-15 21:53)
+✘ Hacer que el enemy alterne entre 2 img's y que de sensac de movimiento @cancelled (06-06-15 16:38)
+✘ El tamaño de la bala de weapon3 ... probar cambiar por img y rotarla si fuese posible @cancelled (04-06-15 20:08)
 ✘ en el metodo draw() poner condicionales para que no se ejecuten siempre @cancelled (16-05-15 16:08)
 ✘ idea de poner los arrays de los bloques como atributos de una clase @cancelled (16-05-15 15:57)
 ✘ Quitar los arrays de los mapas y cargar dichos mapas directamente desde mapList[i].map @cancelled (16-05-15 16:01)
@@ -248,11 +257,9 @@
     ☐ Hacerlo compatible con GamePad
     ☐ Crear Splash Screen
     ☐ For of
-    ☐ Poner un limite de vidas que se puedan conseguir y de puntos
     ☐ Conseguir monedas o puntos para poder comprar cosas en home(base): armas, vida, ...
     ☐ Objeto, tanque de combustible, si le disparas explota como un enemigo, si lo coges te da combustible
     ☐ Algo que al ser disparado aumente de tamaño poco a poco y luego explote
-    ☐ El jugador tenga 3 vidas y pierda una al darse 3 toques
     ☐ Boton que al ser disparado active y desactive una pared que permita/bloquee el paso
 
 
