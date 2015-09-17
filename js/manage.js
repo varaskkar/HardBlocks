@@ -117,7 +117,6 @@ function loadAssets(){
 	iBlockBrown1.src = 'assets/img/blockBrown1.png';
 	iBlockBrown2.src = 'assets/img/blockBrown2.png';
 	iBlockBrown3.src = 'assets/img/blockBrown3.png';
-	iBullet3.src     = 'assets/img/template/weapon3.png';
 
 	sWeapon1.src      = 'assets/audio/weapon1.wav';
 	sWeapon2.src      = 'assets/audio/weapon1.wav';
