@@ -1,26 +1,3 @@
-requirejs(["resource"], function(util) {
-	console.log("Lib 1 loaded");
-	requirejs(["pojo"], function(util) {
-		console.log("Lib 2 loaded");
-		requirejs(["map"], function(util) {
-			console.log("Lib 3 loaded");
-			requirejs(["weapon"], function(util) {
-				console.log("Lib 4 loaded");
-				requirejs(["movement"], function(util) {
-					console.log("Lib 5 loaded");
-					requirejs(["collision"], function(util) {
-						console.log("Lib 6 loaded");
-						requirejs(["sound"], function(util) {
-							console.log("Lib 7 loaded");
-							init();
-						});
-					});
-				});
-			});
-		});
-	});
-});
-
 const _LifePlayer   = 2,  _TimeProtected                = 125, _PointsTouchBlock = 2,  _MunitionWeapon1 = 999999,
 	  _LifeBlock    = 3,  _TimeChangeLevel              = 150, _PointsTouchEnemy = 4,  _MunitionWeapon2 = 500,
 	  _LifeEnemy1   = 6,  _TimeRechargeHome             = 75,  _PointsKillBlock  = 5,  _MunitionWeapon3 = 50,
@@ -91,6 +68,29 @@ var sWeapon1      = new Audio(),
 	sMap4         = new Audio(),
 	sMap5         = new Audio(),
 	sMap6         = new Audio();
+
+requirejs(["resource"], function(util) {
+	console.log("Lib 1 loaded");
+	requirejs(["pojo"], function(util) {
+		console.log("Lib 2 loaded");
+		requirejs(["map"], function(util) {
+			console.log("Lib 3 loaded");
+			requirejs(["weapon"], function(util) {
+				console.log("Lib 4 loaded");
+				requirejs(["movement"], function(util) {
+					console.log("Lib 5 loaded");
+					requirejs(["collision"], function(util) {
+						console.log("Lib 6 loaded");
+						requirejs(["sound"], function(util) {
+							console.log("Lib 7 loaded");
+							init();
+						});
+					});
+				});
+			});
+		});
+	});
+});
 
 function init(){
 	console.log("Start Game");
