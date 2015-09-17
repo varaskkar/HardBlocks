@@ -1,12 +1,25 @@
-requirejs(['resource']);
-requirejs(['pojo']);
-requirejs(['map']);
-requirejs(['weapon']);
-requirejs(['movement']);
-requirejs(['collision']);
-requirejs(['sound']);
-
-window.addEventListener('load',init,false);
+requirejs(["resource"], function(util) {
+	console.log("Lib 1 loaded");
+	requirejs(["pojo"], function(util) {
+		console.log("Lib 2 loaded");
+		requirejs(["map"], function(util) {
+			console.log("Lib 3 loaded");
+			requirejs(["weapon"], function(util) {
+				console.log("Lib 4 loaded");
+				requirejs(["movement"], function(util) {
+					console.log("Lib 5 loaded");
+					requirejs(["collision"], function(util) {
+						console.log("Lib 6 loaded");
+						requirejs(["sound"], function(util) {
+							console.log("Lib 7 loaded");
+							init();
+						});
+					});
+				});
+			});
+		});
+	});
+});
 
 const _LifePlayer   = 2,  _TimeProtected                = 125, _PointsTouchBlock = 2,  _MunitionWeapon1 = 999999,
 	  _LifeBlock    = 3,  _TimeChangeLevel              = 150, _PointsTouchEnemy = 4,  _MunitionWeapon2 = 500,
@@ -80,16 +93,15 @@ var sWeapon1      = new Audio(),
 	sMap6         = new Audio();
 
 function init(){
-	// Wait to load completely scripts of the header
-	setTimeout(function(){
-		canvas = document.getElementsByTagName('canvas')[0];
-		ctx = canvas.getContext('2d');
+	console.log("Start Game");
 
-		createMap();
-		loadAssets();
-		reset();
-		run();
-	}, 250);
+	canvas = document.getElementsByTagName('canvas')[0];
+	ctx = canvas.getContext('2d');
+
+	createMap();
+	loadAssets();
+	reset();
+	run();
 }
 
 function loadAssets(){

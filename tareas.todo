@@ -44,6 +44,15 @@
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
 
+Si entre el enemigo y player hay un bloque que impide que la bala me de, pues que el enemigo deje de disparar
+
+ ✔ Libs ahora cargan por callback @done (17-09-15 10:22)
+ ☐ Sonido del Guzmán - Poner en Github que ha sido el
+ ☐ img.onload = function(){ ctx.drawImage(iNave,200,200); };
+ ☐ Callbacks con las lib's de la cabecera
+ ☐ Probar a poner mejor         window.onload = function(){ ... };
+ ☐ Si se matan a todos los enemigos que se abra el portal a otra fase (ó sonido o lo que sea)
+
 
  ☐ Si weapon3 dispara mientras la nave esta en movimiento, que la onda de la explosion se desplace en el sentido que tenia player
  ☐ Un mapa con el enemigo arriba que me siga, se ponga encima de un btn y que se abra una puerta que
