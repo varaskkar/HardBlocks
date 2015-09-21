@@ -1,3 +1,5 @@
+console.log("Lib 'Manage' loaded");
+
 requirejs(["resource"], function(util) {
 	requirejs(["pojo"], function(util) {
 		requirejs(["map"], function(util) {
@@ -87,20 +89,15 @@ var sWeapon1      = new Audio(),
 	sMap5         = new Audio(),
 	sMap6         = new Audio();
 
-
-
 function init(){
-	console.log("Start Game");
-
 	canvas = document.getElementsByTagName('canvas')[0];
 	ctx = canvas.getContext('2d');
 
-	templateSetSound(sound);
-	templateSetFullscreen(fullScreen);
-	templateSetLightEfects(false);
-
+	loadConfigTemplate();
 	createMap();
 	reset();
+
+	console.log("\nStart Game!");
 	run();
 }
 
@@ -144,7 +141,15 @@ function loadSounds(){
 	sMap6.src         = 'assets/audio/map2.wav';
 }
 
+function loadConfigTemplate(){
+	console.log("Config of template loaded");
+	templateSetSound(sound);
+	templateSetFullscreen(fullScreen);
+	templateSetLightEfects(false);
+}
+
 function reset(){
+	console.log("Map loaded");
 	player.score         = 0;
 	player.health        = _HealthPlayer;
 	player.life          = _LifePlayer;
@@ -250,7 +255,7 @@ function draw() {
 					if(enemy[i].movement == "horizontal" || enemy[i].movement == "vertical")
 						ctx.drawImage(iEnemy1,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
 					else if(enemy[i].movement == "random")
-						ctx.drawImage(iEnemy21,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
+						ctx.drawImage(iEnemy2,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
 					else if(enemy[i].movement == "chaseHor")
 						ctx.drawImage(iEnemy3,enemy[i].x,enemy[i].y,enemy[i].width,enemy[i].height);
 					else
@@ -530,17 +535,17 @@ function showPlayerRotated(){
 	ctx.restore();
 }
 
-function showBullet3Rotated(){
-	for(i in player.bullets3){
-		var bullet = player.bullets3[i];
-		ctx.save();
-		ctx.translate(bullet.x+bullet.width/2,bullet.y+bullet.height/2);
-		ctx.rotate(bullet.rotationFixed*Math.PI/180);
-		if(!bullet.isCollide)
-			ctx.drawImage(iBullet3,-bullet.width/2,-bullet.height/2, bullet.width, bullet.height);
-		ctx.restore();
-	}
-}
+// function showBullet3Rotated(){
+// 	for(i in player.bullets3){
+// 		var bullet = player.bullets3[i];
+// 		ctx.save();
+// 		ctx.translate(bullet.x+bullet.width/2,bullet.y+bullet.height/2);
+// 		ctx.rotate(bullet.rotationFixed*Math.PI/180);
+// 		if(!bullet.isCollide)
+// 			ctx.drawImage(iBullet3,-bullet.width/2,-bullet.height/2, bullet.width, bullet.height);
+// 		ctx.restore();
+// 	}
+// }
 
 function keyboard(){
 

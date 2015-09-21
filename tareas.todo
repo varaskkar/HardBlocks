@@ -44,18 +44,17 @@
     ✔ No salirme del marco la Pantalla @done (22-03-15 20:24)
     ✔ Creado editor de fases (en código) @done (22-03-15 20:23)
 
-Si entre el enemigo y player hay un bloque que impide que la bala me de, pues que el enemigo deje de disparar
 
- ☐ Error: Cuando disparo al ovni, parpadea la pantalla entera
- ☐ Error: Cuando cargo el juego desde github, no se muestran las imagenes de la plantilla (si las del canvas)
-     ☐ Se debe a que carga antes las img's que las libs
+ ☐ Pantalla de Intro, barra de carga de las libs, y con la musica del Guzman
+     ☐ Poner en Github que el sonido es del guzman
+ ☐ Si entre el enemigo y player hay un bloque que impide que la bala me de, pues que el enemigo deje de disparar
+
+
  ✔ Libs ahora cargan por callback @done (17-09-15 10:22)
- ☐ Sonido del Guzmán - Poner en Github que ha sido el
- ☐ img.onload = function(){ ctx.drawImage(iNave,200,200); };
- ☐ Callbacks con las lib's de la cabecera
+ ☐ Probar a poner mejor         img.onload = function(){ ctx.drawImage(iNave,200,200); };
  ☐ Probar a poner mejor         window.onload = function(){ ... };
  ☐ Si se matan a todos los enemigos que se abra el portal a otra fase (ó sonido o lo que sea)
-
+ ✔ Callbacks con las lib's de la cabecera @done (21-09-15 10:06)
 
  ☐ Si weapon3 dispara mientras la nave esta en movimiento, que la onda de la explosion se desplace en el sentido que tenia player
  ☐ Un mapa con el enemigo arriba que me siga, se ponga encima de un btn y que se abra una puerta que
@@ -80,6 +79,8 @@ Si entre el enemigo y player hay un bloque que impide que la bala me de, pues qu
      ☐ Arreglar lo que siempre parpadeen las luces, que no cambien las img's constantemente @Hacer
      ☐ Explosion enemy y weapon3: El cuadrado de la explosion crezca a medida al igual que el circulo
          ✘ Problema: Es necesario ajustar no solo tamaño, si no también los ejes @cancelled (04-06-15 16:54)
+     ☐ Cuando cargo el juego desde github, no se muestran las imagenes de la plantilla (si las del canvas)
+         ☐ Se debe a que carga antes las img's que las libs @Creo que arreglado. Subir a Github y probar
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
