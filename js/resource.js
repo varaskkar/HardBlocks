@@ -1,3 +1,5 @@
+console.log("Lib 'Resource' loaded");
+
 var fps = 0, now, lastUpdate = (new Date)*1 - 1, fpsFilter = 50;
 
 var ElementHealth    = document.getElementById("healthBar");
@@ -38,10 +40,6 @@ window.requestAnimFrame=(function(){
   		window.setTimeout(callback,17);
   	};
 })();
-
-function template(){
-	ElementImgLeft.src = 'assets/img/template/lighEffect1.png';
-}
 
 function templateSetBackgroundColor(color){
 	ElementCanvas.style.background = color;

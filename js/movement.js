@@ -1,3 +1,5 @@
+console.log("Lib 'Movement' loaded");
+
 function movementPlayer(){
 	if(keyPressed[formatKey("UP")]){
 		if(player.rotation == 0 || player.rotation == 360)	player.y -= 4;

@@ -1,3 +1,5 @@
+console.log("Lib 'Sound' loaded");
+
 function toggleSound(){
 	sound = !sound;
 	templateSetSound(sound);

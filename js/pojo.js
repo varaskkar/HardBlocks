@@ -1,3 +1,5 @@
+console.log("Lib 'Pojo' loaded");
+
 function Map(name, map, sound, colorBackground, size){
 	this.name = name;
 	this.map = map;

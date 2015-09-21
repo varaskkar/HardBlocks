@@ -1,3 +1,5 @@
+console.log("Lib 'Weapon' loaded");
+
 function weapon1(player, bullets){
 
 	// Make bullets

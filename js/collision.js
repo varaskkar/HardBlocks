@@ -1,3 +1,5 @@
+console.log("Lib 'Collision' loaded");
+
 function collisionPlayer(){
 
 	// Player -> CanvasEdge

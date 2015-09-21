@@ -1,3 +1,21 @@
+requirejs(["resource"], function(util) {
+	requirejs(["pojo"], function(util) {
+		requirejs(["map"], function(util) {
+			requirejs(["weapon"], function(util) {
+				requirejs(["movement"], function(util) {
+					requirejs(["collision"], function(util) {
+						requirejs(["sound"], function(util) {
+							loadImages();
+							loadSounds();
+							init();
+						});
+					});
+				});
+			});
+		});
+	});
+});
+
 const _LifePlayer   = 2,  _TimeProtected                = 125, _PointsTouchBlock = 2,  _MunitionWeapon1 = 999999,
 	  _LifeBlock    = 3,  _TimeChangeLevel              = 150, _PointsTouchEnemy = 4,  _MunitionWeapon2 = 500,
 	  _LifeEnemy1   = 6,  _TimeRechargeHome             = 75,  _PointsKillBlock  = 5,  _MunitionWeapon3 = 50,
@@ -32,7 +50,7 @@ var info         = true,
 	fullScreen   = false,
 	sound        = false,
 	friendlyFire = false,
-	damage  	 = true;
+	damage  	 = false;
 
 var iPlayer      = new Image(),
 	iEnemy1      = new Image(),
@@ -69,42 +87,25 @@ var sWeapon1      = new Audio(),
 	sMap5         = new Audio(),
 	sMap6         = new Audio();
 
-requirejs(["resource"], function(util) {
-	console.log("Lib 1 loaded");
-	requirejs(["pojo"], function(util) {
-		console.log("Lib 2 loaded");
-		requirejs(["map"], function(util) {
-			console.log("Lib 3 loaded");
-			requirejs(["weapon"], function(util) {
-				console.log("Lib 4 loaded");
-				requirejs(["movement"], function(util) {
-					console.log("Lib 5 loaded");
-					requirejs(["collision"], function(util) {
-						console.log("Lib 6 loaded");
-						requirejs(["sound"], function(util) {
-							console.log("Lib 7 loaded");
-							init();
-						});
-					});
-				});
-			});
-		});
-	});
-});
+
 
 function init(){
 	console.log("Start Game");
-template();
+
 	canvas = document.getElementsByTagName('canvas')[0];
 	ctx = canvas.getContext('2d');
 
+	templateSetSound(sound);
+	templateSetFullscreen(fullScreen);
+	templateSetLightEfects(false);
+
 	createMap();
-	loadAssets();
 	reset();
 	run();
 }
 
-function loadAssets(){
+function loadImages(){
+	console.log("Images loaded");
 	iPlayer.src      = 'assets/img/player1.png';
 	iEnemy1.src      = 'assets/img/satellite1.png';
 	iEnemy2.src      = 'assets/img/ufo.png';
@@ -117,7 +118,10 @@ function loadAssets(){
 	iBlockBrown1.src = 'assets/img/blockBrown1.png';
 	iBlockBrown2.src = 'assets/img/blockBrown2.png';
 	iBlockBrown3.src = 'assets/img/blockBrown3.png';
+}
 
+function loadSounds(){
+	console.log("Sounds loaded");
 	sWeapon1.src      = 'assets/audio/weapon1.wav';
 	sWeapon2.src      = 'assets/audio/weapon1.wav';
 	sWeapon3.src      = 'assets/audio/weapon3.wav';
@@ -138,10 +142,6 @@ function loadAssets(){
 	sMap4.src         = 'assets/audio/map2.wav';
 	sMap5.src         = 'assets/audio/map2.wav';
 	sMap6.src         = 'assets/audio/map2.wav';
-
-	templateSetSound(sound);
-	templateSetFullscreen(fullScreen);
-	templateSetLightEfects(false);
 }
 
 function reset(){
