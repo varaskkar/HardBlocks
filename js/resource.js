@@ -19,6 +19,7 @@ var ElementBody      = document.getElementsByTagName("body")[0];
 var ElementCanvas    = document.getElementsByTagName("canvas")[0];
 var ElementTitlePage = document.getElementsByTagName("h1")[0];
 var ElementInfo      = document.getElementById("boxBottom");
+// var ElementImgLeft   = document.getElementById("light1");
 
 function getFps(){
 	if(!pause){
@@ -37,6 +38,10 @@ window.requestAnimFrame=(function(){
   		window.setTimeout(callback,17);
   	};
 })();
+
+function template(){
+	ElementImgLeft.src = 'assets/img/template/lighEffect1.png';
+}
 
 function templateSetBackgroundColor(color){
 	ElementCanvas.style.background = color;
@@ -127,10 +132,7 @@ function templateSetLightEfects(enable){
 }
 
 function templateSetSound(enable){
-	if(enable)
-		ElementSound.src = "assets/img/template/soundFull.png";
-	else
-		ElementSound.src = "assets/img/template/soundNotFull.png";
+	ElementSound.src = (enable) ? "assets/img/template/soundFull.png" : "assets/img/template/soundNotFull.png";
 }
 
 function formatNumbers(number){

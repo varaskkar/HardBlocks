@@ -46,6 +46,8 @@
 
 Si entre el enemigo y player hay un bloque que impide que la bala me de, pues que el enemigo deje de disparar
 
+ ☐ Error: Cuando disparo al ovni, parpadea la pantalla entera
+ ☐ Error: Cuando cargo el juego desde github, no se muestran las imagenes de la plantilla (si las del canvas)
  ✔ Libs ahora cargan por callback @done (17-09-15 10:22)
  ☐ Sonido del Guzmán - Poner en Github que ha sido el
  ☐ img.onload = function(){ ctx.drawImage(iNave,200,200); };

@@ -32,11 +32,11 @@ var info         = true,
 	fullScreen   = false,
 	sound        = false,
 	friendlyFire = false,
-	damage  	 = false;
+	damage  	 = true;
 
 var iPlayer      = new Image(),
 	iEnemy1      = new Image(),
-	iEnemy2     = new Image(),
+	iEnemy2      = new Image(),
 	iEnemy3      = new Image(),
  	iLife        = new Image(),
  	iFire    	 = new Image(),
@@ -83,20 +83,6 @@ requirejs(["resource"], function(util) {
 						console.log("Lib 6 loaded");
 						requirejs(["sound"], function(util) {
 							console.log("Lib 7 loaded");
-
-							iPlayer.src      = 'assets/img/player1.png';
-							iEnemy1.src      = 'assets/img/satellite1.png';
-							iEnemy2.src      = 'assets/img/ufo.png';
-							iEnemy3.src      = 'assets/img/drone.png';
-							iLife.src        = 'assets/img/life1.png';
-							iFire.src    	 = 'assets/img/fire2.png';
-							iBlockWhite.src  = 'assets/img/blockWhite.png';
-							iBlockGray.src   = 'assets/img/blockGray.png';
-							iBlockBrown0.src = 'assets/img/blockBrown0.png';
-							iBlockBrown1.src = 'assets/img/blockBrown1.png';
-							iBlockBrown2.src = 'assets/img/blockBrown2.png';
-							iBlockBrown3.src = 'assets/img/blockBrown3.png';
-
 							init();
 						});
 					});
@@ -108,7 +94,7 @@ requirejs(["resource"], function(util) {
 
 function init(){
 	console.log("Start Game");
-
+template();
 	canvas = document.getElementsByTagName('canvas')[0];
 	ctx = canvas.getContext('2d');
 
@@ -119,18 +105,18 @@ function init(){
 }
 
 function loadAssets(){
-	// iPlayer.src      = 'assets/img/player1.png';
-	// iEnemy1.src      = 'assets/img/satellite1.png';
-	// iEnemy2.src      = 'assets/img/ufo.png';
-	// iEnemy3.src      = 'assets/img/drone.png';
-	// iLife.src        = 'assets/img/life1.png';
-	// iFire.src    	 = 'assets/img/fire2.png';
-	// iBlockWhite.src  = 'assets/img/blockWhite.png';
-	// iBlockGray.src   = 'assets/img/blockGray.png';
-	// iBlockBrown0.src = 'assets/img/blockBrown0.png';
-	// iBlockBrown1.src = 'assets/img/blockBrown1.png';
-	// iBlockBrown2.src = 'assets/img/blockBrown2.png';
-	// iBlockBrown3.src = 'assets/img/blockBrown3.png';
+	iPlayer.src      = 'assets/img/player1.png';
+	iEnemy1.src      = 'assets/img/satellite1.png';
+	iEnemy2.src      = 'assets/img/ufo.png';
+	iEnemy3.src      = 'assets/img/drone.png';
+	iLife.src        = 'assets/img/life1.png';
+	iFire.src    	 = 'assets/img/fire2.png';
+	iBlockWhite.src  = 'assets/img/blockWhite.png';
+	iBlockGray.src   = 'assets/img/blockGray.png';
+	iBlockBrown0.src = 'assets/img/blockBrown0.png';
+	iBlockBrown1.src = 'assets/img/blockBrown1.png';
+	iBlockBrown2.src = 'assets/img/blockBrown2.png';
+	iBlockBrown3.src = 'assets/img/blockBrown3.png';
 
 	sWeapon1.src      = 'assets/audio/weapon1.wav';
 	sWeapon2.src      = 'assets/audio/weapon1.wav';
