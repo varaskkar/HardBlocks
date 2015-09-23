@@ -51,7 +51,7 @@ var info         = true,
 	gameOver     = false,
 	fullScreen   = false,
 	sound        = false,
-	friendlyFire = false,
+	friendlyFire = true,
 	damage  	 = false;
 
 var iPlayer      = new Image(),
@@ -124,7 +124,7 @@ function loadSounds(){
 	sWeapon3.src      = 'assets/audio/weapon3.wav';
 	sWeaponEnemy.src  = 'assets/audio/weaponEnemy.wav';
 	sGetLife.src      = 'assets/audio/blip.wav';
-	sLoseLife.src     = 'assets/audio/error.wav';
+	// sLoseLife.src     = 'assets/audio/error.wav';
 	sRebounds.src     = 'assets/audio/rebounds.wav';
 	sContinue.src     = 'assets/audio/recharge.wav';
 	sNoMunition.src   = 'assets/audio/noMunition.wav';
