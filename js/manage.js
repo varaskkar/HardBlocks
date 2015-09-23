@@ -1,12 +1,12 @@
 console.log("Lib 'Manage' loaded");
 
-requirejs(["resource"], function(util) {
+requirejs(["sound"], function(util) {
 	requirejs(["pojo"], function(util) {
 		requirejs(["map"], function(util) {
 			requirejs(["weapon"], function(util) {
 				requirejs(["movement"], function(util) {
 					requirejs(["collision"], function(util) {
-						requirejs(["sound"], function(util) {
+						requirejs(["resource"], function(util) {
 							loadImages();
 							loadSounds();
 							init();
@@ -66,7 +66,8 @@ var iPlayer      = new Image(),
  	iBlockBrown1 = new Image(),
  	iBlockBrown2 = new Image(),
  	iBlockBrown3 = new Image(),
- 	iBullet3     = new Image();
+ 	iBullet3     = new Image(),
+ 	iTemplateWeapon1 = new Image();
 
 var sWeapon1      = new Audio(),
 	sWeapon2      = new Audio(),
@@ -115,6 +116,7 @@ function loadImages(){
 	iBlockBrown1.src = 'assets/img/blockBrown1.png';
 	iBlockBrown2.src = 'assets/img/blockBrown2.png';
 	iBlockBrown3.src = 'assets/img/blockBrown3.png';
+	iTemplateWeapon1 = 'assets/img/template/weapon1.png';
 }
 
 function loadSounds(){
@@ -124,7 +126,7 @@ function loadSounds(){
 	sWeapon3.src      = 'assets/audio/weapon3.wav';
 	sWeaponEnemy.src  = 'assets/audio/weaponEnemy.wav';
 	sGetLife.src      = 'assets/audio/blip.wav';
-	// sLoseLife.src     = 'assets/audio/error.wav';
+	sLoseLife.src     = 'assets/audio/error.wav';
 	sRebounds.src     = 'assets/audio/rebounds.wav';
 	sContinue.src     = 'assets/audio/recharge.wav';
 	sNoMunition.src   = 'assets/audio/noMunition.wav';
