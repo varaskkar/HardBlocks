@@ -1,12 +1,12 @@
 console.log("Lib 'Manage' loaded");
 
-requirejs(["sound"], function(util) {
+requirejs(["resource"], function(util) {
 	requirejs(["pojo"], function(util) {
 		requirejs(["map"], function(util) {
 			requirejs(["weapon"], function(util) {
 				requirejs(["movement"], function(util) {
 					requirejs(["collision"], function(util) {
-						requirejs(["resource"], function(util) {
+						requirejs(["sound"], function(util) {
 							loadImages();
 							loadSounds();
 							init();
@@ -94,6 +94,9 @@ function init(){
 	canvas = document.getElementsByTagName('canvas')[0];
 	ctx = canvas.getContext('2d');
 
+	var weapon1 = document.getElementById("weapon1");
+	weapon1.src = iTemplateWeapon1.src;
+
 	loadConfigTemplate();
 	createMap();
 	reset();
@@ -116,7 +119,7 @@ function loadImages(){
 	iBlockBrown1.src = 'assets/img/blockBrown1.png';
 	iBlockBrown2.src = 'assets/img/blockBrown2.png';
 	iBlockBrown3.src = 'assets/img/blockBrown3.png';
-	iTemplateWeapon1 = 'assets/img/template/weapon1.png';
+	iTemplateWeapon1.src = 'assets/img/template/weapon1.png';
 }
 
 function loadSounds(){
