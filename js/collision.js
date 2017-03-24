@@ -856,7 +856,7 @@ function collisionBulletsEnemy(){
 
 						if(friendlyFire){
 							if(enemy[k].life > 0)
-								enemy[k].life -= _DamageWeapon;
+								enemy[k].life -= _DamageWeapon1;
 							else{
 								player.score += _PointsKillEnemy;
 								enemy[k].showExplosionBullet3 = true;

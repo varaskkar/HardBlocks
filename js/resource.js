@@ -118,14 +118,26 @@ function templateSetHealth(health){
 		ElementHealth.src = "assets/img/template/lifeBar/lifeBar6.png";
 }
 
-function templateSetLightEfects(enable){
-	if(!enable){
-		setTimeout(templateSetLightEfects,100);
-		ElementLight1.src = "assets/img/template/lighEffect1.png";
-		ElementLight2.src = "assets/img/template/lighEffect1.png";
+function templateSetLight(enable){
+	if(enable){
+		ElementLight1.style.visibility = "";
+		ElementLight2.style.visibility = "";
 	}else{
-		ElementLight1.src = "assets/img/template/lighEffect2.png";
-		ElementLight2.src = "assets/img/template/lighEffect2.png";
+		ElementLight1.style.visibility = "hidden";
+		ElementLight2.style.visibility = "hidden";
+	}
+}
+
+function templateSetLightEfects(enable){
+	if(templateLight){
+		if(!enable){
+			setTimeout(templateSetLightEfects,100);
+			ElementLight1.src = "assets/img/template/lighEffect1.png";
+			ElementLight2.src = "assets/img/template/lighEffect1.png";
+		}else{
+			ElementLight1.src = "assets/img/template/lighEffect2.png";
+			ElementLight2.src = "assets/img/template/lighEffect2.png";
+		}
 	}
 }
 
