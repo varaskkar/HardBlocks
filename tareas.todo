@@ -79,8 +79,8 @@
      ☐ Arreglar lo que siempre parpadeen las luces, que no cambien las img's constantemente @Hacer
      ☐ Explosion enemy y weapon3: El cuadrado de la explosion crezca a medida al igual que el circulo
          ✘ Problema: Es necesario ajustar no solo tamaño, si no también los ejes @cancelled (04-06-15 16:54)
-     ☐ Cuando cargo el juego desde github, no se muestran las imagenes de la plantilla (si las del canvas)
-         ☐ Se debe a que carga antes las img's que las libs @Creo que arreglado. Subir a Github y probar
+     ✘ Al cargar el juego desde github, no se ven las imgs de la plantilla (si las del canvas) @cancelled (23-09-15 13:20)
+         ✘ Se debe a que carga antes las img's que las libs @Creo que arreglado. Subir a Github y probar @cancelled (23-09-15 13:21)
 ☐ Fase
     ☐ Hay un paso cortado por fuego, la nave se pone encima de un suelo de color > el fuego se quita
      pero si la nave se quita el fuego vuelve a aparecer asi que la unica solucion de destruir algo es disparando
@@ -274,7 +274,6 @@
     ☐ Objeto, tanque de combustible, si le disparas explota como un enemigo, si lo coges te da combustible
     ☐ Algo que al ser disparado aumente de tamaño poco a poco y luego explote
     ☐ Boton que al ser disparado active y desactive una pared que permita/bloquee el paso
-
 
 --- ✄ -----------------------
 

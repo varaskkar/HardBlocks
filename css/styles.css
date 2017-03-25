@@ -4,7 +4,7 @@ body{
 	text-align: center;
 	background: url("../assets/img/background.jpg") repeat;
 	/*background-color:#3E4F4F;*/
-	overflow-x: hidden;
+	overflow: hidden;
 }
 header{
 	width: 100%;

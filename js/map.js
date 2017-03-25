@@ -72,23 +72,23 @@ function loadMap(map, posX, posY, rotation){
 		for(j in mapList[k].map[i]) {
 
 			if(mapList[k].map[i][j] == 5)
-				blockBrown.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeBlock));
+				blockBrown.push(new Block(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeBlock));
 			else if(mapList[k].map[i][j] == 4)
-				fire.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+				fire.push(new Block(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 3)
-				blockWhiteVert.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+				blockWhiteVert.push(new Block(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 2)
-				blockWhiteHor.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+				blockWhiteHor.push(new Block(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 0)
-				life = new Element(j*mapList[k].size,i*mapList[k].size,16,16);
+				life = new Block(j*mapList[k].size,i*mapList[k].size,16,16);
 			else if(mapList[k].map[i][j] == 1)
-				blockGray.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+				blockGray.push(new Block(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 'P1')
-				portalInput.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+				portalInput.push(new Block(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 'P2')
-				portalOutput.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+				portalOutput.push(new Block(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 'H')
-				home.push(new Element(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
+				home.push(new Block(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size));
 			else if(mapList[k].map[i][j] == 'EH')
 				enemy.push(new Enemy(j*mapList[k].size,i*mapList[k].size,mapList[k].size,mapList[k].size, _LifeEnemy1, "horizontal"));
 			else if(mapList[k].map[i][j] == 'EV')
@@ -105,7 +105,9 @@ function loadMap(map, posX, posY, rotation){
 	loadSound(mapList[k].sound, true);
 	currentMap = map;
 
-	if(typeof posX != "undefined" && typeof posY != "undefined" && typeof rotation != "undefined")
+	if(typeof posX != "undefined" &&
+	   typeof posY != "undefined" &&
+	   typeof rotation != "undefined")
 		setPositionPlayer(posX, posY, rotation);
 }
 function clearMap(){

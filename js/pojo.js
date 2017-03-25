@@ -18,11 +18,6 @@ class Element{
 	 	this.y = y;
 	 	this.width = width;
 	 	this.height = height;
-	 	this.life = 0;
-
-	 	if(typeof life != "undefined")
-	 		this.life = life;
-
 	}
 
  	collide(thing){
@@ -35,12 +30,22 @@ class Element{
  	}
 }
 
-class Enemy{
+class Block extends Element{
+
+	constructor(x, y, width, height, life){
+		super(x, y, width, height);
+		this.life = 0;
+
+	 	if(typeof life != "undefined")
+	 		this.life = life;
+	}
+}
+
+
+
+class Enemy extends Element{
 	constructor(x, y, width, height, life, movement){
-		this.x = x;
-	 	this.y = y;
-	 	this.width = width;
-	 	this.height = height;
+		super(x, y, width, height);
 	 	this.life = 0;
 
 		// Initial's values
@@ -90,24 +95,12 @@ class Enemy{
 	 	if(typeof movement != "undefined")
 	 		this.movement = movement;
 	}
-
-	collide(thing){
- 		if(typeof thing != "undefined"){
-	   		return this.x < thing.x+thing.width &&
-	   		       this.x+this.width > thing.x &&
-	   			   this.y < thing.y+thing.height &&
-	   			   this.y+this.height>thing.y;
-	  	}
- 	}
 }
 
-class Player{
+class Player extends Element{
 
 	constructor(x, y, width, height){
-		this.x = x;
-	 	this.y = y;
-	 	this.width = width;
-	 	this.height = height;
+		super(x, y, width, height);
 	 	this.health = 0;
 	 	this.life = 0;
 	 	this.rotation = 0;
@@ -131,24 +124,12 @@ class Player{
 	 	this.bullets3 = [];
 	 	this.munition3 = 0;
 	}
-
-	collide(thing){
- 		if(typeof thing != "undefined"){
-	   		return this.x < thing.x+thing.width &&
-	   		       this.x+this.width > thing.x &&
-	   			   this.y < thing.y+thing.height &&
-	   			   this.y+this.height>thing.y;
-	  	}
- 	}
 }
 
-class Bullet{
+class Bullet extends Element{
 
 	constructor(x, y, width, height, velX, velY){
-		this.x = x;
-	 	this.y = y;
-	 	this.width = width;
-	 	this.height = height;
+		super(x, y, width, height);
 	 	this.velX = velX;
 	 	this.velY = velY;
 	 	this.maxRebounds = 0;
@@ -247,13 +228,4 @@ class Bullet{
 	 	this.rotationFixed;
 	 	this.blockRotation = false;
 	}
-
-	collide(thing){
- 		if(typeof thing != "undefined"){
-	   		return this.x < thing.x+thing.width &&
-	   		       this.x+this.width > thing.x &&
-	   			   this.y < thing.y+thing.height &&
-	   			   this.y+this.height>thing.y;
-	  	}
- 	}
 }
