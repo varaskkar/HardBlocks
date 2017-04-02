@@ -1,10 +1,9 @@
 Hard Blocks
 ===============
-
 ![avatar](http://i.imgur.com/Ffy0WYd.jpg)
 
-###Features
-
+Features
+-------------
 ![avatar](http://i.imgur.com/85JzPFG.gif)
 ![avatar](http://i.imgur.com/cA70fJr.gif)
 ![avatar](http://i.imgur.com/JRKa5zu.gif)
@@ -12,8 +11,8 @@ Hard Blocks
 ![avatar](http://i.imgur.com/a0fpQm1.gif)
 ![avatar](http://i.imgur.com/EGVRGe0.gif)
 
-###keyboard shortcuts
-
+keyboard shortcuts
+-------------
 | Key | Function |
 |------|---------------|
 | <kbd>Pad num 7</kbd> | information
@@ -24,5 +23,6 @@ Hard Blocks
 | <kbd>M</kbd> | Fullscreen
 | <kbd>S</kbd> | Sound
 
-###License
+License
+-------------
 This proyect is under the license [GNU GPL v2](https://github.com/felipetiza/nave/blob/master/LICENSE).
